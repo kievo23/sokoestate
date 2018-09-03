@@ -1,5 +1,401 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .slider-area
+    .slider
+      .item
+        img(src='assets/img/slide1/sokoestate1.jpg' alt='GTA V' style='height:40rem; width:100%;')
+      //
+        <div id="bg-slider" class="owl-carousel owl-theme">
+        <div class="item"><img src="assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+        <div class="item"><img src="assets/img/slide1/slider-image-2.jpg" alt="The Last of us"></div>
+        <div class="item"><img src="assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+        </div>
+    .slider-content
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
+          h2 Find Properties in Kenya
+          .search-form.wow.pulse(data-wow-delay='0.8s')
+            form.form-inline(action='')
+              button.btn.toggle-btn(type='button')
+                i.fa.fa-bars
+              .form-group
+                input.form-control(type='text' placeholder='Key word')
+              .form-group
+                select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
+                  option New york, CA
+                  option Paris
+                  option Casablanca
+                  option Tokyo
+                  option Marraekch
+                  option kyoto , shibua
+              .form-group
+                select#basic.selectpicker.show-tick.form-control
+                  option  -Status- 
+                  option Rent 
+                  option Boy
+                  option used
+              button.btn.search-btn(type='submit')
+                i.fa.fa-search
+              .search-toggle(style='display: none;')
+                .search-row
+                  .form-group.mar-r-20
+                    label(for='price-range') Price range ($):
+                    input#price-range.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]')
+                    br
+                    b.pull-left.color 2000$
+                    b.pull-right.color 100000$
+                  // End of
+                  .form-group.mar-l-20
+                    label(for='property-geo') Property geo (m2) :
+                    input#property-geo.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]')
+                    br
+                    b.pull-left.color 40m
+                    b.pull-right.color 12000m
+                  // End of
+                .search-row
+                  .form-group.mar-r-20
+                    label(for='price-range') Min baths :
+                    input#min-baths.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                    br
+                    b.pull-left.color 1
+                    b.pull-right.color 120
+                  // End of
+                  .form-group.mar-l-20
+                    label(for='property-geo') Min bed :
+                    input#min-bed.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                    br
+                    b.pull-left.color 1
+                    b.pull-right.color 120
+                  // End of
+                br
+                .search-row
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Fire Place(3100)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Dual Sinks(500)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Hurricane Shutters(99)
+                  // End of
+                .search-row
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Swimming Pool(1190)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  2 Stories(4600)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Emergency Exit(200)
+                  // End of
+                .search-row
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Laundry Room(10073)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Jog Path(1503)
+                  // End of
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  26&apos; Ceilings(1200)
+                  // End of
+                  br
+                  hr
+                button.btn.search-btn.prop-btm-sheaerch(type='submit')
+                  i.fa.fa-search
+  // property area
+  .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px;')
+    .container
+      .row
+        .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
+          // /.feature title
+          h2 Top submitted property
+      .row
+        .proerty-th
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-1.html')
+                  img(src='assets/img/demo/property-1.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-1.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-2.html')
+                  img(src='assets/img/demo/property-2.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-2.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-3.html')
+                  img(src='assets/img/demo/property-3.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-3.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-1.html')
+                  img(src='assets/img/demo/property-4.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-1.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-3.html')
+                  img(src='assets/img/demo/property-2.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-3.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-2.html')
+                  img(src='assets/img/demo/property-4.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-2.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-two.proerty-item
+              .item-thumb
+                a(href='property-1.html')
+                  img(src='assets/img/demo/property-3.jpg')
+              .item-entry.overflow
+                h5
+                  a(href='property-1.html') Super nice villa 
+                .dot-hr
+                span.pull-left
+                  b Area :
+                  |  120m
+                span.proerty-price.pull-right $ 300,000
+          .col-sm-6.col-md-3.p0
+            .box-tree.more-proerty.text-center
+              .item-tree-icon
+                i.fa.fa-th
+              .more-entry.overflow
+                h5
+                  a(href='property-1.html') CAN&apos;T DECIDE ? 
+                h5.tree-sub-ttl Show all properties
+                button.btn.border-btn.more-black(value='All properties') All properties
+  // Welcome area
+  .Welcome-area
+    .container
+      .row
+        .col-md-12.Welcome-entry.col-sm-12
+          .col-md-5.col-md-offset-2.col-sm-6.col-xs-12
+            .welcome_text.wow.fadeInLeft(data-wow-delay='0.3s' data-wow-offset='100')
+              .row
+                .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
+                  // /.feature title
+                  h2 SOKO ESTATE 
+          .col-md-5.col-sm-6.col-xs-12
+            .welcome_services.wow.fadeInRight(data-wow-delay='0.3s' data-wow-offset='100')
+              .row
+                .col-xs-6.m-padding
+                  .welcome-estate
+                    .welcome-icon
+                      i.pe-7s-home.pe-4x
+                    h3 Any property
+                .col-xs-6.m-padding
+                  .welcome-estate
+                    .welcome-icon
+                      i.pe-7s-users.pe-4x
+                    h3 More Clients
+                .col-xs-12.text-center
+                  i.welcome-circle
+                .col-xs-6.m-padding
+                  .welcome-estate
+                    .welcome-icon
+                      i.pe-7s-notebook.pe-4x
+                    h3 Easy to use
+                .col-xs-6.m-padding
+                  .welcome-estate
+                    .welcome-icon
+                      i.pe-7s-help2.pe-4x
+                    h3 Any help 
+  //
+    TESTIMONIALS
+    <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+    <!-- /.feature title
+    <h2>Our Customers Said  </h2>
+    </div>
+    </div>
+    <div class="row">
+    <div class="row testimonial">
+    <div class="col-md-12">
+    <div id="testimonial-slider">
+    <div class="item">
+    <div class="client-text">
+    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+    </div>
+    <div class="client-face wow fadeInRight" data-wow-delay=".9s">
+    <img src="assets/img/client-face1.png" alt="">
+    </div>
+    </div>
+    <div class="item">
+    <div class="client-text">
+    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+    </div>
+    <div class="client-face">
+    <img src="assets/img/client-face2.png" alt="">
+    </div>
+    </div>
+    <div class="item">
+    <div class="client-text">
+    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+    </div>
+    <div class="client-face">
+    <img src="assets/img/client-face1.png" alt="">
+    </div>
+    </div>
+    <div class="item">
+    <div class="client-text">
+    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+    </div>
+    <div class="client-face">
+    <img src="assets/img/client-face2.png" alt="">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Count area
+  .count-area
+    .container
+      .row
+        .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
+          // /.feature title
+          h2 You can trust Us 
+      .row
+        .col-md-12.col-xs-12.percent-blocks.m-main(data-waypoint-scroll='true')
+          .row
+            .col-sm-3.col-xs-6
+              .count-item
+                .count-item-circle
+                  span.pe-7s-users
+                .chart(data-percent='5000')
+                  h2#counter.percent 0
+                  h5 HAPPY CUSTOMER 
+            .col-sm-3.col-xs-6
+              .count-item
+                .count-item-circle
+                  span.pe-7s-home
+                .chart(data-percent='12000')
+                  h2#counter1.percent 0
+                  h5 Properties in stock
+            .col-sm-3.col-xs-6
+              .count-item
+                .count-item-circle
+                  span.pe-7s-flag
+                .chart(data-percent='120')
+                  h2#counter2.percent 0
+                  h5 City registered 
+            .col-sm-3.col-xs-6
+              .count-item
+                .count-item-circle
+                  span.pe-7s-graph2
+                .chart(data-percent='5000')
+                  h2#counter3.percent 5000
+                  h5 DEALER BRANCHES
+  // boy-sale area
+  .boy-sale-area
+    .container
+      .row
+        .col-md-6.col-sm-10.col-sm-offset-1.col-md-offset-0.col-xs-12
+          .asks-first
+            .asks-first-circle
+              span.fa.fa-search
+            .asks-first-info
+              h2 ARE YOU LOOKING FOR A Property?
+              p
+                | varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
+            .asks-first-arrow
+              a(href='properties.html')
+                span.fa.fa-angle-right
+        .col-md-6.col-sm-10.col-sm-offset-1.col-xs-12.col-md-offset-0
+          .asks-first
+            .asks-first-circle
+              span.fa.fa-usd
+            .asks-first-info
+              h2 DO YOU WANT TO SELL A Property?
+              p
+                | varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
+            .asks-first-arrow
+              a(href='properties.html')
+                span.fa.fa-angle-right
+        .col-xs-12
+          p.asks-call
+            | QUESTIONS? CALL US  : 
+            span.strong  + 3-123- 424-5700
