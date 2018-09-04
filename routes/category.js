@@ -1,12 +1,33 @@
 var express = require('express');
 var router = express.Router();
 
+var slug = require('slug');
+var multer  = require('multer');
+var mime = require('mime');
+var moment = require('moment');
+var Jimp = require("jimp");
+
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads/')
+  },
+  filename: function (req, file, cb) {
+    var fileName = Date.now() + slug(file.originalname) +'.'+ mime.extension(file.mimetype);
+    cb(null, fileName);
+  }
+});
+
+var upload = multer({ storage: storage });
+var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog', maxCount: 5 }, { name: 'gallery', maxCount: 30 }])
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/category/edit/:id',role.admin, function(req, res, next){
+router.get('/category/edit/:id', function(req, res, next){
 	var category = Category.findOne({
 	  _id: req.params.id
 	});
@@ -20,7 +41,7 @@ router.get('/category/edit/:id',role.admin, function(req, res, next){
 	  });
 });
 
-router.get('/category/showhome/:id',role.admin, function(req, res, next){
+router.get('/category/showhome/:id', function(req, res, next){
 	Category.findById(req.params.id)
 	.then(function(b){
 		if(b.approved == "true"){
@@ -40,7 +61,7 @@ router.get('/category/showhome/:id',role.admin, function(req, res, next){
 	});
 });
 
-router.get('/subcategory/delete/:id/:name',role.auth, function(req, res, next){
+router.get('/subcategory/delete/:id/:name', function(req, res, next){
 		Category.update(
 			{_id: req.params.id},
 			{ $pull: { subcategories: { name: req.params.name} }
@@ -53,7 +74,7 @@ router.get('/subcategory/delete/:id/:name',role.auth, function(req, res, next){
 		});
 });
 
-router.post('/category/update/:id', role.admin, cpUpload, function(req, res, next){
+router.post('/category/update/:id',  cpUpload, function(req, res, next){
 	var category = Category.findOne({
 	  _id: req.params.id
 	}).then(function(data){
@@ -89,11 +110,11 @@ router.post('/category/update/:id', role.admin, cpUpload, function(req, res, nex
 });
 
 
-router.get('/category/add',role.admin, function(req, res, next){
+router.get('/category/add', function(req, res, next){
 	res.render('admin/addcategory');
 });
 
-router.get('/category/delete/:id', role.admin, function(req, res, next){
+router.get('/category/delete/:id',  function(req, res, next){
 	Category.deleteOne({
 		_id: req.params.id
 	})
@@ -105,7 +126,7 @@ router.get('/category/delete/:id', role.admin, function(req, res, next){
 	  });
 });
 
-router.post('/category/add', role.admin, cpUpload, function(req, res, next){
+router.post('/category/add', cpUpload, function(req, res, next){
   var i = new Category();
 	i.name = req.body.name;
   i.slug = slug(req.body.name);
@@ -144,7 +165,7 @@ router.get('/subcategory', function(req, res, next) {
   });
 });
 
-router.get('/subcategory/add',role.admin, function(req, res, next){
+router.get('/subcategory/add', function(req, res, next){
 	Category.find({group:'general'})
 	.then(function(data){
 	  	console.log(data);
