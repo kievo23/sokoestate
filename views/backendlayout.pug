@@ -1,0 +1,179 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='description')
+    meta(name='keywords')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='shortcut icon' href='favicon.ico' type='image/x-icon')
+    link(rel='icon' href='favicon.ico' type='image/x-icon')
+    link(rel='stylesheet' href='/assets/css/normalize.css')
+    link(rel='stylesheet' href='/assets/css/font-awesome.min.css')
+    link(rel='stylesheet' href='/assets/css/fontello.css')
+    link(href='/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' rel='stylesheet')
+    link(href='/assets/fonts/icon-7-stroke/css/helper.css' rel='stylesheet')
+    link(href='/assets/css/animate.css' rel='stylesheet' media='screen')
+    link(rel='stylesheet' href='/assets/css/bootstrap-select.min.css')
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' href='/assets/css/icheck.min_all.css')
+    link(rel='stylesheet' href='/assets/css/price-range.css')
+    link(rel='stylesheet' href='/assets/css/owl.carousel.css')
+    link(rel='stylesheet' href='/assets/css/owl.theme.css')
+    link(rel='stylesheet' href='/assets/css/owl.transitions.css')
+    link(rel='stylesheet' href='/assets/css/style.css')
+    link(rel='stylesheet' href='/assets/css/responsive.css')
+  //social and contacts
+  //#preloader
+    #status &nbsp;
+  // Body content
+  //
+    top headet to put on findit
+    <div class="header-connect">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-5 col-sm-8  col-xs-12">
+    <div class="header-half header-call">
+    <p>
+    <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
+    <span><i class="pe-7s-mail"></i> your@company.com</span>
+    </p>
+    </div>
+    </div>
+    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
+    <div class="header-half header-social">
+    <ul class="list-inline">
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-vine"></i></a></li>
+    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    End top header
+  body
+    nav.navbar.navbar-default
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='index.html')
+            img(src='assets/img/logosokoestate.png' alt='' style="width:200px; ")
+        // Collect the nav links, forms, and other content for toggling
+        #navigation.collapse.navbar-collapse.yamm
+          .button.navbar-right
+            button.navbar-btn.nav-button.wow.bounceInRight.login(onclick=" window.open('register.html')" data-wow-delay='0.45s') Login
+            button.navbar-btn.nav-button.wow.fadeInRight(onclick=" window.open('submit-property.html')" data-wow-delay='0.48s') Submit
+          ul.main-nav.nav.navbar-nav.navbar-right
+            li.dropdown.ymm-sw(data-wow-delay='0.1s')
+              a.dropdown-toggle.active(href='index.html' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | Home 
+                b.caret
+              ul.dropdown-menu.navbar-nav
+                li
+                  a(href='') Home  2
+                li
+                  a(href='') Home  3
+                
+            li.wow.fadeInDown(data-wow-delay='0.2s')
+              a(href='properties.html') View Properties
+            li.wow.fadeInDown(data-wow-delay='0.3s')
+              a(href='property.html') Property
+            li.dropdown.yamm-fw(data-wow-delay='0.4s')
+              a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | Template 
+                b.caret
+              ul.dropdown-menu
+                li
+                  .yamm-content
+                    .row
+                      .col-sm-3
+                        h5 Home pages
+                        ul
+                          li
+                            a(href='index.html') Home  1
+                          li
+                            a(href='#') Home  2
+                          li
+                            a(href='#') Home  3
+                          
+                      .col-sm-3
+                        h5 Pages and blog
+                        ul
+                          li
+                            a(href='#') Blog listing
+                          li
+                            a(href='#') Blog Post (full)
+                          li
+                            a(href='#') Blog Post (Right)
+                          
+                      .col-sm-3
+                        h5 Property
+                        ul
+                          li
+                            a(href='#') Property pages style (1)
+                          li
+                            a(href='#') Property pages style (2)
+                          li
+                            a(href='#') Property pages style (3)
+                        h5 Properties list
+                        ul
+                          li
+                            a(href='properties.html') Properties list style (1)
+                          li
+                            a(href='#') Properties list style (2)
+                          li
+                            a(href='#') Properties list style (3)
+                      .col-sm-3
+                        h5 Property process
+                        ul
+                          li
+                            a(href='submit-property.html') Submit - step 1
+                          li
+                            a(href='submit-property.html') Submit - step 2
+                          li
+                            a(href='submit-property.html') Submit - step 3
+                        h5 User account
+                        ul
+                          li
+                            a(href='register.html') Register / login
+                          li
+                            a(href='user-properties.html') Your properties
+                          li
+                            a(href='submit-property.html') Submit property
+                          li
+                            a(href='change-password.html') Change password
+                          li
+                            a(href='user-profile.html') Your profile
+                  // /.yamm-content
+            li.wow.fadeInDown(data-wow-delay='0.5s')
+              a(href='contact.html') Contact
+        // /.navbar-collapse
+      // /.container-fluid
+    // End of nav bar
+  block content
+    
+
+script(src='/assets/js/modernizr-2.6.2.min.js')
+script(src='/assets/js/jquery-1.10.2.min.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/assets/js/bootstrap-select.min.js')
+script(src='/assets/js/bootstrap-hover-dropdown.js')
+script(src='/assets/js/easypiechart.min.js')
+script(src='/assets/js/jquery.easypiechart.min.js')
+script(src='/assets/js/owl.carousel.min.js')
+script(src='/assets/js/wow.js')
+script(src='/assets/js/icheck.min.js')
+script(src='/assets/js/price-range.js')
+script(src='/assets/js/main.js')
