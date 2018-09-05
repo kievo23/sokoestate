@@ -7,6 +7,9 @@ var mime = require('mime');
 var moment = require('moment');
 var Jimp = require("jimp");
 
+var Category = require(__dirname + '/../models/Category');
+//var Subcategory = require(__dirname + '/../models/Subcategory');
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -24,16 +27,23 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  Category.find({})
+  .then(function(data){
+  	console.log(data);
+    res.render('categories/category', {title: "Find It Categories", categories: data});
+  })
+  .catch(function(err){
+     console.log(err);
+  });
 });
 
-router.get('/category/edit/:id', function(req, res, next){
+router.get('/edit/:id', function(req, res, next){
 	var category = Category.findOne({
 	  _id: req.params.id
 	});
 	Promise.all([category]).then(values => {
 	    console.log(values);
-	    res.render('admin/editcategory', {
+	    res.render('categories/editcategory', {
 	        title: "Edit "+values[0].name,
 	        category: values[0],
           categoryjson: JSON.stringify(values[0]),
@@ -41,7 +51,7 @@ router.get('/category/edit/:id', function(req, res, next){
 	  });
 });
 
-router.get('/category/showhome/:id', function(req, res, next){
+router.get('/showhome/:id', function(req, res, next){
 	Category.findById(req.params.id)
 	.then(function(b){
 		if(b.approved == "true"){
@@ -52,8 +62,8 @@ router.get('/category/showhome/:id', function(req, res, next){
 
 		b.save(function(err){
 			if(err)
-				res.redirect('/admin/category');
-			res.redirect('/admin/category');
+				res.redirect('/category');
+			res.redirect('/category');
 		});
 	})
 	.catch(function(err){
@@ -67,7 +77,7 @@ router.get('/subcategory/delete/:id/:name', function(req, res, next){
 			{ $pull: { subcategories: { name: req.params.name} }
     	})
 		.then(function(data){
-		    res.redirect('/admin/category');
+		    res.redirect('/category');
 		})
 		.catch(function(err){
 		     console.log(err);
@@ -89,7 +99,7 @@ router.post('/category/update/:id',  cpUpload, function(req, res, next){
 		data.save(function(err){
 			if(err){
         req.flash("error", err);
-				res.redirect('/admin/category');
+				res.redirect('/category');
       }
       if (req.files['photo'] != null){
   				Jimp.read("./public/uploads/category/"+data.photo).then(function (cover) {
@@ -103,30 +113,30 @@ router.post('/category/update/:id',  cpUpload, function(req, res, next){
 
   			}
         req.flash("success_msg", "Category Successfully Edited");
-			res.redirect('/admin/category');
+			res.redirect('/category');
 		});
 	});
 
 });
 
 
-router.get('/category/add', function(req, res, next){
-	res.render('admin/addcategory');
+router.get('/add', function(req, res, next){
+	res.render('categories/addcategory');
 });
 
-router.get('/category/delete/:id',  function(req, res, next){
+router.get('/delete/:id',  function(req, res, next){
 	Category.deleteOne({
 		_id: req.params.id
 	})
 	  .then(function(data){
-	    res.redirect('/admin/category');
+	    res.redirect('/category');
 	  })
 	  .catch(function(err){
 	     console.log(err);
 	  });
 });
 
-router.post('/category/add', cpUpload, function(req, res, next){
+router.post('/add', cpUpload, function(req, res, next){
   var i = new Category();
 	i.name = req.body.name;
   i.slug = slug(req.body.name);
@@ -138,7 +148,7 @@ router.post('/category/add', cpUpload, function(req, res, next){
 	}
 	i.save(function(err){
 		if(err)
-			res.render('admin/addcategory');
+			res.render('categories/addcategory');
     if (req.files['photo'] != null){
 				Jimp.read("./public/uploads/category/"+i.photo).then(function (cover) {
 				    return cover.resize(200, 150)     // resize
@@ -150,26 +160,15 @@ router.post('/category/add', cpUpload, function(req, res, next){
 			}else{
 				req.flash("success_msg", "Category Successfully Created");
 			}
-		res.redirect('/admin/category');
+		res.redirect('/category');
 	});
-});
-
-router.get('/subcategory', function(req, res, next) {
-  Subcategory.find({})
-  .then(function(data){
-  	console.log(data);
-    res.render('admin/subcategory', {title: "Find It Categories", subcategories: data});
-  })
-  .catch(function(err){
-     console.log(err);
-  });
 });
 
 router.get('/subcategory/add', function(req, res, next){
 	Category.find({group:'general'})
 	.then(function(data){
 	  	console.log(data);
-	    res.render('admin/addsubcategory',{title: "Find It Categories", categories: data});
+	    res.render('categories/addsubcategory',{title: "Find It Categories", categories: data});
 	})
 	.catch(function(err){
 	     console.log(err);
@@ -183,9 +182,9 @@ router.post('/subcategory/add', function(req, res, next){
 		cat.save(function(err){
 			if(err){
 				console.log(err);
-				res.render('admin/addcategory');
+				res.render('categories/addcategory');
 			}
-			res.redirect('/admin/category');
+			res.redirect('/category');
 		});
 	});
 });
