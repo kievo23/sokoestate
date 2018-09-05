@@ -1,5 +1,5 @@
 {
-    "db_uri": "mongodb://donattah:sokoestate123456@ds127126.mlab.com:27126/sokoestate",
+    "db_uri": "mongodb://donattah:sokoestate123456@ds243812.mlab.com:43812/sokoestate",
     "noreplyEmail": {
         "username": "noreply@findit.ke",
         "password": "noreplyfindit"
