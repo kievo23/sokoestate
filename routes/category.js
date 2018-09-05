@@ -142,25 +142,29 @@ router.post('/add', cpUpload, function(req, res, next){
   i.slug = slug(req.body.name);
 	i.icon = req.body.icon;
 	i.order = req.body.order;
-  i.group = req.body.group;
   if (req.files['photo'] != null){
 		i.photo = req.files['photo'][0].filename;
 	}
 	i.save(function(err){
-		if(err)
-			res.render('categories/addcategory');
-    if (req.files['photo'] != null){
-				Jimp.read("./public/uploads/category/"+i.photo).then(function (cover) {
-				    return cover.resize(200, 150)     // resize
-				         .quality(100)              // set greyscale
-				         .write("./public/uploads/thumbs/categories/"+i.photo); // save
-				}).catch(function (err) {
-				    console.error(err);
-				});
-			}else{
-				req.flash("success_msg", "Category Successfully Created");
-			}
-		res.redirect('/category');
+		if(err){
+      console.log(err);
+      req.flash("error_msg", "Category Failed");
+      res.render('categories/addcategory');
+    }else{
+      if (req.files['photo'] != null){
+  				Jimp.read("./public/uploads/category/"+i.photo).then(function (cover) {
+  				    return cover.resize(200, 150)     // resize
+  				         .quality(100)              // set greyscale
+  				         .write("./public/uploads/thumbs/categories/"+i.photo); // save
+  				}).catch(function (err) {
+  				    console.error(err);
+  				});
+  			}else{
+
+  			}
+      req.flash("success_msg", "Category Successfully Created");
+  		res.redirect('/category');
+    }
 	});
 });
 
