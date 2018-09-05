@@ -1,21 +1,28 @@
 extends ../backendlayout
 
 block content
-  .page_body.basic-content
-    .row
-      .col-md-offset-3.col-md-6.col-md-offset-3
-          h3.text-center Add Sub Category
-      .col-md-offset-0.col-md-12.col-md-offset-0
-        form.form-horizontal(method="post",action="/category/subcategory/add")
-          .form-group
-            .col-sm-12
-              input#name.form-control-form(type='text', name='name', placeholder='Name')
-          .form-group
-            .col-sm-12
-              select.form-control(name='category')
-                option(data-icon='glyphicon-wrench', value='') --Select Category--
-                each category in categories
-                  option(data-icon='fa '+category.icon, value=category.id) #{category.name} 
-          .form-group
-            .row
-              button.button.btn.btn-warning.form-control-form(type='submit') Create
+  // MAIN CONTENT
+  .main-content
+    .section__content.section__content--p30
+      .container-fluid
+        .row
+           .col-lg-12
+              .card
+                .card-header
+                  strong Add Subcategory
+                .card-body.card-block
+                  form.form-horizontal(method="post",action="/category/subcategory/add")
+                    .row.form-group
+                       .col-12.col-md-9
+                          input#name.form-control-form(type='text', name='name', placeholder='Name')
+                          small.form-text.text-muted Enter the name of the category
+                    .row.form-group
+                       .col-12.col-md-9
+                          select.form-control(name='category')
+                            option(data-icon='glyphicon-wrench', value='') Select Category
+                            each category in categories
+                              option(data-icon='fa '+category.icon, value=category.id) #{category.name} 
+                .card-footer
+                  button.btn.btn-primary.btn-sm(type='submit')
+                    i.fa.fa-dot-circle-o
+                    |  Create

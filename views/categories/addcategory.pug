@@ -6,26 +6,34 @@ block content
       .section__content.section__content--p30
         .container-fluid
           .row
-            .col-md-offset-3.col-md-6.col-md-offset-3
-                h3.text-center Add Category
-            .col-md-offset-0.col-md-12.col-md-offset-0
-              form.form-horizontal(method="post",action="/category/add",enctype='multipart/form-data')
-                .form-group
-                  .col-sm-12
-                    input#name.form-control-form(type='text', name='name', placeholder='Name')
-                .form-group
-                  .col-sm-12
-                    input#icon.form-control-form(type='text', name='icon', placeholder='icon')
-                .form-group
-                  .col-sm-12
-                    input#order.form-control-form(type='text', name='order', placeholder='order')
-                .form-group
-                  .col-sm-3
-                    label(for='photo') Cover Photo
-                  .col-sm-9
-                    input#photod.form-control-form(type='file', name='photo', placeholder='photo')
-                .form-group
-                  .row
-                    button.button.btn.btn-warning.form-control-form(type='submit') Create
+            .col-lg-12
+              .card
+                .card-header
+                  strong Add Category
+                .card-body.card-block
+                  form.form-horizontal(method="post",action="/category/category/add",enctype='multipart/form-data')
+                    .row.form-group
+                       .col-12.col-md-9
+                          input#name.form-control(type='text' name='name' placeholder='Category Name')
+                          small.form-text.text-muted Enter the name of the category
+                    .row.form-group
+                       .col-12.col-md-9
+                          input#order.form-control(type='text' name='order' placeholder='order')
+                          small.form-text.text-muted Enter the order of the category
+                    .row.form-group
+                       .col-12.col-md-9
+                          input#order.form-control(type='text' name='order' placeholder='order')
+                          small.form-text.text-muted Enter the order of the category
+                    .row.form-group
+                      .col.col-md-3
+                        label.form-control-label(for='file-input') Category cover photo
+                      .col-12.col-md-9
+                        input#photod.form-control-file(type='file' name='photo' placeholder='photo')
+                
+                .card-footer
+                  button.btn.btn-primary.btn-sm(type='submit')
+                    i.fa.fa-dot-circle-o
+                    |  Create
+                
                     
         
