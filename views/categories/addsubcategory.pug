@@ -10,19 +10,19 @@ block content
               .card
                 .card-header
                   strong Add Subcategory
-                .card-body.card-block
-                  form.form-horizontal(method="post",action="/category/subcategory/add")
-                    .row.form-group
-                       .col-12.col-md-9
-                          input#name.form-control-form(type='text', name='name', placeholder='Name')
-                          small.form-text.text-muted Enter the name of the category
-                    .row.form-group
-                       .col-12.col-md-9
-                          select.form-control(name='category')
-                            option(data-icon='glyphicon-wrench', value='') Select Category
-                            each category in categories
-                              option(data-icon='fa '+category.icon, value=category.id) #{category.name} 
-                .card-footer
-                  button.btn.btn-primary.btn-sm(type='submit')
-                    i.fa.fa-dot-circle-o
-                    |  Create
+                form.form-horizontal(method="post",action="/category/subcategory/add")
+                  .card-body.card-block
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#text-input.form-control(type='text' name='name' placeholder='Subcategory')
+                            small.form-text.text-muted Enter the name of the Subcategory
+                      .row.form-group
+                        .col-12.col-md-9
+                            select.form-control(name='category')
+                              option(data-icon='glyphicon-wrench', value='') Select Category
+                              each category in categories
+                                option(data-icon='fa '+category.icon, value=category.id) #{category.name} 
+                  .card-footer
+                    button.btn.btn-primary.btn-sm(type='submit')
+                      i.fa.fa-dot-circle-o
+                      |  Create
