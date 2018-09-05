@@ -74,6 +74,7 @@ block content
                         span.status--process 
                           =category.approved
                       td
+                      td
                         each cat in category.subcategories                      
                           =cat.name
                           a(href="/admin/subcategory/delete/"+category.id+"/"+cat.name, onclick="return confirm('Are you sure you want to delete this Category?')")
@@ -86,7 +87,7 @@ block content
                       td
                         .table-data-feature
                           a(href="/admin/category/showhome/"+category.id, title="Show on home page")
-                            button.item(data-toggle='tooltip' data-placement='top' title='Send')
+                            button.item(data-toggle='tooltip' data-placement='top' title='Order')
                               i.zmdi.zmdi-mail-send
                           a(href="/admin/category/edit/"+category.id, title="Edit Category")
                             button.item(data-toggle='tooltip' data-placement='top' title='Edit')
