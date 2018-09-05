@@ -1,199 +1,21 @@
 extends ../backendlayout
 
-block backendlayout
-  // MAIN CONTENT
-  .main-content
-    .section__content.section__content--p30
-      .container-fluid
-        .row
-           .col-lg-12
-              .card
-                .card-header
-                  strong Add Subcategory
-                  |  here
-                .card-body.card-block
-                  form.form-horizontal(method="post",action="/category/category/add", enctype='multipart/form-data')
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label Static
-                      .col-12.col-md-9
-                        p.form-control-static Username
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='text-input') Text Input
-                      .col-12.col-md-9
-                        input#text-input.form-control(type='text' name='text-input' placeholder='Text')
-                        small.form-text.text-muted This is a help text
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='email-input') Email Input
-                      .col-12.col-md-9
-                        input#email-input.form-control(type='email' name='email-input' placeholder='Enter Email')
-                        small.help-block.form-text Please enter your email
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='password-input') Password
-                      .col-12.col-md-9
-                        input#password-input.form-control(type='password' name='password-input' placeholder='Password')
-                        small.help-block.form-text Please enter a complex password
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='disabled-input') Disabled Input
-                      .col-12.col-md-9
-                        input#disabled-input.form-control(type='text' name='disabled-input' placeholder='Disabled' disabled='')
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='textarea-input') Textarea
-                      .col-12.col-md-9
-                        textarea#textarea-input.form-control(name='textarea-input' rows='9' placeholder='Content...')
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='select') Select
-                      .col-12.col-md-9
-                        select#select.form-control(name='select')
-                          option(value='0') Please select
-                          option(value='1') Option #1
-                          option(value='2') Option #2
-                          option(value='3') Option #3
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='selectLg') Select Large
-                      .col-12.col-md-9
-                        select#selectLg.form-control-lg.form-control(name='selectLg')
-                          option(value='0') Please select
-                          option(value='1') Option #1
-                          option(value='2') Option #2
-                          option(value='3') Option #3
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='selectSm') Select Small
-                      .col-12.col-md-9
-                        select#SelectLm.form-control-sm.form-control(name='selectSm')
-                          option(value='0') Please select
-                          option(value='1') Option #1
-                          option(value='2') Option #2
-                          option(value='3') Option #3
-                          option(value='4') Option #4
-                          option(value='5') Option #5
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='disabledSelect') Disabled Select
-                      .col-12.col-md-9
-                        select#disabledSelect.form-control(name='disabledSelect' disabled='')
-                          option(value='0') Please select
-                          option(value='1') Option #1
-                          option(value='2') Option #2
-                          option(value='3') Option #3
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='multiple-select') Multiple select
-                      .col.col-md-9
-                        select#multiple-select.form-control(name='multiple-select' multiple='')
-                          option(value='1') Option #1
-                          option(value='2') Option #2
-                          option(value='3') Option #3
-                          option(value='4') Option #4
-                          option(value='5') Option #5
-                          option(value='6') Option #6
-                          option(value='7') Option #7
-                          option(value='8') Option #8
-                          option(value='9') Option #9
-                          option(value='10') Option #10
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label Radios
-                      .col.col-md-9
-                        .form-check
-                          .radio
-                            label.form-check-label(for='radio1')
-                              input#radio1.form-check-input(type='radio' name='radios' value='option1')
-                              | Option 1
-                          .radio
-                            label.form-check-label(for='radio2')
-                              input#radio2.form-check-input(type='radio' name='radios' value='option2')
-                              | Option 2
-                          .radio
-                            label.form-check-label(for='radio3')
-                              input#radio3.form-check-input(type='radio' name='radios' value='option3')
-                              | Option 3
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label Inline Radios
-                      .col.col-md-9
-                        .form-check-inline.form-check
-                          label.form-check-label(for='inline-radio1')
-                            input#inline-radio1.form-check-input(type='radio' name='inline-radios' value='option1')
-                            | One
-                          label.form-check-label(for='inline-radio2')
-                            input#inline-radio2.form-check-input(type='radio' name='inline-radios' value='option2')
-                            | Two
-                          label.form-check-label(for='inline-radio3')
-                            input#inline-radio3.form-check-input(type='radio' name='inline-radios' value='option3')
-                            | Three
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label Checkboxes
-                      .col.col-md-9
-                        .form-check
-                          .checkbox
-                            label.form-check-label(for='checkbox1')
-                              input#checkbox1.form-check-input(type='checkbox' name='checkbox1' value='option1')
-                              | Option 1
-                          .checkbox
-                            label.form-check-label(for='checkbox2')
-                              input#checkbox2.form-check-input(type='checkbox' name='checkbox2' value='option2')
-                              |  Option 2
-                          .checkbox
-                            label.form-check-label(for='checkbox3')
-                              input#checkbox3.form-check-input(type='checkbox' name='checkbox3' value='option3')
-                              |  Option 3
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label Inline Checkboxes
-                      .col.col-md-9
-                        .form-check-inline.form-check
-                          label.form-check-label(for='inline-checkbox1')
-                            input#inline-checkbox1.form-check-input(type='checkbox' name='inline-checkbox1' value='option1')
-                            | One
-                          label.form-check-label(for='inline-checkbox2')
-                            input#inline-checkbox2.form-check-input(type='checkbox' name='inline-checkbox2' value='option2')
-                            | Two
-                          label.form-check-label(for='inline-checkbox3')
-                            input#inline-checkbox3.form-check-input(type='checkbox' name='inline-checkbox3' value='option3')
-                            | Three
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='file-input') File input
-                      .col-12.col-md-9
-                        input#file-input.form-control-file(type='file' name='file-input')
-                    .row.form-group
-                      .col.col-md-3
-                        label.form-control-label(for='file-multiple-input') Multiple File input
-                      .col-12.col-md-9
-                        input#file-multiple-input.form-control-file(type='file' name='file-multiple-input' multiple='')
-                .card-footer
-                  button.btn.btn-primary.btn-sm(type='submit')
-                    i.fa.fa-dot-circle-o
-                    |  Submit
-                  button.btn.btn-danger.btn-sm(type='reset')
-                    i.fa.fa-ban
-                    |  Reset
-              .card
-                .card-header
-                  strong Inline
-                  |  Form
-                .card-body.card-block
-                  form.form-inline(action='' method='post')
-                    .form-group
-                      label.pr-1.form-control-label(for='exampleInputName2') Name
-                      input#exampleInputName2.form-control(type='text' placeholder='Jane Doe' required='')
-                    .form-group
-                      label.px-1.form-control-label(for='exampleInputEmail2') Email
-                      input#exampleInputEmail2.form-control(type='email' placeholder='jane.doe@example.com' required='')
-                .card-footer
-                  button.btn.btn-primary.btn-sm(type='submit')
-                    i.fa.fa-dot-circle-o
-                    |  Submit
-                  button.btn.btn-danger.btn-sm(type='reset')
-                    i.fa.fa-ban
-                    |  Reset
+block content
+  .page_body.basic-content
+    .row
+      .col-md-offset-3.col-md-6.col-md-offset-3
+          h3.text-center Add Sub Category
+      .col-md-offset-0.col-md-12.col-md-offset-0
+        form.form-horizontal(method="post",action="/category/subcategory/add")
+          .form-group
+            .col-sm-12
+              input#name.form-control-form(type='text', name='name', placeholder='Name')
+          .form-group
+            .col-sm-12
+              select.form-control(name='category')
+                option(data-icon='glyphicon-wrench', value='') --Select Category--
+                each category in categories
+                  option(data-icon='fa '+category.icon, value=category.id) #{category.name} 
+          .form-group
+            .row
+              button.button.btn.btn-warning.form-control-form(type='submit') Create
