@@ -1,179 +1,338 @@
 doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='description')
-    meta(name='keywords')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='shortcut icon' href='favicon.ico' type='image/x-icon')
-    link(rel='icon' href='favicon.ico' type='image/x-icon')
-    link(rel='stylesheet' href='/assets/css/normalize.css')
-    link(rel='stylesheet' href='/assets/css/font-awesome.min.css')
-    link(rel='stylesheet' href='/assets/css/fontello.css')
-    link(href='/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' rel='stylesheet')
-    link(href='/assets/fonts/icon-7-stroke/css/helper.css' rel='stylesheet')
-    link(href='/assets/css/animate.css' rel='stylesheet' media='screen')
-    link(rel='stylesheet' href='/assets/css/bootstrap-select.min.css')
-    link(rel='stylesheet' href='/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet' href='/assets/css/icheck.min_all.css')
-    link(rel='stylesheet' href='/assets/css/price-range.css')
-    link(rel='stylesheet' href='/assets/css/owl.carousel.css')
-    link(rel='stylesheet' href='/assets/css/owl.theme.css')
-    link(rel='stylesheet' href='/assets/css/owl.transitions.css')
-    link(rel='stylesheet' href='/assets/css/style.css')
-    link(rel='stylesheet' href='/assets/css/responsive.css')
-  //social and contacts
-  //#preloader
-    #status &nbsp;
-  // Body content
-  //
-    top headet to put on findit
-    <div class="header-connect">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-5 col-sm-8  col-xs-12">
-    <div class="header-half header-call">
-    <p>
-    <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-    <span><i class="pe-7s-mail"></i> your@company.com</span>
-    </p>
-    </div>
-    </div>
-    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
-    <div class="header-half header-social">
-    <ul class="list-inline">
-    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-    <li><a href="#"><i class="fa fa-vine"></i></a></li>
-    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    End top header
-  body
-    nav.navbar.navbar-default
-      .container
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navigation')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='index.html')
-            img(src='assets/img/logosokoestate.png' alt='' style="width:200px; ")
-        // Collect the nav links, forms, and other content for toggling
-        #navigation.collapse.navbar-collapse.yamm
-          .button.navbar-right
-            button.navbar-btn.nav-button.wow.bounceInRight.login(onclick=" window.open('register.html')" data-wow-delay='0.45s') Login
-            button.navbar-btn.nav-button.wow.fadeInRight(onclick=" window.open('submit-property.html')" data-wow-delay='0.48s') Submit
-          ul.main-nav.nav.navbar-nav.navbar-right
-            li.dropdown.ymm-sw(data-wow-delay='0.1s')
-              a.dropdown-toggle.active(href='index.html' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
-                | Home 
-                b.caret
-              ul.dropdown-menu.navbar-nav
-                li
-                  a(href='') Home  2
-                li
-                  a(href='') Home  3
-                
-            li.wow.fadeInDown(data-wow-delay='0.2s')
-              a(href='properties.html') View Properties
-            li.wow.fadeInDown(data-wow-delay='0.3s')
-              a(href='property.html') Property
-            li.dropdown.yamm-fw(data-wow-delay='0.4s')
-              a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
-                | Template 
-                b.caret
-              ul.dropdown-menu
-                li
-                  .yamm-content
-                    .row
-                      .col-sm-3
-                        h5 Home pages
-                        ul
-                          li
-                            a(href='index.html') Home  1
-                          li
-                            a(href='#') Home  2
-                          li
-                            a(href='#') Home  3
-                          
-                      .col-sm-3
-                        h5 Pages and blog
-                        ul
-                          li
-                            a(href='#') Blog listing
-                          li
-                            a(href='#') Blog Post (full)
-                          li
-                            a(href='#') Blog Post (Right)
-                          
-                      .col-sm-3
-                        h5 Property
-                        ul
-                          li
-                            a(href='#') Property pages style (1)
-                          li
-                            a(href='#') Property pages style (2)
-                          li
-                            a(href='#') Property pages style (3)
-                        h5 Properties list
-                        ul
-                          li
-                            a(href='properties.html') Properties list style (1)
-                          li
-                            a(href='#') Properties list style (2)
-                          li
-                            a(href='#') Properties list style (3)
-                      .col-sm-3
-                        h5 Property process
-                        ul
-                          li
-                            a(href='submit-property.html') Submit - step 1
-                          li
-                            a(href='submit-property.html') Submit - step 2
-                          li
-                            a(href='submit-property.html') Submit - step 3
-                        h5 User account
-                        ul
-                          li
-                            a(href='register.html') Register / login
-                          li
-                            a(href='user-properties.html') Your properties
-                          li
-                            a(href='submit-property.html') Submit property
-                          li
-                            a(href='change-password.html') Change password
-                          li
-                            a(href='user-profile.html') Your profile
-                  // /.yamm-content
-            li.wow.fadeInDown(data-wow-delay='0.5s')
-              a(href='contact.html') Contact
-        // /.navbar-collapse
-      // /.container-fluid
-    // End of nav bar
-  block content
-    
-
-script(src='/assets/js/modernizr-2.6.2.min.js')
-script(src='/assets/js/jquery-1.10.2.min.js')
-script(src='/bootstrap/js/bootstrap.min.js')
-script(src='/assets/js/bootstrap-select.min.js')
-script(src='/assets/js/bootstrap-hover-dropdown.js')
-script(src='/assets/js/easypiechart.min.js')
-script(src='/assets/js/jquery.easypiechart.min.js')
-script(src='/assets/js/owl.carousel.min.js')
-script(src='/assets/js/wow.js')
-script(src='/assets/js/icheck.min.js')
-script(src='/assets/js/price-range.js')
-script(src='/assets/js/main.js')
+head
+  // Required meta tags
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='au theme template')
+  meta(name='author' content='Hau Nguyen')
+  meta(name='keywords' content='au theme template')
+  // Title Page
+  title Tables
+  // Fontfaces CSS
+  link(href='/stylesheets/font-face.css' rel='stylesheet' media='all')
+  link(href='/vendor/font-awesome-4.7/css/font-awesome.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/font-awesome-5/css/fontawesome-all.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/mdi-font/css/material-design-iconic-font.min.css' rel='stylesheet' media='all')
+  // Bootstrap CSS
+  link(href='/vendor/bootstrap-4.1/bootstrap.min.css' rel='stylesheet' media='all')
+  // Vendor CSS
+  link(href='/vendor/animsition/animsition.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/wow/animate.css' rel='stylesheet' media='all')
+  link(href='/vendor/css-hamburgers/hamburgers.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/slick/slick.css' rel='stylesheet' media='all')
+  link(href='/vendor/select2/select2.min.css' rel='stylesheet' media='all')
+  link(href='/vendor/perfect-scrollbar/perfect-scrollbar.css' rel='stylesheet' media='all')
+  // Main CSS
+  link(href='css/theme.css' rel='stylesheet' media='all')
+.page-wrapper
+  // HEADER MOBILE
+  header.header-mobile.d-block.d-lg-none
+    .header-mobile__bar
+      .container-fluid
+        .header-mobile-inner
+          a.logo(href='index.html')
+            img(src='images/icon/logo.png' alt='CoolAdmin')
+          button.hamburger.hamburger--slider(type='button')
+            span.hamburger-box
+              span.hamburger-inner
+    nav.navbar-mobile
+      .container-fluid
+        ul.navbar-mobile__list.list-unstyled
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-tachometer-alt
+              | Dashboard
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='index.html') Dashboard 1
+              li
+                a(href='index2.html') Dashboard 2
+              li
+                a(href='index3.html') Dashboard 3
+              li
+                a(href='index4.html') Dashboard 4
+          li
+            a(href='chart.html')
+              i.fas.fa-chart-bar
+              | Charts
+          li
+            a(href='table.html')
+              i.fas.fa-table
+              | Tables
+          li
+            a(href='form.html')
+              i.far.fa-check-square
+              | Forms
+          li
+            a(href='#')
+              i.fas.fa-calendar-alt
+              | Calendar
+          li
+            a(href='map.html')
+              i.fas.fa-map-marker-alt
+              | Maps
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-copy
+              | Pages
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='forget-pass.html') Forget Password
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-desktop
+              | UI Elements
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='button.html') Button
+              li
+                a(href='badge.html') Badges
+              li
+                a(href='tab.html') Tabs
+              li
+                a(href='card.html') Cards
+              li
+                a(href='alert.html') Alerts
+              li
+                a(href='progress-bar.html') Progress Bars
+              li
+                a(href='modal.html') Modals
+              li
+                a(href='switch.html') Switchs
+              li
+                a(href='grid.html') Grids
+              li
+                a(href='fontawesome.html') Fontawesome Icon
+              li
+                a(href='typo.html') Typography
+  // END HEADER MOBILE
+  // MENU SIDEBAR
+  aside.menu-sidebar.d-none.d-lg-block
+    .logo
+      a(href='#')
+        img(src='images/icon/logo.png' alt='Cool Admin')
+    .menu-sidebar__content.js-scrollbar1
+      nav.navbar-sidebar
+        ul.list-unstyled.navbar__list
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-tachometer-alt
+              | Dashboard
+            //
+              <ul class="list-unstyled navbar__sub-list js-sub-list">
+              <li>
+              <a href="index.html">Dashboard 1</a>
+              </li>
+              <li>
+              <a href="index2.html">Dashboard 2</a>
+              </li>
+              <li>
+              <a href="index3.html">Dashboard 3</a>
+              </li>
+              <li>
+              <a href="index4.html">Dashboard 4</a>
+              </li>
+              </ul>
+          li
+            a(href='chart.html')
+              i.fas.fa-chart-bar
+              | Report
+          li.active
+            a(href='table.html')
+              i.fas.fa-table
+              | Categories
+          li
+            a(href='form.html')
+              i.far.fa-check-square
+              | Forms
+          li
+            a(href='#')
+              i.fas.fa-calendar-alt
+              | Calendar
+          li
+            a(href='map.html')
+              i.fas.fa-map-marker-alt
+              | Maps
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-copy
+              | Pages
+            ul.list-unstyled.navbar__sub-list.js-sub-list
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='forget-pass.html') Forget Password
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-desktop
+              | UI Elements
+            ul.list-unstyled.navbar__sub-list.js-sub-list
+              li
+                a(href='button.html') Button
+              li
+                a(href='badge.html') Badges
+              li
+                a(href='tab.html') Tabs
+              li
+                a(href='card.html') Cards
+              li
+                a(href='alert.html') Alerts
+              li
+                a(href='progress-bar.html') Progress Bars
+              li
+                a(href='modal.html') Modals
+              li
+                a(href='switch.html') Switchs
+              li
+                a(href='grid.html') Grids
+              li
+                a(href='fontawesome.html') Fontawesome Icon
+              li
+                a(href='typo.html') Typography
+  // END MENU SIDEBAR
+  // PAGE CONTAINER
+  .page-container
+    // HEADER DESKTOP
+    header.header-desktop
+      .section__content.section__content--p30
+        .container-fluid
+          .header-wrap
+            form.form-header(action='' method='POST')
+              input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
+              button.au-btn--submit(type='submit')
+                i.zmdi.zmdi-search
+            .header-button
+              .noti-wrap
+                .noti__item.js-item-menu
+                  i.zmdi.zmdi-comment-more
+                  span.quantity 1
+                  .mess-dropdown.js-dropdown
+                    .mess__title
+                      p You have 2 news message
+                    .mess__item
+                      .image.img-cir.img-40
+                        img(src='/images/icon/avatar-06.jpg' alt='Michelle Moreno')
+                      .content
+                        h6 Michelle Moreno
+                        p Have sent a photo
+                        span.time 3 min ago
+                    .mess__item
+                      .image.img-cir.img-40
+                        img(src='/images/icon/avatar-04.jpg' alt='Diane Myers')
+                      .content
+                        h6 Diane Myers
+                        p You are now connected on message
+                        span.time Yesterday
+                    .mess__footer
+                      a(href='#') View all messages
+                .noti__item.js-item-menu
+                  i.zmdi.zmdi-email
+                  span.quantity 1
+                  .email-dropdown.js-dropdown
+                    .email__title
+                      p You have 3 New Emails
+                    .email__item
+                      .image.img-cir.img-40
+                        img(src='/images/icon/avatar-06.jpg' alt='Cynthia Harvey')
+                      .content
+                        p Meeting about new dashboard...
+                        span Cynthia Harvey, 3 min ago
+                    .email__item
+                      .image.img-cir.img-40
+                        img(src='/images/icon/avatar-05.jpg' alt='Cynthia Harvey')
+                      .content
+                        p Meeting about new dashboard...
+                        span Cynthia Harvey, Yesterday
+                    .email__item
+                      .image.img-cir.img-40
+                        img(src='/images/icon/avatar-04.jpg' alt='Cynthia Harvey')
+                      .content
+                        p Meeting about new dashboard...
+                        span Cynthia Harvey, April 12,,2018
+                    .email__footer
+                      a(href='#') See all emails
+                .noti__item.js-item-menu
+                  i.zmdi.zmdi-notifications
+                  span.quantity 3
+                  .notifi-dropdown.js-dropdown
+                    .notifi__title
+                      p You have 3 Notifications
+                    .notifi__item
+                      .bg-c1.img-cir.img-40
+                        i.zmdi.zmdi-email-open
+                      .content
+                        p You got a email notification
+                        span.date April 12, 2018 06:50
+                    .notifi__item
+                      .bg-c2.img-cir.img-40
+                        i.zmdi.zmdi-account-box
+                      .content
+                        p Your account has been blocked
+                        span.date April 12, 2018 06:50
+                    .notifi__item
+                      .bg-c3.img-cir.img-40
+                        i.zmdi.zmdi-file-text
+                      .content
+                        p You got a new file
+                        span.date April 12, 2018 06:50
+                    .notifi__footer
+                      a(href='#') All notifications
+              .account-wrap
+                .account-item.clearfix.js-item-menu
+                  .image
+                    img(src='/images/icon/avatar-01.jpg' alt='John Doe')
+                  .content
+                    a.js-acc-btn(href='#') john doe
+                  .account-dropdown.js-dropdown
+                    .info.clearfix
+                      .image
+                        a(href='#')
+                          img(src='/images/icon/avatar-01.jpg' alt='John Doe')
+                      .content
+                        h5.name
+                          a(href='#') john doe
+                        span.email johndoe@example.com
+                    .account-dropdown__body
+                      .account-dropdown__item
+                        a(href='#')
+                          i.zmdi.zmdi-account
+                          | Account
+                      .account-dropdown__item
+                        a(href='#')
+                          i.zmdi.zmdi-settings
+                          | Setting
+                      .account-dropdown__item
+                        a(href='#')
+                          i.zmdi.zmdi-money-box
+                          | Billing
+                    .account-dropdown__footer
+                      a(href='#')
+                        i.zmdi.zmdi-power
+                        | Logout
+    // END HEADER DESKTOP
+// Jquery JS
+script(src='/vendor/jquery-3.2.1.min.js')
+// Bootstrap JS
+script(src='/vendor/bootstrap-4.1/popper.min.js')
+script(src='/vendor/bootstrap-4.1/bootstrap.min.js')
+// Vendor JS
+script(src='/vendor/slick/slick.min.js')
+script(src='/vendor/wow/wow.min.js')
+script(src='/vendor/animsition/animsition.min.js')
+script(src='/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')
+script(src='/vendor/counter-up/jquery.waypoints.min.js')
+script(src='/vendor/counter-up/jquery.counterup.min.js')
+script(src='/vendor/circle-progress/circle-progress.min.js')
+script(src='/vendor/perfect-scrollbar/perfect-scrollbar.js')
+script(src='/vendor/chartjs/Chart.bundle.min.js')
+script(src='/vendor/select2/select2.min.js')
+// Main JS
+script(src='/js/main.js')
+// end document
