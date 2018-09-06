@@ -1,0 +1,212 @@
+extends ../layout
+
+block content
+  .content-area.submit-property(style='background-color: #FCFCFC;')
+    .container
+      .clearfix
+        .wizard-container
+          #wizardProperty.wizard-card.ct-wizard-orange
+            form(action='' method='')
+                .wizard-header
+                   h3
+                        b Submit
+                        |  YOUR PROPERTY 
+                        br
+                        
+                ul.nav.nav-pills
+                    li(style="width:25%")
+                        a(href='#step1' data-toggle='tab') Step 1 
+                    li(style="width:25%")
+                        a(href='#step2' data-toggle='tab') Step 2 
+                    li(style="width:25%")
+                        a(href='#step3' data-toggle='tab') Step 3 
+                    li(style="width:25%")
+                        a(href='#step4' data-toggle='tab') Finished 
+                .tab-content
+                    #step1.tab-pane
+                        .row.p-b-15
+                            h4.info-text  Let&apos;s start with the basic information (with validation)
+                            .col-sm-4.col-sm-offset-1
+                                .picture-container
+                                    .picture
+                                        img#wizardPicturePreview.picture-src(src='assets/img/default-property.jpg' title='')
+                                        input#wizard-picture(type='file')
+                            .col-sm-6
+                                .form-group
+                                    label
+                                        | Property name 
+                                        small (required)
+                                    input.form-control(name='propertyname' type='text' placeholder='Super villa ...')
+                                .form-group
+                                    label
+                                        | Property price 
+                                        small (required)
+                                    input.form-control(name='propertyprice' type='text' placeholder='3330000')
+                                .form-group
+                                    label
+                                        | Telephone 
+                                        small (empty if you wanna use default phone number)
+                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436')
+                    // End step 1
+                    #step2.tab-pane
+                        h4.info-text  How much your Property is Beautiful ? 
+                        .row
+                            .col-sm-12
+                                .col-sm-12
+                                    .form-group
+                                        label Property Description :
+                                        textarea.form-control(name='discrition')
+                            .col-sm-12
+                                .col-sm-3
+                                    .form-group
+                                        label Property State :
+                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
+                                            option Seoul
+                                            option Paris
+                                            option Casablanca
+                                            option Tokyo
+                                            option Marraekch
+                                            option kyoto , shibua
+                                .col-sm-3
+                                    .form-group
+                                        label Property City :
+                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
+                                            option New york, CA
+                                            option Paris
+                                            option Casablanca
+                                            option Tokyo
+                                            option Marraekch
+                                            option kyoto , shibua
+                                .col-sm-3
+                                    .form-group
+                                        label Property Statue  :
+                                        select#basic.selectpicker.show-tick.form-control
+                                            option  -Status- 
+                                            option Rent 
+                                            option Boy
+                                            option used
+                                .col-sm-3
+                                    .form-group
+                                        label Property Statue  :
+                                        select#basic.selectpicker.show-tick.form-control
+                                            option  -Status- 
+                                            option Rent 
+                                            option Boy
+                                            option used
+                            .col-sm-12.padding-top-15
+                                .col-sm-4
+                                    .form-group
+                                        label(for='property-geo') Min bed :
+                                        input#min-bed.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                                        br
+                                        b.pull-left.color 1
+                                        b.pull-right.color 120
+                                .col-sm-4
+                                    .form-group
+                                        label(for='price-range') Min baths :
+                                        input#min-baths.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                                        br
+                                        b.pull-left.color 1
+                                        b.pull-right.color 120
+                                .col-sm-4
+                                    .form-group
+                                        label(for='property-geo') Property geo (m2) :
+                                        input#property-geo.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]')
+                                        br
+                                        b.pull-left.color 40m
+                                        b.pull-right.color 12000m
+                            .col-sm-12.padding-top-15
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Swimming Pool
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  2 Stories
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Emergency Exit
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Fire Place
+                            .col-sm-12.padding-bottom-15
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Laundry Room
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Jog Path
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Ceilings
+                                .col-sm-3
+                                    .form-group
+                                        .checkbox
+                                            label
+                                                input(type='checkbox')
+                                                |  Dual Sinks
+                            br
+                    // End step 2
+                    #step3.tab-pane
+                        h4.info-text Give us somme images and videos ? 
+                        .row
+                            .col-sm-6
+                                .form-group
+                                    label(for='property-images') Chose Images :
+                                    input#property-images.form-control(type='file')
+                                    p.help-block Select multipel images for your property .
+                            .col-sm-6
+                                .form-group
+                                    label(for='property-video') Property video :
+                                    input.form-control(value='' placeholder='http://www.youtube.com, http://vimeo.com' name='property_video' type='text')
+                                .form-group
+                                    input.form-control(value='' placeholder='http://www.youtube.com, http://vimeo.com' name='property_video' type='text')
+                                .form-group
+                                    input.form-control(value='' placeholder='http://www.youtube.com, http://vimeo.com' name='property_video' type='text')
+                    // End step 3
+                    #step4.tab-pane
+                      h4.info-text  Finished and submit 
+                        .row
+                          .col-sm-12
+                            div
+                                p
+                                    label
+                                        strong Terms and Conditions
+                                    |                                                         By accessing or using  GARO ESTATE services, such as
+                                    |                                                         posting your property advertisement with your personal
+                                    |                                                         information on our website you agree to the
+                                    |                                                         collection, use and disclosure of your personal information
+                                    |                                                         in the legal proper manner
+                                .checkbox
+                                    label
+                                        input(type='checkbox')
+                                        strong Accept termes and conditions.
+                    // End step 4
+                    .wizard-footer
+                        .pull-right
+                            input.btn.btn-next.btn-primary(type='button' name='next' value='Next')
+                            input.btn.btn-finish.btn-primary(type='button' name='finish' value='Finish')
+                        .pull-left
+                            input.btn.btn-previous.btn-default(type='button' name='previous' value='Previous')
+                        .clearfix
+            // End submit form
