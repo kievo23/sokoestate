@@ -169,7 +169,7 @@ router.post('/add', cpUpload, function(req, res, next){
 });
 
 router.get('/subcategory/add', function(req, res, next){
-	Category.find({group:'general'})
+	Category.find({})
 	.then(function(data){
 	  	console.log(data);
 	    res.render('categories/addsubcategory',{title: "Find It Categories", categories: data});

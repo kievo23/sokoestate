@@ -85,9 +85,7 @@ block content
                             i.fa.fa-trash.fa-fw(aria-hidden='true')
                           a(href="/category/subcategory/bizlist/"+cat.name,'title'="See Businesses Under This Category")
                             i.fa.fa-eye.fa-fw(aria-hidden='true')
-                          each minicat in cat.minicategories
-                            =minicat.name
-                          br           
+                                     
                       td
                         .table-data-feature
                           a(href="/admin/category/showhome/"+category.id, title="Show on home page")
