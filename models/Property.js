@@ -15,7 +15,7 @@ const propertySchema = new Schema({
 		},
 		category: String,
     type: String,
-    contact: String,
+    phone: String,
     photo: String,
     gallery: Array,
     surburb : String,

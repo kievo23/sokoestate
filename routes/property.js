@@ -33,8 +33,16 @@ router.post('/add', cpUpload, function(req, res, next){
   var i = new Property();
 	i.name = req.body.name;
   i.slug = slug(req.body.name);
-	i.icon = req.body.icon;
-	i.order = req.body.order;
+	i.phone = req.body.phone;
+	i.type = req.body.type;
+  i.category = req.body.category;
+  i.surburb = req.body.surburb;
+  i.description = req.body.description;
+  i.amenities = req.body.amenities;
+  i.gallery = req.files['gallery'];
+  if (req.files['photo'] != null){
+		i.photo = req.files['photo'][0].filename;
+	}
   if (req.files['photo'] != null){
 		i.photo = req.files['photo'][0].filename;
 	}
@@ -52,9 +60,19 @@ router.post('/add', cpUpload, function(req, res, next){
   				}).catch(function (err) {
   				    console.error(err);
   				});
-  			}else{
-
   			}
+        if(i.gallery){
+						i.gallery.forEach(function(gallery) {
+						  	Jimp.read("./public/uploads/property/"+gallery.filename).then(function (cover) {
+							    return cover.resize(200, 140)     // resize
+							         .quality(100)                 // set JPEG quality
+							         .greyscale()                 // set greyscale
+							         .write("./public/uploads/thumbs/properties/gallery-"+gallery.filename); // save
+							}).catch(function (err) {
+							    console.error(err);
+							});
+						});
+					}
       req.flash("success_msg", "Property Successfully Created");
   		res.redirect('/property');
     }
