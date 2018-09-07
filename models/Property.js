@@ -13,7 +13,7 @@ const propertySchema = new Schema({
 			type: String,
 			unique: true
 		},
-		category: String,
+		category: { type: Schema.Types.ObjectId, ref: 'Category' },
     type: String,
     phone: String,
     photo: String,

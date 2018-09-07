@@ -48,6 +48,18 @@ router.get('/add', function(req, res, next){
   });
 });
 
+router.get('/fetchcategory/:name', function(req, res, next){
+	//console.log(req.params.name);
+	Category.findById(req.params.name)
+	.then(function(data){
+		//console.log(data.subcategories);
+	    res.json(data.subcategories);
+	})
+	.catch(function(err){
+	     console.log(err);
+	});
+});
+
 router.post('/add', cpUpload, function(req, res, next){
   var i = new Property();
   //console.log(req.body);
@@ -59,6 +71,8 @@ router.post('/add', cpUpload, function(req, res, next){
   i.surburb = req.body.surburb;
   i.description = req.body.description;
   i.amenities = req.body.amenities;
+  i.category = req.body.category;
+  i.subcategory = req.body.subcategory;
   if(req.body.bedrooms){
     i.bedrooms = req.body.bedrooms;
   }
@@ -106,6 +120,30 @@ router.post('/add', cpUpload, function(req, res, next){
   		res.redirect('/property');
     }
 	});
+});
+
+router.get('/delete/:id', function(req, res, next){
+		Property.findOneAndRemove({
+		  _id: req.params.id
+		})
+		.then(function(data){
+		    res.redirect('/admin');
+		})
+		.catch(function(err){
+		     console.log(err);
+		});
+});
+
+router.get('/property/:slug',function(req, res){
+  var categories = Category.find({});
+  var property = Property.findOne({
+    slug: req.params.slug,
+    //status: true
+  });
+  Promise.all([categories,product]).then(values => {
+    console.log(values[1]);
+    res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
+  });
 });
 
 module.exports = router;
