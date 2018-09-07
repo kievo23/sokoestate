@@ -298,9 +298,9 @@ input[type="search"]::-webkit-search-decoration {
 .btn-default {
     border-radius: 1px;
     padding: 10px 20px;
-    border: 1px solid #FDC600;
+    border: 1px solid #c00000c7;
     color: #000;
-    background-color: #FDC600;
+    background-color: #c00000c7;
     border-color: #F0F0F0;
     font-weight: 600;
 }
