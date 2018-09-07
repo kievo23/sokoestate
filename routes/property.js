@@ -25,6 +25,19 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog', maxCount: 5 }, { name: 'gallery', maxCount: 30 }])
 
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  Property.find({})
+  .then(function(data){
+  	console.log(data);
+    res.render('property/index', {title: "Soko Estate Categories", categories: data});
+  })
+  .catch(function(err){
+     console.log(err);
+  });
+});
+
 router.get('/add', function(req, res, next){
 	res.render('property/new');
 });
