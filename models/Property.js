@@ -18,6 +18,10 @@ const propertySchema = new Schema({
     phone: String,
     photo: String,
     gallery: Array,
+		county: String,
+		bedrooms: String,
+		baths: String,
+		size: String,
     surburb : String,
     map: {
 			lati: String,
@@ -27,6 +31,7 @@ const propertySchema = new Schema({
     description: String,
     amenities: Array,
 		approved: String,
+		date: Date,
 });
 
 module.exports = mongoose.model('Property', propertySchema);

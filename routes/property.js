@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
   Property.find({})
   .then(function(data){
   	console.log(data);
-    res.render('property/index', {title: "Soko Estate Categories", categories: data});
+    res.render('property/index', {title: "Soko Estate Categories", properties: data});
   })
   .catch(function(err){
      console.log(err);
@@ -39,26 +39,42 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next){
-	res.render('property/new');
+  Category.find({})
+  .then(function(data){
+  	res.render('property/new', {title: "Find It Categories", categories: data});
+  })
+  .catch(function(err){
+     console.log(err);
+  });
 });
 
 router.post('/add', cpUpload, function(req, res, next){
   var i = new Property();
-	i.name = req.body.name;
-  i.slug = slug(req.body.name);
-	i.phone = req.body.phone;
+  //console.log(req.body);
+	i.name = req.body.propertyname;
+  i.slug = slug(req.body.propertyname);
+	i.phone = req.body.propertyprice;
 	i.type = req.body.type;
   i.category = req.body.category;
   i.surburb = req.body.surburb;
   i.description = req.body.description;
   i.amenities = req.body.amenities;
-  i.gallery = req.files['gallery'];
+  if(req.body.bedrooms){
+    i.bedrooms = req.body.bedrooms;
+  }
+  if(req.body.baths){
+    i.baths = req.body.baths;
+  }
+  if(req.body.size){
+    i.size = req.body.size;
+  }
+  if(req.files['gallery'] != null){
+    i.gallery = req.files['gallery'];
+  }
   if (req.files['photo'] != null){
 		i.photo = req.files['photo'][0].filename;
 	}
-  if (req.files['photo'] != null){
-		i.photo = req.files['photo'][0].filename;
-	}
+  i.date = new Date();
 	i.save(function(err){
 		if(err){
       console.log(err);

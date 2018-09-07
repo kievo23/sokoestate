@@ -6,7 +6,7 @@ block content
       .clearfix
         .wizard-container
           #wizardProperty.wizard-card.ct-wizard-orange
-            form(action='' method='')
+            form(action='/property/add' method='post',enctype="multipart/form-data")
                 .wizard-header
                    h3
                         b Submit
@@ -30,7 +30,7 @@ block content
                                 .picture-container
                                     .picture
                                         img#wizardPicturePreview.picture-src(src='assets/img/default-property.jpg' title='')
-                                        input#wizard-picture(type='file')
+                                        input#wizard-picture(type='file',name='photo')
                             .col-sm-6
                                 .form-group
                                     label
@@ -59,23 +59,17 @@ block content
                             .col-sm-12
                                 .col-sm-3
                                     .form-group
-                                        label Property State :
-                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
-                                            option Seoul
-                                            option Paris
-                                            option Casablanca
-                                            option Tokyo
-                                            option Marraekch
-                                            option kyoto , shibua
-                                .col-sm-3
-                                    .form-group
-                                        label Property City :
-                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
+                                        label Property County :
+                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city')
                                             option(value='nairobi') Nairobi
                                 .col-sm-3
                                     .form-group
+                                        label Property Surburb :
+                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...')
+                                .col-sm-3
+                                    .form-group
                                         label Property Statue  :
-                                        select#basic.selectpicker.show-tick.form-control
+                                        select#basic.selectpicker.show-tick.form-control(name='type')
                                             option  -Status- 
                                             option(value='rent') Rent 
                                             option(value='buy')  Buy
@@ -83,18 +77,18 @@ block content
                                 .col-sm-4
                                     .form-group
                                         label(for='property-geo') Min bed :
-                                        input#bed.span2(type='number' value='1' )
+                                        input#bed.span2(type='number' value='1',name='bedrooms' )
                                         br
                                         
                                 .col-sm-4
                                     .form-group
                                         label(for='price-range') Min baths :
-                                        input#baths.span2(type='number' value='1' )
+                                        input#baths.span2(type='number' value='1',name='baths' )
                                         br
                                 .col-sm-4
                                     .form-group
                                         label(for='price-range') Size(m2) :
-                                        input#size.span2(type='number' value='1' )
+                                        input#size.span2(type='number' value='1' ,name='size')
                                         br
                             .col-sm-12.padding-top-15
                                 .form-group
@@ -108,98 +102,98 @@ block content
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="swimming pool")
                                                 |  Swimming Pool
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="CCTV")
                                                 |  CCTV
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Emergency Exit")
                                                 |  Emergency Exit
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Fire Place")
                                                 |  Fire Place
                             .col-sm-12.padding-bottom-15
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Laundry Room")
                                                 |  Laundry Room
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Jog Path")
                                                 |  Jog Path
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Furnished")
                                                 |  Furnished
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Serviced")
                                                 |  Serviced
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Play Ground")
                                                 |  Play Ground
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Packing")
                                                 |  Packing
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Garden")
                                                 |  Garden
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Gym")
                                                 |  Gym
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Generator")
                                                 |  Generator
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Borehole")
                                                 |  Borehole
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Solar Panel")
                                                 |  Solar Panel
                                 .col-sm-3
                                     .form-group
                                         .checkbox
                                             label
-                                                input(type='checkbox', name='amenities')
+                                                input(type='checkbox', name='amenities[]',value="Club")
                                                 |  Club
                             br
                     // End step 2
@@ -209,8 +203,8 @@ block content
                             .col-sm-6
                                 .form-group
                                     label(for='property-images') Chose Images :
-                                    input#property-images.form-control(type='file')
-                                    p.help-block Select multipel images for your property .
+                                    input#property-images.form-control(type='file', name='gallery', placeholder='gallery', multiple='')
+                                    p.help-block Select multiple images for your property .
                             .col-sm-6
                                 .form-group
                                     label(for='property-video') Property video :
@@ -241,7 +235,7 @@ block content
                 .wizard-footer
                     .pull-right
                         input.btn.btn-next.btn-primary(type='button' name='next' value='Next')
-                        input.btn.btn-finish.btn-primary(type='button' name='finish' value='Finish')
+                        input.btn.btn-finish.btn-primary(type='submit' name='finish' value='Finish')
                     .pull-left
                         input.btn.btn-previous.btn-default(type='button' name='previous' value='Previous')
                     .clearfix
