@@ -36,17 +36,17 @@ block content
                                     label
                                         | Property name 
                                         small (required)
-                                    input.form-control(name='propertyname' type='text' placeholder='Super villa ...')
+                                    input.form-control(name='propertyname' type='text' placeholder='Super villa ...' required)
                                 .form-group
                                     label
                                         | Property price 
                                         small (required)
-                                    input.form-control(name='propertyprice' type='text' placeholder='3330000')
+                                    input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
                                 .form-group
                                     label
-                                        | Telephone 
-                                        small (empty if you wanna use default phone number)
-                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436')
+                                        | Telephone (Format: +254 756 354 976)
+                                        small (required)
+                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436' required)
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
@@ -60,25 +60,29 @@ block content
                                 .col-sm-3
                                     .form-group
                                         label Property County :
-                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city')
+                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city' required)
                                             option(value='nairobi') Nairobi
                                 .col-sm-3
                                     .form-group
                                         label Property Surburb :
-                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...')
+                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
                                 .col-sm-3
                                     .form-group
-                                        label Property Statue  :
-                                        select#basic.selectpicker.show-tick.form-control(name='type')
+                                        label Listing type  :
+                                        select#basic.selectpicker.show-tick.form-control(name='type' required)
                                             option  -Status- 
                                             option(value='rent') Rent 
                                             option(value='buy')  Buy
                                 .col-sm-1
                                     .form-group
                                         label Unit:
-                                        select#basic.selectpicker.show-tick.form-control
-                                            option(value='rent') m2
-                                            option(value='buy')  sqf
+                                        select#basic.selectpicker.show-tick.form-control(required)
+                                            option(value='acres') Acres
+                                            option(value='hectares')  Hectares
+                                            option(value='squaremeters')  Square Meters
+                                            option(value='squarefeet')  Square Feet
+                                            option(value='perches')  Perches
+
                                 .col-sm-2
                                     .form-group
                                         label(for='price-range') Size :
@@ -88,7 +92,7 @@ block content
                                 .col-sm-3
                                     .form-group
                                         label Category :
-                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select property category')
+                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select property category' required)
                                             option Seoul
                                             option Paris
                                             option Casablanca
@@ -98,7 +102,7 @@ block content
                                 .col-sm-3
                                     .form-group
                                         label Subcategory :
-                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select property subcategory')
+                                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select property subcategory' required)
                                             option Seoul
                                             option Paris
                                             option Casablanca
@@ -108,7 +112,7 @@ block content
                                 .col-sm-3
                                     .form-group
                                         label(for='property-geo') Bedrooms:
-                                        input#bed.span2(type='number' value='1' )
+                                        input#bed.span2(type='number' value='1')
                                         br
                                         
                                 .col-sm-3
