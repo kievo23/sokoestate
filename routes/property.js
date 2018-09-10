@@ -31,12 +31,26 @@ router.get('/', function(req, res, next) {
   Property.find({})
   .then(function(data){
   	console.log(data);
+    res.render('property/indexfront', {title: "Soko Estate Categories", properties: data});
+  })
+  .catch(function(err){
+     console.log(err);
+  });
+});
+
+/* GET property backend. */
+router.get('/list', function(req, res, next) {
+  Property.find({})
+  .then(function(data){
+  	console.log(data);
     res.render('property/index', {title: "Soko Estate Categories", properties: data});
   })
   .catch(function(err){
      console.log(err);
   });
 });
+
+
 
 router.get('/add', function(req, res, next){
   Category.find({})
