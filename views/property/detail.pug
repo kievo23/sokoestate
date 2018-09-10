@@ -21,15 +21,13 @@ block content
                                 div#myCarousel(class="carousel slide" data-interval="false")
                                     div.carousel-inner(role="listbox")
                                         div.item.active
-                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 420px; height: 440px")
+                                            img(src="/assets/img/property-1/property1.jpg" alt="XZ")
                                         div.item
-                                            img(src="https://cdn.arstechnica.net/wp-content/uploads/2016/08/Xperia-XZ_forestBlue_group_SCR1.png" alt="XZ" style="width: 420px; height: 440px")
+                                            img(src="/assets/img/property-1/property2.jpg" alt="XZ")
                                         div.item
-                                            img(src="https://sits-pod35.demandware.net/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw9ddcfe3a/images/XPERIAXZB/XPERIAXZB.png?sw=442&sh=442&sm=fit" alt="XZ" style="width: 420px; height: 440px")
+                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ")
                                         div.item
-                                            img(src="https://www.starhub.com/content/dam/catalog/starhub-store-sony-xperia-xz-blue-back.png" alt="XZ" style="width: 420px; height: 440px")
-                                        div.item
-                                            img(src="https://www.starhub.com/content/dam/catalog/starhub-store-sony-xperia-xz-platinum-back.png" alt="XZ" style="width: 420px; height: 440px")
+                                            img(src="/assets/img/property-1/property4.jpg" alt="XZ")
                                         
                                         a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
                                            span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
@@ -42,12 +40,10 @@ block content
                                         
                                     div#thumbCarousel
                                         div(data-target="#myCarousel" data-slide-to="0" class="thumb active")
-                                            img(src="src='/assets/img/property-1/property1.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                            img(src="/assets/img/property-1/property1.jpg" alt="XZ" style="width: 120px; height: 130px")
                                         div(data-target="#myCarousel" data-slide-to="1" class="thumb")
-                                            img(src="assets/img/property-1/property2.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                            img(src="/assets/img/property-1/property2.jpg" alt="XZ" style="width: 120px; height: 130px")
                                         div(data-target="#myCarousel" data-slide-to="2" class="thumb")
-                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 120px; height: 130px")
-                                        div(data-target="#myCarousel" data-slide-to="3" class="thumb")
                                             img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 120px; height: 130px")
                                         div(data-target="#myCarousel" data-slide-to="4" class="thumb")
                                             img(src="/assets/img/property-1/property4.jpg" alt="XZ" style="width: 120px; height: 130px")          
@@ -63,7 +59,7 @@ block content
                                        img(src='/assets/img/property-1/property3.jpg')
                                     li(data-thumb='/assets/img/property-1/property4.jpg')
                                        img(src='/assets/img/property-1/property4.jpg')
-                    .single-property-wrapper
+                    .div
                         .property-meta.entry-meta.clearfix
                             .col-xs-6.col-sm-3.col-md-3.p-b-15
                                 span.property-info-icon.icon-tag
@@ -116,9 +112,7 @@ block content
                         p
                             | Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies
                     // End description area
-                    .section.additional-details
-                        h4.s-property-title Additional Details
-                        ul.additional-details-list.clearfix
+                            
                         li
                             span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
                             span.col-xs-6.col-sm-8.col-md-8.add-d-entry Yes
@@ -141,50 +135,50 @@ block content
                     .section.property-features
                         h4.s-property-title Features
                         ul
-                        li
-                            a(href='properties.html') Swimming Pool
-                        li
-                            a(href='properties.html') 3 Stories
-                        li
-                            a(href='properties.html') Central Cooling
-                        li
-                            a(href='properties.html') Jog Path 2
-                        li
-                            a(href='properties.html') 2 Lawn
-                        li
-                            a(href='properties.html') Bike Path
+                            li
+                                a(href='properties.html') Swimming Pool
+                            li
+                                a(href='properties.html') 3 Stories
+                            li
+                                a(href='properties.html') Central Cooling
+                            li
+                                a(href='properties.html') Jog Path 2
+                            li
+                                a(href='properties.html') 2 Lawn
+                            li
+                                a(href='properties.html') Bike Path
                     // End features area
                     .section.property-video
                         h4.s-property-title Property Video
                         .video-thumb
-                        a.video-popup(href='yout' title='Virtual Tour')
-                            img.img-responsive.wp-post-image(src='/assets/img/property-video.jpg' alt='Exterior')
-                            // End video area
-                            .section.property-share
-                                h4.s-property-title Share width your friends 
-                                .roperty-social
-                                ul
-                                    li
-                                        a(title='Share this on dribbble ' href='#')
-                                            img(src='/assets/img/social_big/dribbble_grey.png')
-                                    li
-                                        a(title='Share this on facebok ' href='#')
-                                            img(src='/assets/img/social_big/facebook_grey.png')
-                                    li
-                                        a(title='Share this on delicious ' href='#')
-                                            img(src='/assets/img/social_big/delicious_grey.png')
-                                    li
-                                        a(title='Share this on tumblr ' href='#')
-                                            img(src='/assets/img/social_big/tumblr_grey.png')
-                                    li
-                                        a(title='Share this on digg ' href='#')
-                                            img(src='/assets/img/social_big/digg_grey.png')
-                                    li
-                                        a(title='Share this on twitter ' href='#')
-                                            img(src='/assets/img/social_big/twitter_grey.png')
-                                    li
-                                        a(title='Share this on linkedin ' href='#')
-                                            img(src='/assets/img/social_big/linkedin_grey.png')
+                            a.video-popup(href='yout' title='Virtual Tour')
+                                img.img-responsive.wp-post-image(src='/assets/img/property-video.jpg' alt='Exterior')
+                                // End video area
+                    .section.property-share
+                        h4.s-property-title Share property with your friends 
+                        .roperty-social
+                            ul
+                                li
+                                    a(title='Share this on dribbble ' href='#')
+                                        img(src='/assets/img/social_big/dribbble_grey.png')
+                                li
+                                    a(title='Share this on facebok ' href='#')
+                                        img(src='/assets/img/social_big/facebook_grey.png')
+                                li
+                                    a(title='Share this on delicious ' href='#')
+                                        img(src='/assets/img/social_big/delicious_grey.png')
+                                li
+                                    a(title='Share this on tumblr ' href='#')
+                                        img(src='/assets/img/social_big/tumblr_grey.png')
+                                li
+                                    a(title='Share this on digg ' href='#')
+                                        img(src='/assets/img/social_big/digg_grey.png')
+                                li
+                                    a(title='Share this on twitter ' href='#')
+                                        img(src='/assets/img/social_big/twitter_grey.png')
+                                li
+                                    a(title='Share this on linkedin ' href='#')
+                                        img(src='/assets/img/social_big/linkedin_grey.png')
                 // End video area
                 .col-md-4.p0
                     aside.sidebar.sidebar-property.blog-asside-right
