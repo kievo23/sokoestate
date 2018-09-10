@@ -18,7 +18,43 @@ block content
                                         i.fa.fa-star-o
                                     a.printer-icon(href='javascript:window.print()')
                                         i.fa.fa-print
-                                ul#image-gallery.gallery.list-unstyled.cS-hidden
+                                div#myCarousel(class="carousel slide" data-interval="false")
+                                    div.carousel-inner(role="listbox")
+                                        div.item.active
+                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 420px; height: 440px")
+                                        div.item
+                                            img(src="https://cdn.arstechnica.net/wp-content/uploads/2016/08/Xperia-XZ_forestBlue_group_SCR1.png" alt="XZ" style="width: 420px; height: 440px")
+                                        div.item
+                                            img(src="https://sits-pod35.demandware.net/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw9ddcfe3a/images/XPERIAXZB/XPERIAXZB.png?sw=442&sh=442&sm=fit" alt="XZ" style="width: 420px; height: 440px")
+                                        div.item
+                                            img(src="https://www.starhub.com/content/dam/catalog/starhub-store-sony-xperia-xz-blue-back.png" alt="XZ" style="width: 420px; height: 440px")
+                                        div.item
+                                            img(src="https://www.starhub.com/content/dam/catalog/starhub-store-sony-xperia-xz-platinum-back.png" alt="XZ" style="width: 420px; height: 440px")
+                                        
+                                        a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
+                                           span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+                                           span(class="sr-only") Previous
+                                        
+                                        a(class="right carousel-control" href="#myCarousel" role="button" data-slide="next")
+                                           span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+                                           span(class="sr-only")  Next
+                                        
+                                        
+                                    div#thumbCarousel
+                                        div(data-target="#myCarousel" data-slide-to="0" class="thumb active")
+                                            img(src="src='/assets/img/property-1/property1.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                        div(data-target="#myCarousel" data-slide-to="1" class="thumb")
+                                            img(src="assets/img/property-1/property2.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                        div(data-target="#myCarousel" data-slide-to="2" class="thumb")
+                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                        div(data-target="#myCarousel" data-slide-to="3" class="thumb")
+                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 120px; height: 130px")
+                                        div(data-target="#myCarousel" data-slide-to="4" class="thumb")
+                                            img(src="/assets/img/property-1/property4.jpg" alt="XZ" style="width: 120px; height: 130px")          
+                                    
+                                   
+                                
+                                //ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     li(data-thumb='/assets/img/property-1/property1.jpg')
                                        img(src='/assets/img/property-1/property1.jpg')
                                     li(data-thumb='assets/img/property-1/property2.jpg')
@@ -353,3 +389,35 @@ block content
                                 .row
                                     .col-xs-12
                                        input.button.btn.largesearch-btn(value='Search' type='submit')
+    script(text/javascript).
+        $(document).ready(function(){
+	 
+            //Show carousel-control
+            
+            $("#myCarousel").mouseover(function(){
+                $("#myCarousel .carousel-control").show();
+            });
+
+            $("#myCarousel").mouseleave(function(){
+                $("#myCarousel .carousel-control").hide();
+            });
+            
+            //Active thumbnail
+            
+            $("#thumbCarousel .thumb").on("click", function(){
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+            
+            });
+            
+            //When the carousel slides, auto update
+            
+            $('#myCarousel').on('slid.bs.carousel', function(){
+            var index = $('.carousel-inner .item.active').index();
+            //console.log(index);
+            var thumbnailActive = $('#thumbCarousel .thumb[data-slide-to="'+index+'"]');
+            thumbnailActive.addClass('active');
+            $(thumbnailActive).siblings().removeClass("active");
+            //console.log($(thumbnailActive).siblings()); 
+            });
+            });
