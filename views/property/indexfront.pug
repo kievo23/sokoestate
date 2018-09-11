@@ -1,0 +1,420 @@
+extends ../layout
+
+block content        
+    // property area
+    .properties-area.recent-property(style='background-color: #FFF;')
+        .container
+            .row
+                .col-md-9.padding-top-40.properties-page
+                    .section.clear
+                        .col-xs-10.page-subheader.sorting.pl0
+                            ul.sort-by-list
+                                li.active
+                                    a.order_by_date(href='javascript:void(0);' data-orderby='property_date' data-order='ASC')
+                                        | Property Date 
+                                        i.fa.fa-sort-amount-asc
+                                li
+                                    a.order_by_price(href='javascript:void(0);' data-orderby='property_price' data-order='DESC')
+                                        | Property Price 
+                                        i.fa.fa-sort-numeric-desc
+                                // / .sort-by-list
+                            .items-per-page
+                                label(for='items_per_page')
+                                    b Property per page :
+                                .sel
+                                    select#items_per_page(name='per_page')
+                                        option(value='3') 3
+                                        option(value='6') 6
+                                        option(value='9') 9
+                                        option(selected='selected' value='12') 12
+                                        option(value='15') 15
+                                        option(value='30') 30
+                                        option(value='45') 45
+                                        option(value='60') 60
+                                // / .sel
+                                // / .items-per-page
+                        .col-xs-2.layout-switcher
+                            a.layout-list(href='javascript:void(0);')
+                                i.fa.fa-th-list
+                            a.layout-grid.active(href='javascript:void(0);')
+                                i.fa.fa-th
+                        // / .layout-switcher
+                    .section.clear
+                        #list-type.proerty-th
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='/assets/img/demo/property-3.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='/assets/img/demo/property-2.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-1.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0    
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-3.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-1.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-2.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-3.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-2.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                            .col-sm-6.col-md-4.p0
+                                .box-two.proerty-item
+                                    .item-thumb
+                                        a(href='property-1.html')
+                                            img(src='assets/img/demo/property-1.jpg')
+                                    .item-entry.overflow
+                                        h5
+                                            a(href='property-1.html')  Super nice villa 
+                                        .dot-hr
+                                    span.pull-left
+                                        b  Area :
+                                        |  120m
+                                    span.proerty-price.pull-right  $ 300,000
+                                    p(style='display: none;')
+                                        | Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...
+                                    .property-icon
+                                        img(src='assets/img/icon/bed.png')
+                                        | (5)|
+                                        img(src='assets/img/icon/shawer.png')
+                                        | (2)|
+                                        img(src='assets/img/icon/cars.png')
+                                        | (1)
+                    .section
+                        .pull-right
+                            .pagination
+                                ul
+                                    li
+                                    a(href='#') Prev
+                                    li
+                                    a(href='#') 1
+                                    li
+                                    a(href='#') 2
+                                    li
+                                    a(href='#') 3
+                                    li
+                                    a(href='#') 4
+                                    li
+                                    a(href='#') Next
+                .col-md-3.pl0.padding-top-40
+                    .blog-asside-right.pl0
+                        .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+                            .panel-heading
+                                h3.panel-title Smart search
+                            .panel-body.search-widget
+                                form.form-inline(action='')
+                                    fieldset
+                                       .row
+                                           .col-xs-12
+                                    input.form-control(type='text' placeholder='Key word')
+                                fieldset
+                                    .row
+                                        .col-xs-6
+                                            select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select Your City')
+                                                option New york, CA
+                                                option Paris
+                                                option Casablanca
+                                                option Tokyo
+                                                option Marraekch
+                                                option kyoto , shibua
+                                        .col-xs-6
+                                            select#basic.selectpicker.show-tick.form-control
+                                                option  -Status- 
+                                                option Rent 
+                                                option Boy
+                                                option used
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                            label(for='price-range') Price range ($):
+                                            input#price-range.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]')
+                                            br
+                                            b.pull-left.color 2000$
+                                            b.pull-right.color 100000$
+                                        .col-xs-6
+                                            label(for='property-geo') Property geo (m2) :
+                                            input#property-geo.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]')
+                                            br
+                                            b.pull-left.color 40m
+                                            b.pull-right.color 12000m
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                            label(for='price-range') Min baths :
+                                            input#min-baths.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                                            br
+                                            b.pull-left.color 1
+                                            b.pull-right.color 120
+                                        .col-xs-6
+                                            label(for='property-geo') Min bed :
+                                            input#min-bed.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
+                                            br
+                                            b.pull-left.color 1
+                                            b.pull-right.color 120
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox' checked='')
+                                                |  Fire Place
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox')
+                                                |  Dual Sinks
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                        .checkbox
+                                            label
+                                            input(type='checkbox' checked='')
+                                            |  Swimming Pool
+                                        .col-xs-6
+                                        .checkbox
+                                            label
+                                            input(type='checkbox' checked='')
+                                            |  2 Stories
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox')
+                                                |  Laundry Room
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox')
+                                                |  Emergency Exit
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox' checked='')
+                                                |  Jog Path
+                                        .col-xs-6
+                                            .checkbox
+                                                label
+                                                input(type='checkbox')
+                                                |  26&apos; Ceilings
+                                fieldset.padding-5
+                                    .row
+                                        .col-xs-12
+                                            .checkbox
+                                                label
+                                                input(type='checkbox')
+                                                |  Hurricane Shutters
+                                fieldset
+                                    .row
+                                        .col-xs-12
+                                        input.button.btn.largesearch-btn(value='Search' type='submit')
+                        .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+                            .panel-heading
+                            h3.panel-title Recommended
+                            .panel-body.recent-property-widget
+                            ul
+                                li
+                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                    a(href='single.html')
+                                    img(src='assets/img/demo/small-property-2.jpg')
+                                    span.property-seeker
+                                    b.b-1 A
+                                    b.b-2 S
+                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                    h6
+                                    a(href='single.html') Super nice villa 
+                                    span.property-price 3000000$
+                                li
+                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                    a(href='single.html')
+                                    img(src='assets/img/demo/small-property-1.jpg')
+                                    span.property-seeker
+                                    b.b-1 A
+                                    b.b-2 S
+                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                    h6
+                                    a(href='single.html') Super nice villa 
+                                    span.property-price 3000000$
+                                li
+                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                    a(href='single.html')
+                                    img(src='assets/img/demo/small-property-3.jpg')
+                                    span.property-seeker
+                                    b.b-1 A
+                                    b.b-2 S
+                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                    h6
+                                    a(href='single.html') Super nice villa 
+                                    span.property-price 3000000$
+                                li
+                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                    a(href='single.html')
+                                    img(src='assets/img/demo/small-property-2.jpg')
+                                    span.property-seeker
+                                    b.b-1 A
+                                    b.b-2 S
+                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                    h6
+                                    a(href='single.html') Super nice villa 
+                                    span.property-price 3000000$

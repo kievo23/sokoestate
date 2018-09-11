@@ -2,13 +2,14 @@ extends ../layout
 
 block content
     // property area
+    .container(style="background-color:#fff")
+        .col-md-12
+            .single-property-header
+                h1.property-title.pull-left Villa in Coral Gables
+                span.property-price.pull-right $825,000
     .content-area.single-property(style='background-color: #FCFCFC;')
-        .container
+        .container(style="background-color:#fff")
             .clearfix.padding-top-40
-                .col-md-12
-                   .single-property-header
-                        h1.property-title.pull-left Villa in Coral Gables
-                        span.property-price.pull-right $825,000
                 .col-md-8.single-property-content.prp-style-1
                     .row
                         .light-slide-item
@@ -188,7 +189,7 @@ block content
                                     .clear
                                         .col-xs-4.col-sm-4.dealer-face
                                             a(href='')
-                                            img.img-circle(src='assets/img/client-face1.png')
+                                              img.img-circle(src='/assets/img/client-face1.png')
                                         .col-xs-8.col-sm-8
                                             h3.dealer-name
                                                 a(href='') Nathan James
@@ -208,7 +209,7 @@ block content
                                         ul.dealer-contacts
                                             li
                                             i.pe-7s-map-marker.strong  
-                                            |  9089 your adress her
+                                            |  9089 Address
                                             li
                                             i.pe-7s-mail.strong  
                                             |  email@yourcompany.com
@@ -217,6 +218,8 @@ block content
                                             |  +1 908 967 5906
                                         p
                                             | Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non&mldr;
+                                        p
+                                          a(href="") Send message
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties
@@ -268,7 +271,7 @@ block content
                                             span.property-price 3000000$
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
-                               h3.panel-title Ads her  
+                               h3.panel-title Ads here
                             .panel-body.recent-property-widget
                                img(src='./assets/img/ads.jpg')
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
