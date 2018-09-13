@@ -1,0 +1,63 @@
+extends ../layout
+
+block content
+  #home.parallax-content-list.baner-content-listing-biz
+    .container
+      if validationerrors
+        each error in validationerrors
+          .alert.alert-danger.xxx-error
+            = error.msg
+      .xxx
+         p
+          //| Sign up with 
+          //- a(href='#') Facebook
+          //- |   or 
+          a.btn-gp-link(href="/auth/google")
+            button.btn.btn-danger.facebook-google-btn.form-control
+              i.fab.fa-google.pull-left(aria-hidden='true')          
+              |  &nbsp;   Sign up with Google
+          .div
+          a.btn-gp-link(href="/auth/facebook")
+            button.btn.btn-primary.facebook-google-btn.form-control
+              i.fab.fa-facebook-f.pull-left(aria-hidden='true') 
+                       
+            | &nbsp; Sign up with Facebook
+         .text-center
+            | Or     
+         form(method="post", action="/register")
+          .form-group
+            input#names.form-control-form(type='text', placeholder='Full Name', name='names')
+          .form-group
+            input#email.form-control-form(type='email', placeholder='Email', name='email')
+          .form-group
+            input#phone.form-control-form(type='text', placeholder='Phone', name='phone')
+          .form-group
+            input#password.form-control-form(type='password', placeholder='Password', name='password')
+          .form-group
+            input#password.form-control-form(type='password', placeholder='Confirm Password', name='cpassword')
+          .form-group
+            .row
+              .col-md-12
+                .input-group
+                  .checkbox
+                    label
+                      input(type="checkbox" class="custom-control-input custom-control form-control-lg custom-checkbox" id="customCheck1" style = "width: 20px; height: 20px;")
+                      label(class="custom-control-label" for="customCheck1")
+                        small(style="margin-left:25px")
+                          | I’d like to receive coupons and newsletters from Sokompare
+                  p
+                    small
+                      | By signing up, I agree to Sokompare’s, 
+                      a(href='#') Terms of Service
+                      | , 
+                      a(href='#') Privacy Policy
+                      | .
+          .form-group
+            button.btn.btn-primary.w3ls-btn(type='submit') Sign Up
+          hr
+          .row
+            .col-md-6.text-center
+              p.ta-l Already a Member? 
+            .col-md-6.text-center
+              a(href='/login')
+               .btn.btn-default(data-toggle='modal', data-dismiss='modal', data-target='#at-login') Login Here
