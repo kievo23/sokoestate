@@ -1,0 +1,34 @@
+extends ../backendlayout
+
+block content 
+   .page-wrapper
+        .page-content--bge5
+            .container
+            .login-wrap
+                .login-content
+                    .login-logo
+                        a(href='/')
+                          img(src='/assets/img/logosokoestate.png' alt='soko estate')
+                    .login-form
+                        form(action='' method='post')
+                            .form-group
+                                label Email Address
+                                input.au-input.au-input--full(type='email' name='email' placeholder='Email')
+                            .form-group
+                                label Password
+                                input.au-input.au-input--full(type='password' name='password' placeholder='Password')
+                            .login-checkbox
+                                label
+                                    input(type='checkbox' name='remember')
+                                    | Remember Me
+                                label
+                                   a(href='#') Forgotten Password?
+                            button.au-btn.au-btn--block.au-btn--green.m-b-20(type='submit') sign in
+                            .social-login-content
+                                .social-button
+                                    button.au-btn.au-btn--block.au-btn--blue.m-b-20 sign in with facebook
+                                    button.au-btn.au-btn--block.au-btn--blue2 sign in with google
+                        .register-link
+                            p
+                                | Don&apos;t you have account?
+                                a(href='#') Sign Up Here
