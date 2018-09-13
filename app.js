@@ -263,6 +263,7 @@ app.post('/register',
                 //return handleError(err);
               }
               if(user){
+                /*
                 var holder = emailModel.app;
                 var mailer = emailModel.mailer;
                 holder.mailer.send('email/welcome', {
@@ -277,6 +278,7 @@ app.post('/register',
                     return;
                   }
                 });
+                */
                 req.flash('success_msg','Registration was Successful. Kindly Login');
                 req.login(user, function(err){
                     if(err) return next(err);

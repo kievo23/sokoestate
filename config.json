@@ -5,11 +5,11 @@
         "password": "noreplyfindit"
     },
     "google": {
-        "clientId": "118322684414-q0vllioiccmtodvj62kc5n2rcivatj83.apps.googleusercontent.com",
-        "clientSecret": "j5in8fHjSBfLkZi5mAc3k3bZ"
+        "clientId": "118322684414-u6flq5dff4i2pkhm41fe8gdgda75m52e.apps.googleusercontent.com",
+        "clientSecret": "lbUS9dRMfFCos3uv_WzHdP_t"
     },
     "facebook": {
-        "clientId": "152589045423306",
-        "clientSecret": "e7e3ae226db70be289d5eb8c2ff2dd19"
+        "clientId": "294473578032345",
+        "clientSecret": "35bcb6980796e3a1a3b799da5de42d91"
     }
 }
