@@ -17,8 +17,15 @@ block content
           h2 Find Properties in Kenya
           .search-form.wow.pulse(data-wow-delay='0.8s')
             form.form-inline(action='')
-              button(type="button" class="btn btn-default") For Sale
-              button(type="button" class="btn btn-primary") For rent
+              div
+                ul.nav.nav-pills
+                  li.active
+                    a(data-toggle="pill" href="#sale")
+                       button(type="button" class="btn btn-default") For Sale
+                  li
+                    a(data-toggle="pill" href="#sale")
+                       button(type="button" class="btn btn-default") For Rent
+              
               
               button.btn.toggle-btn(type='button')
                 i.fa.fa-bars
