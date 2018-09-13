@@ -76,12 +76,21 @@ html
         // Collect the nav links, forms, and other content for toggling
         #navigation.collapse.navbar-collapse.yamm
           .button.navbar-right
-            button.navbar-btn.nav-button.wow.bounceInRight.login(onclick=" window.open('register.html')" data-wow-delay='0.45s') Login
-            button.navbar-btn.nav-button.wow.fadeInRight(onclick=" window.open('submit-property.html')" data-wow-delay='0.48s') Submit
+            button.navbar-btn.nav-button.wow.bounceInRight.login(onclick=" window.open('/login')" data-wow-delay='0.45s') Login
+            button.navbar-btn.nav-button.wow.fadeInRight(onclick=" window.open('/register')" data-wow-delay='0.48s') Register
           ul.main-nav.nav.navbar-nav.navbar-right
             li.dropdown.ymm-sw(data-wow-delay='0.1s')
-              a.dropdown-toggle.active(href='/' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
-                | Home 
+              a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | For Sale
+                b.caret
+              ul.dropdown-menu.navbar-nav
+                li
+                  a(href='') Home  2
+                li
+                  a(href='') Home  3
+            li.dropdown.ymm-sw(data-wow-delay='0.1s')
+              a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | For Rent
                 b.caret
               ul.dropdown-menu.navbar-nav
                 li
@@ -90,10 +99,10 @@ html
                   a(href='') Home  3
                 
             li.wow.fadeInDown(data-wow-delay='0.2s')
-              a(href='properties.html') View Properties
+              a(href='/property') view Property
             li.wow.fadeInDown(data-wow-delay='0.3s')
-              a(href='property.html') Property
-            li.dropdown.yamm-fw(data-wow-delay='0.4s')
+              a(href='/property/add') Add Property
+            //li.dropdown.yamm-fw(data-wow-delay='0.4s')
               a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
                 | Template 
                 b.caret
@@ -101,15 +110,6 @@ html
                 li
                   .yamm-content
                     .row
-                      .col-sm-3
-                        h5 Home pages
-                        ul
-                          li
-                            a(href='index.html') Home  1
-                          li
-                            a(href='#') Home  2
-                          li
-                            a(href='#') Home  3
                           
                       .col-sm-3
                         h5 Pages and blog
@@ -150,18 +150,17 @@ html
                         h5 User account
                         ul
                           li
-                            a(href='register.html') Register / login
+                            a(href='/login') Register / login
                           li
-                            a(href='user-properties.html') Your properties
+                            a(href='/property/list') Your properties
                           li
-                            a(href='submit-property.html') Submit property
+                            a(href='/property/add') Submit property
                           li
                             a(href='change-password.html') Change password
                           li
-                            a(href='user-profile.html') Your profile
-                  // /.yamm-content
-            li.wow.fadeInDown(data-wow-delay='0.5s')
-              a(href='contact.html') Contact
+                            a(href='/admin') Your profile
+                   /.yamm-content
+            
         // /.navbar-collapse
       // /.container-fluid
     // End of nav bar

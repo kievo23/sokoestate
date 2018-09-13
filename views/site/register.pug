@@ -6,12 +6,6 @@ block content
         .col-sm-6.col-md-4.col-md-offset-4
             h1.text-center.login-title Sign in to continue to Soko Estate
             .account-wall
-                a.btn-gp-link(href="/auth/facebook")
-                  button.btn.btn-lg.btn-info.btn-block(type='button')
-                      | Sign Up with Facebook
-                a.btn-gp-link(href="/auth/google")
-                  button.btn.btn-lg.btn-danger.btn-block(type='button')
-                      |  Sign Up with Google
                 form.form-signin(method='post',action="/register")
                     input.form-control(type='text' placeholder='Full Name' required='' autofocus='',name='username')
                     input.form-control(type='email' placeholder='Email' required='',name='password')
@@ -29,9 +23,18 @@ block content
                     button.btn.btn-lg.btn-primary.btn-block(type='submit')
                         | Sign Up
                 
+                    div(style="padding:1rem")
+                      a.btn-gp-link(href="/auth/facebook")
+                        span(style="padding:1rem")
+                          button.btn.btn-lg.btn-info.btn-block(type='button')
+                            | Login in with Facebook
+                      a.btn-gp-link(href="/auth/google")
+                        span(style="padding:1rem")
+                          button.btn.btn-lg.btn-danger.btn-block(type='button')
+                              | Login with Google
                     label.checkbox.pull-left
-                        input(type='checkbox' value='remember-me' style="float: left; margin-left: -55px;")
-                          | I’d like to receive coupons and newsletters from Sokoestate
+                        input(type='checkbox' value='remember-me' style="float: left; margin-left: -150px;")
+                        | I’d like to receive coupons and newsletters from Sokoestate
                
                 span.clearfix
                    a.text-center.new-account(href='/login') Already have an account? Login Here. 

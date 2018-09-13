@@ -2582,7 +2582,7 @@ padding-bottom: 15px;
 } 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #FFF;
-    background-color: #FFC500;
+    background-color: #04045a;
 }
 .nav-pills > li > a {
     border-radius: 0px;
@@ -3121,7 +3121,13 @@ padding: 10px;
 }
 .form-signin input[type="text"]
 {
-    margin-bottom: -1px;
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="email"]
+{
+    margin-bottom: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
