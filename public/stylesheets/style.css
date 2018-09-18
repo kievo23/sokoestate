@@ -4,5 +4,24 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(4, 4, 90);
+}
+.sale-rent {
+     list-style-type:none;
+     padding:0;
+}
+
+.sale-rent li {
+     float:left;
+     margin:0 5px 0 0;
+}
+
+.sale-rent label {
+     padding:5px;
+     border:1px solid #CCC; 
+     cursor:pointer;
+}
+
+.sale-rent label:hover {
+     background:#DDD;
 }

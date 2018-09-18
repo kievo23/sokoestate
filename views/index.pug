@@ -17,20 +17,24 @@ block content
           .search-form.wow.pulse(data-wow-delay='0.8s')
             h2 Find Properties in Kenya
             form.form-inline(action='')
+              .row
+                .col-md-12.form-group
+                  ul.sale-rent
+                    li
+                      .custom-control.custom-radio.custom-control-inline
+                        label.custom-control-label(for='defaultInline1' style="color:#777; margin-left: 5rem;") 
+                          | For Sale
+                          input#defaultInline1.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden' )
+                        
+                    li  
+                      // Default inline 2
+                      .custom-control.custom-radio.custom-control-inline
+                        label.custom-control-label(for='defaultInline2' style="color:#777") 
+                          | For Rent
+                          input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden')
+                   
               div
-                .form-group
-                  .custom-control.custom-radio.custom-control-inline
-                    input#defaultInline1.custom-control-input(type='radio' name='inlineDefaultRadiosExample')
-                    label.custom-control-label(for='defaultInline1' style="color:#777") 
-                      button For Sale
-                .form-group  
-                  // Default inline 2
-                  .custom-control.custom-radio.custom-control-inline
-                    input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample')
-                    label.custom-control-label(for='defaultInline2' style="color:#777") 
-                      button For Rent
-              div
-                .form-group
+                //.form-group
                   input.form-control(type='text' placeholder='Key word')
                 .form-group
                   select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
@@ -41,11 +45,35 @@ block content
                     option Marraekch
                     option kyoto , shibua
                 .form-group
-                  select#basic.selectpicker.show-tick.form-control
-                    option  -Status- 
-                    option Rent 
-                    option Boy
-                    option used
+                  select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Property Type')
+                    option New york, CA
+                    option Paris
+                    option Casablanca
+                    option Tokyo
+                    option Marraekch
+                    option kyoto , shibua
+              br
+              div  
+                .form-group
+                  .input-group.number-spinner
+                    span.input-group-btn
+                      button.btn.btn-default(data-dir='dwn')
+                        span.glyphicon.glyphicon-minus
+                    input.form-control.text-center(type='text' value='1' placeholder='max')
+                    span.input-group-btn
+                      button.btn.btn-default(data-dir='up')
+                        span.glyphicon.glyphicon-plus
+                .form-group  
+                  .input-group.number-spinner
+                    span.input-group-btn
+                      button.btn.btn-default(data-dir='dwn')
+                        span.glyphicon.glyphicon-minus
+                    input.form-control.text-center(type='text' value='1' placeholder='max')
+                    span.input-group-btn
+                      button.btn.btn-default(data-dir='up')
+                        span.glyphicon.glyphicon-plus
+              br
+              div
                 button.btn.search-btn(type='submit')
                   i.fa.fa-search
                 button.btn.toggle-btn(type='button')
@@ -353,4 +381,20 @@ block content
             .asks-first-arrow
               a(href='properties.html')
                 span.fa.fa-angle-right
-        
+  script(type="text/javascript").
+    $(document).on('click', '.number-spinner button', function () {    
+      var btn = $(this),
+        oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+        newVal = 0;
+      
+      if (btn.attr('data-dir') == 'up') {
+        newVal = parseInt(oldValue) + 1;
+      } else {
+        if (oldValue > 1) {
+          newVal = parseInt(oldValue) - 1;
+        } else {
+          newVal = 1;
+        }
+      }
+      btn.closest('.number-spinner').find('input').val(newVal);
+    });      
