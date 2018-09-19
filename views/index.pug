@@ -53,25 +53,15 @@ block content
                     option Marraekch
                     option kyoto , shibua
               br
-              div  
+              div(data-role="main" class="ui-content")  
                 .form-group
-                  .input-group.number-spinner
-                    span.input-group-btn
-                      button.btn.btn-default(data-dir='dwn')
-                        span.glyphicon.glyphicon-minus
-                    input.form-control.text-center(type='text' value='1' placeholder='max')
-                    span.input-group-btn
-                      button.btn.btn-default(data-dir='up')
-                        span.glyphicon.glyphicon-plus
-                .form-group  
-                  .input-group.number-spinner
-                    span.input-group-btn
-                      button.btn.btn-default(data-dir='dwn')
-                        span.glyphicon.glyphicon-minus
-                    input.form-control.text-center(type='text' value='1' placeholder='max')
-                    span.input-group-btn
-                      button.btn.btn-default(data-dir='up')
-                        span.glyphicon.glyphicon-plus
+                  ul(data-role='rangeslider' style="inline")
+                    li
+                      label(for='price-min' style="color:#ccc") Price:
+                      input#price-min(type='range' name='price-min' value='200' min='0' max='1000')
+                    li
+                      label(for='price-max' style="color:#ccc") Price:
+                      input#price-max(type='range' name='price-max' value='800' min='0' max='1000')
               br
               div
                 button.btn.search-btn(type='submit')
