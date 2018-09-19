@@ -25,3 +25,16 @@ a {
 .sale-rent label:hover {
      background:#DDD;
 }
+/*.ui-slider-horizontal .ui-slider-handle {
+    top: -.2em;
+    margin-left: -.6em;
+}
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.9em;
+    cursor: default;
+    -ms-touch-action: none;
+    touch-action: none;
+}*/

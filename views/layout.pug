@@ -27,7 +27,7 @@ html
     link(rel='stylesheet' href='/assets/css/responsive.css')
     link(rel='stylesheet' href='/assets/css/wizard.css')
     link(rel='stylesheet' href='/assets/css/animate.css')
-    link(rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen")
+    link(rel='stylesheet' href='https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css')
     //link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
   //social and contacts
   //#preloader
@@ -185,8 +185,24 @@ script(src='/assets/js/main.js')
 script(src='/assets/js/wizard.js')
 script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js")
 script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-script(src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
-script(src="https://code.jquery.com/jquery-1.11.3.min.js")
+link(rel='stylesheet' href='/stylesheets/jquery-ui.css')
+script(src='/js/jquery-2.1.3.js')
+script(src='/js/jquery-ui.js')
+
+script(type='text/javascript').
+  $(document).ready(function() {
+  $( "#mySlider" ).slider({
+  range: true,
+  min: 0,
+  max: 50000000,
+  values: [ 10000, 10000000 ],
+  slide: function( event, ui ) {
+  $( "#price" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+  }
+  });
+  $( "#price" ).val( "$" + $( "#mySlider" ).slider( "values", 0 ) +
+  " - $" + $( "#mySlider" ).slider( "values", 1 ) );
+  });
 
 script(type='text/javascript').
   $(document).ready(function() {

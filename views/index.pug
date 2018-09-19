@@ -45,34 +45,28 @@ block content
                     option Marraekch
                     option kyoto , shibua
                 .form-group
-                  select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Property Type')
-                    option New york, CA
-                    option Paris
-                    option Casablanca
-                    option Tokyo
-                    option Marraekch
-                    option kyoto , shibua
-              br
-              div(data-role="main" class="ui-content")  
+                  select#basic.selectpicker.show-tick.form-control(title='Select Property Type')
+                    option  -Status- 
+                    option Land
+                    option Massionette
+                    option Bungalow
+                    option Apartments
+                
                 .form-group
-                  ul(data-role='rangeslider' style="inline")
-                    li
-                      label(for='price-min' style="color:#ccc") Price:
-                      input#price-min(type='range' name='price-min' value='200' min='0' max='1000')
-                    li
-                      label(for='price-max' style="color:#ccc") Price:
-                      input#price-max(type='range' name='price-max' value='800' min='0' max='1000')
+                  label(for='price' style='font-family:Verdana; color:#777') Price:
+                  input#price(type='text' style='border:0; color:#fa4b2a; font-weight:bold;')
+                  #mySlider
               br
               div
                 button.btn.search-btn(type='submit')
                   i.fa.fa-search
                 button.btn.toggle-btn(type='button')
                   i.fa.fa-bars
-              // Default inline 1
+      
                 .search-toggle(style='display: none;')
                   .search-row
                     .form-group.mar-r-20
-                      label(for='price-range') Price range ($):
+                      label(for='price-range') Size:
                       input#price-range.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]')
                       br
                       b.pull-left.color 2000$
