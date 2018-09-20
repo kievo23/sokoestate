@@ -51,7 +51,7 @@ block content
                     //label(for='price' style='font-family:Verdana; color:#777') Price:
                     input#price(type='text' style='border:0; color:#fa4b2a; font-weight:bold;')
                     
-                  #mySlider
+                  #mySlider.form-control
                 .col-md-2(style="margin-top: 2rem;")
                     a(href)
                       button.btn.search-btn(type='submit')
@@ -59,32 +59,51 @@ block content
                         |     Search  
               .row
                 .col-md-12
-                  span(type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo")
+                  span(class="btn-info" data-toggle="collapse" data-target="#demo")
                     i.fa.fa-chevron-down
                     |    More Search Options
                   br
                   div(id="demo" class="collapse")
                     row(style='margin-top:1rem;')
-                      .col-md-3
-                        select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins')
+                      .col-md-3.search-style
+                        select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
                           option Land
                           option Apartment
                           option Warehouse
                           option Bungalow
                           
-                      .col-md-2
-                        input#price-range.span2(type='text' value='' placeholder='Price range' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
+                      .col-md-2.search-style
+                        input#price-range.span2.form-control(type='text' value='' placeholder='Price range' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
                         
-                      .col-md-1
+                      .col-md-1.search-style
                         select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
                             option  m2
                             option sqf 
-                      .col-md-2
-                        input#price-range.span2(type='text' value='' placeholder='Bedrooms'  data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
+                      .col-md-2.search-style
+                        input#price-range.span2.form-control(type='text' value='' placeholder='Bedrooms'  data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
                           
-                      .col-md-2
-                        input#property-geo.span2(type='text' value='' placeholder='Bathrooms' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]' style='border: 1px solid #ccc;')
-                          
+                      .col-md-2.search-style
+                        input#property-geo.span2.form-control(type='text' value='' placeholder='Bathrooms' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]' style='border: 1px solid #ccc;')
+                    br
+                    row
+                      .col-md-4.search-style
+                        select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
+                          option General features
+                          option Apartment
+                          option Warehouse
+                          option Bungalow 
+                      .col-md-4.search-style
+                        select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
+                          option Outdoor features
+                          option Apartment
+                          option Warehouse
+                          option Bungalow
+                      .col-md-4.search-style
+                        select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
+                          option Internal features
+                          option Apartment
+                          option Warehouse
+                          option Bungalow     
                               
                         
                     

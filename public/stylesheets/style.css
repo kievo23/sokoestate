@@ -29,7 +29,9 @@ a {
      float:left;
      margin:0 5px 0 0;
 */
-
+.search-style{
+  margin-top:1rem
+}
 
 /*.ui-slider-horizontal .ui-slider-handle {
     top: -.2em;
