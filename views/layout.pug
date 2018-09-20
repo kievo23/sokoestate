@@ -77,8 +77,10 @@ html
         // Collect the nav links, forms, and other content for toggling
         #navigation.collapse.navbar-collapse.yamm
           .button.navbar-right
-            button.navbar-btn.nav-button.wow.bounceInRight.login(onclick=" window.open('/login')" data-wow-delay='0.45s') Login
-            button.navbar-btn.nav-button.wow.fadeInRight(onclick=" window.open('/register')" data-wow-delay='0.48s') Register
+            a(href='/login')
+              button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
+            a(href='/register')
+              button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Register
           ul.main-nav.nav.navbar-nav.navbar-right
             li.dropdown.ymm-sw(data-wow-delay='0.1s')
               a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
