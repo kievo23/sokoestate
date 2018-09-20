@@ -196,8 +196,9 @@ input[type="search"]::-webkit-search-decoration {
     border-color: #999999
 } 
 .btn-info{
-    color: #2CA8FF;
-    border-color: #2CA8FF;
+    color: rgb(4, 4, 90);
+    border-color: rgb(4, 4, 90);
+    background-color:#fff;
 }
 .btn-success{
     color: #05AE0E;
@@ -3170,4 +3171,10 @@ padding: 10px;
 {
     display: block;
     margin-top: 10px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #c00000;
+    background: #c00000 url(images/ui-bg_diagonals-small_50_93c3cd_40x40.png) 50% 50% repeat;
+    font-weight: bold;
+    color: #333333;
 }
