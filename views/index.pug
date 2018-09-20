@@ -18,25 +18,21 @@ block content
             h2 Find Properties in Kenya
             form.form-inline(action='')
               .row
-                .col-md-12.form-group
-                  ul.sale-rent
-                    li
-                      .custom-control.custom-radio.custom-control-inline
-                        label.custom-control-label(for='defaultInline1' style="color:#777; margin-left: 5rem;") 
-                          | For Sale
-                          input#defaultInline1.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden' )
-                        
-                    li  
-                      // Default inline 2
-                      .custom-control.custom-radio.custom-control-inline
-                        label.custom-control-label(for='defaultInline2' style="color:#777") 
-                          | For Rent
-                          input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden')
-                   
+                .col-md-12.form-group.sale-rent
+                  div.custom-control.custom-radio.custom-control-inline
+                    label.custom-control-label(for='defaultInline1' style="color:#777") 
+                      | For Sale
+                      input#defaultInline1.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden' )
+                  div.custom-control.custom-radio.custom-control-inline
+                    label.custom-control-label(for='defaultInline2' style="color:#777") 
+                      | For Rent
+                      input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden')
+                
               div
                 //.form-group
                   input.form-control(type='text' placeholder='Key word')
                 .form-group
+                  label(for='#lunchBegins' style='font-family:Verdana; color:#777') Select a location
                   select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
                     option New york, CA
                     option Paris
@@ -45,6 +41,7 @@ block content
                     option Marraekch
                     option kyoto , shibua
                 .form-group
+                  label(for='#basic' style='font-family:Verdana; color:#777') Property Type
                   select#basic.selectpicker.show-tick.form-control(title='Select Property Type')
                     option  -Status- 
                     option Land

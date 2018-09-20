@@ -9,13 +9,9 @@ a {
 .sale-rent {
      list-style-type:none;
      padding:0;
-}
-
-.sale-rent li {
      float:left;
      margin:0 5px 0 0;
 }
-
 .sale-rent label {
      padding:5px;
      border:1px solid #CCC; 
@@ -25,6 +21,16 @@ a {
 .sale-rent label:hover {
      background:#DDD;
 }
+.form-inline .form-group {
+    display: inline-flex !important;
+}
+
+/*.sale-rent li {
+     float:left;
+     margin:0 5px 0 0;
+*/
+
+
 /*.ui-slider-horizontal .ui-slider-handle {
     top: -.2em;
     margin-left: -.6em;
