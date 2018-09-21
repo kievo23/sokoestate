@@ -1,5 +1,9 @@
 /* iCheck plugin Square skin
 ----------------------------------- */
+.label-soko,
+.iradio_square-yellow{
+    display:none !important;
+}
 .icheckbox_square,
 .iradio_square {
     display: inline-block;

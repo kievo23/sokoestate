@@ -3189,5 +3189,5 @@ padding: 10px;
     float:left;
 }
 .label-soko.iradio_square-yellow{
-    display:none;
+    display:none !important;
 }
