@@ -16,14 +16,14 @@ block content
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
           .search-form.wow.pulse(data-wow-delay='0.8s')
             h2 Find Property in Kenya
-            form.form-inline(action='')
+            form.form-inline(action='search',method='get')
               .row
                 .col-md-12
                   label.label-soko
-                    input(type="radio" name="optradio" style="display:none !important" checked)
+                    input(type="radio" name="type" style="display:none !important" checked, value="sale")
                     | For Sale
                   label.label-soko
-                    input(type="radio" name="optradio" style="display:none !important" )
+                    input(type="radio" name="type" style="display:none !important", value="rent" )
                     | For Rent
                   label.label-soko
                     input(type="radio" name="optradio" style="display:none !important")
@@ -32,17 +32,16 @@ block content
                   
               .row
                 .col-md-3
-                  select#basic.selectpicker.show-tick.form-control(title='Select Property Type') 
-                    option Land
-                    option Massionette
-                    option Bungalow
-                    option Apartments
-                
+                  select#basic.selectpicker.show-tick.form-control(title='Select Property Type',name="category")
+                    option  -Status- 
+                    each cat in categories
+                      option(value=cat.id) 
+                        =cat.name
                 .col-md-3.search-style
-                    input(type="text" class="form-control" placeholder="Min Price")
+                    input(type="text" class="form-control" placeholder="Min Price",name="minprice")
                 
                 .col-md-3
-                    select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location')
+                    select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
                       option New york, CA
                       option Paris
                       option Casablanca

@@ -20,6 +20,7 @@ const propertySchema = new Schema({
     gallery: Array,
 		county: String,
 		bedrooms: String,
+		price: String,
 		baths: String,
 		size: String,
     surburb : String,
