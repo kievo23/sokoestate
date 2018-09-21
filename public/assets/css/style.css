@@ -3183,6 +3183,7 @@ padding: 10px;
 .label-soko{
     color: #ccc;
     border: 1px solid #ccc;
+    background-color: rgb(4, 4, 90);
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin: 1rem;
     border-radius:2px;
