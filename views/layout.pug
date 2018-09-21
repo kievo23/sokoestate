@@ -42,11 +42,16 @@ html
             img(src='/assets/img/logosokoestate.png' alt='' style="width:200px; ")
         // Collect the nav links, forms, and other content for toggling
         #navigation.collapse.navbar-collapse.yamm
-          .button.navbar-right
-            a(href='/login')
-              button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
-            a(href='/register')
-              button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Register
+          if loggedin
+            | Hello #{user.names}
+            
+          else
+            .button.navbar-right
+              a(href='/login')
+                button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
+              a(href='/register')
+                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Register
+            
           ul.main-nav.nav.navbar-nav.navbar-right
             li.dropdown.ymm-sw(data-wow-delay='0.1s')
               a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
@@ -71,6 +76,8 @@ html
               a(href='/property') view Property
             li.wow.fadeInDown(data-wow-delay='0.3s')
               a(href='/property/add') Add Property
+            li.wow.fadeInDown(data-wow-delay='0.3s')
+              | Hello #{user.names}
             
         // /.navbar-collapse
       // /.container-fluid

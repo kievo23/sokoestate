@@ -14,6 +14,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var FacebookStrategy = require('passport-facebook');
+var bcrypt = require('bcryptjs');
+var slug = require('slug');
 const { check, validationResult } = require('express-validator/check');
 const { matchedData, sanitize } = require('express-validator/filter');
 
@@ -34,10 +36,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cookieSession({
   name: 'session',
   keys: ['m@ckl3mor3!sth#b0mb'],
@@ -45,6 +43,10 @@ app.use(cookieSession({
   // Cookie Options
   //maxAge: 7 * 24 * 60 * 60 * 1000 // 24 hours
 }))
+app.use(logger('dev'));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -154,12 +156,14 @@ app.use(function(req, res, next){
   //INITIALIZE EMPTY USER OBJECT FOR USERS NOT LOGGED
   var emptyUser = {};
   var loggedin = false;
-  var cartExists = false;
   if(req.user){
     loggedin = true;
   }
   if(req.session.cart){
     cartExists = true;
+  }
+  if(req.user){
+    loggedin = true;
   }
   res.setHeader('Access-Control-Allow-Origin', req.get('host'));
   res.locals.success_msg = req.flash('success_msg') || null;
@@ -167,8 +171,6 @@ app.use(function(req, res, next){
   res.locals.error = req.flash('error') || null;
   res.locals.user = req.user || emptyUser;
   res.locals.loggedin = loggedin;
-  res.locals.cart = req.session.cart || null;
-  res.locals.cartexists = cartExists;
   res.locals.forgotpassword = req.get('host');
   if(req.user != null){
     next();
@@ -348,6 +350,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+    var emptyUser = {};
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.locals.success_msg = req.flash('success_msg') || null;
