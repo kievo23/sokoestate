@@ -1,9 +1,6 @@
 /* iCheck plugin Square skin
 ----------------------------------- */
-.label-soko,
-.iradio_square-yellow{
-    display:none !important;
-}
+
 .label-soko,
 .iradio_square-yellow,
 input[type="radio"] {

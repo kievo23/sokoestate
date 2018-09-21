@@ -40,6 +40,13 @@ block content
                                         small (required)
                                     input.form-control(name='propertyname' type='text' placeholder='Super villa ...' required)
                                 .form-group
+                                    label 
+                                        | Listing type  :
+                                        small (required)
+                                    select#basic.selectpicker.show-tick.form-control(name='type' required)
+                                        option(value='rent') Rent 
+                                        option(value='sell')  Buy
+                                .form-group
                                     label
                                         | Property price 
                                         small (required)
@@ -68,13 +75,7 @@ block content
                                     .form-group
                                         label Property Surburb :
                                         input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
-                                .col-sm-3
-                                    .form-group
-                                        label Listing type  :
-                                        select#basic.selectpicker.show-tick.form-control(name='type' required)
-                                            option  -Status- 
-                                            option(value='rent') Rent 
-                                            option(value='sell')  Buy
+                                
                                 .col-sm-1
                                     .form-group
                                         label Unit:
@@ -93,9 +94,9 @@ block content
                             .col-sm-12.padding-top-15
                                 .col-sm-3
                                     .form-group
-                                        label Category :
+                                        label Property Category :
                                         select#cat.selectpicker.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
-                                            option | --Select Category--
+                                            option | Select Property Category
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id,rel=) 
                                                 =category.name
@@ -103,7 +104,7 @@ block content
                                     .form-group
                                         label Subcategory :
                                         select#subcat.selectpicker.form-control.subcat(name='subcategory',data-live-search="true",multiple)
-                                          option(data-icon='glyphicon-wrench', value='') -- Select Sub-Category --
+                                          option(data-icon='glyphicon-wrench', value='') Select Property Sub-Category 
                                 .col-sm-3
                                     .form-group
                                         label(for='property-geo') Bedrooms:
