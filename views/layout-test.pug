@@ -1,0 +1,152 @@
+doctype html
+//if lt IE 7
+//if IE 7
+//if IE 8
+// [if gt IE 8] <!
+// <![endif]
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  title SOKO ESTATE | Home page
+  meta(name='description' content='GARO is a real-estate template')
+  meta(name='author' content='Kimarotec')
+  meta(name='keyword' content='html5, css, bootstrap, property, real-estate theme , bootstrap template')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css')
+  // Place favicon.ico and apple-touch-icon.png in the root directory
+  link(rel='shortcut icon' href='favicon.ico' type='image/x-icon')
+  link(rel='icon' href='favicon.ico' type='image/x-icon')
+  link(rel='stylesheet' href='assets/css/normalize.css')
+  link(rel='stylesheet' href='assets/css/font-awesome.min.css')
+  link(rel='stylesheet' href='assets/css/fontello.css')
+  link(href='assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' rel='stylesheet')
+  link(href='assets/fonts/icon-7-stroke/css/helper.css' rel='stylesheet')
+  link(href='assets/css/animate.css' rel='stylesheet' media='screen')
+  link(rel='stylesheet' href='assets/css/bootstrap-select.min.css')
+  link(rel='stylesheet' href='bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='assets/css/icheck.min_all.css')
+  link(rel='stylesheet' href='assets/css/price-range.css')
+  link(rel='stylesheet' href='assets/css/owl.carousel.css')
+  link(rel='stylesheet' href='assets/css/owl.theme.css')
+  link(rel='stylesheet' href='assets/css/owl.transitions.css')
+  link(rel='stylesheet' href='assets/css/style.css')
+  link(rel='stylesheet' href='assets/css/responsive.css')
+body
+    nav.navbar.navbar-default
+        .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#navigation')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            a.navbar-brand(href='/')
+            img(src='/assets/img/logosokoestate.png' alt='' style="width:200px; ")
+        // Collect the nav links, forms, and other content for toggling
+        #navigation.collapse.navbar-collapse.yamm
+            .button.navbar-right
+            a(href='/login')
+                button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
+            a(href='/register')
+                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Register
+            ul.main-nav.nav.navbar-nav.navbar-right
+            li.dropdown.ymm-sw(data-wow-delay='0.1s')
+                a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | For Sale
+                b.caret
+                ul.dropdown-menu.navbar-nav
+                li
+                    a(href='') Home  2
+                li
+                    a(href='') Home  3
+            li.dropdown.ymm-sw(data-wow-delay='0.1s')
+                a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | For Rent
+                b.caret
+                ul.dropdown-menu.navbar-nav
+                li
+                    a(href='') Home  2
+                li
+                    a(href='') Home  3
+                
+            li.wow.fadeInDown(data-wow-delay='0.2s')
+                a(href='/property') view Property
+            li.wow.fadeInDown(data-wow-delay='0.3s')
+                a(href='/property/add') Add Property
+            //li.dropdown.yamm-fw(data-wow-delay='0.4s')
+                a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                | Template 
+                b.caret
+                ul.dropdown-menu
+                li
+                    .yamm-content
+                    .row
+                            
+                        .col-sm-3
+                        h5 Pages and blog
+                        ul
+                            li
+                            a(href='#') Blog listing
+                            li
+                            a(href='#') Blog Post (full)
+                            li
+                            a(href='#') Blog Post (Right)
+                            
+                        .col-sm-3
+                        h5 Property
+                        ul
+                            li
+                            a(href='#') Property pages style (1)
+                            li
+                            a(href='#') Property pages style (2)
+                            li
+                            a(href='#') Property pages style (3)
+                        h5 Properties list
+                        ul
+                            li
+                            a(href='properties.html') Properties list style (1)
+                            li
+                            a(href='#') Properties list style (2)
+                            li
+                            a(href='#') Properties list style (3)
+                        .col-sm-3
+                        h5 Property process
+                        ul
+                            li
+                            a(href='submit-property.html') Submit - step 1
+                            li
+                            a(href='submit-property.html') Submit - step 2
+                            li
+                            a(href='submit-property.html') Submit - step 3
+                        h5 User account
+                        ul
+                            li
+                            a(href='/login') Register / login
+                            li
+                            a(href='/property/list') Your properties
+                            li
+                            a(href='/property/add') Submit property
+                            li
+                            a(href='change-password.html') Change password
+                            li
+                            a(href='/admin') Your profile
+                    /.yamm-content
+            
+        // /.navbar-collapse
+        // /.container-fluid
+    // End of nav bar
+    block content
+
+script(src='assets/js/modernizr-2.6.2.min.js')
+script(src='assets/js/jquery-1.10.2.min.js')
+script(src='bootstrap/js/bootstrap.min.js')
+script(src='assets/js/bootstrap-select.min.js')
+script(src='assets/js/bootstrap-hover-dropdown.js')
+script(src='assets/js/easypiechart.min.js')
+script(src='assets/js/jquery.easypiechart.min.js')
+script(src='assets/js/owl.carousel.min.js')
+script(src='assets/js/wow.js')
+script(src='assets/js/icheck.min.js')
+script(src='assets/js/price-range.js')
+script(src='assets/js/main.js')
