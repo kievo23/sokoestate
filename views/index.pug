@@ -16,21 +16,21 @@ block content
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
           .search-form.wow.pulse(data-wow-delay='0.8s')
             h2 Find Property in Kenya
-            form.form-inline(action='')
+            form.form-inline(action='search',method='get')
               .row
                 .col-md-12.form-group.sale-rent
                   div.custom-control.custom-radio.custom-control-inline
                     label.custom-control-label(for='defaultInline1' style="color:#777") 
                       | For Sale
-                      input#defaultInline1.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden' )
+                      input#defaultInline1.custom-control-input(type='radio' name='type' style='visibility:hidden',value='sale')
                   div.custom-control.custom-radio.custom-control-inline
                     label.custom-control-label(for='defaultInline2' style="color:#777") 
                       | For Rent
-                      input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden')
+                      input#defaultInline2.custom-control-input(type='radio' name='type' style='visibility:hidden',value='rent')
                   
               .row
                 .col-md-3
-                    select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
+                    select#lunchBegins.selectpicker(name="city",data-live-search='true' data-live-search-style='begins' title='Select your city')
                       option New york, CA
                       option Paris
                       option Casablanca
@@ -39,15 +39,14 @@ block content
                       option kyoto , shibua
               
                 .col-md-3.search-style
-                    input(type="text" class="form-control" placeholder="Min Price")
+                    input(type="text" class="form-control" placeholder="Min Price",name="minprice")
               
                 .col-md-3
-                    select#basic.selectpicker.show-tick.form-control(title='Select Property Type')
+                    select#basic.selectpicker.show-tick.form-control(title='Select Property Type',name="category")
                       option  -Status- 
-                      option Land
-                      option Massionette
-                      option Bungalow
-                      option Apartments
+                      each cat in categories
+                        option(value=cat.id) 
+                          =cat.name
                 .col-md-3
                     a(href)
                       button.btn.search-btn(type='submit')
