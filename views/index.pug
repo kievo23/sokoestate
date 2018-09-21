@@ -18,13 +18,16 @@ block content
             h2 Find Property in Kenya
             form.form-inline(action='')
               .row
-                .col-md-12.form-group.sale-rent
-                  label
-                    input(type="radio" name="optradio" checked)
+                .col-md-12
+                  label.label-soko
+                    input(type="radio" name="optradio" style="display:none !important" checked)
                     | For Sale
-                  label
-                    input(type="radio" name="optradio" checked)
+                  label.label-soko
+                    input(type="radio" name="optradio" style="display:none !important" )
                     | For Rent
+                  label.label-soko
+                    input(type="radio" name="optradio" style="display:none !important")
+                    | Upcoming
                     
                   
               .row
@@ -86,7 +89,7 @@ block content
                           | Furnished
                         label.form-control(style="border:none;")
                           input(type="radio" name="optradio" checked) 
-                          | Unfinished      
+                          | Unfurnished      
                       
                     br
                     .row
