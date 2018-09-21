@@ -15,7 +15,7 @@ block content
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12
           .search-form.wow.pulse(data-wow-delay='0.8s')
-            h2 Find Properties in Kenya
+            h2 Find Property in Kenya
             form.form-inline(action='')
               .row
                 .col-md-12.form-group.sale-rent
@@ -27,9 +27,9 @@ block content
                     label.custom-control-label(for='defaultInline2' style="color:#777") 
                       | For Rent
                       input#defaultInline2.custom-control-input(type='radio' name='inlineDefaultRadiosExample' style='visibility:hidden')
-                
+                  
               .row
-                .col-md-6
+                .col-md-3
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select your city')
                       option New york, CA
                       option Paris
@@ -38,17 +38,17 @@ block content
                       option Marraekch
                       option kyoto , shibua
               
-                .col-md-6
+                .col-md-3.search-style
+                    input(type="text" class="form-control" placeholder="Min Price")
+              
+                .col-md-3
                     select#basic.selectpicker.show-tick.form-control(title='Select Property Type')
                       option  -Status- 
                       option Land
                       option Massionette
                       option Bungalow
                       option Apartments
-              .row
-                .col-md-10
-                  
-                .col-md-2(style="margin-top: 2rem;")
+                .col-md-3
                     a(href)
                       button.btn.search-btn(type='submit')
                         i.fa.fa-search
@@ -68,53 +68,53 @@ block content
                           option Warehouse
                           option Bungalow
                           
-                      .col-md-2.search-style
-                        input#price-range.span2.form-control(type='text' value='' placeholder='Price range' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
+                      .col-md-3(style="margin-top:1rem")
+                         input(type="text" class="form-control" placeholder="Size")
                         
-                      .col-md-1.search-style
+                      .col-md-1(style="margin-top:1rem")
                         select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
                             option  m2
                             option sqf 
-                      .col-md-2.search-style
-                        input#price-range.span2.form-control(type='text' value='' placeholder='Bedrooms'  data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]' style='border: 1px solid #ccc;')
+                      .col-md-4(style="margin-top:1rem")
+                        input(type="text" class="form-control" placeholder="Max. Price")
                           
-                      .col-md-2.search-style
-                        input#property-geo.span2.form-control(type='text' value='' placeholder='Bathrooms' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]' style='border: 1px solid #ccc;')
+                      
                     br
                     .row
-                      .col-md-4.search-style
+                      .col-md-3(style="margin-top:1rem")
                         select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
                           option General features
                           option Apartment
                           option Warehouse
                           option Bungalow 
-                      .col-md-4.search-style
+                      .col-md-3(style="margin-top:1rem")
                         select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
                           option Outdoor features
                           option Apartment
                           option Warehouse
                           option Bungalow
-                      .col-md-4.search-style
+                      .col-md-3(style="margin-top:1rem")
                         select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
                           option Internal features
                           option Apartment
                           option Warehouse
-                          option Bungalow     
+                          option Bungalow   
+                      .col-md-3(style="margin-top:1rem") 
+                         a(href)
+                          button.btn.search-btn(type='submit')
+                            i.fa.fa-search
+                            |     Search 
                               
                     .row
-                      .col-md-6.search-style
+                      .col-md-6(style="margin-top:1rem")
                         span(class="btn-info" data-toggle="collapse" data-target="#demo")
                           i.fa.fa-chevron-up
                           |    Less Search Options
-                      .col-md-6.search-style    
-                        a(href)
-                          button.btn.search-btn(type='submit')
-                            i.fa.fa-search
-                            |     Search
+                      
   // property area
   .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px;')
     .container
-      .row
+      .row(style="margin-top:1rem")
         .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
           // /.feature title
           h2 Top submitted property
