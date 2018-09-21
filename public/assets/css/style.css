@@ -3177,3 +3177,17 @@ padding: 10px;
     font-weight: bold;
     color: #333333;
 }
+.hide-me[aria-expanded="true"] {
+    display: none;
+}
+.label-soko{
+    color: #ccc;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 1rem;
+    border-radius:2px;
+    float:left;
+}
+.iradio_square-yellow{
+    display:none;
+}

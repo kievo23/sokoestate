@@ -83,6 +83,7 @@ router.post('/add', cpUpload, function(req, res, next){
 	i.type = req.body.type;
   i.category = req.body.category;
   i.surburb = req.body.surburb;
+  i.price = req.body.price;
   i.description = req.body.description;
   i.amenities = req.body.amenities;
   i.category = req.body.category;

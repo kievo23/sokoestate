@@ -28,9 +28,10 @@ router.get('/search', function(req, res, next) {
     type: req.query.type,
     category: req.query.category
   }).then(function(d){
-
+    console.log(d);
+    res.render('property/indexfront', { title: 'Soko Estate: Register',properties: d });
   })
-  res.render('property/indexfront', { title: 'Soko Estate: Register' });
+
 });
 
 module.exports = router;
