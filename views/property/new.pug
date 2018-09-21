@@ -67,14 +67,14 @@ block content
                                 .col-sm-3
                                     .form-group
                                         label Property Surburb :
-                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
+                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required, name="surburb")
                                 .col-sm-3
                                     .form-group
                                         label Listing type  :
-                                        select#basic.selectpicker.show-tick.form-control(name='type' required)
+                                        select#basic.selectpicker.show-tick.form-control(name='type' required, name="type")
                                             option  -Status- 
                                             option(value='rent') Rent 
-                                            option(value='sell')  Buy
+                                            option(value='sale')  Buy
                                 .col-sm-1
                                     .form-group
                                         label Unit:
@@ -88,7 +88,7 @@ block content
                                 .col-sm-2
                                     .form-group
                                         label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1' )
+                                        input#size.span2(type='number' value='1', name="size" )
                                         br
                             .col-sm-12.padding-top-15
                                 .col-sm-3

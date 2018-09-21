@@ -86,6 +86,7 @@ router.post('/add', cpUpload, function(req, res, next){
   i.price = req.body.propertyprice;
   i.description = req.body.description;
   i.amenities = req.body.amenities;
+  i.size = req.body.size;
   i.category = req.body.category;
   i.subcategory = req.body.subcategory;
   if(req.body.bedrooms){
@@ -108,7 +109,7 @@ router.post('/add', cpUpload, function(req, res, next){
 		if(err){
       console.log(err);
       req.flash("error_msg", "Category Failed");
-      res.render('property/add');
+      res.redirect('/property/add');
     }else{
       if (req.files['photo'] != null){
   				Jimp.read("./public/uploads/property/"+i.photo).then(function (cover) {
