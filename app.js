@@ -14,6 +14,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var FacebookStrategy = require('passport-facebook');
+var bcrypt = require('bcryptjs');
+var slug = require('slug');
 const { check, validationResult } = require('express-validator/check');
 const { matchedData, sanitize } = require('express-validator/filter');
 
@@ -348,6 +350,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+    var emptyUser = {};
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.locals.success_msg = req.flash('success_msg') || null;
