@@ -5,6 +5,7 @@ var Category = require(__dirname + '/../models/Category');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.user);
   Category.find({})
   .then(function(data){
   	//console.log(data);

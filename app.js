@@ -36,10 +36,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(cookieSession({
   name: 'session',
   keys: ['m@ckl3mor3!sth#b0mb'],
@@ -47,6 +43,10 @@ app.use(cookieSession({
   // Cookie Options
   //maxAge: 7 * 24 * 60 * 60 * 1000 // 24 hours
 }))
+app.use(logger('dev'));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -156,7 +156,6 @@ app.use(function(req, res, next){
   //INITIALIZE EMPTY USER OBJECT FOR USERS NOT LOGGED
   var emptyUser = {};
   var loggedin = false;
-  var cartExists = false;
   if(req.user){
     loggedin = true;
   }
@@ -172,8 +171,6 @@ app.use(function(req, res, next){
   res.locals.error = req.flash('error') || null;
   res.locals.user = req.user || emptyUser;
   res.locals.loggedin = loggedin;
-  res.locals.cart = req.session.cart || null;
-  res.locals.cartexists = cartExists;
   res.locals.forgotpassword = req.get('host');
   if(req.user != null){
     next();
