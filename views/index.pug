@@ -47,11 +47,7 @@ block content
                       option Apartments
               .row
                 .col-md-10
-                  .form-group
-                    label(for='price' style='font-family:Verdana; color:#777') Price range:
-                    input#price(type='text' style='border:0; color:rgb(4, 4, 90); font-weight:bold;')
-                    
-                  #mySlider.form-control
+                  
                 .col-md-2(style="margin-top: 2rem;")
                     a(href)
                       button.btn.search-btn(type='submit')
@@ -324,6 +320,7 @@ block content
             .asks-first-arrow
               a(href='properties.html')
                 span.fa.fa-angle-right
+  
   //script(type="text/javascript").
     $(document).on('click', '.number-spinner button', function () {    
       var btn = $(this),
