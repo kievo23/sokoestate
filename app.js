@@ -163,6 +163,9 @@ app.use(function(req, res, next){
   if(req.session.cart){
     cartExists = true;
   }
+  if(req.user){
+    loggedin = true;
+  }
   res.setHeader('Access-Control-Allow-Origin', req.get('host'));
   res.locals.success_msg = req.flash('success_msg') || null;
   res.locals.error_msg = req.flash('error_msg') || null;
