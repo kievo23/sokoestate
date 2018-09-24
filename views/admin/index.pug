@@ -27,9 +27,10 @@ block content
                     i.zmdi.zmdi-filter-list
                     | filters
                 .table-data__tool-right
-                  button.au-btn.au-btn-icon.au-btn--green.au-btn--small
-                    i.zmdi.zmdi-plus
-                    | add property
+                  a(href='/property/add')
+                    button.au-btn.au-btn-icon.au-btn--green.au-btn--small
+                      i.zmdi.zmdi-plus
+                      | add property
                   .rs-select2--dark.rs-select2--sm.rs-select2--dark2
                     select.js-select2(name='type')
                       option(selected='selected') Export
