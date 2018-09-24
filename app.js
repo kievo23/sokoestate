@@ -43,17 +43,15 @@ app.use(cookieSession({
   // Cookie Options
   //maxAge: 7 * 24 * 60 * 60 * 1000 // 24 hours
 }))
-app.use(logger('dev'));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public'), { maxage: '7d' }));
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -90,7 +88,7 @@ passport.use(new LocalStrategy(
 passport.use(new GoogleStrategy({
     clientID: config.google.clientId,
     clientSecret: config.google.clientSecret,
-    callbackURL: "https://soko-estate.herokuapp.com/auth/google/callback",
+    callbackURL: "http://sokoestate.com/auth/google/callback",
     passReqToCallback   : true
   },
   function(request, accessToken, refreshToken, profile, done) {
@@ -130,7 +128,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: config.facebook.clientId,
     clientSecret: config.facebook.clientSecret,
-    callbackURL: "https://soko-estate.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://sokoestate.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOne({ facebookid: profile.id }, function (err, user) {
@@ -336,11 +334,12 @@ app.get('/auth/facebook/callback',
   });
 
 
-app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);
 app.use('/property', propertyRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

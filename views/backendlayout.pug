@@ -289,7 +289,8 @@ head
                   .image
                     img(src='/images/icon/avatar-01.jpg' alt='John Doe')
                   .content
-                    a.js-acc-btn(href='#') john doe
+                    a.js-acc-btn(href='#') 
+                      =user.names
                   .account-dropdown.js-dropdown
                     .info.clearfix
                       .image
@@ -297,8 +298,10 @@ head
                           img(src='/images/icon/avatar-01.jpg' alt='John Doe')
                       .content
                         h5.name
-                          a(href='#') john doe
-                        span.email johndoe@example.com
+                          a(href='#') 
+                            =user.names
+                        span.email
+                          =user.email
                     .account-dropdown__body
                       .account-dropdown__item
                         a(href='#')
@@ -313,7 +316,7 @@ head
                           i.zmdi.zmdi-money-box
                           | Billing
                     .account-dropdown__footer
-                      a(href='#')
+                      a(href='/logout')
                         i.zmdi.zmdi-power
                         | Logout
     // END HEADER DESKTOP
