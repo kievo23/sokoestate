@@ -150,14 +150,13 @@ router.get('/delete/:id', function(req, res, next){
 		});
 });
 
-router.get('/:slug',function(req, res){
+router.get('/property/:slug',function(req, res){
   var categories = Category.find({});
   var property = Property.findOne({
     slug: req.params.slug,
     //status: true
   });
   Promise.all([categories,property]).then(values => {
-    console.log(values[1]);
     res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
   });
 });
