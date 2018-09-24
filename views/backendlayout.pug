@@ -300,7 +300,8 @@ head
                         h5.name
                           a(href='#') 
                             =user.names
-                        span.email johndoe@example.com
+                        span.email
+                          =user.email
                     .account-dropdown__body
                       .account-dropdown__item
                         a(href='#')
@@ -315,7 +316,7 @@ head
                           i.zmdi.zmdi-money-box
                           | Billing
                     .account-dropdown__footer
-                      a(href='#')
+                      a(href='/logout')
                         i.zmdi.zmdi-power
                         | Logout
     // END HEADER DESKTOP
