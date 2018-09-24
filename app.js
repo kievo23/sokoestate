@@ -336,11 +336,12 @@ app.get('/auth/facebook/callback',
   });
 
 
-app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);
 app.use('/property', propertyRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
