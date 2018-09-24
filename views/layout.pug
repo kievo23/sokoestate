@@ -42,8 +42,7 @@ html
             img(src='/assets/img/logosokoestate.png' alt='' style="width:200px; ")
         // Collect the nav links, forms, and other content for toggling
         #navigation.collapse.navbar-collapse.yamm
-          if loggedin            
-          else
+          if !loggedin
             .button.navbar-right
               a(href='/login')
                 button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
@@ -74,8 +73,9 @@ html
               a(href='/property') view Property
             li.wow.fadeInDown(data-wow-delay='0.3s')
               a(href='/property/add') Add Property
-            li.wow.fadeInDown(data-wow-delay='0.3s')
-              a(href='/property/list') Hello #{user.names}
+            if loggedin
+              li.wow.fadeInDown(data-wow-delay='0.3s')
+                a(href='/property/list') Hello #{user.names}
             
         // /.navbar-collapse
       // /.container-fluid
