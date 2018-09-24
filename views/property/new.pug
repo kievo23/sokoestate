@@ -66,21 +66,21 @@ block content
                                         label Property Description :
                                         textarea.form-control(name='description' placeholder="Enter the description of your property here.")
                             .col-sm-12
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label Property County :
                                         select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city' required)
                                             option(value='nairobi') Nairobi
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label Property Surburb :
                                         input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
-                                
-                                .col-sm-3
+                            .col-sm-12    
+                                .col-sm-6
                                     .form-group
                                         label(for='price-range') Size :
                                         input#size.span2(type='number' value='1', name="size" )
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label Unit:
                                         select#basic.selectpicker.show-tick.form-control(required)
@@ -92,25 +92,25 @@ block content
         
                                         br
                             .col-sm-12.padding-top-15
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label Property Category :
                                         select#cat.selectpicker.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
-                                            option | Select Property Category
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id,rel=) 
                                                 =category.name
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label Subcategory :
                                         select#subcat.selectpicker.form-control.subcat(name='subcategory',data-live-search="true",multiple)
                                           option(data-icon='glyphicon-wrench', value='') Select Property Sub-Category 
-                                .col-sm-3
+                            .col-sm-12.padding-top-15
+                                .col-sm-6
                                     .form-group
                                         label(for='property-geo') Bedrooms:
                                         input#bed.span2(type='number' value='1')
                                         br
-                                .col-sm-3
+                                .col-sm-6
                                     .form-group
                                         label(for='price-range') Bathrooms :
                                         input#baths.span2(type='number' value='1' )
