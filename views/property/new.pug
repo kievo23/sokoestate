@@ -21,7 +21,7 @@ block content
                     li(style="width:25%")
                         a(href='#step3' role="tab" data-toggle='tab') Step 3 
                     li(style="width:25%")
-                        a(href='#step4' role="tab" data-toggle='tab') Finished 
+                        a(href='#step4' role="tab" data-toggle='tab') Step 4 
                 .tab-content
                     #step1.tab-pane.active
                         .row.p-b-15
@@ -78,6 +78,10 @@ block content
                                 
                                 .col-sm-3
                                     .form-group
+                                        label(for='price-range') Size :
+                                        input#size.span2(type='number' value='1', name="size" )
+                                .col-sm-3
+                                    .form-group
                                         label Unit:
                                         select#basic.selectpicker.show-tick.form-control(required)
                                             option(value='acres') Acres
@@ -85,11 +89,7 @@ block content
                                             option(value='squaremeters')  Square Meters
                                             option(value='squarefeet')  Square Feet
                                             option(value='perches')  Perches
-
-                                .col-sm-3
-                                    .form-group
-                                        label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1', name="size" )
+        
                                         br
                             .col-sm-12.padding-top-15
                                 .col-sm-3
