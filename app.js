@@ -88,7 +88,7 @@ passport.use(new LocalStrategy(
 passport.use(new GoogleStrategy({
     clientID: config.google.clientId,
     clientSecret: config.google.clientSecret,
-    callbackURL: "https://soko-estate.herokuapp.com/auth/google/callback",
+    callbackURL: "http://sokoestate.com/auth/google/callback",
     passReqToCallback   : true
   },
   function(request, accessToken, refreshToken, profile, done) {
@@ -128,7 +128,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: config.facebook.clientId,
     clientSecret: config.facebook.clientSecret,
-    callbackURL: "https://soko-estate.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://sokoestate.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOne({ facebookid: profile.id }, function (err, user) {
