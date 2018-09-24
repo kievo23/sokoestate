@@ -43,17 +43,15 @@ app.use(cookieSession({
   // Cookie Options
   //maxAge: 7 * 24 * 60 * 60 * 1000 // 24 hours
 }))
-app.use(logger('dev'));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public'), { maxage: '7d' }));
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
