@@ -16,6 +16,7 @@ const propertySchema = new Schema({
 		category: { type: Schema.Types.ObjectId, ref: 'Category' },
     type: String,
     phone: String,
+		email: String,
     photo: String,
     gallery: Array,
 		county: String,

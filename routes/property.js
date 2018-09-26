@@ -87,6 +87,7 @@ router.post('/add', cpUpload, function(req, res, next){
   i.description = req.body.description;
   i.amenities = req.body.amenities;
   i.size = req.body.size;
+  i.email = req.body.email;
   i.category = req.body.category;
   i.subcategory = req.body.subcategory;
   if(req.body.bedrooms){
@@ -153,8 +154,7 @@ router.get('/delete/:id', function(req, res, next){
 router.get('/property/:slug',function(req, res){
   var categories = Category.find({});
   var property = Property.findOne({
-    slug: req.params.slug,
-    //status: true
+    slug: req.params.slug
   });
   Promise.all([categories,property]).then(values => {
     res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
