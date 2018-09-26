@@ -31,16 +31,13 @@ block content
                     
                   
               .row
-                .col-md-3
-                  select#basic.selectpicker.show-tick.form-control(title='Select Property Type',name="category")
-                    option  -Status- 
+                .col-md-4
+                  select#basic.selectpicker.show-tick.form-control(title='Select Property Type',name="category") 
                     each cat in categories
-                      option(value=cat.id) 
+                      option(value=cat.id class=cat.name) 
                         =cat.name
-                .col-md-3.search-style
-                    input(type="text" class="form-control" placeholder="Min Price",name="minprice")
                 
-                .col-md-3
+                .col-md-4
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
                       option New york, CA
                       option Paris
@@ -48,14 +45,28 @@ block content
                       option Tokyo
                       option Marraekch
                       option kyoto , shibua
-                
-                .col-md-3
-                    a(href="#")
-                      button.btn.search-btn.hide-search(type='submit')
-                        i.fa.fa-search
-                        |     Search  
-              
+                .col-md-4
+                  input(type="text" class="form-control" placeholder="Max. Price", name="maxprice")
               .row
+                .col-md-4(style="margin-top:1rem")
+                  select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category") 
+                    each cat in categories
+                      each subcat in cat.subcategories
+                        option(value=subcat.id id=) 
+                          =subcat.name
+                .col-md-3(style="margin-top:1rem")
+                  input(type="text" class="form-control" placeholder="Size")
+                        
+                .col-md-1(style="margin-top:1rem")
+                  select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                    option  m2
+                    option sqf 
+                .col-md-4(style="margin-top:1rem")
+                  a(href="#")
+                    button.btn.search-btn.form-control.hide-search(type='submit')
+                      i.fa.fa-search
+                      |     Search
+              .row(style="margin-top:1rem")
                 .col-md-12
                   span(class="btn-info hide-me" id="#hide" data-toggle="collapse" data-target="#demo" style="float:left")
                     i.fa.fa-chevron-down
@@ -63,17 +74,6 @@ block content
                   
                   br
                   div(id="demo" class="collapse")
-                    row(style='margin-top:1rem;')
-                          
-                      .col-md-5(style="margin-top:1rem")
-                         input(type="text" class="form-control" placeholder="Size")
-                        
-                      .col-md-2(style="margin-top:1rem")
-                        select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
-                            option  m2
-                            option sqf 
-                      .col-md-5(style="margin-top:1rem")
-                        input(type="text" class="form-control" placeholder="Max. Price")
                     row(style='margin-top:1rem;')
                           
                       .col-md-4(style="margin-top:1rem")
