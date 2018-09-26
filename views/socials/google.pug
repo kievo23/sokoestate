@@ -1,0 +1,19 @@
+extends ../layout-min
+
+block content
+  #home.parallax-content-list.baner-content-listing-biz
+    .container
+      if validationerrors
+        each error in validationerrors
+          .alert.alert-danger.xxx-error
+            = error.msg
+      .xxx
+        hr
+        h2
+          |  Enter your phone number
+        
+        form(method="post", action="/google")
+          .form-group
+            input#phone.form-control-form(type='text', placeholder='Phone', name='phone', value="")
+          .form-group
+            button.btn.btn-primary.w3ls-btn(type='submit') Sign Up

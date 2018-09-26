@@ -21,10 +21,10 @@ const { matchedData, sanitize } = require('express-validator/filter');
 
 //ROUTES
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var categoryRouter = require('./routes/category');
 var adminRouter = require('./routes/admin');
 var propertyRouter = require('./routes/property');
+var userRouter = require('./routes/user');
 var config = require('./config.json');
 
 //Models
@@ -114,10 +114,12 @@ passport.use(new GoogleStrategy({
               return;
             }
           });
-          return done(err, user);
+          user.newUser = true;
+          return done(err, user, {newUser: true});
         })
       }else{
-        return done(null, user);
+        user.newUser = false;
+        return done(null, user, {newUser: false});
       }
     }).catch(function(err){
       console.log(err);
@@ -139,10 +141,12 @@ passport.use(new FacebookStrategy({
           email: profile.id,
           username: profile.id
         },function(err, user){
-          return done(err, user);
+          var newUser = true;
+          return done(err, user, newUser);
         })
       }else{
-        return done(null, user);
+        var newUser = false;
+        return done(null, user, newUser);
       }
     }).catch(function(err){
       console.log(err);
@@ -312,11 +316,15 @@ app.get( '/auth/google/callback',
         failureRedirect: '/login'
   }),
   function(req, res) {
-    ssn = req.session;
-    if(ssn.returnUrl){
-      res.redirect(ssn.returnUrl);
+    //console.log("Auth Info:" + console.log(req));
+    if(req.authInfo.newUser){
+      res.redirect('/google');
+      req.authInfo.newUser == false;
+    }else if(req.session.returnUrl){
+        res.redirect(req.session.returnUrl);
+    }else{
+      res.redirect('/');
     }
-    res.redirect('/');
   });
 
 app.get('/auth/facebook',
@@ -326,19 +334,21 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    ssn = req.session;
-    if(ssn.returnUrl){
-      res.redirect(ssn.returnUrl);
+    if(req.authInfo == true){
+      res.redirect('/facebook');
+    }else if(req.session.returnUrl){
+        res.redirect(req.session.returnUrl);
+    }else{
+      res.redirect('/');
     }
-    res.redirect('/');
   });
 
 
 
-app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);
 app.use('/property', propertyRouter);
+app.use('/users', userRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
