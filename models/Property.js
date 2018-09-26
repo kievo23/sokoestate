@@ -34,6 +34,7 @@ const propertySchema = new Schema({
     amenities: Array,
 		approved: String,
 		date: Date,
+		user_id: String
 });
 
 module.exports = mongoose.model('Property', propertySchema);
