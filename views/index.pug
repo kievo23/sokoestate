@@ -20,20 +20,24 @@ block content
               .row
                 .col-md-12
                   #test
-                    //each cat in categories
-                      label.label-soko(name="category")
-                        input(type="radio")
+                    each cat in categories
+                      label.label-soko
+                        input(type="radio" name="category", value=cat.name, rel=)
                         =cat.name
                     label.label-soko
-                      input(type="radio" name="category" value="1" CHECKED)
+                      input(type="radio" name="category")
+                      |   Upcoming
+                    
+                    //label.label-soko
+                      input(type="radio", name="category", value="1", rel= ,CHECKED)
                       |   Commercial
-                    label.label-soko
+                    //label.label-soko
                       input(type="radio" name="category" value="2")
                       |   Residential
-                    label.label-soko
+                    //label.label-soko
                       input(type="radio" name="category" value="3")
                       |   Land
-                    label.label-soko
+                    //label.label-soko
                       input(type="radio" name="category")
                       |   Upcoming
               .row
@@ -50,11 +54,8 @@ block content
               .row
                 .col-md-4(style='margin-top:1rem;')
                   #selectList
-                    select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category") 
-                      each cat in categories
-                        each subcat in cat.subcategories
-                          option(value=subcat.id) 
-                            =subcat.name
+                    select#subcategory.selectpicker.form-control.subcat(name='subcategory',data-live-search="true",multiple)
+                      option(data-icon='glyphicon-wrench', value='') Select Property Sub-Category 
                 
                 .col-md-4(style='margin-top:1rem;')
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
@@ -66,7 +67,8 @@ block content
                       option kyoto , shibua
                 .col-md-4(style='margin-top:1rem;')
                   input(type="text" class="form-control" placeholder="Max. Price", name="maxprice")
-              .row.desc#1
+              
+              .row.desc#Commercial
                 .col-md-5(style="margin-top:1rem")
                   input(type="text" class="form-control" placeholder="Size")
                         
@@ -81,7 +83,7 @@ block content
                         button.btn.search-btn.hide-search.text-center(type='submit')
                           i.fa.fa-search
                           |     Search
-              .row.desc#2
+              .row.desc#Residential
                 .col-md-5(style="margin-top:1rem")
                   input(type="text" class="form-control" placeholder="Size")
                         
@@ -96,7 +98,7 @@ block content
                         button.btn.search-btn.hide-search.text-center(type='submit')
                           i.fa.fa-search
                           |     Search
-              .row.desc#3
+              .row.desc#Land
                 .col-md-4(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BEDROOMS")
                     
