@@ -20,6 +20,7 @@ const { check, validationResult } = require('express-validator/check');
 const { matchedData, sanitize } = require('express-validator/filter');
 
 //ROUTES
+var role = require(__dirname + '/config/Role');
 var indexRouter = require('./routes/index');
 var categoryRouter = require('./routes/category');
 var adminRouter = require('./routes/admin');
