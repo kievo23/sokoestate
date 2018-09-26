@@ -365,19 +365,19 @@ input[type="search"]::-webkit-search-decoration {
     background: #00A2DE
 }
 .form-control::-moz-placeholder{
-    color: #DDDDDD;
+    color: #999999;
     opacity: 1;
 }
 .form-control:-moz-placeholder{
-    color: #DDDDDD;
+    color: #999999;
     opacity: 1;  
 }  
 .form-control::-webkit-input-placeholder{
-    color: #DDDDDD;
+    color: #999999;
     opacity: 1; 
 } 
 .form-control:-ms-input-placeholder{
-    color: #DDDDDD;
+    color: #999999;
     opacity: 1; 
 }
 
@@ -404,7 +404,7 @@ input[type="search"]::-webkit-search-decoration {
     padding: 6px 12px;
     font-size: 13px;
     line-height: 1.42857;
-    color: #838383;
+    color: #eee;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #DADADA;
@@ -540,14 +540,13 @@ label small{
 .bootstrap-select button.dropdown-toggle{
     background: rgba(252, 252, 252, 0.35) none repeat scroll 0% 0%;
     border-radius: 1px;
-    color: #ADADAD;
     height: 40px;
     margin-right: 10px;
     width: 99%;
     display: block;
     font-size: 13px;
     line-height: 1.42857;
-    color: #ADADAD;
+    color: #999999;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #EAE9E9;
