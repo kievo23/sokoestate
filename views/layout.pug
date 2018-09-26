@@ -149,7 +149,7 @@ script(type='text/javascript').
   $(document).ready(function() {
     $subcategory = $(".subcat");
     
-    $('#test input:radio').change(function() {
+    $('#test input:radio').on("change", function() {
       var _rel = $("#test input:radio:checked").val();      
         alert(_rel);
         console.log(_rel);
