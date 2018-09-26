@@ -117,6 +117,7 @@ script(src='/assets/js/wizard.js')
   " - $" + $( "#mySlider" ).slider( "values", 1 ) );
   });
 
+  
 script(type='text/javascript').
   $(document).ready(function() {
     var $cate = $(".cat"),
@@ -144,3 +145,23 @@ script(type='text/javascript').
           });      
         });
     });
+script(type='text/javascript').
+  $(document).ready(function() {
+    $('#test input:radio').change(function() {
+      var selectedVal = $("#test input:radio:checked").val();
+      if(1 == selectedVal){
+          var categoryList = '<select name="category">','<option>meat</option><option>veggies</option></select>';
+          $('select').remove();
+          $('#selectList').append(foodList);
+      }else if(2 == selectedVal){
+          var countryList = '<select name="country"><option>USA</option><option>Norway</option></select>';
+          $('select').remove();
+          $('#selectList').append(countryList);
+      }else if(3 == selectedVal){
+          var colorList = '<select name="country"><option>blue</option><option>orange</option></select>';
+          $('select').remove();
+          $('#selectList').append(colorList);
+      }
+    });
+  });
+  
