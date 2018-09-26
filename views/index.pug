@@ -19,22 +19,23 @@ block content
             form.form-inline(action='search',method='get')
               .row
                 .col-md-12
-                  //each cat in categories
-                    label.label-soko(name="category")
-                      input(type="radio")
-                      =cat.name
-                  label.label-soko
-                    input(type="radio" name="category" value="opt1")
-                    |   Commercial
-                  label.label-soko
-                    input(type="radio" name="category" value="opt2")
-                    |   Residential
-                  label.label-soko
-                    input(type="radio" name="category" value="opt1")
-                    |   Land
-                  label.label-soko
-                    input(type="radio" name="category")
-                    |   Upcoming
+                  #test
+                    //each cat in categories
+                      label.label-soko(name="category")
+                        input(type="radio")
+                        =cat.name
+                    label.label-soko
+                      input(type="radio" name="category" value="1" CHECKED)
+                      |   Commercial
+                    label.label-soko
+                      input(type="radio" name="category" value="2")
+                      |   Residential
+                    label.label-soko
+                      input(type="radio" name="category" value="3")
+                      |   Land
+                    label.label-soko
+                      input(type="radio" name="category")
+                      |   Upcoming
               .row
                 .col-md-12
                   label.label-protype
@@ -48,11 +49,12 @@ block content
                   
               .row
                 .col-md-4(style='margin-top:1rem;')
-                  select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category") 
-                    each cat in categories
-                      each subcat in cat.subcategories
-                        option(value=subcat.id) 
-                          =subcat.name
+                  #selectList
+                    select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category") 
+                      each cat in categories
+                        each subcat in cat.subcategories
+                          option(value=subcat.id) 
+                            =subcat.name
                 
                 .col-md-4(style='margin-top:1rem;')
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
@@ -64,7 +66,7 @@ block content
                       option kyoto , shibua
                 .col-md-4(style='margin-top:1rem;')
                   input(type="text" class="form-control" placeholder="Max. Price", name="maxprice")
-              .row.desc#opt1
+              .row.desc#1
                 .col-md-5(style="margin-top:1rem")
                   input(type="text" class="form-control" placeholder="Size")
                         
@@ -79,7 +81,22 @@ block content
                         button.btn.search-btn.hide-search.text-center(type='submit')
                           i.fa.fa-search
                           |     Search
-              .row.desc#opt2
+              .row.desc#2
+                .col-md-5(style="margin-top:1rem")
+                  input(type="text" class="form-control" placeholder="Size")
+                        
+                .col-md-3(style="margin-top:1rem")
+                  select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                    option  acre
+                    option Hactares 
+                .col-md-4
+                  .row
+                    .col-md-6(style="margin-top:1rem")
+                      a(href="#")
+                        button.btn.search-btn.hide-search.text-center(type='submit')
+                          i.fa.fa-search
+                          |     Search
+              .row.desc#3
                 .col-md-4(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BEDROOMS")
                     
@@ -348,6 +365,10 @@ block content
             .asks-first-arrow
               a(href='properties.html')
                 span.fa.fa-angle-right
+
+  script(type="text/javascript").
+    
+  
   script(type="text/javascript").
     $(document).ready(function(){
       $("#hide").click(function(){

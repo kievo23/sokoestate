@@ -404,7 +404,7 @@ input[type="search"]::-webkit-search-decoration {
     padding: 6px 12px;
     font-size: 13px;
     line-height: 1.42857;
-    color: #eee;
+    color: #000;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #DADADA;
