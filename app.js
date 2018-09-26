@@ -21,10 +21,10 @@ const { matchedData, sanitize } = require('express-validator/filter');
 
 //ROUTES
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var categoryRouter = require('./routes/category');
 var adminRouter = require('./routes/admin');
 var propertyRouter = require('./routes/property');
+var userRouter = require('./routes/user');
 var config = require('./config.json');
 
 //Models
@@ -345,10 +345,10 @@ app.get('/auth/facebook/callback',
 
 
 
-app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);
 app.use('/property', propertyRouter);
+app.use('/users', userRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
