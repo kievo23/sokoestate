@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
+var User = require(__dirname + '/../models/User');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,6 +15,10 @@ router.get('/', function(req, res, next) {
   .catch(function(err){
      console.log(err);
   });
+});
+
+router.get('/terms_conditions', function(req, res, next) {
+  res.render('site/terms', { title: 'Soko Estate: Terms and Conditions' });
 });
 
 router.get('/login', function(req, res, next) {
