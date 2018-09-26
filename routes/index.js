@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
+var User = require(__dirname + '/../models/User');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
