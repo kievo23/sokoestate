@@ -19,21 +19,30 @@ block content
             form.form-inline(action='search',method='get')
               .row
                 .col-md-12
-                  each cat in categories
+                  //each cat in categories
                     label.label-soko(name="category")
-                      input(type="radio" name="optradio")
+                      input(type="radio")
                       =cat.name
                   label.label-soko
-                    input(type="radio" name="optradio")
-                    | Upcoming
+                    input(type="radio" name="category" value="opt1")
+                    |   Commercial
+                  label.label-soko
+                    input(type="radio" name="category" value="opt2")
+                    |   Residential
+                  label.label-soko
+                    input(type="radio" name="category" value="opt1")
+                    |   Land
+                  label.label-soko
+                    input(type="radio" name="category")
+                    |   Upcoming
               .row
                 .col-md-12
                   label.label-protype
-                    input(type="radio" name="optradio" )
-                    | For Sale
+                    input(type="radio" name="rent-sale")
+                    |    For Sale
                   label.label-protype
-                    input(type="radio" name="optradio")
-                    | For Rent
+                    input(type="radio" name="rent-sale")
+                    |    For Rent
                   
                     
                   
@@ -55,7 +64,7 @@ block content
                       option kyoto , shibua
                 .col-md-4(style='margin-top:1rem;')
                   input(type="text" class="form-control" placeholder="Max. Price", name="maxprice")
-              .row
+              .row.desc#opt1
                 .col-md-5(style="margin-top:1rem")
                   input(type="text" class="form-control" placeholder="Size")
                         
@@ -70,6 +79,19 @@ block content
                         button.btn.search-btn.hide-search.text-center(type='submit')
                           i.fa.fa-search
                           |     Search
+              .row.desc#opt2
+                .col-md-4(style="margin-top:1rem")
+                    input(type="text" class="form-control" placeholder="No.BEDROOMS")
+                    
+                .col-md-4(style="margin-top:1rem")
+                  input(type="text" class="form-control" placeholder="No.BATHROOMS")
+                .col-md-4
+                  .row
+                    .col-md-6(style="margin-top:1rem")
+                      a(href="#")
+                        button.btn.search-btn.hide-search.text-center(type='submit')
+                          i.fa.fa-search
+                          |     Search
               .row  
                 .col-md-6(class="btn-info hide-me" id="#hide" data-toggle="collapse" data-target="#demo" style="margin-top:1rem")
                   span
@@ -77,22 +99,14 @@ block content
                     |    More Search Options
                          
               div(id="demo" class="collapse")
-                row(style='margin-top:1rem;')
-                      
-                  .col-md-4(style="margin-top:1rem")
-                    input(type="text" class="form-control" placeholder="No.BEDROOMS")
-                    
-                  .col-md-4(style="margin-top:1rem")
-                    input(type="text" class="form-control" placeholder="No.BATHROOMS")
+                //row(style='margin-top:1rem;')
                   .col-md-4(style="margin-top:1rem")
                     label.form-control(style="border:none;")
-                      input(type="radio" name="optradio" checked) 
+                      input(type="radio" name="furnished" checked) 
                       |    Furnished
                     label.form-control(style="border:none;")
-                      input(type="radio" name="optradio" ) 
+                      input(type="radio" name="furnished" ) 
                       |  Unfurnished      
-                  
-                br
                 .row
                   .col-md-4(style="margin-top:1rem")
                     select#lunchBegins.selectpicker.form-control(data-live-search='true' data-live-search-style='begins')
@@ -338,6 +352,7 @@ block content
     $(document).ready(function(){
       $("#hide").click(function(){
           $(".hide-search").hide();
+          
  
   //script(type="text/javascript").
     $(document).on('click', '.number-spinner button', function () {    
@@ -356,3 +371,13 @@ block content
       }
       btn.closest('.number-spinner').find('input').val(newVal);
     });      
+
+  script(type="text/javascript").
+    $(document).ready(function(){ 
+        $("input[name$='category']").click(function() {
+            var test = $(this).val();
+            $("div.desc").hide();
+            $("#"+test).show();
+        }); 
+    });
+  
