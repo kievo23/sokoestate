@@ -1,7 +1,49 @@
 extends ../backendlayout
 
 block content
-  .page_body.basic-content
+  .row
+    .main-content
+      .section__content.section__content--p30
+        .container-fluid
+          .row
+            .col-lg-12
+              .card
+                .card-header
+                  strong Edit Category
+                form.form-horizontal(method="post",action="/category/category/update/"+category.id,enctype='multipart/form-data')
+                  .card-body.card-block
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#name.form-control(type='text', name='name', placeholder='Name', value=category.name)
+                            small.form-text.text-muted Enter the name of the category
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#order.form-control(type='text', name='order', placeholder='order', value=category.order)
+                            small.form-text.text-muted Category Order
+                      .row.form-group
+                        .col-12.col-md-9      
+                          input#icon.form-control(type='text', name='icon', placeholder='icon', value=category.icon)
+                          small.form-text.text-muted Category Icon
+                      .row.form-group
+                        .col-12.col-md-9
+                          small.form-text.text-muted Category cover photo
+                        .col-12.col-md-9
+                          img(src="/uploads/thumbs/categories/"+ category.photo)
+                        .col-12.col-md-9  
+                          input#photod.form-control(type='file', name='photo', placeholder='photo')    
+                      .row.form-group
+                        .col-md-offset-3.col-md-6.col-md-offset-3(id="accordion",rel=category.id)              
+                          each cat in category.subcategories                      
+                            div(class='col-md-12',id=cat.id,rel=category.id)
+                              =cat.name 
+                  
+                  .card-footer
+                    button.btn.btn-primary.btn-sm(type='submit')
+                      i.fa.fa-dot-circle-o
+                      |  Update
+                  
+                    
+  //.page_body.basic-content
     .row
       .col-md-offset-3.col-md-6.col-md-offset-3
           h3.text-center Edit Category
