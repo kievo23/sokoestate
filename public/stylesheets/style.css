@@ -50,3 +50,6 @@ a {
     -ms-touch-action: none;
     touch-action: none;
 }*/
+.nav-tabs{
+  border-bottom: none;
+}
