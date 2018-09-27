@@ -149,8 +149,8 @@ script(type='text/javascript').
   $(document).ready(function() {
     $subcategory = $(".subcat");
     
-    $('#test input:radio').on("change", function() {
-      var _rel = $("#test input:radio:checked").val();      
+    $('#test :radio').on("change", function() {
+      var _rel = $("#test :radio:checked").val();      
         alert(_rel);
         console.log(_rel);
         $.ajax({

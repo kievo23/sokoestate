@@ -19,27 +19,28 @@ block content
             form.form-inline(action='search',method='get')
               .row
                 .col-md-12
-                  #test
-                    each cat in categories
-                      label.label-soko
-                        input(type="radio" name="category", value=cat.name, rel=)
-                        =cat.name
-                    label.label-soko
-                      input(type="radio" name="category")
-                      |   Upcoming
+                  ul.nav.nav-tabs
+                    each cat, i in categories
+                      if i==0
+                        li.label-soko.active
+                          a(href="#0" data-toggle="tab")
+                            input(type="radio" name="category", value=cat.name, rel=)
+                            =cat.name
+                      else if i==1
+                        li.label-soko
+                          a(href="#1" data-toggle="tab")
+                            input(type="radio" name="category", value=cat.name, rel=)
+                            =cat.name
+                      else if i==2
+                        li.label-soko
+                          a(href="#2" data-toggle="tab")
+                            input(type="radio" name="category", value=cat.name, rel=)
+                            =cat.name
+                    li.label-soko  
+                      a(href="#3" data-toggle="tab")
+                        input(type="radio" name="category")
+                        |   Upcoming
                     
-                    //label.label-soko
-                      input(type="radio", name="category", value="1", rel= ,CHECKED)
-                      |   Commercial
-                    //label.label-soko
-                      input(type="radio" name="category" value="2")
-                      |   Residential
-                    //label.label-soko
-                      input(type="radio" name="category" value="3")
-                      |   Land
-                    //label.label-soko
-                      input(type="radio" name="category")
-                      |   Upcoming
               .row
                 .col-md-12
                   label.label-protype
@@ -68,54 +69,55 @@ block content
                 .col-md-4(style='margin-top:1rem;')
                   input(type="text" class="form-control" placeholder="Max. Price", name="maxprice")
               
-              .row.desc#Commercial
-                .col-md-5(style="margin-top:1rem")
-                  input(type="text" class="form-control" placeholder="Size")
-                        
-                .col-md-3(style="margin-top:1rem")
-                  select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
-                    option  m2
-                    option sqf 
-                .col-md-4
-                  .row
-                    .col-md-6(style="margin-top:1rem")
-                      a(href="#")
-                        button.btn.search-btn.hide-search.text-center(type='submit')
-                          i.fa.fa-search
-                          |     Search
-              .row.desc#Residential
-                .col-md-5(style="margin-top:1rem")
-                  input(type="text" class="form-control" placeholder="Size")
-                        
-                .col-md-3(style="margin-top:1rem")
-                  select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
-                    option  acre
-                    option Hactares 
-                .col-md-4
-                  .row
-                    .col-md-6(style="margin-top:1rem")
-                      a(href="#")
-                        button.btn.search-btn.hide-search.text-center(type='submit')
-                          i.fa.fa-search
-                          |     Search
-              .row.desc#Land
-                .col-md-4(style="margin-top:1rem")
-                    input(type="text" class="form-control" placeholder="No.BEDROOMS")
-                    
-                .col-md-4(style="margin-top:1rem")
-                  input(type="text" class="form-control" placeholder="No.BATHROOMS")
-                .col-md-4
-                  .row
-                    .col-md-6(style="margin-top:1rem")
-                      a(href="#")
-                        button.btn.search-btn.hide-search.text-center(type='submit')
-                          i.fa.fa-search
-                          |     Search
-              .row  
-                .col-md-6(class="btn-info hide-me" id="#hide" data-toggle="collapse" data-target="#demo" style="margin-top:1rem")
-                  span
-                    i.fa.fa-chevron-down
-                    |    More Search Options
+              div.tab-content
+                .row.tab-pane.active#0
+                  .col-md-5(style="margin-top:1rem")
+                    input(type="text" class="form-control" placeholder="Size")
+                          
+                  .col-md-3(style="margin-top:1rem")
+                    select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                      option  m2
+                      option sqf 
+                  .col-md-4
+                    .row
+                      .col-md-6(style="margin-top:1rem")
+                        a(href="#")
+                          button.btn.search-btn.hide-search.text-center(type='submit')
+                            i.fa.fa-search
+                            |     Search
+                .row.tab-pane#2
+                  .col-md-5(style="margin-top:1rem")
+                    input(type="text" class="form-control" placeholder="Size")
+                          
+                  .col-md-3(style="margin-top:1rem")
+                    select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                      option  acre
+                      option Hactares 
+                  .col-md-4
+                    .row
+                      .col-md-6(style="margin-top:1rem")
+                        a(href="#")
+                          button.btn.search-btn.hide-search.text-center(type='submit')
+                            i.fa.fa-search
+                            |     Search
+                .row.tab-pane#1
+                  .col-md-4(style="margin-top:1rem")
+                      input(type="text" class="form-control" placeholder="No.BEDROOMS")
+                      
+                  .col-md-4(style="margin-top:1rem")
+                    input(type="text" class="form-control" placeholder="No.BATHROOMS")
+                  .col-md-4
+                    .row
+                      .col-md-6(style="margin-top:1rem")
+                        a(href="#")
+                          button.btn.search-btn.hide-search.text-center(type='submit')
+                            i.fa.fa-search
+                            |     Search
+                .row  
+                  .col-md-6(class="btn-info hide-me" id="#hide" data-toggle="collapse" data-target="#demo" style="margin-top:1rem")
+                    span
+                      i.fa.fa-chevron-down
+                      |    More Search Options
                          
               div(id="demo" class="collapse")      
                 .row
