@@ -55,42 +55,33 @@ block content
                       option Marraekch
                       option kyoto , shibua
               .row
-                  .col-md-6(style="margin-top:1rem")
+                  .col-md-8(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="Size")
                           
-                  .col-md-3(style="margin-top:1rem")
+                  .col-md-4(style="margin-top:1rem")
                     select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
-                      option  acre
+                      option  Acre
                       option Hactares 
                       option m2
                       option SqF
-                  .col-md-3
-                    .row
-                      .col-md-6(style="margin-top:1rem")
-                        a(href="#")
-                          button.btn.search-btn.hide-search.text-center(type='submit')
-                            i.fa.fa-search
-                            |     Search
               .row
-                .col-md-5(style="margin-top:1rem")
+                .col-md-6(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BEDROOMS")
                     
-                .col-md-5(style="margin-top:1rem")
+                .col-md-6(style="margin-top:1rem")
                   input(type="text" class="form-control" placeholder="No.BATHROOMS")
-                .col-md-2
-                  .row
-                    .col-md-6(style="margin-top:1rem")
-                      a(href="#")
-                        button.btn.search-btn.hide-search.text-center(type='submit')
-                          i.fa.fa-search
-                          |     Search
               
               .row
-                .col-md-12
+                .col-md-6
                   span(class="btn-info hide-me" id="#hide" data-toggle="collapse" data-target="#demo" style="float:left")
                     i.fa.fa-chevron-down
                     |    More Search Options
-                  
+                .col-md-6(style="margin-top:1rem")
+                  .row
+                    a(href="#")
+                      button.btn.search-btn.hide-search.text-center(type='submit')
+                        i.fa.fa-search
+                        |     Search  
                   br
                   div(id="demo" class="collapse")
                     .row
