@@ -218,7 +218,10 @@ head
                       p You have 2 news message
                     .mess__item
                       .image.img-cir.img-40
-                        img(src='/images/icon/avatar-06.jpg' alt='Michelle Moreno')
+                        if user.googleId
+                          img(src='/images/icon/avatar-06.jpg' alt=user.names)
+                        if user.facebookid
+                          img(src='https://graph.facebook.com/#{user.facebookid}//picture?type=normal' alt=user.names)
                       .content
                         h6 Michelle Moreno
                         p Have sent a photo
