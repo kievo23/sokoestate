@@ -67,14 +67,9 @@ router.get('/edit/:id', role.auth, function(req, res, next){
   var property = Property.findOne({
 	  _id: req.params.id
 	});
-	var categories = Category.find({group: 'general'});
+	var categories = Category.find({});
 
 	Promise.all([property, categories]).then(values => {
-		var now = moment();
-	    delete values[0].hours.$init;
-	    //console.log(data);
-	    var openingTimesMoment = new OpeningTimes(values[0].hours, 'Africa/Nairobi');
-	    values[0].openstatus = openingTimesMoment.getStatus(now);
 	    console.log(JSON.stringify(values[0].gallery));
 	    res.render('property/edit', {
 	        title: "Edit "+values[0].name,
