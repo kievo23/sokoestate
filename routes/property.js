@@ -240,14 +240,6 @@ router.get('/delete/:id',role.auth, function(req, res, next){
 		});
 });
 
-router.get('/property/:slug',function(req, res){
-  var categories = Category.find({});
-  var property = Property.findOne({
-    slug: req.params.slug
-  });
-  Promise.all([categories,property]).then(values => {
-    res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
-  });
-});
+
 
 module.exports = router;
