@@ -43,13 +43,14 @@ block content
                         #list-type.proerty-th
                             each p in properties
                               .col-sm-6.col-md-4.p0
+                                a(href='/property/'+p.slug)
                                   .box-two.proerty-item
                                       .item-thumb
-                                          a(href='property-1.html')
+                                          a(href='/property/'+p.slug)
                                               img(src='/uploads/'+p.photo)
                                       .item-entry.overflow
                                           h5
-                                              a(href='property-1.html') 
+                                              a(href='/property/'+p.slug) 
                                                 =p.name
                                           .dot-hr
                                       span.pull-left

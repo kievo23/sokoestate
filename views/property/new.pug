@@ -124,10 +124,18 @@ block content
                             .col-sm-12.padding-top-15
                                 .form-group
                                     label(for='property-geo') Property geo :
-                                    input#property-geo.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]')
-                                    br
-                                    b.pull-left.color 40m
-                                    b.pull-right.color 12000m
+                                    .row 
+                                        .form-group
+                                            fieldset.gllpLatlonPicker
+                                            .row
+                                                .col-md-8
+                                                input.gllpSearchField.form-control(type='text')
+                                                .col-md-4
+                                                input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
+                                            .gllpMap(style="width: 100%; height: 250px;") Google Maps
+                                            input#lati.gllpLatitude(type='hidden', value="-1.2685638",name='lati')
+                                            input#long.gllpLongitude(type='hidden', value="36.6472563",name='long')
+                                            input#zoom.gllpZoom(type='hidden', value="11",name='zoom')
                             .col-sm-12.padding-top-15
                                 .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
                                     h5 
@@ -250,19 +258,7 @@ block content
                                     input.form-control(value='' placeholder='http://www.youtube.com, http://vimeo.com' name='property_video' type='text')
                     // End step 3
                     #step4.tab-pane
-                      h4.info-text  Finished and submit 
-                        .row 
-                          .form-group
-                            fieldset.gllpLatlonPicker
-                              .row
-                                .col-md-8
-                                  input.gllpSearchField.form-control(type='text')
-                                .col-md-4
-                                  input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
-                              .gllpMap(style="width: 100%; height: 250px;") Google Maps
-                              input#lati.gllpLatitude(type='hidden', value="-1.2685638",name='lati')
-                              input#long.gllpLongitude(type='hidden', value="36.6472563",name='long')
-                              input#zoom.gllpZoom(type='hidden', value="11",name='zoom')
+                      h4.info-text  Finished and submit
                         .row
                           .col-sm-12
                             div
