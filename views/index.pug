@@ -19,18 +19,18 @@ block content
             form.form-inline(action='search',method='get')
               .row
                 .col-md-12
-                  ul.nav.nav-tabs#myBtnContainer
+                  ul.nav.nav-tabs
                     each cat, i in categories
                       if i==0
-                        li.label-soko.active(onclick="filterSelection('Commercial')")
+                        li.label-soko.active
                           a(href="#0" data-toggle="tab")
                             =cat.name
                       else if i==1
-                        li.label-soko(onclick="filterSelection('Residential')")
+                        li.label-soko
                           a(href="#1" data-toggle="tab")
                             =cat.name
                       else if i==2
-                        li.label-soko(onclick="filterSelection('Land')")
+                        li.label-soko
                           a(href="#2" data-toggle="tab")
                             =cat.name
                     li.label-soko  
@@ -51,12 +51,11 @@ block content
               .row
                 .col-md-4(style='margin-top:1rem;')
                   #selectList
-                    select#subcategory.selectpicker.form-control.subcat(name='subcategory',data-live-search="true",title='Select Property Sub-Category', multiple)
+                    select#subcategory.selectpicker.form-control.subcat(name='subcategory',data-live-search="true", title="Select Property Sub-Category",multiple)
                       each cat in categories
                         each subcat in cat.subcategories
-                          option.filterDiv(data-icon='glyphicon-wrench', class=subcat.name) 
+                          option(data-icon='glyphicon-wrench', value='')  
                             =subcat.name
-                       
                 
                 .col-md-4(style='margin-top:1rem;')
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
@@ -397,46 +396,4 @@ block content
             $("#"+test).show();
         }); 
     });
-  script(type="text/javascript").
-    filterSelection("all")
-    function filterSelection(c) {
-      var x, i;
-      x = document.getElementsByClassName("filterDiv");
-      if (c == "all") c = "";
-      for (i = 0; i < x.length; i++) {
-        w3RemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-      }
-    }
-
-    function w3AddClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-      }
-    }
-
-    function w3RemoveClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-          arr1.splice(arr1.indexOf(arr2[i]), 1);     
-        }
-      }
-      element.className = arr1.join(" ");
-    }
-
-    // Add active class to the current button (highlight it)
-    var btnContainer = document.getElementById("myBtnContainer");
-    var btns = btnContainer.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function(){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-      });
-    }
+  
