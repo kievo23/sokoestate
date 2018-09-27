@@ -119,30 +119,16 @@ head
     .menu-sidebar__content.js-scrollbar1
       nav.navbar-sidebar
         ul.list-unstyled.navbar__list
-          li.has-sub
+          li.has-sub.active
             a.js-arrow(href='/admin')
               i.fas.fa-tachometer-alt
               | Dashboard
-            //
-              <ul class="list-unstyled navbar__sub-list js-sub-list">
-              <li>
-              <a href="index.html">Dashboard 1</a>
-              </li>
-              <li>
-              <a href="index2.html">Dashboard 2</a>
-              </li>
-              <li>
-              <a href="index3.html">Dashboard 3</a>
-              </li>
-              <li>
-              <a href="index4.html">Dashboard 4</a>
-              </li>
-              </ul>
+
           li
             a(href='/property/list')
               i.fas.fa-chart-bar
               | Properties
-          li.active
+          li
             a(href='/category')
               i.fas.fa-table
               | Categories
@@ -310,11 +296,7 @@ head
                       .account-dropdown__item
                         a(href='#')
                           i.zmdi.zmdi-settings
-                          | Setting
-                      .account-dropdown__item
-                        a(href='#')
-                          i.zmdi.zmdi-money-box
-                          | Billing
+                          | Favourite properties
                     .account-dropdown__footer
                       a(href='/logout')
                         i.zmdi.zmdi-power

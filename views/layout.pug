@@ -47,11 +47,11 @@ html
               a(href='/login')
                 button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
               a(href='/register')
-                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Register
+                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Sign Up
             
           ul.main-nav.nav.navbar-nav.navbar-right
             li.dropdown.ymm-sw(data-wow-delay='0.1s')
-              a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+              a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
                 | For Sale
                 b.caret
               ul.dropdown-menu.navbar-nav
@@ -60,7 +60,7 @@ html
                 li
                   a(href='') Home  3
             li.dropdown.ymm-sw(data-wow-delay='0.1s')
-              a.dropdown-toggle.active(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+              a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
                 | For Rent
                 b.caret
               ul.dropdown-menu.navbar-nav
@@ -74,8 +74,49 @@ html
             li.wow.fadeInDown(data-wow-delay='0.3s')
               a(href='/property/add') Add Property
             if loggedin
-              li.wow.fadeInDown(data-wow-delay='0.3s')
-                a(href='/property/list') Hello #{user.names}
+              li.dropdown.ymm-sw(data-wow-delay='0.1s')
+                a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
+                  | Hello
+                  span 
+                    =user.names
+                  b.caret
+                ul.dropdown-menu.navbar-nav
+                  li
+                    a(href='/admin') 
+                      i.fa.fa-user
+                      |      Account
+                  li
+                    a(href='')
+                      i.fa.fa-bookmark
+                      |      Favourite properties
+                  li
+                    a(href='/logout') 
+                      i.fa.fa-power-off
+                      |      Logout
+              //li.wow.fadeInDown(data-wow-delay='0.3s')
+                .account-dropdown.js-dropdown
+                  .info.clearfix
+                    .content
+                      h5.name
+                        a(href='#') 
+                          =user.names
+                  .account-dropdown__body
+                    .account-dropdown__item
+                      a(href='#')
+                        i.zmdi.zmdi-account
+                        | My Account
+                  
+                    .account-dropdown__item
+                      a(href='#')
+                        i.zmdi.zmdi-money-box
+                        | Favourite Properties
+                  .account-dropdown__footer
+                    a(href='/logout')
+                      i.zmdi.zmdi-power
+                      | Logout
+                | Hello
+                span #{user.names}
+                a(href='/property/list') 
             
         // /.navbar-collapse
       // /.container-fluid
