@@ -21,26 +21,26 @@ block content
                 .col-md-12
                   each cat, i in categories
                     label.label-soko
-                      input(type="radio" name="type",value=cat.id, rel=cat.slug)
+                      input(type="radio" name="category",value=cat.id, rel=cat.slug)
                       =cat.name
                   label.label-soko
-                    input(type="radio" name="type" style="display:none !important")
+                    input(type="radio" name="category" style="display:none !important")
                     | Upcoming
               .row
                 .col-md-12
                   label.label-protype
-                    input(type="radio" name="rent-sale",value="sale")
+                    input(type="radio" name="type",value="sale")
                     |    For Sale
                   label.label-protype
-                    input(type="radio" name="rent-sale",value="rent")
+                    input(type="radio" name="type",value="rent")
                     |    For Rent
               .row
                 .col-md-4
-                  select#basic.show-tick.form-control(title='Select Property Subcategory',name="category")
-                    option(class='status') --Status-- 
+                  select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
+                    option(class='status',value='') --Status-- 
                     each cat in categories
                       each subcat in cat.subcategories
-                        option(class='category',value=subcat.id,rel=cat.name) 
+                        option(class='category iradio_square-yellow',value=subcat.id,rel=cat.name) 
                           =subcat.name
                 .col-md-4.search-style
                     input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")

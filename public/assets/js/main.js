@@ -6,14 +6,12 @@ $(window).load(function () { // makes sure the whole site is loaded
 
 $(document).ready(function () {
 
-
     $('.layout-grid').on('click', function () {
         $('.layout-grid').addClass('active');
         $('.layout-list').removeClass('active');
 
         $('#list-type').removeClass('proerty-th-list');
         $('#list-type').addClass('proerty-th');
-
     });
 
     $('.layout-list').on('click', function () {
@@ -22,7 +20,6 @@ $(document).ready(function () {
 
         $('#list-type').addClass('proerty-th-list');
         $('#list-type').removeClass('proerty-th');
-
     });
 
 });

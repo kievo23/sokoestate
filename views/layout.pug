@@ -169,14 +169,14 @@ script(type='text/javascript').
     });
     
     //$('select[name*="category"] option').hide();
-    $('body').on('change', "input[name='type']:radio", function() {
+    $('body').on('change', "input[name='category']:radio", function() {
       var val = $(this).val();
       var rel = $(this).attr('rel');
       //alert(rel);
       //Show the selected one.
-      $('select[name="category"] option').hide();
-      $('select[name="category"] option[class="status"]').show();
-      $('select[name="category"] option[rel="'+rel+'"]').show();
+      $('select[name="subcategory"] option').hide();
+      $('select[name="subcategory"] option[class="status"]').show();
+      $('select[name="subcategory"] option[rel="'+rel+'"]').show();
       if(rel == 'Residential'){
         $('.others').hide();
         $('.residential').show();
