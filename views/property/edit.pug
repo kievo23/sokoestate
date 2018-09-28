@@ -6,7 +6,7 @@ block content
       .clearfix
         .wizard-container
           #wizardProperty.wizard-card.ct-wizard-orange
-            form(action='/property/add' method='post',enctype="multipart/form-data")
+            form(action='/property/'+property.id method='post',enctype="multipart/form-data")
               if(property)
                 .wizard-header
                    h3

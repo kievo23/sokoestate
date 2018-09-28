@@ -86,13 +86,13 @@ router.get('/search', function(req, res, next) {
     obj.price = { $lt: req.query.minprice };
   }
   if(req.query.size.length > 0){
-    obj.size = req.query.size ;
+    obj.size = req.query.size;
   }
   if(req.query.bedrooms.length > 0){
-    obj.bedrooms = req.query.bedrooms ;
+    obj.bedrooms = req.query.bedrooms;
   }
   if(req.query.bathrooms.length > 0){
-    obj.bathrooms = req.query.bathrooms ;
+    obj.bathrooms = req.query.bathrooms;
   }
   console.log(obj);
   Property.find(obj).then(function(d){
