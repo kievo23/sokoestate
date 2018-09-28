@@ -7,10 +7,11 @@ block content
         .wizard-container
           #wizardProperty.wizard-card.ct-wizard-orange
             form(action='/property/add' method='post',enctype="multipart/form-data")
+              if(property)
                 .wizard-header
                    h3
-                        b Submit
-                        |  YOUR PROPERTY 
+                        b Edit
+                        =property.name 
                         br
                         
                 ul.nav.nav-pills(role="tablist")
