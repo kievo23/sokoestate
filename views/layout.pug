@@ -167,12 +167,29 @@ script(type='text/javascript').
         var _val = $(this).val();
         console.log(_val);
     });
-    $('body').on('click', "input[name='type']:radio", function() {
+    
+    //$('select[name*="category"] option').hide();
+    $('body').on('change', "input[name='type']:radio", function() {
       var val = $(this).val();
       var rel = $(this).attr('rel');
-      $(".category option").hide();
-      $("select.category[rel=" + val + "]").hide();
+      //alert(rel);
+      //Show the selected one.
+      $('select[name="category"] option').hide();
+      $('select[name="category"] option[class="status"]').show();
+      $('select[name="category"] option[rel="'+rel+'"]').show();
+      if(rel == 'Residential'){
+        $('.others').hide();
+        $('.residential').show();
+      }else{
+        $('.residential').hide();
+        $('.others').show();
+      }
+      
+      //$('.category option[value=val2]')
+      //var selector = "select:option[rel=" + $(this).val() + "]";
+      //$(selector).show();
     });
+    
     $('#test :radio').on("change", function() {
       var _rel = $("#test :radio:checked").val();      
         alert(_rel);
