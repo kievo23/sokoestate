@@ -40,7 +40,7 @@ block content
                     option(class='status',value='') --Status-- 
                     each cat in categories
                       each subcat in cat.subcategories
-                        option(class='category iradio_square-yellow',value=subcat.id,rel=cat.name) 
+                        option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
                           =subcat.name
                 .col-md-4.search-style
                     input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
@@ -54,7 +54,7 @@ block content
                       option kyoto , shibua
               .row(class='others')
                   .col-md-8(style="margin-top:1rem")
-                    input(type="text" class="form-control" placeholder="Size")
+                    input(type="text" class="form-control" placeholder="Size",name="size")
                           
                   .col-md-4(style="margin-top:1rem")
                     select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
@@ -64,10 +64,10 @@ block content
                       option SqF
               .row(class='residential')
                 .col-md-6(style="margin-top:1rem")
-                    input(type="text" class="form-control" placeholder="No.BEDROOMS")
+                    input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")
                     
                 .col-md-6(style="margin-top:1rem")
-                  input(type="text" class="form-control" placeholder="No.BATHROOMS")
+                  input(type="text" class="form-control" placeholder="No.BATHROOMS",name="bathrooms")
               .row
                 .col-md-12(style="margin-top:1rem")
                   a(href="#")
