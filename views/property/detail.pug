@@ -5,61 +5,68 @@ block content
     .container(style="background-color:#fff")
         .col-md-12
             .single-property-header
-                h1.property-title.pull-left Villa in Coral Gables
-                span.property-price.pull-right $825,000
+                if(property)
+                    h1.property-title.pull-left 
+                      =property.name
+                    span.property-price.pull-right 
+                      =property.price
     .content-area.single-property(style='background-color: #FCFCFC;')
         .container(style="background-color:#fff")
             .clearfix.padding-top-40
                 .col-md-8.single-property-content.prp-style-1
                     .row
-                        .light-slide-item
-                            .clearfix
-                                .favorite-and-print
-                                    a.add-to-fav(href='#login-modal' data-toggle='modal')
-                                        i.fa.fa-star-o
-                                    a.printer-icon(href='javascript:window.print()')
-                                        i.fa.fa-print
-                                div#myCarousel(class="carousel slide" data-interval="false")
-                                    div.carousel-inner(role="listbox")
-                                        div.item.active
-                                            img(src="/assets/img/property-1/property1.jpg" alt="XZ")
-                                        div.item
-                                            img(src="/assets/img/property-1/property2.jpg" alt="XZ")
-                                        div.item
-                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ")
-                                        div.item
-                                            img(src="/assets/img/property-1/property4.jpg" alt="XZ")
+                         
+                            .light-slide-item
+                                .clearfix
+                                    .favorite-and-print
+                                        a.add-to-fav(href='#login-modal' data-toggle='modal')
+                                            i.fa.fa-star-o
+                                        a.printer-icon(href='javascript:window.print()')
+                                            i.fa.fa-print
+                                    div#myCarousel(class="carousel slide" data-interval="false")
+                                        div.carousel-inner(role="listbox")
+                                            if(property)
+                                                each image, i in property.gallery
+                                                    if (i==0)
+                                                        div.item.active
+                                                            img(src='/uploads/property/'+image.filename,  alt='')
+                                                each image, i in property.gallery
+                                                    if (i>0)
+                                                        div.item
+                                                            img(src='/uploads/property/'+image.filename,  alt='')
+                                                
+                                            
+                                            a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
+                                            span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+                                            span(class="sr-only") Previous
+                                            
+                                            a(class="right carousel-control" href="#myCarousel" role="button" data-slide="next")
+                                            span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+                                            span(class="sr-only")  Next
+                                            
+                                            
+                                        div#thumbCarousel
+                                            if(property)
+                                                each image, i in property.gallery
+                                                    if(i==0)
+                                                        div(data-target="#myCarousel" data-slide-to=i class="thumb active")
+                                                            img(src='/uploads/thumbs/properties/'+image.filename,  alt='', style="width: 120px; height: 130px")
+                                                each image, i in property.gallery
+                                                    if(i>0)    
+                                                    div(data-target="#myCarousel" data-slide-to=i class="thumb")
+                                                        img(src='/uploads/thumbs/properties/'+image.filename,  alt='', style="width: 120px; height: 130px")
+                                                    
                                         
-                                        a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
-                                           span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
-                                           span(class="sr-only") Previous
                                         
-                                        a(class="right carousel-control" href="#myCarousel" role="button" data-slide="next")
-                                           span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
-                                           span(class="sr-only")  Next
-                                        
-                                        
-                                    div#thumbCarousel
-                                        div(data-target="#myCarousel" data-slide-to="0" class="thumb active")
-                                            img(src="/assets/img/property-1/property1.jpg" alt="XZ" style="width: 120px; height: 130px")
-                                        div(data-target="#myCarousel" data-slide-to="1" class="thumb")
-                                            img(src="/assets/img/property-1/property2.jpg" alt="XZ" style="width: 120px; height: 130px")
-                                        div(data-target="#myCarousel" data-slide-to="2" class="thumb")
-                                            img(src="/assets/img/property-1/property3.jpg" alt="XZ" style="width: 120px; height: 130px")
-                                        div(data-target="#myCarousel" data-slide-to="4" class="thumb")
-                                            img(src="/assets/img/property-1/property4.jpg" alt="XZ" style="width: 120px; height: 130px")          
-                                    
-                                   
-                                
-                                //ul#image-gallery.gallery.list-unstyled.cS-hidden
-                                    li(data-thumb='/assets/img/property-1/property1.jpg')
-                                       img(src='/assets/img/property-1/property1.jpg')
-                                    li(data-thumb='assets/img/property-1/property2.jpg')
-                                       img(src='/assets/img/property-1/property3.jpg')
-                                    li(data-thumb='assets/img/property-1/property3.jpg')
-                                       img(src='/assets/img/property-1/property3.jpg')
-                                    li(data-thumb='/assets/img/property-1/property4.jpg')
-                                       img(src='/assets/img/property-1/property4.jpg')
+                                        //ul#image-gallery.gallery.list-unstyled.cS-hidden
+                                            li(data-thumb='/assets/img/property-1/property1.jpg')
+                                            img(src='/assets/img/property-1/property1.jpg')
+                                            li(data-thumb='assets/img/property-1/property2.jpg')
+                                            img(src='/assets/img/property-1/property3.jpg')
+                                            li(data-thumb='assets/img/property-1/property3.jpg')
+                                            img(src='/assets/img/property-1/property3.jpg')
+                                            li(data-thumb='/assets/img/property-1/property4.jpg')
+                                            img(src='/assets/img/property-1/property4.jpg')
                     .div
                         .property-meta.entry-meta.clearfix
                             .col-xs-6.col-sm-3.col-md-3.p-b-15
@@ -108,10 +115,11 @@ block content
                                     span.property-info-value 2
                     // .property-meta
                     .section
+                        if(property)
                         h4.s-property-title Description
                         .s-property-content
                         p
-                            | Nulla quis dapibus nisl. Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies
+                          =property.description
                     // End description area
                             
                         li
