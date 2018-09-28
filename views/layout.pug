@@ -28,7 +28,7 @@ html
     link(rel='stylesheet' href='assets/css/wizard.css')
     link(rel='stylesheet' href='/assets/css/style.css')
     link(rel='stylesheet' href='/assets/css/responsive.css')
-  
+    script(src='/assets/js/jquery-1.10.2.min.js')
   body
     nav.navbar.navbar-default
       .container-fluid
@@ -126,7 +126,6 @@ html
     
 
 script(src='/assets/js/modernizr-2.6.2.min.js')
-script(src='/assets/js/jquery-1.10.2.min.js')
 script(src='/bootstrap/js/bootstrap.min.js')
 script(src='/assets/js/bootstrap-select.min.js')
 script(src='/assets/js/bootstrap-hover-dropdown.js')
@@ -164,7 +163,22 @@ script(src='/assets/js/wizard.js')
 script(type='text/javascript').
   $(document).ready(function() {
     $subcategory = $(".subcat");
+    $('input:radio[name="rent-sale"]').change(function(){
+        var _val = $(this).val();
+        console.log(_val);
+    });
+    $("input:radio[name='type']").on("change", function() {
+      alert("Handler for .change() called.");
+    });
     
+    $('.category :radio').on("change", function() {
+      console.log("test");
+    });
+    
+    $("input[name='type']:radio").on("change", function() { alert('hola'); });
+    $('body').on('click', "input[name='type']:radio", function() {
+      alert("alert");
+    });
     $('#test :radio').on("change", function() {
       var _rel = $("#test :radio:checked").val();      
         alert(_rel);
@@ -187,4 +201,3 @@ script(type='text/javascript').
           });      
         });
     });
-  
