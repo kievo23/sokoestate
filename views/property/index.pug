@@ -42,10 +42,7 @@ block content
               table.table.table-data2
                 thead
                   tr
-                    th
-                      label.au-checkbox
-                        input(type='checkbox')
-                        span.au-checkmark
+                    
                     th NAME
                     th APPROVED
                     th PHOTO
@@ -57,11 +54,10 @@ block content
                       tr.tr-shadow
                         td
                           =i+1
-                          label.au-checkbox
-                            input(type='checkbox')
-                            span.au-checkmark
+                          
                         td 
-                          =property.name
+                          a(href='/property/' +property.slug)
+                            =property.name
                         td
                           span.status--process 
                             =property.approved                                     

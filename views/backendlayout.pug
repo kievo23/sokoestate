@@ -43,7 +43,7 @@ head
             a.js-arrow(href='#')
               i.fas.fa-tachometer-alt
               | Dashboard
-            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+            //ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
               li
                 a(href='index.html') Dashboard 1
               li
@@ -72,7 +72,7 @@ head
             a(href='map.html')
               i.fas.fa-map-marker-alt
               | Maps
-          li.has-sub
+          //li.has-sub
             a.js-arrow(href='#')
               i.fas.fa-copy
               | Pages
@@ -83,7 +83,7 @@ head
                 a(href='register.html') Register
               li
                 a(href='forget-pass.html') Forget Password
-          li.has-sub
+          //li.has-sub
             a.js-arrow(href='#')
               i.fas.fa-desktop
               | UI Elements
@@ -129,6 +129,10 @@ head
               i.fas.fa-chart-bar
               | Properties
           li
+            a(href='#')
+              i.fas.fa-calendar-alt
+              | Account
+          li
             a(href='/category')
               i.fas.fa-table
               | Categories
@@ -136,10 +140,7 @@ head
             a(href='/users')
               i.far.fa-user
               | Users
-          //li
-            a(href='#')
-              i.fas.fa-calendar-alt
-              | Calendar
+          
           li
             a(href='#')
               i.fas.fa-map-marker-alt
@@ -194,87 +195,13 @@ head
               input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
               button.au-btn--submit(type='submit')
                 i.zmdi.zmdi-search
+            a.js-acc-btn(href="/property")
+                 | Properties listing
             .header-button
-              .noti-wrap
-                .noti__item.js-item-menu
-                  i.zmdi.zmdi-comment-more
-                  span.quantity 1
-                  .mess-dropdown.js-dropdown
-                    .mess__title
-                      p You have 2 news message
-                    .mess__item
-                      .image.img-cir.img-40
-                        if user.googleId
-                          img(src='/images/icon/avatar-06.jpg' alt=user.names)
-                        if user.facebookid
-                          img(src='https://graph.facebook.com/#{user.facebookid}//picture?type=normal' alt=user.names)
-                      .content
-                        h6 Michelle Moreno
-                        p Have sent a photo
-                        span.time 3 min ago
-                    .mess__item
-                      .image.img-cir.img-40
-                        img(src='/images/icon/avatar-04.jpg' alt='Diane Myers')
-                      .content
-                        h6 Diane Myers
-                        p You are now connected on message
-                        span.time Yesterday
-                    .mess__footer
-                      a(href='#') View all messages
-                .noti__item.js-item-menu
-                  i.zmdi.zmdi-email
-                  span.quantity 1
-                  .email-dropdown.js-dropdown
-                    .email__title
-                      p You have 3 New Emails
-                    .email__item
-                      .image.img-cir.img-40
-                        img(src='/images/icon/avatar-06.jpg' alt='Cynthia Harvey')
-                      .content
-                        p Meeting about new dashboard...
-                        span Cynthia Harvey, 3 min ago
-                    .email__item
-                      .image.img-cir.img-40
-                        img(src='/images/icon/avatar-05.jpg' alt='Cynthia Harvey')
-                      .content
-                        p Meeting about new dashboard...
-                        span Cynthia Harvey, Yesterday
-                    .email__item
-                      .image.img-cir.img-40
-                        img(src='/images/icon/avatar-04.jpg' alt='Cynthia Harvey')
-                      .content
-                        p Meeting about new dashboard...
-                        span Cynthia Harvey, April 12,,2018
-                    .email__footer
-                      a(href='#') See all emails
-                .noti__item.js-item-menu
-                  i.zmdi.zmdi-notifications
-                  span.quantity 3
-                  .notifi-dropdown.js-dropdown
-                    .notifi__title
-                      p You have 3 Notifications
-                    .notifi__item
-                      .bg-c1.img-cir.img-40
-                        i.zmdi.zmdi-email-open
-                      .content
-                        p You got a email notification
-                        span.date April 12, 2018 06:50
-                    .notifi__item
-                      .bg-c2.img-cir.img-40
-                        i.zmdi.zmdi-account-box
-                      .content
-                        p Your account has been blocked
-                        span.date April 12, 2018 06:50
-                    .notifi__item
-                      .bg-c3.img-cir.img-40
-                        i.zmdi.zmdi-file-text
-                      .content
-                        p You got a new file
-                        span.date April 12, 2018 06:50
-                    .notifi__footer
-                      a(href='#') All notifications
+              
               .account-wrap
                 .account-item.clearfix.js-item-menu
+                  
                   .image
                     img(src='/images/icon/avatar-01.jpg' alt='John Doe')
                   .content
