@@ -100,14 +100,14 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property Category :
-                                        select#cat.selectpicker.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
+                                        select#cat.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
                                             each category in categories
                                               option(data-icon='fa '+category.icon,value=category.id, rel=category.slug) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
                                         label Subcategory :
-                                        select#subcat.selectpicker.form-control.subcat(name='subcategory',data-live-search="true",multiple)
+                                        select#subcat.form-control.subcat(name='subcategory',data-live-search="true",multiple)
                                           option(class='status',value='') --Status-- 
                                           each cat in categories
                                             each subcat in cat.subcategories
