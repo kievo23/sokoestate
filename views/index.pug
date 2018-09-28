@@ -21,20 +21,19 @@ block content
                 .col-md-12
                   each cat, i in categories
                     label.label-soko
-                      input(type="radio" name="type" style="display:none !important" checked, value="sale")
+                      input(type="radio" name="type" class="category",value=cat.id, rel=cat.slug)
                       =cat.name
                   label.label-soko
-                    input(type="radio" name="optradio" style="display:none !important")
+                    input(type="radio" name="type" style="display:none !important")
                     | Upcoming
               .row
                 .col-md-12
                   label.label-protype
-                    input(type="radio" name="rent-sale")
+                    input(type="radio" name="rent-sale",value="sale")
                     |    For Sale
                   label.label-protype
-                    input(type="radio" name="rent-sale")
-                    |    For Rent      
-                  
+                    input(type="radio" name="rent-sale",value="rent")
+                    |    For Rent
               .row
                 .col-md-4
                   select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category")
@@ -44,8 +43,7 @@ block content
                         option(value=cat.id) 
                           =subcat.name
                 .col-md-4.search-style
-                    input(type="text" class="form-control" placeholder="Min Price",name="minprice")
-                
+                    input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
                 .col-md-4
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
                       option New york, CA
@@ -326,24 +324,14 @@ block content
               a(href='properties.html')
                 span.fa.fa-angle-right
   script(type="text/javascript").
+    
     $(document).ready(function(){
-      $("#hide").click(function(){
-          $(".hide-search").hide();
- 
-  //script(type="text/javascript").
-    $(document).on('click', '.number-spinner button', function () {    
-      var btn = $(this),
-        oldValue = btn.closest('.number-spinner').find('input').val().trim(),
-        newVal = 0;
-      
-      if (btn.attr('data-dir') == 'up') {
-        newVal = parseInt(oldValue) + 1;
-      } else {
-        if (oldValue > 1) {
-          newVal = parseInt(oldValue) - 1;
-        } else {
-          newVal = 1;
-        }
-      }
-      btn.closest('.number-spinner').find('input').val(newVal);
-    });  
+        //if($('input:radio[name="type"]').is(':checked')) { alert("it's checked"); }
+        
+        var countChecked = function() {
+          console.log("click");
+        };
+        countChecked();         
+        $( "input[type=radio]" ).on( "keyup", countChecked );
+        console.log($('input:radio[name=type]:checked').val());
+    });
