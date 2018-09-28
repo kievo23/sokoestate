@@ -72,11 +72,30 @@ router.post('/google', function(req, res){
 
 
 router.get('/search', function(req, res, next) {
-  Property.find({
-    type: req.query.type,
-    category: req.query.category
-  }).then(function(d){
-    console.log(d);
+  var obj = {};
+  if(req.query.type.length > 0){
+    obj.type = req.query.type;
+  }
+  if(req.query.category.length > 0){
+    obj.category = req.query.category;
+  }
+  if(req.query.subcategory.length > 0){
+    obj.subcategory = req.query.subcategory;
+  }
+  if(req.query.minprice.length > 0){
+    obj.price = { $lt: req.query.minprice };
+  }
+  if(req.query.size.length > 0){
+    obj.size = req.query.size;
+  }
+  if(req.query.bedrooms.length > 0){
+    obj.bedrooms = req.query.bedrooms;
+  }
+  if(req.query.bathrooms.length > 0){
+    obj.bathrooms = req.query.bathrooms;
+  }
+  console.log(obj);
+  Property.find(obj).then(function(d){
     res.render('property/indexfront', { title: 'Soko Estate: Register',properties: d });
   })
 
