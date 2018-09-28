@@ -73,7 +73,7 @@ router.get('/edit/:id', role.auth, function(req, res, next){
 	    console.log(JSON.stringify(values[0].gallery));
 	    res.render('property/edit', {
 	        title: "Edit "+values[0].name,
-	        biz: values[0],
+	        property: values[0],
           gallery: JSON.stringify(values[0].gallery),
 	        categories: values[1]
 	    });
