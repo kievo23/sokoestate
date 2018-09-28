@@ -166,17 +166,11 @@ script(type='text/javascript').
         var _val = $(this).val();
         console.log(_val);
     });
-    $("input:radio[name='type']").on("change", function() {
-      alert("Handler for .change() called.");
-    });
-    
-    $('.category :radio').on("change", function() {
-      console.log("test");
-    });
-    
-    $("input[name='type']:radio").on("change", function() { alert('hola'); });
     $('body').on('click', "input[name='type']:radio", function() {
-      alert("alert");
+      var val = $(this).val();
+      var rel = $(this).attr('rel');
+      $(".category option").hide();
+      $("select.category[rel=" + val + "]").hide();
     });
     $('#test :radio').on("change", function() {
       var _rel = $("#test :radio:checked").val();      

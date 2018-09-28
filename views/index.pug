@@ -21,7 +21,7 @@ block content
                 .col-md-12
                   each cat, i in categories
                     label.label-soko
-                      input(type="radio" name="type" class="category",value=cat.id, rel=cat.slug)
+                      input(type="radio" name="type",value=cat.id, rel=cat.slug)
                       =cat.name
                   label.label-soko
                     input(type="radio" name="type" style="display:none !important")
@@ -40,7 +40,7 @@ block content
                     option  -Status- 
                     each cat in categories
                       each subcat in cat.subcategories
-                        option(value=cat.id) 
+                        option(class='category',value=subcat.id,rel=cat.id) 
                           =subcat.name
                 .col-md-4.search-style
                     input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
@@ -327,11 +327,5 @@ block content
     
     $(document).ready(function(){
         //if($('input:radio[name="type"]').is(':checked')) { alert("it's checked"); }
-        
-        var countChecked = function() {
-          console.log("click");
-        };
-        countChecked();         
-        $( "input[type=radio]" ).on( "keyup", countChecked );
-        console.log($('input:radio[name=type]:checked').val());
+      
     });
