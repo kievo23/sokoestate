@@ -10,8 +10,8 @@ block content
               if(property)
                 .wizard-header
                    h3
-                        b Edit
-                        =property.name 
+                        b Edit   
+                           =property.name 
                         br
                         
                 ul.nav.nav-pills(role="tablist")
@@ -32,36 +32,37 @@ block content
                                    | Property Image
                                 .picture-container
                                     .picture
-                                        img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
+                                        img#wizardPicturePreview.picture-src(src="/uploads/"+ property.photo title='')
                                         input#wizard-picture(type='file', name='photo')
                             .col-sm-6
                                 .form-group
                                     label
                                         | Property name 
                                         small (required)
-                                    input.form-control(name='propertyname' type='text' placeholder='Super villa ...' required)
+                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name required)
                                 .form-group
                                     label 
                                         | Listing type  :
                                         small (required)
                                     select#basic.selectpicker.show-tick.form-control(name='type' required)
+                                        option(value=property.type) #{property.type}
                                         option(value='rent') Rent 
                                         option(value='sell')  Sale
                                 .form-group
                                     label
                                         | Property price 
                                         small (required)
-                                    input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
+                                    input.form-control(name='propertyprice', type='text', placeholder=property.price, value=property.price, required)
                                 .form-group
                                     label
                                         | Email 
                                         small (required)
-                                    input.form-control(name='email' type='text' placeholder='Email' required)
+                                    input.form-control(name='email', type='text', placeholder=property.email, value=property.email, required)
                                 .form-group
                                     label
                                         | Telephone (Format: +254 756 354 976)
                                         small (required)
-                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436' required)
+                                    input.form-control(name='phone', type='text', placeholder=property.phone, value=property.phone, required)
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
@@ -70,7 +71,7 @@ block content
                                 .col-sm-12
                                     .form-group
                                         label Property Description :
-                                        textarea.form-control(name='description' placeholder="Enter the description of your property here.")
+                                        textarea.form-control(name='description' placeholder=property.description)
                             .col-sm-12
                                 .col-sm-6
                                     .form-group
@@ -80,28 +81,31 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property Surburb :
-                                        input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
-                            .col-sm-12    
-                                .col-sm-6
-                                    .form-group
-                                        label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1', name="size" )
-                                .col-sm-6
-                                    .form-group
-                                        label Unit:
-                                        select#basic.selectpicker.show-tick.form-control(required)
-                                            option(value='acres') Acres
-                                            option(value='hectares')  Hectares
-                                            option(value='squaremeters')  Square Meters
-                                            option(value='squarefeet')  Square Feet
-                                            option(value='perches')  Perches
-        
+                                        input.form-control(name='surburb', type='text', placeholder=property.surburb, value=property.surburb, required)
+                            if (property.size)
+                                .col-sm-12    
+                                    .col-sm-6
+                                        .form-group
+                                            label(for='price-range') Size :
+                                            input#size.span2(type='number', name="size", value=property.size )
+                                    .col-sm-6
+                                        .form-group
+                                            label Unit:
+                                            select#basic.selectpicker.show-tick.form-control(required)
+                                                option(value='acres') Acres
+                                                option(value='hectares')  Hectares
+                                                option(value='squaremeters')  Square Meters
+                                                option(value='squarefeet')  Square Feet
+                                                option(value='perches')  Perches
+            
                                         br
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
                                         label Property Category :
                                         select#cat.selectpicker.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
+                                            option(value=property.category, rel=)
+                                              =property.category
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id,rel=) 
                                                 =category.name
@@ -273,7 +277,7 @@ block content
                                     |                                                         in the legal proper manner
                                 .checkbox
                                     label
-                                        input(type='checkbox')
+                                        input(type='checkbox' required)
                                         strong Accept terms and conditions.
                     // End step 4
                 .wizard-footer
