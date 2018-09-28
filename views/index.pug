@@ -36,11 +36,11 @@ block content
                     |    For Rent
               .row
                 .col-md-4
-                  select#basic.selectpicker.show-tick.form-control(title='Select Property Subcategory',name="category")
-                    option  -Status- 
+                  select#basic.show-tick.form-control(title='Select Property Subcategory',name="category")
+                    option(class='status') --Status-- 
                     each cat in categories
                       each subcat in cat.subcategories
-                        option(class='category',value=subcat.id,rel=cat.id) 
+                        option(class='category',value=subcat.id,rel=cat.name) 
                           =subcat.name
                 .col-md-4.search-style
                     input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
@@ -52,17 +52,17 @@ block content
                       option Tokyo
                       option Marraekch
                       option kyoto , shibua
-              .row
+              .row(class='others')
                   .col-md-8(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="Size")
                           
                   .col-md-4(style="margin-top:1rem")
                     select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
                       option  Acre
-                      option Hactares 
+                      option Hectares 
                       option m2
                       option SqF
-              .row
+              .row(class='residential')
                 .col-md-6(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BEDROOMS")
                     
@@ -323,9 +323,3 @@ block content
             .asks-first-arrow
               a(href='properties.html')
                 span.fa.fa-angle-right
-  script(type="text/javascript").
-    
-    $(document).ready(function(){
-        //if($('input:radio[name="type"]').is(':checked')) { alert("it's checked"); }
-      
-    });
