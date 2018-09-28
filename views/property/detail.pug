@@ -9,6 +9,7 @@ block content
                     h1.property-title.pull-left 
                       =property.name
                     span.property-price.pull-right 
+                      span Ksh.   
                       =property.price
     .content-area.single-property(style='background-color: #FCFCFC;')
         .container(style="background-color:#fff")
@@ -29,11 +30,11 @@ block content
                                                 each image, i in property.gallery
                                                     if (i==0)
                                                         div.item.active
-                                                            img(src='/uploads/property/'+image.filename,  alt='')
+                                                            img(src='/uploads/'+image.filename,  alt='')
                                                 each image, i in property.gallery
                                                     if (i>0)
                                                         div.item
-                                                            img(src='/uploads/property/'+image.filename,  alt='')
+                                                            img(src='/uploads/'+image.filename,  alt='')
                                                 
                                             
                                             a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
@@ -50,11 +51,11 @@ block content
                                                 each image, i in property.gallery
                                                     if(i==0)
                                                         div(data-target="#myCarousel" data-slide-to=i class="thumb active")
-                                                            img(src='/uploads/thumbs/properties/'+image.filename,  alt='', style="width: 120px; height: 130px")
+                                                            img(src='/uploads/'+image.filename,  alt='', style="width: 120px; height: 130px")
                                                 each image, i in property.gallery
                                                     if(i>0)    
                                                     div(data-target="#myCarousel" data-slide-to=i class="thumb")
-                                                        img(src='/uploads/thumbs/properties/'+image.filename,  alt='', style="width: 120px; height: 130px")
+                                                        img(src='/uploads/'+image.filename,  alt='', style="width: 120px; height: 130px")
                                                     
                                         
                                         
