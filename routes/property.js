@@ -160,7 +160,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
 });
 
 router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
-	Business.findById(req.params.id)
+	Property.findById(req.params.id)
 	.then(function(i){
     //console.log(req.body);
   	i.name = req.body.propertyname;
