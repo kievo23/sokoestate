@@ -73,26 +73,40 @@ router.post('/google', function(req, res){
 
 router.get('/search', function(req, res, next) {
   var obj = {};
-  if(req.query.type.length > 0){
-    obj.type = req.query.type;
+  if(req.query.hasOwnProperty('type')){
+    if(req.query.type.length > 0){
+      obj.type = req.query.type;
+    }
   }
-  if(req.query.category.length > 0){
-    obj.category = req.query.category;
+  if(req.query.hasOwnProperty('category')){
+    if(req.query.category.length > 0){
+      obj.category = req.query.category;
+    }
   }
-  if(req.query.subcategory.length > 0){
-    obj.subcategory = req.query.subcategory;
+  if(req.query.hasOwnProperty('subcategory')){
+    if(req.query.subcategory.length > 0){
+      obj.subcategory = req.query.subcategory;
+    }
   }
-  if(req.query.minprice.length > 0){
-    obj.price = { $lt: req.query.minprice };
+  if(req.query.hasOwnProperty('minprice')){
+    if(req.query.minprice.length > 0){
+      obj.price = { $lt: req.query.minprice };
+    }
   }
-  if(req.query.size.length > 0){
-    obj.size = req.query.size;
+  if(req.query.hasOwnProperty('size')){
+    if(req.query.size.length > 0){
+      obj.size = req.query.size;
+    }
   }
-  if(req.query.bedrooms.length > 0){
-    obj.bedrooms = req.query.bedrooms;
+  if(req.query.hasOwnProperty('bedrooms')){
+    if(req.query.bedrooms.length > 0){
+      obj.bedrooms = req.query.bedrooms;
+    }
   }
-  if(req.query.bathrooms.length > 0){
-    obj.bathrooms = req.query.bathrooms;
+  if(req.query.hasOwnProperty('bathrooms')){
+    if(req.query.bathrooms.length > 0){
+      obj.bathrooms = req.query.bathrooms;
+    }
   }
   console.log(obj);
   Property.find(obj).then(function(d){
