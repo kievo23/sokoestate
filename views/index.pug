@@ -20,7 +20,7 @@ block content
               .row
                 .col-md-12
                   each cat, i in categories
-                    label(style="float:left")
+                    label.property-search
                       input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
                       .welcome-estate(style="padding:0")
                         .welcome-icon
@@ -28,7 +28,7 @@ block content
                           i.pe-7s-home.pe-4x
                           
                         
-                  label(style="float:left")
+                  label.property-search
                     input(type="radio" name="category" style="display:none !important")
                     .welcome-estate(style="padding:0")
                         .welcome-icon

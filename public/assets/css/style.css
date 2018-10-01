@@ -2234,6 +2234,7 @@ Welcom
     width: 90px;
     border: 2px solid #777;
     border-radius: 100%;
+    font-size: 1rem;
     display: inline-block;
     position: relative;
     padding: 15px;
@@ -2251,6 +2252,7 @@ Welcom
 .welcome-estate{
     background-color: #FFF;
     padding: 35px 0px;
+    font-size: 1rem;
     text-align: center;
     fill: #FFF;
 }
@@ -3199,4 +3201,8 @@ padding: 10px;
 }
 .desc { 
     display: none;
+}
+.property-search{
+    float: left;
+    margin: 0rem 2rem 0rem 2rem;
 }
