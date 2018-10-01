@@ -314,7 +314,6 @@ input[type="search"]::-webkit-search-decoration {
 .search-form {
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px 0;
     border: 1px solid #E6E6E6;
     box-sizing: border-box;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -1012,7 +1011,7 @@ label small{
 
 .slider-content{
     position: absolute;
-    top: 20%;
+    top: 10%;
     text-align: center;
     color: #777;
     width: 100%;
@@ -2246,6 +2245,7 @@ Welcom
     background-color: #FDC600;
 }
 
+
 .welcome_text{
     color:#FFF;
 }
@@ -3205,4 +3205,9 @@ padding: 10px;
 .property-search{
     float: left;
     margin: 0rem 2rem 0rem 2rem;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -50px;
 }
