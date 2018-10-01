@@ -1014,7 +1014,7 @@ label small{
     position: absolute;
     top: 20%;
     text-align: center;
-    color: #FFF;
+    color: #777;
     width: 100%;
 }
 .slider-content h2 {
@@ -2254,6 +2254,7 @@ Welcom
     text-align: center;
     fill: #FFF;
 }
+
 .welcome-estate h3 {
     font: 600 14px "Open Sans",sans-serif;
     text-transform: uppercase;

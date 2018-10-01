@@ -20,12 +20,21 @@ block content
               .row
                 .col-md-12
                   each cat, i in categories
-                    label.label-soko
-                      input(type="radio" name="category",value=cat.id, rel=cat.slug)
-                      =cat.name
-                  label.label-soko
+                    label(style="float:left")
+                      input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                      .welcome-estate(style="padding:0")
+                        .welcome-icon
+                          =cat.name
+                          i.pe-7s-home.pe-4x
+                          
+                        
+                  label(style="float:left")
                     input(type="radio" name="category" style="display:none !important")
-                    | Upcoming
+                    .welcome-estate(style="padding:0")
+                        .welcome-icon
+                          | Upcoming
+                          i.pe-7s-home.pe-4x
+                    
               .row
                 .col-md-12
                   label.label-protype
