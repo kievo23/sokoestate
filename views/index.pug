@@ -25,7 +25,7 @@ block content
                       .welcome-estate(style="padding:0")
                         .welcome-icon
                           =cat.name
-                          i.pe-7s-home.pe-4x
+                          //i.pe-7s-home.pe-4x
                           
                         
                   label.property-search
@@ -33,27 +33,16 @@ block content
                     .welcome-estate(style="padding:0")
                         .welcome-icon
                           | Upcoming
-                          i.pe-7s-home.pe-4x
+                          //i.pe-7s-home.pe-4x
                     
               .row
-                .col-md-12
-                  label.radio-inline
-                    input(type="radio" name="type",value="sale")
-                    |        For Sale
-                  label.radio-inline
-                    input(type="radio" name="type",value="rent")
-                    |        For Rent
-              .row
-                .col-md-4
-                  select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
-                    option(class='status',value='') --Status-- 
-                    each cat in categories
-                      each subcat in cat.subcategories
-                        option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
-                          =subcat.name
-                .col-md-4.search-style
-                    input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
-                .col-md-4
+                .col-md-6(style="margin-top:1rem")
+                  .switch-field
+                    input#switch_left(type='radio' name='switch_2' value='yes' checked='')
+                    label(for='switch_left') For Sale
+                    input#switch_right(type='radio' name='switch_2' value='no')
+                    label(for='switch_right') For Rent
+                .col-md-6(style="margin-top:1rem")
                     select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
                       option New york, CA
                       option Paris
@@ -61,6 +50,18 @@ block content
                       option Tokyo
                       option Marraekch
                       option kyoto , shibua
+                
+              .row
+                .col-md-6
+                  select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
+                    option(class='status',value='') Property Category
+                    each cat in categories
+                      each subcat in cat.subcategories
+                        option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                          =subcat.name
+                .col-md-6.search-style
+                    input(type="text" id="minprice" class="form-control" placeholder="Min Price",name="minprice")
+                
               .row(class='others')
                   .col-md-8(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="Size",name="size")
