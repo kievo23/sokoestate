@@ -3271,3 +3271,9 @@ padding: 10px;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.residential{
+    display:none;
+}
+.others{
+    display:none;
+}
