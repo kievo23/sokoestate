@@ -190,6 +190,15 @@ script(type='text/javascript').
       //$(selector).show();
     });
     
+    $('body').on('change', "select[name=category]", function(event) {
+      var val = $(this).val();
+      var rel = $('select[name=category] option:selected').attr('rel');
+      //Show the selected one.
+      $('select[name=subcategory] option').hide();
+      $('select[name=subcategory] option[class="status"]').show();
+      $('select[name=subcategory] option[rel="'+rel+'"]').show();
+    });
+    
     $('#test :radio').on("change", function() {
       var _rel = $("#test :radio:checked").val();      
         alert(_rel);
