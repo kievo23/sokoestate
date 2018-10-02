@@ -14,10 +14,22 @@ block content
     .content-area.single-property(style='background-color: #FCFCFC;')
         .container(style="background-color:#fff")
             .clearfix.padding-top-40
-                .col-md-8.single-property-content.prp-style-1
+                .col-md-8.single-property-content
                     .row
-                         
-                            .light-slide-item
+                        .light-slide-item
+                            .clearfix
+                                .favorite-and-print
+                                    a.add-to-fav(href='#login-modal' data-toggle='modal')
+                                      i.fa.fa-star-o
+                                    a.printer-icon(href='javascript:window.print()')
+                                      i.fa.fa-print
+                                ul#image-gallery.gallery.list-unstyled.cS-hidden
+                                   if(property)
+                                        each image, i in property.gallery
+                                            li(data-thumb='/uploads/'+image.filename)
+                                               img(src='/uploads/'+image.filename)
+                                    
+                            //.light-slide-item
                                 .clearfix
                                     .favorite-and-print
                                         a.add-to-fav(href='#login-modal' data-toggle='modal')
