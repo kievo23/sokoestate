@@ -132,15 +132,15 @@ block content
                                     .row 
                                         .form-group
                                             fieldset.gllpLatlonPicker
-                                            .row
-                                                .col-md-8
-                                                input.gllpSearchField.form-control(type='text')
-                                                .col-md-4
-                                                input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
-                                            .gllpMap(style="width: 100%; height: 250px;") Google Maps
-                                            input#lati.gllpLatitude(type='hidden', value="-1.2685638",name='lati')
-                                            input#long.gllpLongitude(type='hidden', value="36.6472563",name='long')
-                                            input#zoom.gllpZoom(type='hidden', value="11",name='zoom')
+                                              .row
+                                                  .col-md-8
+                                                  input.gllpSearchField.form-control(type='text')
+                                                  .col-md-4
+                                                  input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
+                                              .gllpMap(style="width: 500px; height: 250px;") Google Maps
+                                              input#lati.gllpLatitude(type='hidden', name='lati')
+                                              input#long.gllpLongitude(type='hidden', name='long')
+                                              input#zoom.gllpZoom(type='hidden',name='zoom')
                             .col-sm-12.padding-top-15
                                 .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
                                     h5 
@@ -288,3 +288,4 @@ block content
                         input.btn.btn-previous.btn-default(type='button' name='previous' value='Previous')
                     .clearfix
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MX39yDkMJn6rjWi6vt4Rens5u_cVBQE")
+    //script(src="http://maps.googleapis.com/maps/api/js?sensor=false")
