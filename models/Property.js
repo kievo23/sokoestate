@@ -36,7 +36,7 @@ const propertySchema = new Schema({
     amenities: Array,
 		approved: String,
 		date: Date,
-		user_id: String
+		user_id:  { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 module.exports = mongoose.model('Property', propertySchema);
