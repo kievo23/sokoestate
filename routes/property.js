@@ -30,6 +30,7 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Property.find({})
+  .populate('user_id')
   .then(function(data){
   	console.log(data);
     res.render('property/indexfront', {title: "Soko Estate Categories", properties: data});
@@ -42,6 +43,7 @@ router.get('/', function(req, res, next) {
 /* GET property backend. */
 router.get('/list', function(req, res, next) {
   Property.find({})
+  .populate('user_id')
   .then(function(data){
   	console.log(data);
     res.render('property/index', {title: "Soko Estate Categories", properties: data});
