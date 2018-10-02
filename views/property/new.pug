@@ -102,7 +102,7 @@ block content
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
                                             each category in categories
-                                              option(data-icon='fa '+category.icon,value=category.id, rel=category.slug) 
+                                              option(data-icon='fa '+category.icon,value=category.id,rel=category.name) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
@@ -111,7 +111,7 @@ block content
                                           option(value='') --Select Subcategory -- 
                                           each cat in categories
                                             each subcat in cat.subcategories
-                                              option(value=" ", rel=cat.name) 
+                                              option(value=subcat.name, rel=cat.name) 
                                                 =subcat.name
                                            
                             .col-sm-12.padding-top-15
