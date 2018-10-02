@@ -100,18 +100,18 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property Category :
-                                        select#cat.cat(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
+                                        select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
                                             each category in categories
                                               option(data-icon='fa '+category.icon,value=category.id, rel=category.slug) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
                                         label Subcategory :
-                                        select#subcat.form-control.subcat(name='subcategory',data-live-search="true",multiple)
-                                          option(class='status',value='') --Status-- 
+                                        select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
+                                          option(value='') --Select Subcategory -- 
                                           each cat in categories
                                             each subcat in cat.subcategories
-                                              option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                                              option(value=" ", rel=cat.name) 
                                                 =subcat.name
                                            
                             .col-sm-12.padding-top-15
