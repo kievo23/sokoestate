@@ -23,6 +23,7 @@ const propertySchema = new Schema({
 		county: String,
 		bedrooms: Number,
 		bathrooms: Number,
+		ownership: String,
 		price: String,
 		baths: String,
 		size: Number,

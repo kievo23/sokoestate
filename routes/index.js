@@ -128,4 +128,26 @@ router.get('/property/:slug',function(req, res){
   });
 });
 
+router.get('/favorites/:id', function(req, res, next){
+	User.findById(res.locals.user._id)
+	.then(function(b){
+		if(b.favorites.includes(req.params.id)){
+      b.favorites.splice(req.params.id);
+      //console.log("exists");
+    }else{
+      b.favorites.push(req.params.id);
+      //console.log("does not exist");
+    }
+    console.log(b);
+		b.save(function(err){
+			if(err)
+				res.redirect('/');
+			res.redirect('/');
+		});
+	})
+	.catch(function(err){
+	     console.log(err);
+	});
+});
+
 module.exports = router;
