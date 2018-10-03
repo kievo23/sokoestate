@@ -52,6 +52,13 @@ block content
                                         small (required)
                                     input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
                                 .form-group
+                                    label 
+                                        | Property Ownership  :
+                                        small (required)
+                                    select#basic.selectpicker.show-tick.form-control(name='ownership' required)
+                                        option(value='owner') Owner
+                                        option(value='agent')  Agent
+                                .form-group
                                     label
                                         | Email 
                                         small (required)
@@ -80,22 +87,6 @@ block content
                                     .form-group
                                         label Property Surburb :
                                         input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
-                            .col-sm-12    
-                                .col-sm-6
-                                    .form-group
-                                        label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1', name="size" )
-                                .col-sm-6
-                                    .form-group
-                                        label Unit:
-                                        select#basic.selectpicker.show-tick.form-control(required)
-                                            option(value='acres') Acres
-                                            option(value='hectares')  Hectares
-                                            option(value='squaremeters')  Square Meters
-                                            option(value='squarefeet')  Square Feet
-                                            option(value='perches')  Perches
-        
-                                        br
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
@@ -114,6 +105,23 @@ block content
                                               option(value=subcat.name, rel=cat.name) 
                                                 =subcat.name
                                            
+                            .col-sm-12    
+                                .col-sm-6
+                                    .form-group
+                                        label(for='price-range') Size :
+                                        input#size.span2(type='number' value='1', name="size" )
+                                .col-sm-6
+                                    .form-group
+                                        label Unit:
+                                        select#basic.selectpicker.show-tick.form-control(required)
+                                            option(value='acres') Acres
+                                            option(value='hectares')  Hectares
+                                            option(value='squaremeters')  Square Meters
+                                            option(value='squarefeet')  Square Feet
+                                            option(value='perches')  Perches
+        
+                                        br
+                            
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
@@ -133,11 +141,11 @@ block content
                                         .form-group
                                             fieldset.gllpLatlonPicker
                                               .row
-                                                  .col-md-8
+                                                  .col-md-6
                                                   input.gllpSearchField.form-control(type='text')
-                                                  .col-md-4
+                                                  .col-md-6
                                                   input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
-                                              .gllpMap(style="width: 500px; height: 250px;") Google Maps
+                                              .gllpMap(style="width: 100%; height: 300px;") Google Maps
                                               input#lati.gllpLatitude(type='hidden', name='lati')
                                               input#long.gllpLongitude(type='hidden', name='long')
                                               input#zoom.gllpZoom(type='hidden',name='zoom')
@@ -147,102 +155,86 @@ block content
                                       strong
                                         | Select options if applicable
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="swimming pool")
-                                                |  Swimming Pool
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="swimming pool")
+                                            |          Swimming Pool
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="CCTV")
-                                                |  CCTV
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="CCTV")
+                                            |   CCTV
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Emergency Exit")
-                                                |  Emergency Exit
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Emergency Exit")
+                                            |    Emergency Exit
                                 .col-sm-3
-                                    .form-group
                                         .checkbox
                                             label
                                                 input(type='checkbox', name='amenities[]',value="Fire Place")
-                                                |  Fire Place
+                                                |    Fire Place
                             .col-sm-12.padding-bottom-15
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Laundry Room")
-                                                |  Laundry Room
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Laundry Room")
+                                            |  Laundry Room
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Jog Path")
-                                                |  Jog Path
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Jog Path")
+                                            |  Jog Path
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Furnished")
-                                                |  Furnished
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Furnished")
+                                            |  Furnished
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Serviced")
-                                                |  Serviced
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Serviced")
+                                            |  Serviced
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Play Ground")
-                                                |  Play Ground
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Play Ground")
+                                            |  Play Ground
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Packing")
-                                                |  Packing
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Packing")
+                                            |  Packing
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Garden")
-                                                |  Garden
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Garden")
+                                            |  Garden
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Gym")
-                                                |  Gym
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Gym")
+                                            |  Gym
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Generator")
-                                                |  Generator
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Generator")
+                                            |  Generator
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Borehole")
-                                                |  Borehole
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Borehole")
+                                            |  Borehole
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Solar Panel")
-                                                |  Solar Panel
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Solar Panel")
+                                            |  Solar Panel
                                 .col-sm-3
-                                    .form-group
-                                        .checkbox
-                                            label
-                                                input(type='checkbox', name='amenities[]',value="Club")
-                                                |  Club
+                                    .checkbox
+                                        label
+                                            input(type='checkbox', name='amenities[]',value="Club")
+                                            |  Club
                             br
                     // End step 2
                     #step3.tab-pane
