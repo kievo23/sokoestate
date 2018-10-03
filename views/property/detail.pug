@@ -10,7 +10,7 @@ block content
                     .row
                         .nav
                             if(property)
-                              | #{property.category}  |
+                              | #{property.category.name}  |
                               span 
                               if(property.subcategory)
                                 | #{property.subcategory}  
@@ -34,11 +34,13 @@ block content
                                 ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     if(property)
                                         each image, i in property.gallery
-                                            li(data-thumb=image.path)
-                                                img(src=image.path style="length:300px; width:300px")
+                                            li(data-thumb='/uploads/'+image.filename)
+                                                img(src='/uploads/'+image.filename, style='width: 100%; height: 400px;')
+                                         
+                                            //li(data-thumb='/'+image.path,style="length:50px; width:300px" )
+                                                img(src='/'+image.path, style="length:300px; width:300px")
                                            
-                                            //li(data-thumb='/uploads/'+image.filename)
-                                                img(src='/uploads/'+image.filename)
+                                            
                                 //ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     li(data-thumb='/assets/img/property-1/property1.jpg')
                                       img(src='/assets/img/property-1/property1.jpg')
@@ -78,7 +80,7 @@ block content
                                         span.property-info-label Bedrooms
                                         span.property-info-value 
                                           =property.bedrooms
-                                if(property.bathrooms)
+                            if(property.bathrooms)
                                 .col-xs-3.col-sm-3.col-md-3.p-b-15
                                     span.property-info-icon.icon-bath
                                         svg(xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewbox='0 0 48 48')
@@ -99,29 +101,18 @@ block content
                         .section.additional-details
                            h4.s-property-title Location
                         // End description area
-                         .section.additional-details
-                            h4.s-property-title Additional Details
-                            ul.additional-details-list.clearfix
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry Yes
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title Built In
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry 2003
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title Parking
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry 2 Or More Spaces,Covered Parking,Valet Parking
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry Yes
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title View
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry Intracoastal View,Direct ew
-                                li
-                                    span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront Description:
-                                    span.col-xs-6.col-sm-8.col-md-8.add-d-entry Intracoastal Front,Ocean Access
+                        if(property.amenities)    
+                            .section.additional-details
+                                h4.s-property-title Ammenities
+                                ul.additional-details-list.clearfix
+                                    ul
+                                        each ammenity in property.amenities
+                                            li
+                                                //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
+                                                span.col-xs-6.col-sm-8.col-md-8.add-d-entry  #{ammenity}
+                                    
                         // End additional-details area
-                        if(property.ammenity)    
+                          if(property.amenities)    
                             .section.property-features
                                 h4.s-property-title Ammenities
                                 ul
@@ -140,38 +131,40 @@ block content
                         .dealer-widget
                             .dealer-content
                                 .inner-wrapper
-                                    .clear
-                                        .col-xs-4.col-sm-4.dealer-face
-                                            a(href='')
-                                              img.img-circle(src='assets/img/client-face1.png')
-                                        .col-xs-8.col-sm-8
-                                            h3.dealer-name
-                                                a(href='') Nathan James
-                                                span Real Estate Agent
-                                            .dealer-social-media
-                                                a.twitter(target='_blank' href='')
-                                                    i.fa.fa-twitter
-                                                a.facebook(target='_blank' href='')
-                                                    i.fa.fa-facebook
-                                                a.gplus(target='_blank' href='')
-                                                    i.fa.fa-google-plus
-                                                a.linkedin(target='_blank' href='')
-                                                    i.fa.fa-linkedin
-                                                a.instagram(target='_blank' href='')
-                                                    i.fa.fa-instagram
-                                    .clear
-                                        ul.dealer-contacts
-                                            li
-                                                i.pe-7s-map-marker.strong  
-                                                |  9089 your adress her
-                                            li
-                                                i.pe-7s-mail.strong  
-                                                |  email@yourcompany.com
-                                            li
-                                                i.pe-7s-call.strong  
-                                                |  +1 908 967 5906
-                                        p
-                                            | Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non&mldr;
+                                    if(property)
+                                        .clear
+                                            .col-xs-4.col-sm-4.dealer-face
+                                                a(href='')
+                                                img.img-circle(src='assets/img/client-face1.png')
+                                            .col-xs-8.col-sm-8
+                                                h3.dealer-name
+                                                    a(href='') 
+                                                      =property.user_id.names
+                                                    span Real Estate Agent
+                                                .dealer-social-media
+                                                    a.twitter(target='_blank' href='')
+                                                        i.fa.fa-twitter
+                                                    a.facebook(target='_blank' href='')
+                                                        i.fa.fa-facebook
+                                                    a.gplus(target='_blank' href='')
+                                                        i.fa.fa-google-plus
+                                                    a.linkedin(target='_blank' href='')
+                                                        i.fa.fa-linkedin
+                                                    a.instagram(target='_blank' href='')
+                                                        i.fa.fa-instagram
+                                        .clear
+                                            ul.dealer-contacts
+                                                //li
+                                                    i.pe-7s-map-marker.strong  
+                                                    |  9089 your adress her
+                                                li
+                                                    i.pe-7s-mail.strong  
+                                                    =property.email
+                                                li
+                                                    i.pe-7s-call.strong  
+                                                    =property.phone
+                                            p
+                                                | Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non&mldr;
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties
@@ -347,7 +340,7 @@ block content
                 item: 1,
                 thumbItem: 9,
                 slideMargin: 0,
-                speed: 500,
+                speed: 700,
                 auto: true,
                 loop: true,
                 onSliderLoad: function () {
