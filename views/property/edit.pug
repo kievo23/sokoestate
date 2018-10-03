@@ -123,7 +123,7 @@ block content
                                         select#subcat.form-control.subcat(name='subcategory',data-live-search="true",multiple)
                                           each category in categories
                                             each subcat in category.subcategories
-                                              option(class='category iradio_square-yellow',value=subcat.name,rel=category.name) 
+                                              option(value=subcat.name, rel=category.name) 
                                                 =subcat.name
                             .col-sm-12.padding-top-15
                                 .col-sm-6
