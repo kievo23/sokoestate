@@ -102,6 +102,17 @@ block content
                         // End description area
                         .section.additional-details
                            h4.s-property-title Location
+                           .form-group
+                             fieldset.gllpLatlonPicker
+                               .row
+                                   .col-md-8
+                                   input.gllpSearchField.form-control(type='text')
+                                   .col-md-4
+                                   input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
+                               .gllpMap(style="width: 500px; height: 250px;") Google Maps
+                               input#lati.gllpLatitude(type='hidden',value=property.map.lati, name='lati')
+                               input#long.gllpLongitude(type='hidden', value=property.map.long,name='long')
+                               input#zoom.gllpZoom(type='hidden',value=property.map.zoom,name='zoom')
                         // End description area
                         if(property.amenities)    
                             .section.additional-details
@@ -334,6 +345,7 @@ block content
                                             .col-xs-12
                                                 input.button.btn.largesearch-btn(value='Search' type='submit')
 
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MX39yDkMJn6rjWi6vt4Rens5u_cVBQE")
     script(type='text/javascript').
         $(document).ready(function () {
 
