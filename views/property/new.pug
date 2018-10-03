@@ -26,14 +26,8 @@ block content
                     #step1.tab-pane.active
                         .row.p-b-15
                             h4.info-text  Let&apos;s start with the basic information
-                            .col-sm-4.col-sm-offset-1
-                                label
-                                   | Property Image
-                                .picture-container
-                                    .picture
-                                        img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
-                                        input#wizard-picture(type='file', name='photo')
-                            .col-sm-6
+                            
+                            .col-sm-12
                                 .form-group
                                     label
                                         | Property name 
@@ -242,7 +236,14 @@ block content
                         .row
                             .col-sm-6
                                 .form-group
-                                    label(for='property-images') Chose Images :
+                                    label
+                                    | Click to upload cover image
+                                    .picture-container
+                                        .picture
+                                            img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
+                                            input#wizard-picture(type='file', name='photo')
+                                .form-group
+                                    label(for='property-images') Upload multiple Images :
                                     input#property-images.form-control(type='file', name='gallery', placeholder='gallery', multiple='')
                                     p.help-block Select multiple images for your property .
                             .col-sm-6

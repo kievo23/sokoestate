@@ -33,6 +33,8 @@ block content
                                       i.fa.fa-print
                                 ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     if(property)
+                                        li(data-thumb='/uploads/'+property.photo)
+                                                img(src='/uploads/'+property.photo, style='width: 100%; height: 400px;')
                                         each image, i in property.gallery
                                             li(data-thumb='/uploads/'+image.filename)
                                                 img(src='/uploads/'+image.filename, style='width: 100%; height: 400px;')
