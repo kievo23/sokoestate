@@ -34,7 +34,10 @@ block content
                                 ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     if(property)
                                         each image, i in property.gallery
-                                            li(data-thumb='/uploads/'+image.filename)
+                                            li(data-thumb=image.path)
+                                                img(src=image.path style="length:300px; width:300px")
+                                           
+                                            //li(data-thumb='/uploads/'+image.filename)
                                                 img(src='/uploads/'+image.filename)
                                 //ul#image-gallery.gallery.list-unstyled.cS-hidden
                                     li(data-thumb='/assets/img/property-1/property1.jpg')
