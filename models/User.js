@@ -25,6 +25,7 @@ const userSchema = new Schema({
 			building: String,
 			area: String
 		},
+		favorites: Array,
 		resetcode: String
 });
 

@@ -30,6 +30,7 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 router.get('/', function(req, res, next) {
   Property.find({})
   .populate('user_id')
+  .populate('category')
   .then(function(data){
   	//console.log(data);
     res.render('property/indexfront', {title: "Soko Estate Categories", properties: data});
@@ -43,6 +44,7 @@ router.get('/', function(req, res, next) {
 router.get('/list', function(req, res, next) {
   Property.find({})
   .populate('user_id')
+  .populate('category')
   .then(function(data){
     res.render('property/index', {title: "Soko Estate Categories", properties: data});
   })
@@ -107,6 +109,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.size = req.body.size;
   i.email = req.body.email;
   i.category = req.body.category;
+  i.agent = req.body.ownership;
   i.subcategory = req.body.subcategory;
   i.user_id = res.locals.user._id;
 	i.date = new Date();
@@ -176,6 +179,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.email = req.body.email;
     i.category = req.body.category;
     i.subcategory = req.body.subcategory;
+    i.agent = req.body.ownership;
     i.user_id = res.locals.user.username;
   	i.date = new Date();
     if(req.body.bedrooms){
