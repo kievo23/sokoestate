@@ -111,11 +111,11 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property Category :
-                                        select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins', value=property.category ,name="category")
+                                        select#cat.cat.form-control(data-live-search='true', data-live-search-style='begins', value=property.category ,name="category")
                                             option(value=property.category)
                                               =property.category
                                             each category in categories
-                                              option(data-icon='fa '+category.icon,value=category.id, rel=category.slug) 
+                                              option(data-icon='fa '+category.icon, value=category.id, rel=category.slug) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
