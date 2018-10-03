@@ -118,7 +118,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
     i.bedrooms = req.body.bedrooms;
   }
   if(req.body.baths){
-    i.baths = req.body.baths;
+    i.bathrooms = req.body.baths;
   }
   if(req.body.size){
     i.size = req.body.size;

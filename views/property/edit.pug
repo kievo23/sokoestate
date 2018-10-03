@@ -111,7 +111,7 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property Category :
-                                        select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins', value=property.category ,name="category")
+                                        select#cat.cat(data-live-search='true' data-live-search-style='begins', value=property.category ,name="category")
                                             option(value=property.category)
                                               =property.category
                                             each category in categories
@@ -120,7 +120,7 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Subcategory :
-                                        select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true",multiple)
+                                        select#subcat.form-control.subcat(name='subcategory',data-live-search="true",multiple)
                                           each category in categories
                                             each subcat in category.subcategories
                                               option(class='category iradio_square-yellow',value=subcat.name,rel=category.name) 
@@ -144,11 +144,11 @@ block content
                                         .form-group
                                           fieldset.gllpLatlonPicker
                                             .row
-                                                .col-md-6
+                                                .col-md-8
                                                 input.gllpSearchField.form-control(type='text')
-                                                .col-md-6
+                                                .col-md-4
                                                 input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
-                                            .gllpMap(style="width: 100%; height: 300px;") Google Maps
+                                            .gllpMap(style="width: 500px; height: 250px;") Google Maps
                                             input#lati.gllpLatitude(type='hidden',value=property.map.lati, name='lati')
                                             input#long.gllpLongitude(type='hidden', value=property.map.long,name='long')
                                             input#zoom.gllpZoom(type='hidden',value=property.map.zoom,name='zoom')
@@ -156,7 +156,7 @@ block content
                                 .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
                                     h5 
                                       strong
-                                        | Select property ammenities if applicable
+                                        | Select options if applicable
                                 .col-sm-3
                                     .form-group
                                         .checkbox
@@ -217,7 +217,7 @@ block content
                                         .checkbox
                                             label
                                                 input(type='checkbox', name='amenities[]',value="Packing")
-                                                |  Parking
+                                                |  Packing
                                 .col-sm-3
                                     .form-group
                                         .checkbox
