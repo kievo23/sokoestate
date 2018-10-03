@@ -124,6 +124,120 @@ html
       // /.container-fluid
     // End of nav bar
   block content
+// Footer area
+.footer-area
+  .footer
+    .container
+      .row
+        .col-md-3.col-sm-6.wow.fadeInRight.animated
+          .single-footer
+            h4 About us 
+            .footer-title-line
+            a(href='/')
+              img.wow.pulse(src='/assets/img/logosokoestate.png' alt='' data-wow-delay='1s')
+            p
+              | Is the place to look for your new home and properties to invest in.
+            ul.footer-adress
+              li
+                i.pe-7s-map-marker.strong  
+                |  Address
+              li
+                i.pe-7s-mail.strong  
+                |  info@sokompare.com
+              li
+                i.pe-7s-call.strong  
+                |  +254 738 266 973
+        .col-md-3.col-sm-6.wow.fadeInRight.animated
+          .single-footer
+            h4 Quick links 
+            .footer-title-line
+            ul.footer-menu
+              li
+                a(href='/property') Properties
+              li
+                a(href='/property/add') Submit property 
+              li
+                a(href='/terms-of-service') Terms of Service
+              li
+                a(href='/privacy-policy') Privacy Policy
+        .col-md-3.col-sm-6.wow.fadeInRight.animated
+          .single-footer
+            h4 Latest Properties
+            .footer-title-line
+            ul.footer-blog
+              li
+                .col-md-3.col-sm-4.col-xs-4.blg-thumb.p0
+                  a(href='/')
+                    img(src='assets/img/demo/small-proerty-2.jpg')
+                  span.blg-date 12-12-2016
+                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                  h6
+                    a(href='/') Add news functions 
+                  p(style='line-height: 17px; padding: 8px 2px;') Lorem ipsum dolor sit amet, nulla ...
+              li
+                .col-md-3.col-sm-4.col-xs-4.blg-thumb.p0
+                  a(href='/')
+                    img(src='assets/img/demo/small-proerty-2.jpg')
+                  span.blg-date 12-12-2016
+                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                  h6
+                    a(href='/') Add news functions 
+                  p(style='line-height: 17px; padding: 8px 2px;') Lorem ipsum dolor sit amet, nulla ...
+              li
+                .col-md-3.col-sm-4.col-xs-4.blg-thumb.p0
+                  a(href='/')
+                    img(src='assets/img/demo/small-proerty-2.jpg')
+                  span.blg-date 12-12-2016
+                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                  h6
+                    a(href='/') Add news functions 
+                  p(style='line-height: 17px; padding: 8px 2px;') Lorem ipsum dolor sit amet, nulla ...
+        .col-md-3.col-sm-6.wow.fadeInRight.animated
+          .single-footer.news-letter
+            h4 Stay in touch
+            .footer-title-line
+            form
+              .input-group
+                input.form-control(type='text' placeholder='E-mail ... ')
+                span.input-group-btn
+                  button.btn.btn-primary.subscribe(type='button')
+                    i.pe-7s-paper-plane.pe-2x
+            p
+              | Subscribe to our newsletter and get the latest property listing information and many more...
+              // /input-group
+            .social.pull-right
+              ul
+                li
+                  a.wow.fadeInUp.animated(href='https://twitter.com/')
+                    i.fa.fa-twitter
+                li
+                  a.wow.fadeInUp.animated(href='https://www.facebook.com/' data-wow-delay='0.2s')
+                    i.fa.fa-facebook
+                li
+                  a.wow.fadeInUp.animated(href='https://plus.google.com/' data-wow-delay='0.3s')
+                    i.fa.fa-google-plus
+                li
+                  a.wow.fadeInUp.animated(href='https://instagram.com/' data-wow-delay='0.4s')
+                    i.fa.fa-instagram
+                
+  .footer-copy.text-center
+    .container
+      .row
+        .pull-center
+          span
+            | (C) 
+            a(href='sokoestate.com') Soko Estate
+            |  , All rights reserved 2018
+        //.bottom-menu.pull-right
+          ul
+            li
+              a.wow.fadeInUp.animated(href='/' data-wow-delay='0.2s') Home
+            li
+              a.wow.fadeInUp.animated(href='/property' data-wow-delay='0.3s') Property
+            li
+              a.wow.fadeInUp.animated(href='#' data-wow-delay='0.4s') Terms of Service
+            li
+              a.wow.fadeInUp.animated(href='#' data-wow-delay='0.6s') Privacy 
     
 
 script(src='/assets/js/modernizr-2.6.2.min.js')
@@ -144,6 +258,8 @@ script(src='/js/jquery-gmaps-latlon-picker.js')
 script(src='/assets/js/wizard.js')
 script(type="text/javascript" src="/assets/js/lightslider.min.js")
 //script(src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
+script(src='/js/slick.js')
+//script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js")
 
 //script(type='text/javascript').
   $(document).ready(function() {
@@ -160,7 +276,29 @@ script(type="text/javascript" src="/assets/js/lightslider.min.js")
   " - $" + $( "#mySlider" ).slider( "values", 1 ) );
   });
 
-  
+script(type='text/javascript').
+  $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+  });  
 
 script(type='text/javascript').
   $(document).ready(function() {
