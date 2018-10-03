@@ -117,8 +117,8 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   if(req.body.bedrooms){
     i.bedrooms = req.body.bedrooms;
   }
-  if(req.body.baths){
-    i.bathrooms = req.body.baths;
+  if(req.body.bathrooms){
+    i.bathrooms = req.body.bathrooms;
   }
   if(req.body.size){
     i.size = req.body.size;
@@ -187,8 +187,8 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     if(req.body.bedrooms){
       i.bedrooms = req.body.bedrooms;
     }
-    if(req.body.baths){
-      i.baths = req.body.baths;
+    if(req.body.bathrooms){
+      i.bathrooms = req.body.bathrooms;
     }
     if(req.body.size){
       i.size = req.body.size;
