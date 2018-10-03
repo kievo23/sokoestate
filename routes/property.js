@@ -204,7 +204,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   		if(err){
         console.log(err);
         req.flash("error_msg", "Category Failed");
-        res.redirect('/property/add');
+        res.redirect('/property/list');
       }else{
         if (req.files['photo'] != null){
     				Jimp.read("./public/uploads/property/"+i.photo).then(function (cover) {
