@@ -54,14 +54,14 @@ block content
                                         option(value='agent')  Agent
                                 .form-group
                                     label
-                                        | Email 
+                                        | Email : Edit email address if necessary
                                         small (required)
-                                    input.form-control(name='email' type='text' placeholder='Email' required)
+                                    input.form-control(name='email', type='text', placeholder=user.email, value=user.email, required)
                                 .form-group
                                     label
-                                        | Telephone (Format: +254 756 354 976)
+                                        | Telephone: : Edit  phone number if necessary (Format: +254 756 354 976)
                                         small (required)
-                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436' required)
+                                    input.form-control(name='phone', type='text', placeholder=user.phone, value=user.phone, required)
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
