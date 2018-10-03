@@ -109,7 +109,7 @@ router.get('/search', function(req, res, next) {
     }
   }
   console.log(obj);
-  Property.find(obj).then(function(d){
+  Property.find(obj).populate('user_id').then(function(d){
     res.render('property/indexfront', { title: 'Soko Estate: Register',properties: d });
   })
 
@@ -119,7 +119,8 @@ router.get('/property/:slug',function(req, res){
   var categories = Category.find({});
   var property = Property.findOne({
     slug: req.params.slug
-  });
+  })
+  .populate('user_id');
   Promise.all([categories,property]).then(values => {
     console.log(values[1]);
     res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
