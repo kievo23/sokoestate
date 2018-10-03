@@ -99,7 +99,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   //console.log(req.body);
 	i.name = req.body.propertyname;
   i.slug = slug(req.body.propertyname);
-	i.phone = req.body.propertyprice;
+	i.phone = req.body.phone;
 	i.type = req.body.type;
   i.category = req.body.category;
   i.surburb = req.body.surburb;
@@ -117,8 +117,8 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   if(req.body.bedrooms){
     i.bedrooms = req.body.bedrooms;
   }
-  if(req.body.baths){
-    i.baths = req.body.baths;
+  if(req.body.bathrooms){
+    i.bathrooms = req.body.bathrooms;
   }
   if(req.body.size){
     i.size = req.body.size;
@@ -166,7 +166,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
 router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
 	Property.findById(req.params.id)
 	.then(function(i){
-    //console.log(req.body);
+    //console.log(i);
   	i.name = req.body.propertyname;
     i.slug = slug(req.body.propertyname);
   	i.phone = req.body.phone;
@@ -181,14 +181,14 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.category = req.body.category;
     i.subcategory = req.body.subcategory;
     i.agent = req.body.ownership;
-    i.user_id = res.locals.user.username;
+    i.user_id = res.locals.user._id;
     i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
   	i.date = new Date();
     if(req.body.bedrooms){
       i.bedrooms = req.body.bedrooms;
     }
-    if(req.body.baths){
-      i.baths = req.body.baths;
+    if(req.body.bathrooms){
+      i.bathrooms = req.body.bathrooms;
     }
     if(req.body.size){
       i.size = req.body.size;
@@ -204,7 +204,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   		if(err){
         console.log(err);
         req.flash("error_msg", "Category Failed");
-        res.redirect('/property/add');
+        res.redirect('/property/list');
       }else{
         if (req.files['photo'] != null){
     				Jimp.read("./public/uploads/property/"+i.photo).then(function (cover) {
