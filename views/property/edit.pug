@@ -27,14 +27,14 @@ block content
                     #step1.tab-pane.active
                         .row.p-b-15
                             h4.info-text  Let&apos;s start with the basic information
-                            .col-sm-4.col-sm-offset-1
+                            //.col-sm-4.col-sm-offset-1
                                 label
                                    | Property Image
                                 .picture-container
                                     .picture
                                         img#wizardPicturePreview.picture-src(src="/uploads/"+ property.photo title='')
                                         input#wizard-picture(type='file', name='photo')
-                            .col-sm-6
+                            .col-sm-12
                                 .form-group
                                     label
                                         | Property name 
@@ -53,6 +53,14 @@ block content
                                         | Property price 
                                         small (required)
                                     input.form-control(name='propertyprice', type='text', placeholder=property.price, value=property.price, required)
+                                .form-group
+                                    label 
+                                        | Property Ownership  :
+                                        small (required)
+                                    select#basic.selectpicker.show-tick.form-control(name='ownership' required)
+                                        option(value=property.ownership) #{property.ownership}
+                                        option(value='owner') Owner
+                                        option(value='agent')  Agent
                                 .form-group
                                     label
                                         | Email 
@@ -252,6 +260,13 @@ block content
                         h4.info-text Give us some images and videos
                         .row
                             .col-sm-6
+                                .form-group
+                                    label
+                                    | Click to edit cover image
+                                    .picture-container
+                                        .picture
+                                            img#wizardPicturePreview.picture-src(src="/uploads/"+ property.photo title='')
+                                            input#wizard-picture(type='file', name='photo')
                                 .form-group
                                     label(for='property-images') Chose Images :
                                     input#property-images.form-control(type='file', name='gallery', placeholder='gallery', multiple)
