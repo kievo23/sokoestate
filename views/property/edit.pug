@@ -120,7 +120,7 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Subcategory :
-                                        select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true",multiple)
+                                        select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
                                           each category in categories
                                             each subcat in category.subcategories
                                               option(value=subcat.name, rel=category.name) 
