@@ -6,7 +6,6 @@ var multer  = require('multer');
 var mime = require('mime');
 var moment = require('moment');
 var Jimp = require("jimp");
-
 var Category = require(__dirname + '/../models/Category');
 var Property = require(__dirname + '/../models/Property');
 var role = require(__dirname + '/../config/Role');
@@ -32,7 +31,7 @@ router.get('/', function(req, res, next) {
   Property.find({})
   .populate('user_id')
   .then(function(data){
-  	console.log(data);
+  	//console.log(data);
     res.render('property/indexfront', {title: "Soko Estate Categories", properties: data});
   })
   .catch(function(err){
@@ -45,7 +44,6 @@ router.get('/list', function(req, res, next) {
   Property.find({})
   .populate('user_id')
   .then(function(data){
-  	console.log(data);
     res.render('property/index', {title: "Soko Estate Categories", properties: data});
   })
   .catch(function(err){
@@ -110,7 +108,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.email = req.body.email;
   i.category = req.body.category;
   i.subcategory = req.body.subcategory;
-  i.user_id = res.locals.user.username;
+  i.user_id = res.locals.user._id;
 	i.date = new Date();
   if(req.body.bedrooms){
     i.bedrooms = req.body.bedrooms;
@@ -241,7 +239,5 @@ router.get('/delete/:id',role.auth, function(req, res, next){
 		     console.log(err);
 		});
 });
-
-
 
 module.exports = router;
