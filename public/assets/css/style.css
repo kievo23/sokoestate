@@ -1012,6 +1012,8 @@ label small{
 .slider-content{
     position: absolute;
     top: 10%;
+    padding-right: 10%;
+    padding-left: 10%;
     text-align: center;
     color: #777;
     width: 100%;
@@ -2250,7 +2252,7 @@ Welcom
     color:#FFF;
 }
 .welcome-estate{
-    background-color: #FFF;
+    background-color: #ccc;
     padding: 35px 0px;
     font-size: 1rem;
     text-align: center;
@@ -3204,7 +3206,7 @@ padding: 10px;
 }
 .property-search{
     float: left;
-    margin: 0rem 2rem 0rem 2rem;
+    margin-right:1rem;
 }
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
     position: absolute;
