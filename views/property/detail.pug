@@ -173,10 +173,12 @@ block content
                                                     |  9089 your adress her
                                                 li
                                                     i.pe-7s-mail.strong  
-                                                    =property.email
+                                                    a(href="mailto:#{property.email}")
+                                                      =property.email
                                                 li
                                                     i.pe-7s-call.strong  
-                                                    =property.phone
+                                                    a(href="tel:#{property.phone}")
+                                                      =property.phone
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties
