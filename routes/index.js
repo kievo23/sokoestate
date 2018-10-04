@@ -6,15 +6,11 @@ var User = require(__dirname + '/../models/User');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.user);
-  Category.find({})
-  .then(function(data){
-  	//console.log(data);
-    res.render('index', {title: "Soko Estate", categories: data});
-  })
-  .catch(function(err){
-     console.log(err);
-  });
+  var categories = Category.find({});
+  var properties = Property.find({}).populate('user_id').populate('category');
+  Promise.all([properties, categories]).then(values => {
+	  res.render('index', {title: "Soko Estate", categories: values[1],properties: values[0]});
+	});
 });
 
 router.get('/terms_conditions', function(req, res, next) {
