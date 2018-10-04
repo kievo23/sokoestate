@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    .container.container-margin-top
+      h4.text-center
+        | Load Wallet
+      form(method='post', action='/loadwallet')
+        .form-group
+          input.form-control-form(name='phone', type='text', value='', placeholder='Phone *', required)
+        .form-group
+          input.form-control-form(name='email', type='text', value='', placeholder='Email *', required)
+        .form-group
+          input.form-control-form(name='amount', type='text', value='', placeholder='Amount *', required)
+        .form-group
+          button.btn.form-control-form(type='submit', style='color:#5050ff;background-image: none;box-shadow: none;border: 1px solid #858be8;')  
+            | Load Money
