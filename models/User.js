@@ -26,7 +26,8 @@ const userSchema = new Schema({
 			area: String
 		},
 		favorites: Array,
-		resetcode: String
+		resetcode: String,
+		wallet: String
 });
 
 module.exports = mongoose.model('User', userSchema);

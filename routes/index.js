@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+
+var crypto = require("crypto");
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
 var User = require(__dirname + '/../models/User');
@@ -145,5 +147,87 @@ router.get('/favorites/:id', function(req, res, next){
 	     console.log(err);
 	});
 });
+
+router.get('/loadwallet', function(req, res){
+  res.render('wallet/input', {title: "Sokoestate: Load Wallet"});
+});
+
+router.post('/loadwallet', function(req, res){
+  ssn = req.session;
+  ssn.hashkey = "852sokompare963001";
+  ssn.vendor_id = "sokompare";
+  ssn.email = req.body.email;
+  var amount = req.body.amount;
+  var fields = {
+    "live":"1",
+    "oid": new Date().getTime(),
+    "inv": "invoiceid"+new Date().getTime(),
+    "ttl": amount,
+    "tel": req.body.phone,
+    "eml": req.body.email,
+    "vid": ssn.vendor_id,
+    "curr": "KES",
+    "p1": "",
+    "p2": "",
+    "p3": "",
+    "p4": "",
+    "lbk": 'https://'+req.get('host')+'/cancel',
+    "cbk": 'https://'+req.get('host')+'/receive',
+    "cst": "1",
+    "crl": "0"
+  };
+  var datastring =  fields['live']+fields['oid']+fields['inv']+
+    fields['ttl']+fields['tel']+fields['eml']+fields['vid']+fields['curr']+fields['p1']+fields['p2']
+    +fields['p3']+fields['p4']+fields['cbk']+fields['cst']+fields['crl'];
+  var hash = crypto.createHmac('sha1',ssn.hashkey).update(datastring).digest('hex');
+  res.render('wallet/ipay', {title: "Load Wallet",hash: hash, inputs: fields, datastring: datastring});
+});
+
+router.get('/receive', function(req, res){
+  var val = "sokompare";
+  var val1 = req.query.id;
+  var val2 = req.query.ivm;
+  var val3 = req.query.qwh;
+  var val4 = req.query.afd;
+  var val5 = req.query.poi;
+  var val6 = req.query.uyt;
+  var val7 = req.query.ifd;
+  var bizId = req.query.p1;
+  var array = req.query.p2;
+  var status = req.query.status;
+  var amount = req.query.mc;
+
+  var ipnurl = "https://www.ipayafrica.com/ipn/?vendor="+val+"&id="+val1+"&ivm="+val2+"&qwh="+val3+"&afd="+val4+"&poi="+val5+"&uyt="+val6+"&ifd="+val7;
+  //console.log(ipnurl);
+  User.findById(res.locals.user._id)
+  .then(function(b){
+    b.wallet += amount;
+    //if(amount == "2320"){
+
+    request(ipnurl, function (error, response, body) {
+      //console.log(body); // Print the HTML for the Google homepage.
+      //res.send("Status > " + status + ", Body > " +body);
+      //res.end();
+      if(body == status){
+        b.save(function(err){
+          if(err){
+            req.flash('error_msg', 'Error Occured When Updating Account');
+            res.redirect('/admin');
+          }else{
+            req.flash('success_msg', 'Transaction Made Successfully');
+            res.redirect('/admin');
+          }
+        });
+      }else{
+        req.flash('error', 'Transaction Already Authenticated!');
+        res.redirect('/');
+      }
+    });
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+});
+
 
 module.exports = router;
