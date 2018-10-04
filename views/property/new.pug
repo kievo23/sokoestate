@@ -26,14 +26,8 @@ block content
                     #step1.tab-pane.active
                         .row.p-b-15
                             h4.info-text  Let&apos;s start with the basic information
-                            .col-sm-4.col-sm-offset-1
-                                label
-                                   | Property Image
-                                .picture-container
-                                    .picture
-                                        img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
-                                        input#wizard-picture(type='file', name='photo')
-                            .col-sm-6
+                            
+                            .col-sm-12
                                 .form-group
                                     label
                                         | Property name 
@@ -52,15 +46,23 @@ block content
                                         small (required)
                                     input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
                                 .form-group
+                                    label 
+                                        | Property Ownership  :
+                                        small (required)
+                                    select#basic.selectpicker.show-tick.form-control(name='ownership' required)
+                                        option(value=property.ownership) #{property.ownership}
+                                        option(value='owner') Owner
+                                        option(value='agent')  Agent
+                                .form-group
                                     label
                                         | Email 
                                         small (required)
-                                    input.form-control(name='email' type='text' placeholder='Email' required)
+                                    input.form-control(name='email', type='text', placeholder=user.email, value=user.email,  required)
                                 .form-group
                                     label
                                         | Telephone (Format: +254 756 354 976)
                                         small (required)
-                                    input.form-control(name='phone' type='text' placeholder='+1 473 843 7436' required)
+                                    input.form-control(name='phone', type='text', placeholder=user.phone, value=user.phone, required)
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
@@ -80,22 +82,6 @@ block content
                                     .form-group
                                         label Property Surburb :
                                         input.form-control(name='surburb' type='text' placeholder='Ruiru ...' required)
-                            .col-sm-12    
-                                .col-sm-6
-                                    .form-group
-                                        label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1', name="size" )
-                                .col-sm-6
-                                    .form-group
-                                        label Unit:
-                                        select#basic.selectpicker.show-tick.form-control(required)
-                                            option(value='acres') Acres
-                                            option(value='hectares')  Hectares
-                                            option(value='squaremeters')  Square Meters
-                                            option(value='squarefeet')  Square Feet
-                                            option(value='perches')  Perches
-        
-                                        br
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
@@ -113,7 +99,22 @@ block content
                                             each subcat in cat.subcategories
                                               option(value=subcat.name, rel=cat.name) 
                                                 =subcat.name
-                                           
+                            .col-sm-12    
+                                .col-sm-6
+                                    .form-group
+                                        label(for='price-range') Size :
+                                        input#size.span2(type='number' value='1', name="size" )
+                                .col-sm-6
+                                    .form-group
+                                        label Unit:
+                                        select#basic.selectpicker.show-tick.form-control(required)
+                                            option(value='acres') Acres
+                                            option(value='hectares')  Hectares
+                                            option(value='squaremeters')  Square Meters
+                                            option(value='squarefeet')  Square Feet
+                                            option(value='perches')  Perches
+        
+                                        br 
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
@@ -250,7 +251,14 @@ block content
                         .row
                             .col-sm-6
                                 .form-group
-                                    label(for='property-images') Chose Images :
+                                    label
+                                    | Click to upload your property cover image
+                                    .picture-container
+                                        .picture
+                                            img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
+                                            input#wizard-picture(type='file', name='photo')
+                                .form-group
+                                    label(for='property-images') Upload other property images :
                                     input#property-images.form-control(type='file', name='gallery', placeholder='gallery', multiple='')
                                     p.help-block Select multiple images for your property .
                             .col-sm-6
