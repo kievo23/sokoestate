@@ -56,7 +56,7 @@ router.get('/list', function(req, res, next) {
 
 
 router.get('/add', role.auth, function(req, res, next){
-  if(parseInt(user.wallet) >= 1500 ){
+  if(parseInt(res.locals.user.wallet) >= 1500 ){
     Category.find({})
     .then(function(data){
     	res.render('property/new', {title: "Find It Categories", categories: data});
