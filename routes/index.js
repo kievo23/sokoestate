@@ -203,7 +203,7 @@ router.get('/receive', function(req, res){
   User.findById(res.locals.user._id)
   .then(function(b){
     if(b.wallet){
-      b.wallet += amount;
+      b.wallet = parseInt(b.wallet) +  parseInt(amount);
     }else{
       b.wallet = amount;
     }
