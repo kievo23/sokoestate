@@ -28,28 +28,23 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Property.find({})
+  var categories = Category.find({});
+  var properties = Property.find({})
   .populate('user_id')
-  .populate('category')
-  .then(function(data){
-  	//console.log(data);
-    res.render('property/indexfront', {title: "Soko Estate Categories", properties: data});
-  })
-  .catch(function(err){
-     console.log(err);
+  .populate('category');
+  Promise.all([properties, categories]).then(values => {
+    res.render('property/indexfront', {title: "Soko Estate: Properties", properties: values[0], categories: values[1]});
   });
 });
 
 /* GET property backend. */
 router.get('/list', function(req, res, next) {
-  Property.find({})
+  var categories = Category.find({});
+  var properties = Property.find({})
   .populate('user_id')
-  .populate('category')
-  .then(function(data){
-    res.render('property/index', {title: "Soko Estate Categories", properties: data});
-  })
-  .catch(function(err){
-     console.log(err);
+  .populate('category');
+  Promise.all([properties, categories]).then(values => {
+    res.render('property/index', {title: "Soko Estate: Properties", properties: values[0], categories: values[1]});
   });
 });
 
