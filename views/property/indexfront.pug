@@ -47,7 +47,10 @@ block content
                                   .box-two.proerty-item
                                       .item-thumb
                                           a(href='/property/'+p.slug)
-                                              img(src='/uploads/'+p.photo)
+                                              if(p.photo)
+                                                img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
+                                              else
+                                                img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
                                       .item-entry.overflow
                                           h5
                                               a(href='/property/'+p.slug) 
@@ -55,22 +58,26 @@ block content
                                               p
                                                 span.proerty-price  Ksh.
                                                  =p.price
+                                              p  
+                                                span.pull-left
+                                                    if(p.size)
+                                                        b  Area :
+                                                        =p.size
                                           .dot-hr
-                                            span.pull-left
-                                                b  Area :
-                                                |  120m
-                                            span.pull-right
-                                              a(href="#" title="Love it" class="btn btn-love btn-counter" data-count="0")
-                                                i.fa.fa-heart
                                             p(style='display: none;')
                                                 =p.description
                                             .property-icon
-                                                img(src='assets/img/icon/bed.png')
-                                                | (5)|
-                                                img(src='assets/img/icon/shawer.png')
-                                                | (2)|
-                                                img(src='assets/img/icon/cars.png')
-                                                | (1)
+                                                if(p.bedrooms)
+                                                    img(src='assets/img/icon/bed.png')
+                                                    |(
+                                                    =p.bedrooms + ')'
+                                                if(p.bathrooms)
+                                                    img(src='assets/img/icon/shawer.png')
+                                                    |(
+                                                    =p.bedrooms + ')'
+                                          span.pull-right
+                                            a(href="#" title="Love it" class="btn btn-love btn-counter" data-count="0")
+                                                i.fa-2x.fa.fa-heart      
                                 
                     .section
                         .pull-right

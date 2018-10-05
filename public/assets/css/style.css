@@ -2475,7 +2475,7 @@ count-area
     color: #000;
 }
 .item-entry a:hover ,.item-entry a:focus {
-    color: #999696;
+    color: #c0000052;
 }
 .search-form .search-toggle {
     margin-top: 20px;
@@ -3470,22 +3470,22 @@ input[type="checkbox"]:disabled + .label-text:before{
  * Custom styles
  */
 .btn-love {
-  background-color: #dbdbdb;
+  /*background-color: #dbdbdb;
   border-color: #bbb;
   color: #666;
-  border-radius: 100%;
+  border-radius: 100%;*/
 }
 .btn-love:hover,
 .btn-love.active {
   text-shadow: 0 1px 0 #b12f27;
-  background-color: #f64136;
+  /*background-color: #f64136;
   border-color: #b12f27;
-  border-radius: 100%;
+  border-radius: 100%; */
 }
 .btn-love:active { box-shadow: 0 0 5px 3px rgba(0,0,0,0.2) inset; }
 .btn-love span { color: #f64136; }
 .btn-love:hover, .btn:hover span,
-.btn-love.active, .btn.active span { color: #eeeeee; }
+.btn-love.active, .btn.active span { color: #c00000; }
 .btn-love:active span {
   color: #b12f27;
   text-shadow: 0 1px 0 rgba(255,255,255,0.3);
