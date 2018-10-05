@@ -155,7 +155,8 @@ router.get('/favorite/:id', function(req, res, next){
 	.then(function(b){
     var message = "";
 		if(b.favorites.includes(req.params.id)){
-      b.favorites.splice(req.params.id);
+      //b.favorites.splice(req.params.id);
+      b.favorites.splice(b.favorites.indexOf(req.params.id), 1)
       //console.log("exists");
       message = "Property removed from favorites";
     }else{
