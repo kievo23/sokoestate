@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var request = require('request');
 var crypto = require("crypto");
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
