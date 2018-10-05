@@ -14,6 +14,9 @@
         width: 100%;
         border-radius: 0px;
     }
+    .btn-search{
+        padding: 5px 4px !important;
+    }
     .asks-first { 
         padding: 15px;
         margin-bottom: 10px;

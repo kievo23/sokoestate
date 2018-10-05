@@ -14,24 +14,37 @@ block content
             </div>
       .slider-content
         .row
-          .col-xs-12
+          .col-md-12.col-xs-12
             .search-form.wow.pulse(data-wow-delay='0.8s')
               h2 Find Property in Kenya
               form.form-inline(action='search',method='get')
-                .row(style='margin-right: 0px;  margin-left: 0px;')
+                .row
+                  .col-md-12(style='padding-right: 0px; padding-left: 0px;')
+                    .btn-group(style='float: left; padding-left: 2rem;')
+                      each cat, i in categories
+                        button(type="button" class="btn btn-primary btn-search")
+                          label
+                            input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                            =cat.name
+                      button(type="button" class="btn btn-primary btn-search")
+                        label
+                          input(type="radio" name="category" style="display:none !important")
+                          | Upcoming
+
+                //.row(style='margin-right: 0px;  margin-left: 0px;')
                   each cat, i in categories
-                    .col-xs-3(style='padding-right: 0px; padding-left: 0px;')
+                    .col-md-3.col-xs-3(style='padding-right: 0px; padding-left: 0px;')
                       label.property-search
-                        .col-xs-3(style='padding-right: 0px; padding-left: 0px;')
+                        
                           input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
                           .welcome-estate(style="padding:0")
                             .welcome-icon
                               =cat.name
                               //i.pe-7s-home.pe-4x
                                 
-                  .col-xs-3(style='padding-right: 0px; padding-left: 0px;')
+                  .col-md-3.col-xs-3(style='padding-right: 0px; padding-left: 0px;')
                     label.property-search
-                      .col-xs-3(style='padding-right: 0px; padding-left: 0px;')
+                      
                         input(type="radio" name="category" style="display:none !important")
                         .welcome-estate(style="padding:0")
                             .welcome-icon
