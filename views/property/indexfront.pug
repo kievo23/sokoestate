@@ -52,22 +52,26 @@ block content
                                           h5
                                               a(href='/property/'+p.slug) 
                                                 =p.name
+                                              p
+                                                span.proerty-price  Ksh.
+                                                =p.price
                                           .dot-hr
-                                      span.pull-left
-                                          b  Area :
-                                          |  120m
-                                      span.proerty-price.pull-right  Ksh.
-                                        =p.price
-                                      p(style='display: none;')
-                                          =p.description
-                                      .property-icon
-                                          img(src='assets/img/icon/bed.png')
-                                          | (5)|
-                                          img(src='assets/img/icon/shawer.png')
-                                          | (2)|
-                                          img(src='assets/img/icon/cars.png')
-                                          | (1)
-                              
+                                            span.pull-left
+                                                b  Area :
+                                                |  120m
+                                            span.pull-right
+                                              a(href="#" title="Love it" class="btn btn-love btn-counter" data-count="0")
+                                                i.fa.fa-heart
+                                            p(style='display: none;')
+                                                =p.description
+                                            .property-icon
+                                                img(src='assets/img/icon/bed.png')
+                                                | (5)|
+                                                img(src='assets/img/icon/shawer.png')
+                                                | (2)|
+                                                img(src='assets/img/icon/cars.png')
+                                                | (1)
+                                
                     .section
                         .pull-right
                             .pagination
