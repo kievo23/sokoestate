@@ -47,9 +47,9 @@ html
           if !loggedin
             .button.navbar-right
               a(href='/login')
-                button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.45s') Login
+                button.navbar-btn.nav-button.wow.bounceInRight.login( data-wow-delay='0.15s') Login
               a(href='/register')
-                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.48s') Sign Up
+                button.navbar-btn.nav-button.wow.fadeInRight( data-wow-delay='0.18s') Sign Up
             
           ul.main-nav.nav.navbar-nav.navbar-right
             //li.dropdown.ymm-sw(data-wow-delay='0.1s')
@@ -129,12 +129,13 @@ html
   .footer
     .container
       .row
-        .col-md-3.col-sm-6.wow.fadeInRight.animated
+        //.col-md-3.col-sm-6.wow.fadeInRight.animated
+        .col-md-3.col-sm-6
           .single-footer
             h4 About us 
             .footer-title-line
             a(href='/')
-              img.wow.pulse(src='/assets/img/logosokoestate.png' alt='' data-wow-delay='1s')
+              img.wow.pulse(src='/assets/img/logosokoestate.png' alt='' )
             p
               | Is the place to look for your new home and properties to invest in.
             ul.footer-adress
@@ -147,7 +148,7 @@ html
               li
                 i.pe-7s-call.strong  
                 |  +254 738 266 973
-        .col-md-3.col-sm-6.wow.fadeInRight.animated
+        .col-md-3.col-sm-6
           .single-footer
             h4 Quick links 
             .footer-title-line
@@ -160,7 +161,8 @@ html
                 a(href='/terms-of-service') Terms of Service
               li
                 a(href='/privacy-policy') Privacy Policy
-        .col-md-3.col-sm-6.wow.fadeInRight.animated
+        //.col-md-3.col-sm-6.wow.fadeInRight.animated
+        .col-md-3.col-sm-6  
           .single-footer
             h4 Latest Properties
             .footer-title-line
@@ -192,7 +194,8 @@ html
                   h6
                     a(href='/') Add news functions 
                   p(style='line-height: 17px; padding: 8px 2px;') Lorem ipsum dolor sit amet, nulla ...
-        .col-md-3.col-sm-6.wow.fadeInRight.animated
+        //.col-md-3.col-sm-6.wow.fadeInRight.animated
+        .col-md-3.col-sm-6
           .single-footer.news-letter
             h4 Stay in touch
             .footer-title-line
@@ -211,13 +214,13 @@ html
                   a.wow.fadeInUp.animated(href='https://twitter.com/')
                     i.fa.fa-twitter
                 li
-                  a.wow.fadeInUp.animated(href='https://www.facebook.com/' data-wow-delay='0.2s')
+                  a.wow.fadeInUp.animated(href='https://www.facebook.com/')
                     i.fa.fa-facebook
                 li
-                  a.wow.fadeInUp.animated(href='https://plus.google.com/' data-wow-delay='0.3s')
+                  a.wow.fadeInUp.animated(href='https://plus.google.com/')
                     i.fa.fa-google-plus
                 li
-                  a.wow.fadeInUp.animated(href='https://instagram.com/' data-wow-delay='0.4s')
+                  a.wow.fadeInUp.animated(href='https://instagram.com/')
                     i.fa.fa-instagram
                 
   .footer-copy.text-center
@@ -228,16 +231,7 @@ html
             | (C) 
             a(href='sokoestate.com') Soko Estate
             |  , All rights reserved 2018
-        //.bottom-menu.pull-right
-          ul
-            li
-              a.wow.fadeInUp.animated(href='/' data-wow-delay='0.2s') Home
-            li
-              a.wow.fadeInUp.animated(href='/property' data-wow-delay='0.3s') Property
-            li
-              a.wow.fadeInUp.animated(href='#' data-wow-delay='0.4s') Terms of Service
-            li
-              a.wow.fadeInUp.animated(href='#' data-wow-delay='0.6s') Privacy 
+        
     
 
 script(src='/assets/js/modernizr-2.6.2.min.js')
