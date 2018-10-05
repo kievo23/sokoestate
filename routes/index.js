@@ -202,7 +202,12 @@ router.get('/receive', function(req, res){
   //console.log(ipnurl);
   User.findById(res.locals.user._id)
   .then(function(b){
-    b.wallet += amount;
+    if(b.wallet){
+      b.wallet += amount;
+    }else{
+      b.wallet = amount;
+    }
+
     //if(amount == "2320"){
 
     request(ipnurl, function (error, response, body) {
