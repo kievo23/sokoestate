@@ -195,8 +195,10 @@ head
               input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
               button.au-btn--submit(type='submit')
                 i.zmdi.zmdi-search
-            a.js-acc-btn(href="/property")
-                 | Properties listing
+            i(class="fas fa-money-bill-alt" aria-hidden="true")
+               |  #{user.wallet}
+            a.js-acc-btn(href="/loadwallet")
+               |  Load Wallet
             .header-button
               
               .account-wrap

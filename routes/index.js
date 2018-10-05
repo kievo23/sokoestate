@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var request = require('request');
 var crypto = require("crypto");
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
@@ -201,7 +202,12 @@ router.get('/receive', function(req, res){
   //console.log(ipnurl);
   User.findById(res.locals.user._id)
   .then(function(b){
-    b.wallet += amount;
+    if(b.wallet){
+      b.wallet = parseInt(b.wallet) +  parseInt(amount);
+    }else{
+      b.wallet = amount;
+    }
+
     //if(amount == "2320"){
 
     request(ipnurl, function (error, response, body) {
