@@ -90,114 +90,64 @@ block content
                             .panel-heading
                                 h3.panel-title Smart search
                             .panel-body.search-widget
-                                form.form-inline(action='')
-                                    fieldset
-                                        .row
-                                           .col-xs-12
-                                                input.form-control(type='text' placeholder='Key word')
-                                    fieldset
-                                        .row
-                                            .col-xs-6
-                                                select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Select Your City')
-                                                    option New york, CA
-                                                    option Paris
-                                                    option Casablanca
-                                                    option Tokyo
-                                                    option Marraekch
-                                                    option kyoto , shibua
-                                            .col-xs-6
-                                                select#basic.selectpicker.show-tick.form-control
-                                                    option  -Status- 
-                                                    option Rent 
-                                                    option Boy
-                                                    option used
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                label(for='price-range') Price range ($):
-                                                input#price-range.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[0,450]')
-                                                br
-                                                b.pull-left.color 2000$
-                                                b.pull-right.color 100000$
-                                            .col-xs-6
-                                                label(for='property-geo') Property geo (m2) :
-                                                input#property-geo.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[50,450]')
-                                                br
-                                                b.pull-left.color 40m
-                                                b.pull-right.color 12000m
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                label(for='price-range') Min baths :
-                                                input#min-baths.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
-                                                br
-                                                b.pull-left.color 1
-                                                b.pull-right.color 120
-                                            .col-xs-6
-                                                label(for='property-geo') Min bed :
-                                                input#min-bed.span2(type='text' value='' data-slider-min='0' data-slider-max='600' data-slider-step='5' data-slider-value='[250,450]')
-                                                br
-                                                b.pull-left.color 1
-                                                b.pull-right.color 120
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox' checked='')
-                                                    |  Fire Place
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox')
-                                                    |  Dual Sinks
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox' checked='')
-                                                    |  Swimming Pool
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox' checked='')
-                                                    |  2 Stories
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox')
-                                                    |  Laundry Room
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox')
-                                                    |  Emergency Exit
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox' checked='')
-                                                    |  Jog Path
-                                            .col-xs-6
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox')
-                                                    |  26&apos; Ceilings
-                                    fieldset.padding-5
-                                        .row
-                                            .col-xs-12
-                                                .checkbox
-                                                    label
-                                                    input(type='checkbox')
-                                                    |  Hurricane Shutters
-                                    fieldset
-                                        .row
-                                            .col-xs-12
-                                            input.button.btn.largesearch-btn(value='Search' type='submit')
+                                form.form-inline(action='search',method='get')
+                                    .row
+                                        .col-md-12(style='padding-right: 0px; padding-left: 0px;')
+                                            .btn-group(style='float: left; padding-left: 2rem;')
+                                                each cat, i in categories
+                                                    button(type="button" class="btn btn-primary btn-search")
+                                                        label
+                                                            input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                                                            =cat.name
+                                    .row
+                                        .col-xs-6(style="margin-top:1rem")
+                                            .switch-field
+                                                input#switch_left(type='radio' name='type' value='sale' checked='')
+                                                label(for='switch_left') For Sale
+                                                input#switch_right(type='radio' name='type' value='rent')
+                                                label(for='switch_right') For Rent
+                                        .col-xs-6(style="margin-top:1rem")
+                                            select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
+                                                option New york, CA
+                                                option Paris
+                                                option Casablanca
+                                                option Tokyo
+                                                option Marraekch
+                                                option kyoto , shibua
+                                    
+                                    .row
+                                        .col-xs-6(style="margin-top:1rem")
+                                            select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
+                                            option(class='status',value='') Property Category
+                                            each cat in categories
+                                                each subcat in cat.subcategories
+                                                    option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                                                        =subcat.name
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" id="minprice" class="form-control" placeholder="Max Price",name="manprice")
+                                        
+                                    .row(class='others')
+                                        .col-xs-8(style="margin-top:1rem")
+                                        input(type="text" class="form-control" placeholder="Size",name="size")
+                                                
+                                        .col-xs-4(style="margin-top:1rem")
+                                            select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                                                option  Acre
+                                                option Hectares 
+                                                option m2
+                                                option SqF
+                                    .row(class='residential')
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")
+                                            
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" class="form-control" placeholder="No.BATHROOMS",name="bathrooms")
+                                    .row
+                                        .col-xs-12(style="margin-top:1rem")
+                                            a(href="#")
+                                            button.btn.search-btn.hide-search.text-center(type='submit')
+                                                i.fa.fa-search
+                                                |     Search
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                h3.panel-title Recommended
