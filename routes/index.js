@@ -108,10 +108,11 @@ router.get('/search', function(req, res, next) {
     }
   }
   console.log(obj);
-  Property.find(obj).populate('user_id').populate('category').then(function(d){
-    res.render('property/indexfront', { title: 'Soko Estate: Register',properties: d });
-  })
-
+  var categories = Category.find({});
+  var properties = Property.find(obj).populate('user_id').populate('category');
+  Promise.all([categories,properties]).then(values => {
+    res.render('property/indexfront', { title: 'Soko Estate: Search',properties: values[1],categories: values[0] });
+  });
 });
 
 router.get('/property/:slug',function(req, res){
@@ -121,9 +122,18 @@ router.get('/property/:slug',function(req, res){
   })
   .populate('user_id')
   .populate('category');
+
   Promise.all([categories,property]).then(values => {
-    console.log(values[1]);
-    res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0]});
+    //console.log(values[1].category);
+    var similar = Property.find({
+        $query: {
+          category: values[1].category._id
+        }
+      })
+      .limit(5).then(function(d){
+        //console.log(d);
+        res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0], similar: d});
+      });
   });
 });
 
