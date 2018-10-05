@@ -132,26 +132,42 @@ router.get('/property/:slug',function(req, res){
       })
       .limit(5).then(function(d){
         //console.log(d);
-        res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0], similar: d});
+        res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0], similars: d});
       });
   });
 });
 
-router.get('/favorites/:id', function(req, res, next){
+router.get('/favorites', function(req, res){
+  var categories = Category.find({});
+  var objects = {};
+  var ids = res.locals.user.favorites;
+  res.locals.user.favorites.forEach(o => objects[o._id] = o);
+  var dupArray = ids.map(id => objects[id]);
+  var properties = Property.find({_id: {$in: ids}});
+  Promise.all([properties,categories]).then(values => {
+    //console.log(values[0]);
+	  res.render('property/indexfront', {title: "Soko Estate", properties: values[0], categories: values[1]});
+	});
+});
+
+router.get('/favorite/:id', function(req, res, next){
 	User.findById(res.locals.user._id)
 	.then(function(b){
+    var message = "";
 		if(b.favorites.includes(req.params.id)){
       b.favorites.splice(req.params.id);
       //console.log("exists");
+      message = "Property removed from favorites";
     }else{
       b.favorites.push(req.params.id);
       //console.log("does not exist");
+      message = "Property added from favorites";
     }
     console.log(b);
 		b.save(function(err){
 			if(err)
-				res.redirect('/');
-			res.redirect('/');
+				res.json(message);
+			res.json(message);
 		});
 	})
 	.catch(function(err){

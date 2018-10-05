@@ -6,9 +6,9 @@ block content
         | Load Wallet
       form(method='post', action='/loadwallet')
         .form-group
-          input.form-control-form(name='phone', type='text', value='', placeholder='Phone *', required)
+          input.form-control-form(name='phone', type='text', value=user.phone, placeholder='Phone *', required)
         .form-group
-          input.form-control-form(name='email', type='text', value='', placeholder='Email *', required)
+          input.form-control-form(name='email', type='text', value=user.email, placeholder='Email *', required)
         .form-group
           input.form-control-form(name='amount', type='text', value='', placeholder='Amount *', required)
         .form-group

@@ -38,27 +38,4 @@ router.get('/makeadmin/:id', role.admin, function(req, res){
 	});
 });
 
-router.get('/delete/:id', role.admin, function(req, res){
-	Users.deleteOne({_id:req.params.id})
-	.then(function(data){
-  		res.redirect('/users');
-	})
-	.catch(function(err){
-	    console.log(err);
-	});
-});
-
-router.get('/:number', function(req, res){
-	Business.find({
-    user_id: req.params.number
-  }).sort([['date', -1]])
-  .then(function(data){
-  	res.render('admin/bizadded', {title: "Find It Dashboard", businesses: data});
-  })
-  .catch(function(err){
-     console.log(err);
-     res.redirect('/');
-  });
-});
-
 module.exports = router;
