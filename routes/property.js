@@ -56,13 +56,18 @@ router.get('/list', function(req, res, next) {
 
 
 router.get('/add', role.auth, function(req, res, next){
-  Category.find({})
-  .then(function(data){
-  	res.render('property/new', {title: "Find It Categories", categories: data});
-  })
-  .catch(function(err){
-     console.log(err);
-  });
+  if(parseInt(user.wallet) >= 1500 ){
+    Category.find({})
+    .then(function(data){
+    	res.render('property/new', {title: "Find It Categories", categories: data});
+    })
+    .catch(function(err){
+       console.log(err);
+    });
+  }else{
+    req.flash("error_msg", "Kindly load 1500 or more to your wallet to post a property");
+    res.redirect('/loadwallet');
+  }
 });
 
 router.get('/edit/:id', role.auth, function(req, res, next){
@@ -227,6 +232,17 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   							});
   						});
   					}
+            User.findById(res.locals.user._id)
+            .then(function(b){
+                b.wallet = parseInt(b.wallet) -  1500;
+                b.save(function(err){
+                  if(err){
+                    console.log("Property Error");
+                  }else{
+                    console.log("User wallet updated Successfully");
+                  }
+                })
+            });
         req.flash("success_msg", "Property Successfully Created");
     		res.redirect('/property');
       }
