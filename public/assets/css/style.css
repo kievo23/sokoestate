@@ -3430,3 +3430,63 @@ input[type="checkbox"]:disabled + .label-text:before{
 	content: "\f0c8";
 	color: #ccc;
 }
+/*
+ * Counter button style
+ */
+.btn-counter { margin-right: 39px; }
+.btn-counter:after,
+.btn-counter:hover:after { text-shadow: none; }
+.btn-counter:after {
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+  background-color: #eee;
+  padding: 0 8px;
+  color: #777;
+  content: attr(data-count);
+  left: 100%;
+  margin-left: 8px;
+  margin-right: -13px;
+  position: absolute;
+  top: -1px;
+}
+.btn-counter:before {
+  transform: rotate(45deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476, sizingMethod='auto expand');
+
+  background-color: #eee;
+  border: 1px solid #d3d3d3;
+  border-right: 0;
+  border-top: 0;
+  content: '';
+  position: absolute;
+  right: -13px;
+  top: 5px;
+  height: 6px;
+  width: 6px;
+  z-index: 1;
+  zoom: 1;
+}
+/*
+ * Custom styles
+ */
+.btn-love {
+  background-color: #dbdbdb;
+  border-color: #bbb;
+  color: #666;
+  border-radius: 100%;
+}
+.btn-love:hover,
+.btn-love.active {
+  text-shadow: 0 1px 0 #b12f27;
+  background-color: #f64136;
+  border-color: #b12f27;
+  border-radius: 100%;
+}
+.btn-love:active { box-shadow: 0 0 5px 3px rgba(0,0,0,0.2) inset; }
+.btn-love span { color: #f64136; }
+.btn-love:hover, .btn:hover span,
+.btn-love.active, .btn.active span { color: #eeeeee; }
+.btn-love:active span {
+  color: #b12f27;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}

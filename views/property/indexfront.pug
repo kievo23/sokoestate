@@ -118,11 +118,11 @@ block content
                                     .row
                                         .col-xs-6(style="margin-top:1rem")
                                             select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
-                                            option(class='status',value='') Property Category
-                                            each cat in categories
-                                                each subcat in cat.subcategories
-                                                    option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
-                                                        =subcat.name
+                                                option(class='status',value='') Property Category
+                                                each cat in categories
+                                                    each subcat in cat.subcategories
+                                                        option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                                                            =subcat.name
                                         .col-xs-6(style="margin-top:1rem")
                                             input(type="text" id="minprice" class="form-control" placeholder="Max Price",name="manprice")
                                         
