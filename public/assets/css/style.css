@@ -3436,7 +3436,7 @@ input[type="checkbox"]:disabled + .label-text:before{
 .btn-counter { margin-right: 39px; }
 .btn-counter:after,
 .btn-counter:hover:after { text-shadow: none; }
-.btn-counter:after {
+/*.btn-counter:after {
   border-radius: 3px;
   border: 1px solid #d3d3d3;
   background-color: #eee;
@@ -3465,7 +3465,7 @@ input[type="checkbox"]:disabled + .label-text:before{
   width: 6px;
   z-index: 1;
   zoom: 1;
-}
+}*/
 /*
  * Custom styles
  */
