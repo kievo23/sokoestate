@@ -68,7 +68,7 @@ block content
                         option kyoto , shibua
                   
                 .row
-                  .col-xs-6
+                  .col-xs-6(style="margin-top:1rem")
                     select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
                       option(class='status',value='') Property Category
                       each cat in categories
@@ -209,6 +209,7 @@ block content
                   b Area :
                   |  120m
                 span.proerty-price.pull-right $ 300,000
+                
           .col-sm-6.col-md-3.p0
             .box-two.proerty-item
               .item-thumb

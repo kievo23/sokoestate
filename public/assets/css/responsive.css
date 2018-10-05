@@ -17,6 +17,9 @@
     .btn-search{
         padding: 5px 4px !important;
     }
+    .btn-group{
+        padding-left: 0 !important;
+    }
     .asks-first { 
         padding: 15px;
         margin-bottom: 10px;
