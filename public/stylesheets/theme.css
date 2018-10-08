@@ -215,6 +215,7 @@ strong {
 /* ----- Links ----- */
 a {
     display: inline-block;
+    color: #04045a;
 }
 
 a:hover,
@@ -1631,11 +1632,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #04045a;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color:#04045a;
 }
 
 .has-sub {
