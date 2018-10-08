@@ -5,7 +5,7 @@ block content
     .properties-area.recent-property(style='background-color: #FFF;')
         .container-fluid(style="background: #eaeaea; text-align: center;")
             .row
-                .col-md-9.padding-top-40.properties-page
+                .col-md-8.padding-top-40.properties-page
                     .section.clear
                         .col-xs-10.page-subheader.sorting.pl0
                             ul.sort-by-list
@@ -31,54 +31,73 @@ block content
                                         option(value='30') 30
                                         option(value='45') 45
                                         option(value='60') 60
-                                // / .sel
-                                // / .items-per-page
-                        //.col-xs-2.layout-switcher
-                            a.layout-list(href='javascript:void(0);')
-                                i.fa.fa-th-list
-                            a.layout-grid.active(href='javascript:void(0);')
-                                i.fa.fa-th
+                                
                         // / .layout-switcher
                     .section.clear
                         #list-type.proerty-th
                             each p in properties
-                              .col-sm-6.col-md-4.p0
-                                a(href='/property/'+p.slug)
-                                  .box-two.proerty-item
-                                      .item-thumb
-                                          a(href='/property/'+p.slug)
-                                              if(p.photo)
-                                                img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
-                                              else
-                                                img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
-                                      .item-entry.overflow
-                                          h5
-                                              a(href='/property/'+p.slug) 
-                                                =p.name
-                                              p
-                                                span.proerty-price  Ksh.
-                                                 =p.price
-                                              p  
-                                                span.pull-left
-                                                    if(p.size)
-                                                        b  Area :
-                                                        =p.size
-                                          .dot-hr
-                                            p(style='display: none;')
-                                                =p.description
-                                            .property-icon
-                                                if(p.bedrooms)
-                                                    img(src='assets/img/icon/bed.png')
-                                                    |(
-                                                    =p.bedrooms + ')'
-                                                if(p.bathrooms)
-                                                    img(src='assets/img/icon/shawer.png')
-                                                    |(
-                                                    =p.bedrooms + ')'
-                                          span.pull-right
-                                            a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
-                                                i.fa-2x.fa.fa-heart      
-                                
+                                .row(style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important;")
+                                    .col-sm-6
+                                        a(href='/property/'+p.slug)
+                                            .box-two.proerty-item
+                                                .item-thumb
+                                                    a(href='/property/'+p.slug)
+                                                    if(p.photo)
+                                                        img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
+                                                    else
+                                                        img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
+
+                                    .col-sm-6
+                                        .item-entry.overflow
+                                            h5
+                                                a(href='/property/'+p.slug) 
+                                                    =p.name
+                                                p
+                                                    span.proerty-price  Ksh.
+                                                    =p.price
+                                                p
+                                                  =p.description
+                                //.col-sm-6.col-md-4.p0
+                                    a(href='/property/'+p.slug)
+                                    .box-two.proerty-item
+                                        .item-thumb
+                                            a(href='/property/'+p.slug)
+                                                if(p.photo)
+                                                    img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
+                                                else
+                                                    img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
+                                        .item-entry.overflow
+                                            h5
+                                                a(href='/property/'+p.slug) 
+                                                    =p.name
+                                                p
+                                                    span.proerty-price  Ksh.
+                                                    =p.price
+                                                p  
+                                                    span.pull-left
+                                                        if(p.size)
+                                                            b  Area :
+                                                            =p.size
+                                                    span.proerty-price.pull-right
+                                                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
+                                                            i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")
+                                                        
+                                            .dot-hr
+                                                p(style='display: none;')
+                                                    =p.description
+                                                .property-icon
+                                                    if(p.bedrooms)
+                                                        img(src='assets/img/icon/bed.png')
+                                                        |(
+                                                        =p.bedrooms + ')'
+                                                    if(p.bathrooms)
+                                                        img(src='assets/img/icon/shawer.png')
+                                                        |(
+                                                        =p.bedrooms + ')'
+                                            //span.pull-right
+                                                a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
+                                                    i.fa-2x.fa.fa-heart      
+                                    
                     .section
                         .pull-right
                             .pagination
@@ -95,7 +114,7 @@ block content
                                     a(href='#') 4
                                     li
                                     a(href='#') Next
-                .col-md-3.pl0.padding-top-40
+                .col-md-4.pl0.padding-top-40
                     .pl0
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
