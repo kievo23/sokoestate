@@ -88,9 +88,9 @@ html
                       i.fa.fa-user
                       |      Account
                   li
-                    a(href='')
+                    a(href='/favorites')
                       i.fa.fa-bookmark
-                      |      Favourite properties
+                      |    #{user.favorites.length}  Favourite properties
                   li
                     a(href='/logout') 
                       i.fa.fa-power-off
@@ -213,10 +213,12 @@ script(src='/assets/js/wow.js')
 script(src='/assets/js/icheck.min.js')
 script(src='/assets/js/price-range.js')
 script(src='/assets/js/main.js')
+script(src='/js/notify.js')
 //add property js
 script(src='/assets/js/jquery.bootstrap.wizard.js' type='text/javascript')
 script(src='/assets/js/jquery.validate.min.js')
 script(src='/js/jquery-gmaps-latlon-picker.js')
+script(src='/js/axios.min.js')
 script(src='/assets/js/wizard.js')
 script(type="text/javascript" src="/assets/js/lightslider.min.js")
 //script(src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
@@ -243,6 +245,20 @@ script(type='text/javascript').
  */
   $('.btn-counter').on('click', function(event, count) {
     event.preventDefault();
+    $(this).attr('rel');
+    
+    axios.get('/favorite/'+$(this).attr('rel'))
+    .then(function (response) {
+      console.log(response);
+      Notify.toast(response.data, {
+        fn: function () {
+          // custom function here
+        }
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
     
     var $this = $(this),
         count = $this.attr('data-count'),
