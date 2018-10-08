@@ -108,6 +108,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.amenities = req.body.amenities;
   i.size = req.body.size;
   i.email = req.body.email;
+  i.youtube = req.body.youtube;
   i.category = req.body.category;
   i.agent = req.body.ownership;
   i.subcategory = req.body.subcategory;
@@ -181,6 +182,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.category = req.body.category;
     i.subcategory = req.body.subcategory;
     i.agent = req.body.ownership;
+    i.youtube = req.body.youtube;
     i.user_id = res.locals.user._id;
     i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
   	i.date = new Date();
