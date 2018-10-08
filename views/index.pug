@@ -22,35 +22,12 @@ block content
                   .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                     .btn-group(style='float: left; padding-left: 2rem;')
                       each cat, i in categories
-                        button(type="button" class="btn btn-primary btn-search")
+                        button(type="button" class="btn btn-primary btn-search" style="margin-left:2px; margin-top:2px;")
                           label
                             input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
                             =cat.name
-                      //button(type="button" class="btn btn-primary btn-search")
-                        label
-                          input(type="radio" name="category" style="display:none !important")
-                          | Upcoming
-
-                //.row(style='margin-right: 0px;  margin-left: 0px;')
-                  each cat, i in categories
-                    .col-md-3.col-xs-3(style='padding-right: 0px; padding-left: 0px;')
-                      label.property-search
-                        
-                          input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
-                          .welcome-estate(style="padding:0")
-                            .welcome-icon
-                              =cat.name
-                              //i.pe-7s-home.pe-4x
-                                
-                  .col-md-3.col-xs-3(style='padding-right: 0px; padding-left: 0px;')
-                    label.property-search
-                      
-                        input(type="radio" name="category" style="display:none !important")
-                        .welcome-estate(style="padding:0")
-                            .welcome-icon
-                              | Upcoming
-                              //i.pe-7s-home.pe-4x
-                        
+                            
+                
                 .row
                   .col-xs-6(style="margin-top:1rem")
                     .switch-field
