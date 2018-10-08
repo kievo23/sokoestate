@@ -247,6 +247,26 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   });
 });
 
+router.get('/featured/:id',role.admin, function(req, res, next){
+	Property.findById(req.params.id)
+	.then(function(b){
+		if(b.featured == 1){
+			b.featured = 0;
+		}else{
+			b.featured = 1;
+		}
+		b.save(function(err){
+			if(err)
+				res.redirect('/property/list');
+			res.redirect('/property/list');
+		});
+	})
+	.catch(function(err){
+	     console.log(err);
+	});
+});
+
+
 router.get('/delete/:id',role.auth, function(req, res, next){
 		Property.findOneAndRemove({
 		  _id: req.params.id
