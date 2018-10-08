@@ -45,9 +45,8 @@ block content
                       label.au-checkbox
                         input(type='checkbox')
                         span.au-checkmark
-                    th NAME
+                    th NAMES
                     th PHONE
-                    th EMAIL
                     th ROLE
                     th Google
                     th Facebook
@@ -67,22 +66,16 @@ block content
                           =user.phone
                         td
                           span.status--process 
-                            =user.email                                     
-                        td
-                          span.status--process 
                             =user.role
                         td
                           =user.googleId
                         td
                           =user.facebookid
                         td
-                          .table-data-feature
-                            a(href="/admin/user/"+user.username, title="see businesses")
-                              button.item(data-toggle='tooltip' data-placement='top' title='Order')
-                                i.zmdi.zmdi-mail-send
-                            a(href="/admin/user/makeadmin/"+user.id, title="Make admin")
-                              button.item(data-toggle='tooltip' data-placement='top' title='Edit')
-                                i.zmdi.zmdi-edit
+                          .row
+                            a(href="/users/makeadmin/"+user.id, title="Make admin")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Make Admin')
+                                i.zmdi.zmdi-account-box
                             a(href="/admin/user/delete/"+user.id, title="Delete User")
                               button.item(data-toggle='tooltip' data-placement='top' title='Delete')
                                 i.zmdi.zmdi-delete

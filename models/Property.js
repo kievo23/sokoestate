@@ -37,6 +37,8 @@ const propertySchema = new Schema({
     amenities: Array,
 		approved: String,
 		date: Date,
+		youtube: String,
+		featured: Boolean,
 		user_id:  { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
