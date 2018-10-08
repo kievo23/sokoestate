@@ -1223,6 +1223,7 @@ section {
 @media (max-width: 991px) {
     .logo {
         text-align: center;
+        width:150px;
     }
 }
 
