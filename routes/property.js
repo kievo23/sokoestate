@@ -38,11 +38,17 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET property backend. */
-router.get('/list', function(req, res, next) {
+router.get('/list', role.auth, function(req, res, next) {
   var categories = Category.find({});
-  var properties = Property.find({})
-  .populate('user_id')
-  .populate('category');
+  if(req.user.role == 1){
+    var properties = Property.find({})
+    .populate('user_id')
+    .populate('category');
+  }else{
+    var properties = Property.find({user_id : req.user._id})
+    .populate('user_id')
+    .populate('category');
+  }
   Promise.all([properties, categories]).then(values => {
     res.render('property/index', {title: "Soko Estate: Properties", properties: values[0], categories: values[1]});
   });

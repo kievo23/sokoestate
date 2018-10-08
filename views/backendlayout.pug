@@ -132,19 +132,20 @@ head
             a(href='#')
               i.fas.fa-calendar-alt
               | Account
-          li
-            a(href='/category')
-              i.fas.fa-table
-              | Categories
-          li
-            a(href='/users')
-              i.far.fa-user
-              | Users
-          
-          li
-            a(href='#')
-              i.fas.fa-map-marker-alt
-              | Analytics
+          if(user.role == "1")
+            li
+              a(href='/category')
+                i.fas.fa-table
+                | Categories
+            li
+              a(href='/users')
+                i.far.fa-user
+                | Users
+            
+            li
+              a(href='#')
+                i.fas.fa-map-marker-alt
+                | Analytics
           //li.has-sub
             a.js-arrow(href='#')
               i.fas.fa-copy

@@ -8,6 +8,7 @@ var moment = require('moment');
 var Jimp = require("jimp");
 
 var Category = require(__dirname + '/../models/Category');
+var role = require(__dirname + '/../config/Role');
 //var Subcategory = require(__dirname + '/../models/Subcategory');
 
 
@@ -26,7 +27,7 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', role.admin, function(req, res, next) {
   Category.find({})
   .then(function(data){
   	console.log(data);
@@ -37,7 +38,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/edit/:id', function(req, res, next){
+router.get('/edit/:id', role.admin, function(req, res, next){
 	var category = Category.findOne({
 	  _id: req.params.id
 	});
@@ -71,7 +72,7 @@ router.get('/showhome/:id', function(req, res, next){
 	});
 });
 
-router.get('/subcategory/delete/:id/:name', function(req, res, next){
+router.get('/subcategory/delete/:id/:name', role.admin, function(req, res, next){
 		Category.update(
 			{_id: req.params.id},
 			{ $pull: { subcategories: { name: req.params.name} }
@@ -84,7 +85,7 @@ router.get('/subcategory/delete/:id/:name', function(req, res, next){
 		});
 });
 
-router.post('/category/update/:id',  cpUpload, function(req, res, next){
+router.post('/category/update/:id', role.admin, cpUpload, function(req, res, next){
 	var category = Category.findOne({
 	  _id: req.params.id
 	}).then(function(data){
@@ -120,11 +121,11 @@ router.post('/category/update/:id',  cpUpload, function(req, res, next){
 });
 
 
-router.get('/add', function(req, res, next){
+router.get('/add', role.admin, function(req, res, next){
 	res.render('categories/addcategory');
 });
 
-router.get('/delete/:id',  function(req, res, next){
+router.get('/delete/:id', role.admin, function(req, res, next){
 	Category.deleteOne({
 		_id: req.params.id
 	})
@@ -136,7 +137,7 @@ router.get('/delete/:id',  function(req, res, next){
 	  });
 });
 
-router.post('/add', cpUpload, function(req, res, next){
+router.post('/add', role.admin, cpUpload, function(req, res, next){
   var i = new Category();
 	i.name = req.body.name;
   i.slug = slug(req.body.name);
@@ -168,7 +169,7 @@ router.post('/add', cpUpload, function(req, res, next){
 	});
 });
 
-router.get('/subcategory/add', function(req, res, next){
+router.get('/subcategory/add', role.admin, function(req, res, next){
 	Category.find({})
 	.then(function(data){
 	  	console.log(data);
@@ -179,7 +180,7 @@ router.get('/subcategory/add', function(req, res, next){
 	});
 });
 
-router.post('/subcategory/add', function(req, res, next){
+router.post('/subcategory/add', role.admin, function(req, res, next){
 	Category.findById(req.body.category).then(function(cat){
 		cat.subcategories.push({name: req.body.name});
 		//console.log(cat);

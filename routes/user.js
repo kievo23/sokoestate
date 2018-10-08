@@ -5,7 +5,7 @@ var Users = require(__dirname + '/../models/User');
 var role = require(__dirname + '/../config/Role');
 
 /* GET users listing. */
-router.get('/', role.auth, function(req, res, next) {
+router.get('/', role.admin, function(req, res, next) {
   Users.find({})
   .then(function(data){
     res.render('users/index', {title: "Soko Estate Users", users: data});
