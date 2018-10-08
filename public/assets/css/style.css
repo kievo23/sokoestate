@@ -5,7 +5,7 @@ html, body {
 body {
     height:100%;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     padding:0;
     margin:0;
     font-size:14px;
@@ -1214,9 +1214,9 @@ Asside widgets CSS
     background: yellow;
 }
 .panel.sidebar-menu .panel-body label {
-    color: #777;
+    color: #fff;
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 0px;
 }
 .panel.sidebar-menu .panel-body label:hover {
@@ -3489,4 +3489,8 @@ input[type="checkbox"]:disabled + .label-text:before{
 .btn-love:active span {
   color: #b12f27;
   text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+.btn-search{
+    margin-left:5px !important; 
+    margin-top:5px !important;
 }
