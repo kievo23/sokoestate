@@ -42,16 +42,7 @@ block content
                                             //li(data-thumb='/'+image.path,style="length:50px; width:300px" )
                                                 img(src='/'+image.path, style="length:300px; width:300px")
                                            
-                                            
-                                //ul#image-gallery.gallery.list-unstyled.cS-hidden
-                                    li(data-thumb='/assets/img/property-1/property1.jpg')
-                                      img(src='/assets/img/property-1/property1.jpg')
-                                    li(data-thumb='/img/property-1/property2.jpg')
-                                      img(src='/assets/img/property-1/property3.jpg')
-                                    li(data-thumb='/assets/img/property-1/property3.jpg')
-                                      img(src='/assets/img/property-1/property3.jpg')
-                                    li(data-thumb='/assets/img/property-1/property4.jpg')
-                                      img(src='/assets/img/property-1/property4.jpg')
+                                
                     .single-property-wrapper
                         .property-meta.entry-meta.clearfix
                             if(property)
@@ -124,13 +115,7 @@ block content
                                                 //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
                                                 span.col-xs-6.col-sm-8.col-md-8.add-d-entry  #{ammenity}
                                     
-                        // End additional-details area
-                          if(property.amenities)    
-                            .section.property-features
-                                h4.s-property-title Ammenities
-                                ul
-                                    each ammenity in amenities
-                                        li #{ammenity}
+                       
                                       
                         // End features area
                         .section.property-video
@@ -171,64 +156,35 @@ block content
                                                 //li
                                                     i.pe-7s-map-marker.strong  
                                                     |  9089 your adress her
-                                                li
+                                                li(style="color:#fff;")
                                                     i.pe-7s-mail.strong  
-                                                    a(href="mailto:#{property.email}")
+                                                    a(href="mailto:#{property.email}", style="color:#fff;")
                                                       =property.email
-                                                li
+                                                li(style="color:#fff;")
                                                     i.pe-7s-call.strong  
-                                                    a(href="tel:#{property.phone}")
+                                                    a(href="tel:#{property.phone}", style="color:#fff;")
                                                       =property.phone
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties
                             .panel-body.recent-property-widget
                                 ul
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                            img(src='assets/img/demo/small-property-2.jpg')
-                                            span.property-seeker
-                                            b.b-1 A
-                                            b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                            a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                            img(src='assets/img/demo/small-property-1.jpg')
-                                            span.property-seeker
-                                            b.b-1 A
-                                            b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                            a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                            img(src='assets/img/demo/small-property-3.jpg')
-                                            span.property-seeker
-                                            b.b-1 A
-                                            b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                            a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                            img(src='assets/img/demo/small-property-2.jpg')
-                                            span.property-seeker
-                                            b.b-1 A
-                                            b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                            a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                        .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+                                    each sim, i in similars
+                                        if(i<6)
+                                            li
+                                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                                    a(href='/property/'+sim.slug)
+                                                        img(src='/uploads/' +sim.photo)
+                                                        span.property-seeker
+                                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                                    h6
+                                                        a(href='/property/'+sim.slug)
+                                                        =sim.name
+                                                    span.property-price
+                                                      | Ksh.
+                                                      =sim.price
+                                    
+                        //.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                h3.panel-title Ads her  
                             .panel-body.recent-property-widget
