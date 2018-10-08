@@ -40,76 +40,31 @@ head
       .container-fluid
         ul.navbar-mobile__list.list-unstyled
           li.has-sub
-            a.js-arrow(href='#')
+            a.js-arrow(href='/admin')
               i.fas.fa-tachometer-alt
               | Dashboard
-            //ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
-              li
-                a(href='index.html') Dashboard 1
-              li
-                a(href='index2.html') Dashboard 2
-              li
-                a(href='index3.html') Dashboard 3
-              li
-                a(href='index4.html') Dashboard 4
           li
-            a(href='chart.html')
+            a(href='/property/list')
               i.fas.fa-chart-bar
-              | Charts
-          li
-            a(href='table.html')
-              i.fas.fa-table
-              | Tables
-          li
-            a(href='form.html')
-              i.far.fa-check-square
-              | Forms
+              | Properties
           li
             a(href='#')
               i.fas.fa-calendar-alt
-              | Calendar
+              | Account
           li
-            a(href='map.html')
+            a(href='/category')
+              i.fas.fa-table
+              | Categories
+          li
+            a(href='/users')
+              i.far.fa-user
+              | Users
+          
+          li
+            a(href='#')
               i.fas.fa-map-marker-alt
-              | Maps
-          //li.has-sub
-            a.js-arrow(href='#')
-              i.fas.fa-copy
-              | Pages
-            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
-              li
-                a(href='login.html') Login
-              li
-                a(href='register.html') Register
-              li
-                a(href='forget-pass.html') Forget Password
-          //li.has-sub
-            a.js-arrow(href='#')
-              i.fas.fa-desktop
-              | UI Elements
-            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
-              li
-                a(href='button.html') Button
-              li
-                a(href='badge.html') Badges
-              li
-                a(href='tab.html') Tabs
-              li
-                a(href='card.html') Cards
-              li
-                a(href='alert.html') Alerts
-              li
-                a(href='progress-bar.html') Progress Bars
-              li
-                a(href='modal.html') Modals
-              li
-                a(href='switch.html') Switchs
-              li
-                a(href='grid.html') Grids
-              li
-                a(href='fontawesome.html') Fontawesome Icon
-              li
-                a(href='typo.html') Typography
+              | Analytics
+          
   // END HEADER MOBILE
   // MENU SIDEBAR
   aside.menu-sidebar.d-none.d-lg-block
@@ -145,44 +100,7 @@ head
             a(href='#')
               i.fas.fa-map-marker-alt
               | Analytics
-          //li.has-sub
-            a.js-arrow(href='#')
-              i.fas.fa-copy
-              | Pages
-            ul.list-unstyled.navbar__sub-list.js-sub-list
-              li
-                a(href='login.html') Login
-              li
-                a(href='register.html') Register
-              li
-                a(href='forget-pass.html') Forget Password
-          //li.has-sub
-            a.js-arrow(href='#')
-              i.fas.fa-desktop
-              | UI Elements
-            ul.list-unstyled.navbar__sub-list.js-sub-list
-              li
-                a(href='button.html') Button
-              li
-                a(href='badge.html') Badges
-              li
-                a(href='tab.html') Tabs
-              li
-                a(href='card.html') Cards
-              li
-                a(href='alert.html') Alerts
-              li
-                a(href='progress-bar.html') Progress Bars
-              li
-                a(href='modal.html') Modals
-              li
-                a(href='switch.html') Switchs
-              li
-                a(href='grid.html') Grids
-              li
-                a(href='fontawesome.html') Fontawesome Icon
-              li
-                a(href='typo.html') Typography
+          
   // END MENU SIDEBAR
   // PAGE CONTAINER
   .page-container
