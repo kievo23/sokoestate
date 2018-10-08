@@ -6,146 +6,48 @@ block content
       .section__content.section__content--p30
         .container-fluid
           .row
-            .col-md-12
-              // DATA TABLE
-              h3.title-5.m-b-35 data table
-              .table-data__tool
-                .table-data__tool-left
-                  .rs-select2--light.rs-select2--md
-                    select.js-select2(name='property')
-                      option(selected='selected') All Properties
-                      option(value='') Option 1
-                      option(value='') Option 2
-                    .dropDownSelect2
-                  .rs-select2--light.rs-select2--sm
-                    select.js-select2(name='time')
-                      option(selected='selected') Today
-                      option(value='') 3 Days
-                      option(value='') 1 Week
-                    .dropDownSelect2
-                  button.au-btn-filter
-                    i.zmdi.zmdi-filter-list
-                    | filters
-                .table-data__tool-right
-                  a(href='/property/add')
-                    button.au-btn.au-btn-icon.au-btn--green.au-btn--small
-                      i.zmdi.zmdi-plus
-                      | add property
-                  .rs-select2--dark.rs-select2--sm.rs-select2--dark2
-                    select.js-select2(name='type')
-                      option(selected='selected') Export
-                      option(value='') Option 1
-                      option(value='') Option 2
-                    .dropDownSelect2
-              .table-responsive.table-responsive-data2
-                table.table.table-data2
-                  thead
-                    tr
-                      th
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
-                      th property name
-                      th email
-                      th description
-                      th date
-                      th status
-                      th price
-                      th
-                  tbody
-                    tr.tr-shadow
-                      td
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
-                      td Lori Lynch
-                      td
-                        span.block-email lori@example.com
-                      td.desc Samsung S8 Black
-                      td 2018-09-27 02:12
-                      td
-                        span.status--process Processed
-                      td $679.00
-                      td
-                        .table-data-feature
-                          button.item(data-toggle='tooltip' data-placement='top' title='Send')
-                            i.zmdi.zmdi-mail-send
-                          button.item(data-toggle='tooltip' data-placement='top' title='Edit')
-                            i.zmdi.zmdi-edit
-                          button.item(data-toggle='tooltip' data-placement='top' title='Delete')
-                            i.zmdi.zmdi-delete
-                          button.item(data-toggle='tooltip' data-placement='top' title='More')
-                            i.zmdi.zmdi-more
-                    tr.spacer
-                    tr.tr-shadow
-                      td
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
-                      td Lori Lynch
-                      td
-                        span.block-email john@example.com
-                      td.desc iPhone X 64Gb Grey
-                      td 2018-09-29 05:57
-                      td
-                        span.status--process Processed
-                      td $999.00
-                      td
-                        .table-data-feature
-                          button.item(data-toggle='tooltip' data-placement='top' title='Send')
-                            i.zmdi.zmdi-mail-send
-                          button.item(data-toggle='tooltip' data-placement='top' title='Edit')
-                            i.zmdi.zmdi-edit
-                          button.item(data-toggle='tooltip' data-placement='top' title='Delete')
-                            i.zmdi.zmdi-delete
-                          button.item(data-toggle='tooltip' data-placement='top' title='More')
-                            i.zmdi.zmdi-more
-                    tr.spacer
-                    tr.tr-shadow
-                      td
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
-                      td Lori Lynch
-                      td
-                        span.block-email lyn@example.com
-                      td.desc iPhone X 256Gb Black
-                      td 2018-09-25 19:03
-                      td
-                        span.status--denied Denied
-                      td $1199.00
-                      td
-                        .table-data-feature
-                          button.item(data-toggle='tooltip' data-placement='top' title='Send')
-                            i.zmdi.zmdi-mail-send
-                          button.item(data-toggle='tooltip' data-placement='top' title='Edit')
-                            i.zmdi.zmdi-edit
-                          button.item(data-toggle='tooltip' data-placement='top' title='Delete')
-                            i.zmdi.zmdi-delete
-                          button.item(data-toggle='tooltip' data-placement='top' title='More')
-                            i.zmdi.zmdi-more
-                    tr.spacer
-                    tr.tr-shadow
-                      td
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
-                      td Lori Lynch
-                      td
-                        span.block-email doe@example.com
-                      td.desc Camera C430W 4k
-                      td 2018-09-24 19:10
-                      td
-                        span.status--process Processed
-                      td $699.00
-                      td
-                        .table-data-feature
-                          button.item(data-toggle='tooltip' data-placement='top' title='Send')
-                            i.zmdi.zmdi-mail-send
-                          button.item(data-toggle='tooltip' data-placement='top' title='Edit')
-                            i.zmdi.zmdi-edit
-                          button.item(data-toggle='tooltip' data-placement='top' title='Delete')
-                            i.zmdi.zmdi-delete
-                          button.item(data-toggle='tooltip' data-placement='top' title='More')
-                            i.zmdi.zmdi-more
-              // END DATA TABLE
+            .c
+              // MAIN CONTENT
+              .main-content
+                .section__content.section__content--p30
+                  .container-fluid
+                    .row
+                      .col-md-12
+                        .overview-wrap
+                          h2.title-1 overview
+                          a(href='/property/add')
+                            button.au-btn.au-btn-icon.au-btn--blue
+                              i.zmdi.zmdi-plus
+                              | add properties
+                    .row.m-t-25
+                      .col-xs-6.col-lg-4
+                        .overview-item.overview-item--c1
+                          .overview__inner
+                            .overview-box.clearfix
+                              .icon
+                                i.zmdi.zmdi-home
+                              br
+                              .text
+                                h2 10368
+                                span Properties
+                      .col-xs-6.col-lg-4
+                        .overview-item.overview-item--c2
+                          .overview__inner
+                            .overview-box.clearfix
+                              .icon
+                                i.zmdi.zmdi-calendar-note
+                              br
+                              .text
+                                h2 38,688
+                                span Views 
+                      .col-xs-4.col-lg-4
+                        .overview-item.overview-item--c4
+                          .overview__inner
+                            .overview-box.clearfix
+                              .icon
+                                i.zmdi.zmdi-money
+                              br
+                              .text
+                                h2 Ksh. 0
+                                span Balance
+                            

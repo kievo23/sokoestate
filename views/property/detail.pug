@@ -116,14 +116,14 @@ block content
                                                 span.col-xs-6.col-sm-8.col-md-8.add-d-entry  #{ammenity}
                                     
                        
-                                      
-                        // End features area
-                        .section.property-video
-                            h4.s-property-title Property Video
-                            .video-thumb
-                                .embed-responsive.embed-responsive-4by3
-                                    iframe.embed-responsive-item(src='//www.youtube.com/embed/TQl_Sv3LztQ')
-                            // End video area
+                        if(property.youtube)               
+                            // End features area
+                            .section.property-video
+                                h4.s-property-title Property Video
+                                .video-thumb
+                                    .embed-responsive.embed-responsive-4by3
+                                        iframe.embed-responsive-item(src=property.youtube)
+                                // End video area
                 .col-md-4.p0
                     aside.sidebar.sidebar-property.blog-asside-right
                         .dealer-widget
