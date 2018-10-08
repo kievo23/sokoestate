@@ -3,7 +3,7 @@ extends ../layout
 block content        
     // property area
     .properties-area.recent-property(style='background-color: #FFF;')
-        .container
+        .container-fluid(style="background: #eaeaea; text-align: center;")
             .row
                 .col-md-9.padding-top-40.properties-page
                     .section.clear
@@ -96,7 +96,7 @@ block content
                                     li
                                     a(href='#') Next
                 .col-md-3.pl0.padding-top-40
-                    .blog-asside-right.pl0
+                    .pl0
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Smart search
@@ -106,7 +106,7 @@ block content
                                         .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                                             .btn-group(style='float: left; padding-left: 2rem;')
                                                 each cat, i in categories
-                                                    button(type="button" class="btn btn-primary btn-search")
+                                                    button(type="button" class="btn btn-primary btn-search" style="margin-left:2px; margin-top:2px;")
                                                         label
                                                             input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
                                                             =cat.name
