@@ -125,7 +125,7 @@ router.get('/property/:slug',function(req, res){
 
   Promise.all([categories,property]).then(values => {
     //console.log(values[1].category);
-    var similar = Property.find({
+    Property.find({
         $query: {
           category: values[1].category._id
         }
