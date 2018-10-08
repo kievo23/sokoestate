@@ -70,10 +70,13 @@ block content
                             a(href="/property/showhome/"+property.id, title="Show on home page")
                               button.item(data-toggle='tooltip' data-placement='top' title='Order')
                                 i.zmdi.zmdi-mail-send
-                            a(href="/property/edit/"+property.id, title="Edit Category")
+                            a(href="/property/featured/"+property.id, title="Favourite property")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Featured')
+                                i.zmdi.zmdi-star
+                            a(href="/property/edit/"+property.id, title="Edit Property")
                               button.item(data-toggle='tooltip' data-placement='top' title='Edit')
                                 i.zmdi.zmdi-edit
-                            a(href="/property/delete/"+property.id, onclick="return confirm('Are you sure you want to delete this Category?')", title="Delete Category")
+                            a(href="/property/delete/"+property.id, onclick="return confirm('Are you sure you want to delete this Property?')", title="Delete Category")
                               button.item(data-toggle='tooltip' data-placement='top' title='Delete')
                                 i.zmdi.zmdi-delete
                         
