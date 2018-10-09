@@ -32,8 +32,14 @@ router.get('/', function(req, res, next) {
   var properties = Property.find({})
   .populate('user_id')
   .populate('category');
-  Promise.all([properties, categories]).then(values => {
-    res.render('property/indexfront', {title: "Soko Estate: Properties", properties: values[0], categories: values[1]});
+  var featured = Property.find({featured: 1}).populate('user_id').populate('category');
+  Promise.all([properties, categories, featured]).then(values => {
+    res.render('property/indexfront', {
+      title: "Soko Estate: Properties",
+      properties: values[0],
+      categories: values[1],
+      featured: values[2]
+    });
   });
 });
 
