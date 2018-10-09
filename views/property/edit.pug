@@ -41,6 +41,11 @@ block content
                                         small (required)
                                     input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name required)
                                 .form-group
+                                    label
+                                        | Property tagline 
+                                        small (required)
+                                    input.form-control(name='tagline', type='text', placeholder=property.tagline, value=property.tagline, maxlength="40", required)
+                                .form-group
                                     label 
                                         | Listing type  :
                                         small (required)
