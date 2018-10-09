@@ -54,7 +54,13 @@ block content
                                                                   
                                                         else
                                                             img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
-
+                                                            if p.type == 'sale'
+                                                              div.top-left
+                                                                small For Sale
+                                                                
+                                                            if p.type == 'rent'
+                                                              div.top-left
+                                                                small For Rent
                                     .col-sm-6
                                         .item-entry.overflow
                                             p
