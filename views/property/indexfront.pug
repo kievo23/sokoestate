@@ -37,7 +37,7 @@ block content
                         #list-type.proerty-th
                             each p in properties
                                 .row(style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important; background-color: #fff; margin-bottom:1rem;")
-                                    .col-sm-6
+                                    .col-sm-5
                                         a(href='/property/'+p.slug)
                                             .box-two.proerty-item
                                                 .item-thumb
@@ -61,7 +61,7 @@ block content
                                                             if p.type == 'rent'
                                                               div.top-left
                                                                 small For Rent
-                                    .col-sm-6
+                                    .col-sm-7
                                         .item-entry.overflow
                                             p
                                                 h5
@@ -101,8 +101,7 @@ block content
                                                     else
                                                       p.pull-left
                                                         =p.description
-                        
-                                            p  
+                                            p
                                                 span.proerty-price.pull-right
                                                     a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
                                                         i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")

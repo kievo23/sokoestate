@@ -3504,3 +3504,8 @@ input[type="checkbox"]:disabled + .label-text:before{
     padding: 0.3rem;
     border-radius: 5%;
 }
+.property-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
