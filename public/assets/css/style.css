@@ -1546,6 +1546,7 @@ padding: 0 0 0.5em;
 }
 .overflow{
     overflow: hidden;
+    text-align: left;
 }
 .mar-l-20{
     margin-left: 20px;
