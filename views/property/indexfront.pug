@@ -42,10 +42,18 @@ block content
                                             .box-two.proerty-item
                                                 .item-thumb
                                                     a(href='/property/'+p.slug)
-                                                    if(p.photo)
-                                                        img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
-                                                    else
-                                                        img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
+                                                        if(p.photo)
+                                                            img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
+                                                            if p.type == 'sale'
+                                                              div.top-left
+                                                                small For Sale
+                                                                
+                                                            if p.type == 'rent'
+                                                              div.top-left
+                                                                small For Rent
+                                                                  
+                                                        else
+                                                            img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
 
                                     .col-sm-6
                                         .item-entry.overflow
@@ -92,47 +100,7 @@ block content
                                                 span.proerty-price.pull-right
                                                     a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
                                                         i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")
-                                //.col-sm-6.col-md-4.p0
-                                    a(href='/property/'+p.slug)
-                                    .box-two.proerty-item
-                                        .item-thumb
-                                            a(href='/property/'+p.slug)
-                                                if(p.photo)
-                                                    img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
-                                                else
-                                                    img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
-                                        .item-entry.overflow
-                                            h5
-                                                a(href='/property/'+p.slug) 
-                                                    =p.name
-                                                p
-                                                    span.proerty-price  Ksh.
-                                                    =p.price
-                                                p  
-                                                    span.pull-left
-                                                        if(p.size)
-                                                            b  Area :
-                                                            =p.size
-                                                    span.proerty-price.pull-right
-                                                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
-                                                            i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")
-                                                        
-                                            .dot-hr
-                                                p(style='display: none;')
-                                                    =p.description
-                                                .property-icon
-                                                    if(p.bedrooms)
-                                                        img(src='assets/img/icon/bed.png')
-                                                        |(
-                                                        =p.bedrooms + ')'
-                                                    if(p.bathrooms)
-                                                        img(src='assets/img/icon/shawer.png')
-                                                        |(
-                                                        =p.bedrooms + ')'
-                                            //span.pull-right
-                                                a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
-                                                    i.fa-2x.fa.fa-heart      
-                                    
+                                
                     .section
                         .pull-right
                             .pagination
