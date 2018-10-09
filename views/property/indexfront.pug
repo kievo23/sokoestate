@@ -60,26 +60,35 @@ block content
                                             p
                                                 span.pull-left
                                                     small
-                                                       =p.suburb
+                                                       i.fa.fa-map-marker(aria-hidden="true")
+                                                       span 
+                                                         =p.surburb
                                                 span.proerty-price.pull-right
                                                     if(p.size)
-                                                        b  Area :
+                                                        small  Size :
                                                         =p.size
                                                     if(p.bedrooms)
-                                                        b 
+                                                        small
+                                                            i.fa.fa-bath(aria-hidden="true")
+                                                            =p.bedrooms
                                                     if(p.bathrooms)
-                                            p
-                                                i.fa.fa-map-marker-alt
-                                                span 
-                                                    
+                                                        small
+                                                            i.fa.fa-bed(aria-hidden="true")
+                                                            =p.bathrooms
+
                                             p
                                                span.pull-left
-                                                   =p.description
+                                                   h6
+                                                      =p.tagline        
+                                            p
+                                                if(p.description)
+                                                    if p.description.length > 200
+                                                      p.pull-left  !{p.description.substr(0, 200)+ '..... <strong style="background-color:#c00000; color:#fff; padding:1px">Read More</strong>'}     
+                                                    else
+                                                      p.pull-left
+                                                        =p.description
+                        
                                             p  
-                                                span.pull-left
-                                                    if(p.size)
-                                                        b  Area :
-                                                        =p.size
                                                 span.proerty-price.pull-right
                                                     a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
                                                         i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")
