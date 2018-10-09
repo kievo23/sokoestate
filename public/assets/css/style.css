@@ -1214,7 +1214,7 @@ Asside widgets CSS
     background: yellow;
 }
 .panel.sidebar-menu .panel-body label {
-    color: #fff;
+    color:#000;
     font-size: 13px;
     font-weight: 400;
     margin-bottom: 0px;
