@@ -12,8 +12,14 @@ router.get('/', function(req, res, next) {
   var categories = Category.find({});
   var properties = Property.find({}).populate('user_id').populate('category');
   var featured = Property.find({featured: 1}).populate('user_id').populate('category');
-  Promise.all([properties, categories, featured]).then(values => {
-	  res.render('index', {title: "Soko Estate Kenya", categories: values[1],properties: values[0], featured: featured});
+  var recents = Propery.find({}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
+  Promise.all([properties, categories, featured, recents]).then(values => {
+	  res.render('index', {title: "Soko Estate Kenya",
+    categories: values[1],
+    properties: values[0],
+    featured: values[2],
+    recents: values[3]
+  });
 	});
 });
 
