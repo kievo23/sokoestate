@@ -1214,7 +1214,7 @@ Asside widgets CSS
     background: yellow;
 }
 .panel.sidebar-menu .panel-body label {
-    color: #fff;
+    color:#999;
     font-size: 13px;
     font-weight: 400;
     margin-bottom: 0px;
@@ -3503,4 +3503,9 @@ input[type="checkbox"]:disabled + .label-text:before{
     background-color: #414144;
     padding: 0.3rem;
     border-radius: 5%;
+}
+.property-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
