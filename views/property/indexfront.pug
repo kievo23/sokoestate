@@ -63,39 +63,28 @@ block content
                                                                 small For Rent
                                     .col-sm-7
                                         .item-entry.overflow
-                                            p
-                                                h5
-                                                    span.pull-left
-                                                        a(href='/property/'+p.slug) 
-                                                            =p.name
-                                                    span.proerty-price.pull-right
-                                                        span  Ksh.
-                                                        =p.price
-                                            p
+                                            
+                                            h5
                                                 span.pull-left
-                                                    small
-                                                       i.fa.fa-map-marker(aria-hidden="true")
-                                                       span 
-                                                         =p.surburb
-                                                //span.proerty-price.pull-right
-                                                    if(p.size)
-                                                        small  Size :
-                                                        =p.size
-                                                    if(p.bedrooms)
-                                                        small
-                                                            i.fa.fa-bath(aria-hidden="true")
-                                                            =p.bedrooms
-                                                    if(p.bathrooms)
-                                                        small
-                                                            i.fa.fa-bed(aria-hidden="true")
-                                                            =p.bathrooms
+                                                    a(href='/property/'+p.slug) 
+                                                        =p.name
+                                                br
+                                                span.pull-left
+                                                small
+                                                    i.fa.fa-map-marker(aria-hidden="true")
+                                                    span 
+                                                        =p.surburb
+                                                span.proerty-price.pull-right
+                                                    span  Ksh.
+                                                    =p.price
 
-                                            p
-                                               span.pull-left
-                                                   h6
-                                                      =p.tagline        
-                                            p
-                                                if(p.description)
+                                            if(p.tagline)
+                                                p
+                                                    span.pull-left
+                                                        h6
+                                                            =p.tagline        
+                                            if(p.description)    
+                                                p
                                                     if p.description.length > 200
                                                       p.pull-left  !{p.description.substr(0, 200)+ '..... <strong style="background-color:#c00000; color:#fff; padding:1px">Read More</strong>'}     
                                                     else
