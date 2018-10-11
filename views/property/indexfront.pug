@@ -177,50 +177,24 @@ block content
                                                 |     Search
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
-                               h3.panel-title Recommended
+                               h3.panel-title Featured Properties
                             .panel-body.recent-property-widget
                                 ul
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                                img(src='assets/img/demo/small-property-2.jpg')
-                                            span.property-seeker
-                                                b.b-1 A
-                                                b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                                a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                                img(src='assets/img/demo/small-property-1.jpg')
-                                            span.property-seeker
-                                                b.b-1 A
-                                                b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                                a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                                img(src='assets/img/demo/small-property-3.jpg')
-                                            span.property-seeker
-                                                b.b-1 A
-                                                b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                                a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
-                                    li
-                                        .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                            a(href='single.html')
-                                                img(src='assets/img/demo/small-property-2.jpg')
-                                            span.property-seeker
-                                                b.b-1 A
-                                                b.b-2 S
-                                        .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                            h6
-                                                a(href='single.html') Super nice villa 
-                                            span.property-price 3000000$
+                                    each feat, i in featured
+                                        if(i<6)
+                                            li
+                                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                                    a(href='/property/'+feat.slug)
+                                                        img(src='/uploads/' +feat.photo)
+                                                        span.property-seeker
+                                                    //span.property-seeker
+                                                        b.b-1 A
+                                                        b.b-2 S
+                                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                                    h6
+                                                        a(href='/property/'+feat.slug)
+                                                          =feat.name
+                                                    span.property-price
+                                                      | Ksh.
+                                                      =feat.price
+                                        

@@ -99,107 +99,46 @@ block content
           // /.feature title
           h2 Featured Properties
       .row
-        .proerty-th
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-1.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-2.html')
-                  img(src='assets/img/demo/property-2.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-2.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-3.html')
-                  img(src='assets/img/demo/property-3.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-3.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-                
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-4.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-3.html')
-                  img(src='assets/img/demo/property-2.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-3.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-2.html')
-                  img(src='assets/img/demo/property-4.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-2.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-3.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
+        each feat, i in featured
+          if(i<8)
+            .proerty-th
+              .col-sm-6.col-md-3.p0
+                .box-two.proerty-item
+                  .item-thumb
+                    a(href='/property/'+feat.slug)
+                      if(feat.photo)
+                        img(src='/uploads/'+feat.photo, style='width:100%; height:213px')
+                      else
+                        img(src='assets/img/demo/property-2.jpg')
+                  .item-entry.overflow
+                    h5
+                      a(href='/property/'+feat.slug) 
+                        =feat.name
+                    .dot-hr
+                    span.pull-left
+                      if(feat.size)
+                        b Size
+                        =feat.size
+                      else if (feat.bedrooms && feat.bathrooms)
+                        b
+                         span Bedrooms
+                         =feat.bedrooms
+                         span Bathrooms
+                         =feat.bathrooms
+                          
+                        
+                        
+                    span.proerty-price.pull-right 
+                      | Ksh.
+                      =feat.price
+        .col-sm-6.col-md-3.p0
             .box-tree.more-proerty.text-center
               .item-tree-icon
                 i.fa.fa-th
               .more-entry.overflow
                 h5
-                  a(href='property-1.html') CAN&apos;T DECIDE ? 
-                h5.tree-sub-ttl Show all properties
+                  a(href='/property') CAN&apos;T DECIDE ? 
+                h5.tree-sub-ttl View all properties
                 button.btn.border-btn.more-black(value='All properties') All properties
   // property area
   .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px;')
@@ -209,112 +148,62 @@ block content
           // /.feature title
           h2 Recently added properties
       .row
-        .proerty-th
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-1.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-2.html')
-                  img(src='assets/img/demo/property-2.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-2.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-3.html')
-                  img(src='assets/img/demo/property-3.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-3.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-                
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-4.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-3.html')
-                  img(src='assets/img/demo/property-2.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-3.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-2.html')
-                  img(src='assets/img/demo/property-4.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-2.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-3.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
-          .col-sm-6.col-md-3.p0
-            .box-two.proerty-item
-              .item-thumb
-                a(href='property-1.html')
-                  img(src='assets/img/demo/property-3.jpg')
-              .item-entry.overflow
-                h5
-                  a(href='property-1.html') Super nice villa 
-                .dot-hr
-                span.pull-left
-                  b Area :
-                  |  120m
-                span.proerty-price.pull-right $ 300,000
+        each rec, i in recents
+          if(i<9)
+            .proerty-th
+              .col-sm-6.col-md-3.p0
+                .box-two.proerty-item
+                  .item-thumb
+                    a(href='/property/'+rec.slug)
+                      if(rec.photo)
+                        img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
+                      else
+                        img(src='assets/img/demo/property-1.jpg')
+                  .item-entry.overflow
+                    h5
+                      a(href='/property/'+rec.slug) 
+                        =rec.name
+                    .dot-hr
+                    span.pull-left
+                      if(rec.size)
+                        b Size
+                        =rec.size
+                      else if (rec.bedrooms && rec.bathrooms)
+                        b
+                         span Bedrooms
+                         =rec.bedrooms
+                         span Bathrooms
+                         =rec.bathrooms
+                          
+                        
+                        
+                    span.proerty-price.pull-right 
+                      | Ksh.
+                      =rec.price
+      //.row
+        each recent, i in recents
+          if(i<9)
+            .proerty-th
+              .col-sm-6.col-md-3.p0
+                .box-two.proerty-item
+                  a(href='/property/'+recent.slug)
+                    if(recent.photo)
+                      img(src='/uploads/'+recent.photo, style='width:100%; height:213px')
+                    else
+                      img(src='assets/img/demo/property-2.jpg')
+                  .item-entry.overflow
+                    h5
+                      a(href='/property/'+recent.slug) 
+                        =recent.name 
+                    .dot-hr
+                    span.pull-left
+                      if(recent.size)
+                        b Size
+                        =recent.size
+                    span.proerty-price.pull-right
+                      | Ksh.
+                      =recent.price
+      
   //partner logo
   .container(style="background:#fff;")
     h2 Our Partners
