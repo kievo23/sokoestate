@@ -47,6 +47,7 @@ block content
                     th APPROVED
                     th PHOTO
                     th TYPE
+                    th FEATURED
                     th ACTIONS
                 tbody
                   if(properties)
@@ -65,6 +66,8 @@ block content
                           | PHOTO
                         td
                           =property.type
+                        td
+                          =proerty.featured
                         td
                           .table-data-feature
                             //a(href="/property/showhome/"+property.id, title="Show on home page")
