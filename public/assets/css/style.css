@@ -5,12 +5,12 @@ html, body {
 body {
     height:100%;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     padding:0;
     margin:0;
     font-size:14px;
     line-height: 28px;
-    color: #666;
+    color: #2f2a2a;
     background: #fff;
     position: relative;
 }
@@ -687,9 +687,9 @@ label small{
 
 
 .navbar-default .navbar-nav > li > a{
-    color: #929292;
+    color: #2f2a2a;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: capitalize;
     position: relative;
 
@@ -1366,7 +1366,7 @@ Asside widgets CSS
 .page-title h2 {
     margin: 10px 0px;
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 4px;
 }

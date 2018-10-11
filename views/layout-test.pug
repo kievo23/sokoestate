@@ -75,68 +75,32 @@ body
                 a(href='/property') view Property
             li.wow.fadeInDown(data-wow-delay='0.3s')
                 a(href='/property/add') Add Property
-            //li.dropdown.yamm-fw(data-wow-delay='0.4s')
-                a.dropdown-toggle(href='#' data-toggle='dropdown' data-hover='dropdown' data-delay='200')
-                | Template 
-                b.caret
-                ul.dropdown-menu
-                li
-                    .yamm-content
-                    .row
-                            
-                        .col-sm-3
-                        h5 Pages and blog
-                        ul
-                            li
-                            a(href='#') Blog listing
-                            li
-                            a(href='#') Blog Post (full)
-                            li
-                            a(href='#') Blog Post (Right)
-                            
-                        .col-sm-3
-                        h5 Property
-                        ul
-                            li
-                            a(href='#') Property pages style (1)
-                            li
-                            a(href='#') Property pages style (2)
-                            li
-                            a(href='#') Property pages style (3)
-                        h5 Properties list
-                        ul
-                            li
-                            a(href='properties.html') Properties list style (1)
-                            li
-                            a(href='#') Properties list style (2)
-                            li
-                            a(href='#') Properties list style (3)
-                        .col-sm-3
-                        h5 Property process
-                        ul
-                            li
-                            a(href='submit-property.html') Submit - step 1
-                            li
-                            a(href='submit-property.html') Submit - step 2
-                            li
-                            a(href='submit-property.html') Submit - step 3
-                        h5 User account
-                        ul
-                            li
-                            a(href='/login') Register / login
-                            li
-                            a(href='/property/list') Your properties
-                            li
-                            a(href='/property/add') Submit property
-                            li
-                            a(href='change-password.html') Change password
-                            li
-                            a(href='/admin') Your profile
-                    /.yamm-content
+            
+                    //.yamm-content
             
         // /.navbar-collapse
         // /.container-fluid
     // End of nav bar
+    //display errors
+    .errors
+        if errors
+        each error in errors
+            .alert.xxx-error.alert-danger
+            = error
+        
+        if message
+        .alert.xxx-error.alert-info
+            = message
+        if success_msg.length
+        .alert.xxx-error.alert-success 
+            = success_msg
+        if error_msg.length
+        .alert.xxx-error.alert-danger 
+            = error_msg
+        if error.length
+        .alert.xxx-error.alert-danger 
+            = error      
+    
     block content
 
 script(src='assets/js/modernizr-2.6.2.min.js')

@@ -95,7 +95,25 @@ html
                     a(href='/logout') 
                       i.fa.fa-power-off
                       |      Logout
-              
+        //display errors
+        .errors
+          if errors
+            each error in errors
+              .alert.xxx-error.alert-danger
+                = error
+          
+          if message
+            .alert.xxx-error.alert-info
+              = message
+          if success_msg.length
+            .alert.xxx-error.alert-success 
+              = success_msg
+          if error_msg.length
+            .alert.xxx-error.alert-danger 
+              = error_msg
+          if error.length
+            .alert.xxx-error.alert-danger 
+              = error      
   block content
 // Footer area
 .footer-area
