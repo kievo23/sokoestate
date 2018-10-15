@@ -184,6 +184,7 @@ block content
                                h3.panel-title Featured Properties
                             .panel-body.recent-property-widget
                                 ul
+                                  if(featured)
                                     each feat, i in featured
                                         if(i<6)
                                             li
