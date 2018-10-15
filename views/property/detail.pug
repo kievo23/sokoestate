@@ -22,8 +22,9 @@ block content
                                 h1.property-title.pull-left 
                                   =property.name
                                 span.property-price.pull-right 
-                                  span Ksh.   
-                                  =property.price
+                                  table#price-property.table
+                                    tr
+                                      td #{property.price}
                         .light-slide-item
                             .clearfix
                                 .favorite-and-print

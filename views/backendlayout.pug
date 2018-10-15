@@ -25,6 +25,7 @@ head
   link(href='/vendor/perfect-scrollbar/perfect-scrollbar.css' rel='stylesheet' media='all')
   // Main CSS
   link(href='/stylesheets/theme.css' rel='stylesheet' media='all')
+  
 .page-wrapper
   // HEADER MOBILE
   header.header-mobile.d-block.d-lg-none
@@ -168,6 +169,23 @@ script(src='/vendor/circle-progress/circle-progress.min.js')
 script(src='/vendor/perfect-scrollbar/perfect-scrollbar.js')
 script(src='/vendor/chartjs/Chart.bundle.min.js')
 script(src='/vendor/select2/select2.min.js')
+script(src='/assets/js/accounting.min.js')
 // Main JS
 script(src='/js/main.js')
 // end document
+
+
+script(type='text/javascript').
+  $(document).ready(function() {
+    $("#price-back td").each(function() {
+      var num = $(this).text();
+      console.log(num);
+      var formNum = accounting.formatMoney(
+        num,{
+          symbol : "KSH. ",
+          thousand: ","
+        });
+      $(this).text(formNum);
+      console.log(formNum);
+    }); 
+  });

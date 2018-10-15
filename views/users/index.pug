@@ -44,10 +44,11 @@ block content
                     th NO.
                     th NAMES
                     th PHONE
+                    th EMAIL
                     th ROLE
-                    th Google
-                    th Facebook
                     th ACTIONS
+                    th GOOGLE ID
+                    th FACEBOOK ID
                 tbody
                   if(users)
                     each user, i in users
@@ -58,9 +59,19 @@ block content
                           =user.names
                         td 
                           =user.phone
+                        td 
+                          =user.email
                         td
                           span.status--process 
                             =user.role
+                        td
+                          .table-data-feature
+                            a(href="/users/makeadmin/"+user.id, title="Make admin")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Make Admin')
+                                i.zmdi.zmdi-account-box
+                            a(href="/admin/user/delete/"+user.id, title="Delete User")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Delete')
+                                i.zmdi.zmdi-delete
                         td
                           =user.googleId
                         td

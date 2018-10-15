@@ -74,7 +74,11 @@ block content
                                                     i.fa.fa-map-marker(aria-hidden="true")
                                                     span 
                                                         =p.surburb
-                                                span.proerty-price.pull-right
+                                                span.proerty-price.pull-right 
+                                                    table#price-property.table
+                                                        tr
+                                                          td #{p.price}
+                                                //span.proerty-price.pull-right
                                                     span  Ksh.
                                                     =p.price
 
@@ -196,6 +200,8 @@ block content
                                                         a(href='/property/'+feat.slug)
                                                           =feat.name
                                                     span.property-price
-                                                      | Ksh.
-                                                      =feat.price
+                                                      table#price-property.table
+                                                        tr
+                                                          td #{feat.price}
+                                                      
                                         
