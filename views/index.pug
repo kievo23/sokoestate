@@ -115,13 +115,16 @@ block content
                       h5.proerty-price
                           if feat.name.length > 15
                             a(href='/property/'+feat.slug)
-                              | !{feat.name.substr(0, 15)+ ' ..'}     
+                              | !{feat.name.substr(0, 15)+ '.'}     
                           else
                             a(href='/property/'+feat.slug)
                               =feat.name
-                    //h5
-                      a(href='/property/'+feat.slug)
-                        =feat.name
+                      span
+                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                          i.fa.fa-heart
+                        //span
+                          | Location:     
+                          =feat.surburb
                     .dot-hr
                     span.pull-left
                       if(feat.size)
@@ -129,15 +132,18 @@ block content
                         =feat.size
                       else if (feat.bedrooms && feat.bathrooms)
                         b
-                         span Bedrooms
-                         =feat.bedrooms
-                         span Bathrooms
-                         =feat.bathrooms
+                         span
+                          i.fa.fa-bath
+                          =feat.bedrooms
+                         span
+                           i.fa.fa-bed
+                           =feat.bathrooms
                           
                     span.proerty-price.pull-right 
                       table#price-property.table
                         tr
-                          td #{feat.price}    
+                          td #{feat.price}   
+                           
                         
         .col-sm-6.col-md-3.p0
             .box-tree.more-proerty.text-center
@@ -177,6 +183,14 @@ block content
                           else
                             a(href='/property/'+rec.slug)
                               =rec.name
+                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                          i.fa.fa-heart
+                      //span
+                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                          i.fa.fa-heart
+                        //span
+                          | Location:     
+                          =rec.surburb
                     .dot-hr
                     span.pull-left
                       if(rec.size)
