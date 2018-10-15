@@ -111,7 +111,15 @@ block content
                       else
                         img(src='assets/img/demo/property-2.jpg')
                   .item-entry.overflow
-                    h5
+                    if(feat.name)    
+                      h5.proerty-price
+                          if feat.name.length > 15
+                            a(href='/property/'+feat.slug)
+                              | !{feat.name.substr(0, 15)+ ' ..'}     
+                          else
+                            a(href='/property/'+feat.slug)
+                              =feat.name
+                    //h5
                       a(href='/property/'+feat.slug)
                         =feat.name
                     .dot-hr
@@ -147,7 +155,7 @@ block content
         .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
           // /.feature title
           h2 Recently added properties
-      .row.row-eq-height
+      .row.row-eq-height.col-container
         each rec, i in recents
           if(i<9)
             .proerty-th
@@ -161,9 +169,14 @@ block content
                         img(src='assets/img/demo/property-1.jpg')
                 
                   .item-entry.overflow
-                    h5
-                      a(href='/property/'+rec.slug)
-                        =rec.name
+                    if(rec.name)    
+                      h5.proerty-price
+                          if rec.name.length > 15
+                            a(href='/property/'+rec.slug)
+                              | !{rec.name.substr(0, 15)+ ' ..'}     
+                          else
+                            a(href='/property/'+rec.slug)
+                              =rec.name
                     .dot-hr
                     span.pull-left
                       if(rec.size)

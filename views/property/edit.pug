@@ -39,7 +39,7 @@ block content
                                     label
                                         | Property name 
                                         small (required)
-                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name required)
+                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name maxlength="15" required)
                                 .form-group
                                     label
                                         | Property tagline 
@@ -222,7 +222,7 @@ block content
                                         .checkbox
                                             label
                                                 input(type='checkbox', name='amenities[]',value="Packing")
-                                                |  Packing
+                                                |  Parking
                                 .col-sm-3
                                     .form-group
                                         .checkbox
