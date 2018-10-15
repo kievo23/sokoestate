@@ -44,7 +44,7 @@ block content
                                         | Listing type  :
                                         small (required)
                                     select#basic.selectpicker.show-tick.form-control(name='type' required)
-                                        option(value=property.type) #{property.type}
+                                        option(value=property.type, selected) #{property.type}
                                         option(value='rent') Rent 
                                         option(value='sell')  Sale
                                 .form-group
@@ -57,7 +57,7 @@ block content
                                         | Property Ownership  :
                                         small (required)
                                     select#basic.selectpicker.show-tick.form-control(name='ownership' required)
-                                        option(value=property.ownership) #{property.ownership}
+                                        option(value=property.ownership, selected) #{property.ownership}
                                         option(value='owner') Owner
                                         option(value='agent')  Agent
                                 .form-group
@@ -84,6 +84,8 @@ block content
                                     .form-group
                                         label Property County :
                                         select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city' required)
+                                            option(value=property.city, selected) 
+                                              =property.city
                                             option(value='nairobi') Nairobi
                                 .col-sm-6
                                     .form-group
@@ -111,7 +113,7 @@ block content
                                     .form-group
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true', data-live-search-style='begins', value=property.category ,name="category")
-                                            option(value=property.category)
+                                            option(value=property.category, selected)
                                               =property.category
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id, rel=category.slug) 
@@ -120,6 +122,8 @@ block content
                                     .form-group
                                         label Subcategory :
                                         select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
+                                          option( selected,value=property.subcategory)
+                                            =property.subcategory
                                           each category in categories
                                             each subcat in category.subcategories
                                               option(value=subcat.name, rel=category.name) 
