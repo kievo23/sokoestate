@@ -69,14 +69,13 @@ block content
                         td
                           =user.facebookid
                         td
-                          td
-                            .table-data-feature
-                              a(href="/users/makeadmin/"+user.id, title="Make admin")
-                                button.item(data-toggle='tooltip' data-placement='top' title='Make Admin')
-                                  i.zmdi.zmdi-account-box
-                              a(href="/admin/user/delete/"+user.id, title="Delete User")
-                                button.item(data-toggle='tooltip' data-placement='top' title='Delete')
-                                  i.zmdi.zmdi-delete
+                          .table-data-feature
+                            a(href="/users/makeadmin/"+user.id, title="Make admin")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Make Admin')
+                                i.zmdi.zmdi-account-box
+                            a(href="/admin/user/delete/"+user.id, title="Delete User")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Delete')
+                                i.zmdi.zmdi-delete
                         
                         
                     tr.spacer
