@@ -246,17 +246,6 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   							});
   						});
   					}
-            User.findById(res.locals.user._id)
-            .then(function(b){
-                b.wallet = parseInt(b.wallet) -  1500;
-                b.save(function(err){
-                  if(err){
-                    console.log("Property Error");
-                  }else{
-                    console.log("User wallet updated Successfully");
-                  }
-                })
-            });
         req.flash("success_msg", "Property Successfully Created");
     		res.redirect('/property');
       }
