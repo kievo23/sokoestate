@@ -39,7 +39,7 @@ router.get('/makeadmin/:id', role.admin, function(req, res){
 });
 
 router.get('/delete/:id',role.admin, function(req, res, next){
-		User.findOneAndRemove({
+		Users.findOneAndRemove({
 		  _id: req.params.id
 		})
 		.then(function(data){
