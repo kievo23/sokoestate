@@ -38,4 +38,16 @@ router.get('/makeadmin/:id', role.admin, function(req, res){
 	});
 });
 
+router.get('/delete/:id',role.admin, function(req, res, next){
+		Users.findOneAndRemove({
+		  _id: req.params.id
+		})
+		.then(function(data){
+		    res.redirect('/users');
+		})
+		.catch(function(err){
+		     console.log(err);
+		});
+});
+
 module.exports = router;

@@ -69,14 +69,13 @@ block content
                             a(href="/users/makeadmin/"+user.id, title="Make admin")
                               button.item(data-toggle='tooltip' data-placement='top' title='Make Admin')
                                 i.zmdi.zmdi-account-box
-                            a(href="/admin/user/delete/"+user.id, title="Delete User")
+                            a(href="/users/delete/"+user.id, title="Delete User")
                               button.item(data-toggle='tooltip' data-placement='top' title='Delete')
                                 i.zmdi.zmdi-delete
                         td
-                          =user.googleId
+                          if(user.googleId)
+                            i.zmdi.zmdi-check-all
                         td
-                          =user.facebookid
-                        
-                        
+                          if(user.facebookid)
+                            i.zmdi.zmdi-check-all
                     tr.spacer
-
