@@ -112,8 +112,9 @@ block content
                         img(src='assets/img/demo/property-2.jpg')
                   .item-entry.overflow
                     h5
-                      a(href='/property/'+feat.slug) 
-                        =feat.name
+                      a(href='/property/'+feat.slug)
+                        small 
+                          =feat.name
                     .dot-hr
                     span.pull-left
                       if(feat.size)
@@ -161,8 +162,9 @@ block content
                         img(src='assets/img/demo/property-1.jpg')
                   .item-entry.overflow
                     h5
-                      a(href='/property/'+rec.slug) 
-                        =rec.name
+                      a(href='/property/'+rec.slug)
+                        small 
+                          =rec.name
                     .dot-hr
                     span.pull-left
                       if(rec.size)
