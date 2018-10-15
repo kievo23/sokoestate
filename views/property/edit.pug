@@ -27,19 +27,13 @@ block content
                     #step1.tab-pane.active
                         .row.p-b-15
                             h4.info-text  Let&apos;s start with the basic information
-                            //.col-sm-4.col-sm-offset-1
-                                label
-                                   | Property Image
-                                .picture-container
-                                    .picture
-                                        img#wizardPicturePreview.picture-src(src="/uploads/"+ property.photo title='')
-                                        input#wizard-picture(type='file', name='photo')
+                            
                             .col-sm-12
                                 .form-group
                                     label
                                         | Property name 
                                         small (required)
-                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name required)
+                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name maxlength="15" required)
                                 .form-group
                                     label
                                         | Property tagline 
@@ -222,7 +216,7 @@ block content
                                         .checkbox
                                             label
                                                 input(type='checkbox', name='amenities[]',value="Packing")
-                                                |  Packing
+                                                |  Parking
                                 .col-sm-3
                                     .form-group
                                         .checkbox

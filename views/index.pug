@@ -111,9 +111,20 @@ block content
                       else
                         img(src='assets/img/demo/property-2.jpg')
                   .item-entry.overflow
-                    h5
-                      a(href='/property/'+feat.slug)
-                        =feat.name
+                    if(feat.name)    
+                      h5.proerty-price
+                          if feat.name.length > 15
+                            a(href='/property/'+feat.slug)
+                              | !{feat.name.substr(0, 15)+ '.'}     
+                          else
+                            a(href='/property/'+feat.slug)
+                              =feat.name
+                      span
+                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                          i.fa.fa-heart
+                        //span
+                          | Location:     
+                          =feat.surburb
                     .dot-hr
                     span.pull-left
                       if(feat.size)
@@ -121,15 +132,18 @@ block content
                         =feat.size
                       else if (feat.bedrooms && feat.bathrooms)
                         b
-                         span Bedrooms
-                         =feat.bedrooms
-                         span Bathrooms
-                         =feat.bathrooms
+                         span
+                          i.fa.fa-bath
+                          =feat.bedrooms
+                         span
+                           i.fa.fa-bed
+                           =feat.bathrooms
                           
                     span.proerty-price.pull-right 
                       table#price-property.table
                         tr
-                          td #{feat.price}    
+                          td #{feat.price}   
+                           
                         
         .col-sm-6.col-md-3.p0
             .box-tree.more-proerty.text-center
@@ -147,40 +161,51 @@ block content
         .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
           // /.feature title
           h2 Recently added properties
-      .row.row-eq-height
+      .row.row-eq-height.col-container
         each rec, i in recents
           if(i<9)
             .proerty-th
               .col-sm-6.col-md-3.py
                 .box-two.proerty-item
-                  .card.h-100
-                    .card-body
-                      .item-thumb
-                        a(href='/property/'+rec.slug)
-                          if(rec.photo)
-                            img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
+                  .item-thumb
+                    a(href='/property/'+rec.slug)
+                      if(rec.photo)
+                        img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
+                      else
+                        img(src='assets/img/demo/property-1.jpg')
+                
+                  .item-entry.overflow
+                    if(rec.name)    
+                      h5.proerty-price
+                          if rec.name.length > 15
+                            a(href='/property/'+rec.slug)
+                              | !{rec.name.substr(0, 15)+ ' ..'}     
                           else
-                            img(src='assets/img/demo/property-1.jpg')
-                      .card-text
-                        .item-entry.overflow
-                          h5
                             a(href='/property/'+rec.slug)
                               =rec.name
-                          .dot-hr
-                          span.pull-left
-                            if(rec.size)
-                              b Size
-                              =rec.size
-                            else if (rec.bedrooms && rec.bathrooms)
-                              b
-                              span Bedrooms
-                              =rec.bedrooms
-                              span Bathrooms
-                              =rec.bathrooms    
-                          span.proerty-price.pull-right 
-                            table#price-property.table
-                              tr
-                                td #{rec.price}
+                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                          i.fa.fa-heart
+                      //span
+                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                          i.fa.fa-heart
+                        //span
+                          | Location:     
+                          =rec.surburb
+                    .dot-hr
+                    span.pull-left
+                      if(rec.size)
+                        b Size
+                        =rec.size
+                      else if (rec.bedrooms && rec.bathrooms)
+                        b
+                        span Bedrooms
+                        =rec.bedrooms
+                        span Bathrooms
+                        =rec.bathrooms    
+                    span.proerty-price.pull-right 
+                      table#price-property.table
+                        tr
+                          td #{rec.price}
                           
       
       
