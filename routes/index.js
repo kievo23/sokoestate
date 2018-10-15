@@ -148,11 +148,11 @@ router.get('/favorites', function(req, res){
   var categories = Category.find({});
   var objects = {};
   var ids = res.locals.user.favorites;
-  res.locals.user.favorites.forEach(o => objects[o._id] = o);
-  var dupArray = ids.map(id => objects[id]);
+  //res.locals.user.favorites.forEach(o => objects[o._id] = o);
+  //var dupArray = ids.map(id => objects[id]);
   var properties = Property.find({_id: {$in: ids}});
   Promise.all([properties,categories]).then(values => {
-    //console.log(values[0]);
+    console.log(values[0]);
 	  res.render('property/indexfront', {title: "Soko Estate", properties: values[0], categories: values[1]});
 	});
 });
