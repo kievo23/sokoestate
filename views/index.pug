@@ -153,34 +153,32 @@ block content
             .proerty-th
               .col-sm-6.col-md-3.py
                 .box-two.proerty-item
-                  .card.h-100
-                    .card-body
-                      .item-thumb
-                        a(href='/property/'+rec.slug)
-                          if(rec.photo)
-                            img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
-                          else
-                            img(src='assets/img/demo/property-1.jpg')
-                      .card-text
-                        .item-entry.overflow
-                          h5
-                            a(href='/property/'+rec.slug)
-                              =rec.name
-                          .dot-hr
-                          span.pull-left
-                            if(rec.size)
-                              b Size
-                              =rec.size
-                            else if (rec.bedrooms && rec.bathrooms)
-                              b
-                              span Bedrooms
-                              =rec.bedrooms
-                              span Bathrooms
-                              =rec.bathrooms    
-                          span.proerty-price.pull-right 
-                            table#price-property.table
-                              tr
-                                td #{rec.price}
+                  .item-thumb
+                    a(href='/property/'+rec.slug)
+                      if(rec.photo)
+                        img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
+                      else
+                        img(src='assets/img/demo/property-1.jpg')
+                
+                  .item-entry.overflow
+                    h5
+                      a(href='/property/'+rec.slug)
+                        =rec.name
+                    .dot-hr
+                    span.pull-left
+                      if(rec.size)
+                        b Size
+                        =rec.size
+                      else if (rec.bedrooms && rec.bathrooms)
+                        b
+                        span Bedrooms
+                        =rec.bedrooms
+                        span Bathrooms
+                        =rec.bathrooms    
+                    span.proerty-price.pull-right 
+                      table#price-property.table
+                        tr
+                          td #{rec.price}
                           
       
       
