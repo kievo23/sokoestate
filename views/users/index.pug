@@ -73,7 +73,9 @@ block content
                               button.item(data-toggle='tooltip' data-placement='top' title='Delete')
                                 i.zmdi.zmdi-delete
                         td
-                          =user.googleId
+                          if(user.googleId)
+                            i.zmdi.zmdi-check-all
                         td
-                          =user.facebookid
+                          if(user.facebookid)
+                            i.zmdi.zmdi-check-all
                     tr.spacer
