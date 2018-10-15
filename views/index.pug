@@ -132,12 +132,12 @@ block content
                         =feat.size
                       else if (feat.bedrooms && feat.bathrooms)
                         b
-                         span
-                          i.fa.fa-bath
-                          =feat.bedrooms
-                         span
-                           i.fa.fa-bed
-                           =feat.bathrooms
+                          span
+                           i.fa.fa-bath
+                           =feat.bedrooms
+                          span
+                            i.fa.fa-bed
+                            =feat.bathrooms
                           
                     span.proerty-price.pull-right 
                       table#price-property.table
@@ -198,10 +198,12 @@ block content
                         =rec.size
                       else if (rec.bedrooms && rec.bathrooms)
                         b
-                        span Bedrooms
-                        =rec.bedrooms
-                        span Bathrooms
-                        =rec.bathrooms    
+                        span
+                         i.fa.fa-bath
+                         =rec.bedrooms
+                        span
+                          i.fa.fa-bed
+                          =rec.bathrooms    
                     span.proerty-price.pull-right 
                       table#price-property.table
                         tr
