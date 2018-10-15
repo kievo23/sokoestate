@@ -215,6 +215,7 @@ script(type="text/javascript" src="/assets/js/lightslider.min.js")
 //script(src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js")
 script(src='/js/slick.js')
 //script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js")
+script(src='/assets/js/accounting.min.js')
 
 //script(type='text/javascript').
   $(document).ready(function() {
@@ -356,3 +357,19 @@ script(type='text/javascript').
           });      
         });
     });
+
+script(type='text/javascript').
+  $(document).ready(function() {
+    $("#price-property td").each(function() {
+      var num = $(this).text();
+      console.log(num);
+      var formNum = accounting.formatMoney(
+        num,{
+          symbol : "KSH. ",
+          thousand: ","
+        });
+      $(this).text(formNum);
+      console.log(formNum);
+    }); 
+   });
+  
