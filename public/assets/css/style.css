@@ -3504,6 +3504,13 @@ input[type="checkbox"]:disabled + .label-text:before{
     padding: 0.3rem;
     border-radius: 5%;
 }
+.fav-property {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #fff;
+    padding: 0.1rem;
+}
 .property-footer {
   position: absolute;
   bottom: 0;
