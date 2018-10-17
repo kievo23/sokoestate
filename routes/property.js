@@ -120,6 +120,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.amenities = req.body.amenities;
   i.size = req.body.size;
   i.email = req.body.email;
+  i.county = req.body.county;
   i.youtube = req.body.youtube;
   i.category = req.body.category;
   i.tagline = req.body.tagline;
@@ -189,6 +190,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   	i.type = req.body.type;
     i.category = req.body.category;
     i.surburb = req.body.surburb;
+    i.county = req.body.county;
     i.price = req.body.propertyprice;
     i.description = req.body.description;
     i.amenities = req.body.amenities;
@@ -246,17 +248,6 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   							});
   						});
   					}
-            User.findById(res.locals.user._id)
-            .then(function(b){
-                b.wallet = parseInt(b.wallet) -  1500;
-                b.save(function(err){
-                  if(err){
-                    console.log("Property Error");
-                  }else{
-                    console.log("User wallet updated Successfully");
-                  }
-                })
-            });
         req.flash("success_msg", "Property Successfully Created");
     		res.redirect('/property');
       }

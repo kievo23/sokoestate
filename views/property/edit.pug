@@ -44,7 +44,7 @@ block content
                                         | Listing type  :
                                         small (required)
                                     select#basic.selectpicker.show-tick.form-control(name='type' required)
-                                        option(value=property.type) #{property.type}
+                                        option(value=property.type, selected) #{property.type}
                                         option(value='rent') Rent 
                                         option(value='sell')  Sale
                                 .form-group
@@ -56,8 +56,13 @@ block content
                                     label 
                                         | Property Ownership  :
                                         small (required)
+<<<<<<< HEAD
                                     select#basic.selectpicker.show-tick.form-control(name='ownership' value=property.ownership placeholder=property.ownership required)
                                         option(value=property.ownership) #{property.ownership}
+=======
+                                    select#basic.selectpicker.show-tick.form-control(name='ownership' required)
+                                        option(value=property.ownership, selected) #{property.ownership}
+>>>>>>> 2b5b9c518350c325cd8e198aa201a722936ffdd4
                                         option(value='owner') Owner
                                         option(value='agent')  Agent
                                 .form-group
@@ -83,7 +88,13 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property County :
+<<<<<<< HEAD
                                         select#lunchBegins.selectpicker(name="county",data-live-search='true' placeholder=property.county value=property.county  data-live-search-style='begins' title='Select your city' required)
+=======
+                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city' required)
+                                            option(value=property.city, selected) 
+                                              =property.city
+>>>>>>> 2b5b9c518350c325cd8e198aa201a722936ffdd4
                                             option(value='nairobi') Nairobi
                                             option(value='mombasa') Mombasa
                                             option(value='kisumu') Kisumu
@@ -120,7 +131,7 @@ block content
                                     .form-group
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true', data-live-search-style='begins', value=property.category ,name="category")
-                                            option(value=property.category)
+                                            option(value=property.category, selected)
                                               =property.category
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id, rel=category.slug) 
@@ -129,6 +140,8 @@ block content
                                     .form-group
                                         label Subcategory :
                                         select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
+                                          option( selected,value=property.subcategory)
+                                            =property.subcategory
                                           each category in categories
                                             each subcat in category.subcategories
                                               option(value=subcat.name, rel=category.name) 

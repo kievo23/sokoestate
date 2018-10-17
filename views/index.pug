@@ -123,6 +123,7 @@ block content
                         span
                           | #{feat.county} , #{feat.surburb}
                     .dot-hr
+<<<<<<< HEAD
                       span.pull-left
                         if(feat.size)
                           img(src="/assets/img/icon/size.png")
@@ -140,6 +141,25 @@ block content
                           tr
                             td #{feat.price}  
                      
+=======
+                    span.pull-left
+                      if(feat.size)
+                        b Size
+                        =feat.size
+                      else if (feat.bedrooms && feat.bathrooms)
+                        b
+                          span
+                           i.fa.fa-bath
+                           =feat.bedrooms
+                          span
+                            i.fa.fa-bed
+                            =feat.bathrooms
+                          
+                    span.proerty-price.pull-right 
+                      table#price-property.table
+                        tr
+                          td #{feat.price}   
+>>>>>>> 2b5b9c518350c325cd8e198aa201a722936ffdd4
                            
                         
         .col-sm-6.col-md-3.p0
@@ -217,7 +237,27 @@ block content
                         //span
                           | Location:     
                           =rec.surburb
+<<<<<<< HEAD
                     
+=======
+                    .dot-hr
+                    span.pull-left
+                      if(rec.size)
+                        b Size
+                        =rec.size
+                      else if (rec.bedrooms && rec.bathrooms)
+                        b
+                        span
+                         i.fa.fa-bath
+                         =rec.bedrooms
+                        span
+                          i.fa.fa-bed
+                          =rec.bathrooms    
+                    span.proerty-price.pull-right 
+                      table#price-property.table
+                        tr
+                          td #{rec.price}
+>>>>>>> 2b5b9c518350c325cd8e198aa201a722936ffdd4
                           
       
       
