@@ -92,7 +92,7 @@ block content
                         |     Search
                 
   // property area
-  .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px;')
+  .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px; margin-top:5rem')
     .container
       .row(style="margin-top:1rem")
         .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
@@ -109,13 +109,13 @@ block content
                       if(feat.photo)
                         img(src='/uploads/'+feat.photo, style='width:100%; height:213px')
                         div.fav-property
-                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
-                            i.fa.fa-2x.fa-heart
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                       else
                         img(src='assets/img/demo/property-2.jpg', style='width:100%; height:213px')
                         div.fav-property
-                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
-                            i.fa.fa-2x.fa-heart
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                   .item-entry.overflow
                     a(href='/property/'+feat.slug)
                       small
@@ -169,13 +169,13 @@ block content
                       if(rec.photo)
                         img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
                         div.fav-property
-                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
-                            i.fa.fa-2x.fa-heart
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                       else
                         img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
                         div.fav-property
-                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
-                            i.fa.fa-2x.fa-heart
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                 
                   .item-entry.overflow
                     .item-entry.overflow
