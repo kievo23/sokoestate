@@ -3434,7 +3434,7 @@ input[type="checkbox"]:disabled + .label-text:before{
 /*
  * Counter button style
  */
-.btn-counter { margin-right: 39px; }
+.btn-counter { margin-right: 0px; }
 .btn-counter:after,
 .btn-counter:hover:after { text-shadow: none; }
 /*.btn-counter:after {
@@ -3503,6 +3503,13 @@ input[type="checkbox"]:disabled + .label-text:before{
     background-color: #414144;
     padding: 0.3rem;
     border-radius: 5%;
+}
+.fav-property {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #fff;
+    padding: 0.1rem;
 }
 .property-footer {
   position: absolute;

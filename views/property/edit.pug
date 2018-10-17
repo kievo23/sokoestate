@@ -33,7 +33,7 @@ block content
                                     label
                                         | Property name 
                                         small (required)
-                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name maxlength="15" required)
+                                    input.form-control(name='propertyname' type='text' placeholder=property.name, value=property.name maxlength="30" required)
                                 .form-group
                                     label
                                         | Property tagline 
@@ -56,8 +56,8 @@ block content
                                     label 
                                         | Property Ownership  :
                                         small (required)
-                                    select#basic.selectpicker.show-tick.form-control(name='ownership' required)
-                                        option(value=property.ownership, selected) #{property.ownership}
+                                    select#basic.selectpicker.show-tick.form-control(name='ownership' value=property.ownership placeholder=property.ownership required)
+                                        option(value=property.ownership) #{property.ownership}
                                         option(value='owner') Owner
                                         option(value='agent')  Agent
                                 .form-group
@@ -83,10 +83,17 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label Property County :
-                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' data-live-search-style='begins' title='Select your city' required)
-                                            option(value=property.city, selected) 
-                                              =property.city
+                                        select#lunchBegins.selectpicker(name="county",data-live-search='true' placeholder=property.county value=property.county  data-live-search-style='begins' title='Select your city' required)
                                             option(value='nairobi') Nairobi
+                                            option(value='mombasa') Mombasa
+                                            option(value='kisumu') Kisumu
+                                            option(value='eldoret') Eldoret
+                                            option(value='nakuru') Nakuru
+                                            option(value='thika') Thika
+                                            option(value='nyeri') Nyeri
+                                            option(value='meru') Meru
+                                            option(value='isiolo') Isiolo
+                                            option(value='nanyuki') Nanyuki
                                 .col-sm-6
                                     .form-group
                                         label Property Surburb :

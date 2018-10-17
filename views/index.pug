@@ -92,7 +92,7 @@ block content
                         |     Search
                 
   // property area
-  .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px;')
+  .content-area.home-area-1.recent-property(style='background-color: #FCFCFC; padding-bottom: 55px; margin-top:5rem')
     .container
       .row(style="margin-top:1rem")
         .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
@@ -100,49 +100,46 @@ block content
           h2 Featured Properties
       .row
         each feat, i in featured
-          if(i<8)
+          if(i<6)
             .proerty-th
-              .col-sm-6.col-md-3.p0
+              .col-sm-6.col-md-4.p0
                 .box-two.proerty-item
                   .item-thumb
                     a(href='/property/'+feat.slug)
                       if(feat.photo)
                         img(src='/uploads/'+feat.photo, style='width:100%; height:213px')
+                        div.fav-property
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                       else
-                        img(src='assets/img/demo/property-2.jpg')
+                        img(src='assets/img/demo/property-2.jpg', style='width:100%; height:213px')
+                        div.fav-property
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                   .item-entry.overflow
-                    if(feat.name)    
-                      h5.proerty-price
-                          if feat.name.length > 15
-                            a(href='/property/'+feat.slug)
-                              | !{feat.name.substr(0, 15)+ '.'}     
-                          else
-                            a(href='/property/'+feat.slug)
-                              =feat.name
-                      span
-                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=feat._id, data-count="0")
-                          i.fa.fa-heart
-                        //span
-                          | Location:     
-                          =feat.surburb
+                    a(href='/property/'+feat.slug)
+                      small
+                        | #{feat.subcategory} for #{feat.type} in 
+                        span
+                          | #{feat.county} , #{feat.surburb}
                     .dot-hr
-                    span.pull-left
-                      if(feat.size)
-                        b Size
-                        =feat.size
-                      else if (feat.bedrooms && feat.bathrooms)
-                        b
+                      span.pull-left
+                        if(feat.size)
+                          img(src="/assets/img/icon/size.png")
+                          |   ( Size:  #{feat.size}  #{feat.units})
+                        else if (feat.bedrooms && feat.bathrooms)
                           span
-                           i.fa.fa-bath
-                           =feat.bedrooms
+                            img(src="/assets/img/icon/bed.png") 
+                            |   ( #{feat.bedrooms} )   
                           span
-                            i.fa.fa-bed
-                            =feat.bathrooms
-                          
-                    span.proerty-price.pull-right 
-                      table#price-property.table
-                        tr
-                          td #{feat.price}   
+                            img(src="/assets/img/icon/shower.png")
+                            |   ( #{feat.bathrooms}  )  
+                         
+                      span.proerty-price.pull-right 
+                        table#price-property.table
+                          tr
+                            td #{feat.price}  
+                     
                            
                         
         .col-sm-6.col-md-3.p0
@@ -163,52 +160,48 @@ block content
           h2 Recently added properties
       .row.row-eq-height.col-container
         each rec, i in recents
-          if(i<9)
+          if(i<7)
             .proerty-th
-              .col-sm-6.col-md-3.py
+              .col-sm-6.col-md-4.py
                 .box-two.proerty-item
                   .item-thumb
                     a(href='/property/'+rec.slug)
                       if(rec.photo)
                         img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
+                        div.fav-property
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                       else
-                        img(src='assets/img/demo/property-1.jpg')
+                        img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
+                        div.fav-property
+                          a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
+                            i.fa.fa-2x.fa-heart(style='color:#000;')
                 
                   .item-entry.overflow
-                    if(rec.name)    
-                      h5.proerty-price
-                          if rec.name.length > 15
-                            a(href='/property/'+rec.slug)
-                              | !{rec.name.substr(0, 15)+ ' ..'}     
-                          else
-                            a(href='/property/'+rec.slug)
-                              =rec.name
-                          a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
-                          i.fa.fa-heart
-                      //span
-                        a(href="#" title="Love it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
-                          i.fa.fa-heart
-                        //span
-                          | Location:     
-                          =rec.surburb
+                    .item-entry.overflow
+                      a(href='/property/'+rec.slug)
+                        small
+                          | #{rec.subcategory} for #{rec.type} in 
+                          span
+                            | #{rec.county} , #{rec.surburb}
                     .dot-hr
-                    span.pull-left
-                      if(rec.size)
-                        b Size
-                        =rec.size
-                      else if (rec.bedrooms && rec.bathrooms)
-                        b
-                        span
-                         i.fa.fa-bath
-                         =rec.bedrooms
-                        span
-                          i.fa.fa-bed
-                          =rec.bathrooms    
-                    span.proerty-price.pull-right 
-                      table#price-property.table
-                        tr
-                          td #{rec.price}
-                          
+                      span.pull-left
+                        if(rec.size)
+                          img(src="/assets/img/icon/size.png")
+                          |   ( Size:  #{rec.size}  #{rec.units})
+                        else if (rec.bedrooms && rec.bathrooms)
+                          span
+                            img(src="/assets/img/icon/bed.png") 
+                            |   ( #{rec.bedrooms} )   
+                          span
+                            img(src="/assets/img/icon/shower.png")
+                            |   ( #{rec.bathrooms}  )  
+                         
+                      span.proerty-price.pull-right 
+                        table#price-property.table
+                          tr
+                            td #{rec.price}  
+                    
       
       
   //partner logo
