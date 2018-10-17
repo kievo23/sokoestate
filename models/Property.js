@@ -27,6 +27,7 @@ const propertySchema = new Schema({
 		price: String,
 		baths: String,
 		size: Number,
+		units: String,
 		tagline: String,
     surburb : String,
     map: {
