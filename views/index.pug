@@ -125,20 +125,24 @@ block content
                     .dot-hr
                       span.pull-left
                         if(feat.size)
-                          img(src="/assets/img/icon/size.png")
-                          |   ( Size:  #{feat.size}  #{feat.units})
+                          img(src="/assets/img/icon/size.png" style="width: 25px;")
+                          small
+                            |   ( Size:  #{feat.size}  #{feat.units})
                         else if (feat.bedrooms && feat.bathrooms)
                           span
-                            img(src="/assets/img/icon/bed.png") 
-                            |   ( #{feat.bedrooms} )   
+                            img(src="/assets/img/icon/bed.png" style="width: 25px;") 
+                            small
+                              |   ( #{feat.bedrooms} )   
                           span
-                            img(src="/assets/img/icon/shower.png")
-                            |   ( #{feat.bathrooms}  )  
+                            img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                            small
+                              |   ( #{feat.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
                         table#price-property.table
                           tr
-                            td #{feat.price}  
+                            td 
+                              small #{feat.price}  
                      
                            
                         
@@ -187,20 +191,24 @@ block content
                     .dot-hr
                       span.pull-left
                         if(rec.size)
-                          img(src="/assets/img/icon/size.png")
-                          |   ( Size:  #{rec.size}  #{rec.units})
+                          img(src="/assets/img/icon/size.png" style="width: 25px;")
+                          small
+                            |   ( Size:  #{rec.size}  #{rec.units})
                         else if (rec.bedrooms && rec.bathrooms)
                           span
-                            img(src="/assets/img/icon/bed.png") 
-                            |   ( #{rec.bedrooms} )   
+                            img(src="/assets/img/icon/bed.png" style="width: 25px;")
+                            small 
+                              |   ( #{rec.bedrooms} )   
                           span
-                            img(src="/assets/img/icon/shower.png")
-                            |   ( #{rec.bathrooms}  )  
+                            img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                            small
+                              |   ( #{rec.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
                         table#price-property.table
                           tr
-                            td #{rec.price}  
+                            td
+                              small #{rec.price}  
                     
       
       
