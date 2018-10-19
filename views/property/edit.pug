@@ -97,8 +97,8 @@ block content
                                             option(value='nanyuki') Nanyuki
                                 .col-sm-6
                                     .form-group
-                                        label Property Surburb :
-                                        input.form-control(name='surburb', type='text', placeholder=property.surburb, value=property.surburb, required)
+                                    label Property Surburb :
+                                    input.form-control#surburb(name='surburb' type='text' placeholder='Ruiru ...' required,value=property.surburb)
                             if (property.size)
                                 .col-sm-12    
                                     .col-sm-6
@@ -312,4 +312,24 @@ block content
                     .pull-left
                         input.btn.btn-previous.btn-default(type='button' name='previous' value='Previous')
                     .clearfix
-    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MX39yDkMJn6rjWi6vt4Rens5u_cVBQE")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MX39yDkMJn6rjWi6vt4Rens5u_cVBQE&sensor=false&libraries=places")
+    script(src='/js/jquery.geocomplete.js')
+    script.
+      $(function(){
+        
+        $("#surburb").geocomplete()
+          .bind("geocode:result", function(event, result){
+            console.log("Result: " + result.formatted_address);
+          })
+          .bind("geocode:error", function(event, status){
+            console.log("ERROR: " + status);
+          })
+          .bind("geocode:multiple", function(event, results){
+            console.log("Multiple: " + results.length + " results found");
+          });
+        
+        $("#find").click(function(){
+          $("#surburb").trigger("geocode");
+        });
+        
+      });
