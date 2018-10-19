@@ -2061,6 +2061,7 @@ single property page
     font-size: 12px;
     line-height: 12px;
     white-space: nowrap;
+    text-transform: capitalize;
 }
 .additional-details-list{
     list-style: outside none none;
