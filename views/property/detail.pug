@@ -88,7 +88,8 @@ block content
                         // .property-meta
                         .section
                             if(property)
-                                h4.s-property-title Description
+                                h4.s-property-title.text-left 
+                                  strong Description
                                 .s-property-content
                                     h6
                                      =property.tagline 
@@ -96,7 +97,8 @@ block content
                                      =property.description
                         // End description area
                         .section.additional-details
-                           h4.s-property-title Location
+                           h4.s-property-title.text-left
+                            strong Location
                            .form-group
                              fieldset.gllpLatlonPicker
                                .row
@@ -108,19 +110,20 @@ block content
                         // End description area
                         if(property.amenities)    
                             .section.additional-details
-                                h4.s-property-title Ammenities
-                                ul.additional-details-list.clearfix
-                                    ul
-                                        each ammenity in property.amenities
-                                            li
-                                                //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
-                                                span.col-xs-6.col-sm-8.col-md-8.add-d-entry  #{ammenity}
+                                h4.s-property-title.text-left
+                                  strong Ammenities
+                                .additional-details-list.clearfix
+                                    each ammenity in property.amenities
+                                        div
+                                            //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
+                                            span.col-xs-2.col-sm-2.col-md-2.add-d-entry  #{ammenity}
                                     
                        
                         if(property.youtube)               
                             // End features area
                             .section.property-video
-                                h4.s-property-title Property Video
+                                h4.s-property-title.text-left
+                                  strong  Property Video
                                 .video-thumb
                                     .embed-responsive.embed-responsive-4by3
                                         iframe.embed-responsive-item(src=property.youtube)
