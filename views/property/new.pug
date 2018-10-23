@@ -102,7 +102,7 @@ block content
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
                                             each category in categories
-                                              option(data-icon='fa '+category.icon,value=category.id,rel=category.name) 
+                                              option(data-icon='fa '+category.icon,value=category.id,rel=category.slug) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
@@ -113,7 +113,7 @@ block content
                                             each subcat in cat.subcategories
                                               option(value=subcat.name, rel=cat.name) 
                                                 =subcat.name
-                            .col-sm-12    
+                            .col-sm-12#residential
                                 .col-sm-6
                                     .form-group
                                         label(for='price-range') Size :
@@ -129,7 +129,7 @@ block content
                                             option(value='perches')  Perches
         
                                         br 
-                            .col-sm-12.padding-top-15
+                            .col-sm-12.padding-top-15#others
                                 .col-sm-6
                                     .form-group
                                         label(for='property-geo') Bedrooms:
@@ -325,6 +325,22 @@ block content
         
         $("#find").click(function(){
           $("#surburb").trigger("geocode");
+        });
+        
+        $('#cat').change(function(event){
+          var selected = $(this).find('option:selected').attr('rel');
+          console.log(selected);
+          if(selected == "Residential"){
+            $('#others').show();
+            $('#residential').hide();
+          }
+          else if(selected == "Upcoming-Properties"){
+            $('#others').show();
+            $('#residential').show();
+          }else{
+            $('#others').hide();
+            $('#residential').show();
+          }
         });
         
       });
