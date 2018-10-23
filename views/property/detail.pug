@@ -53,8 +53,10 @@ block content
                                         path.meta-icon(fill-rule='evenodd' clip-rule='evenodd' fill='#FFA500' d='M47.199 24.176l-23.552-23.392c-.504-.502-1.174-.778-1.897-.778l-19.087.09c-.236.003-.469.038-.696.1l-.251.1-.166.069c-.319.152-.564.321-.766.529-.497.502-.781 1.196-.778 1.907l.092 19.124c.003.711.283 1.385.795 1.901l23.549 23.389c.221.218.482.393.779.523l.224.092c.26.092.519.145.78.155l.121.009h.012c.239-.003.476-.037.693-.098l.195-.076.2-.084c.315-.145.573-.319.791-.539l18.976-19.214c.507-.511.785-1.188.781-1.908-.003-.72-.287-1.394-.795-1.899zm-35.198-9.17c-1.657 0-3-1.345-3-3 0-1.657 1.343-3 3-3 1.656 0 2.999 1.343 2.999 3 0 1.656-1.343 3-2.999 3z')
                                     span.property-info-entry
                                         span.property-info-label Status
+                                        span.property-info-value
+                                        b.property-info-unit #{property.type}
                                         span.property-info-value 
-                                          =property.type
+                                          
                             if(property.size)    
                                 .col-xs-3.col-sm-3.col-md-3.p-b-15
                                     span.property-info.icon-area
@@ -63,8 +65,7 @@ block content
                                     span.property-info-entry
                                         span.property-info-label Area
                                         span.property-info-value
-                                          =property.size
-                                        b.property-info-unit #{property.units}
+                                        b.property-info-unit #{property.size} #{property.units}
                             if(property.bedrooms)
                                 .col-xs-3.col-sm-3.col-md-3.p-b-15
                                     span.property-info-icon.icon-bed
@@ -72,7 +73,8 @@ block content
                                         path.meta-icon(fill='#FFA500' d='M21 48.001h-19c-1.104 0-2-.896-2-2v-31c0-1.104.896-2 2-2h19c1.106 0 2 .896 2 2v31c0 1.104-.895 2-2 2zm0-37.001h-19c-1.104 0-2-.895-2-1.999v-7.001c0-1.104.896-2 2-2h19c1.106 0 2 .896 2 2v7.001c0 1.104-.895 1.999-2 1.999zm25 37.001h-19c-1.104 0-2-.896-2-2v-31c0-1.104.896-2 2-2h19c1.104 0 2 .896 2 2v31c0 1.104-.896 2-2 2zm0-37.001h-19c-1.104 0-2-.895-2-1.999v-7.001c0-1.104.896-2 2-2h19c1.104 0 2 .896 2 2v7.001c0 1.104-.896 1.999-2 1.999z')
                                     span.property-info-entry
                                         span.property-info-label Bedrooms
-                                        span.property-info-value 
+                                        span.property-info-value
+                                        b.property-info-unit 
                                           =property.bedrooms
                             if(property.bathrooms)
                                 .col-xs-3.col-sm-3.col-md-3.p-b-15
@@ -82,12 +84,14 @@ block content
                                     span.property-info-entry
                                         span.property-info-label Bathrooms
                                         span.property-info-value 
+                                        b.property-info-unit
                                           =property.bathrooms
                                 
                         // .property-meta
                         .section
                             if(property)
-                                h4.s-property-title Description
+                                h4.s-property-title.text-left 
+                                  strong Description
                                 .s-property-content
                                     h6
                                      =property.tagline 
@@ -95,14 +99,12 @@ block content
                                      =property.description
                         // End description area
                         .section.additional-details
-                           h4.s-property-title Location
+                           h4.s-property-title.text-left
+                            strong Location
                            .form-group
                              fieldset.gllpLatlonPicker
                                .row
-                                   .col-md-8
-                                   input.gllpSearchField.form-control(type='text')
-                                   .col-md-4
-                                   input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
+                                
                                .gllpMap(style="width: 100%; height: 300px;") Google Maps
                                input#lati.gllpLatitude(type='hidden',value=property.map.lati, name='lati')
                                input#long.gllpLongitude(type='hidden', value=property.map.long,name='long')
@@ -110,19 +112,20 @@ block content
                         // End description area
                         if(property.amenities)    
                             .section.additional-details
-                                h4.s-property-title Ammenities
-                                ul.additional-details-list.clearfix
-                                    ul
-                                        each ammenity in property.amenities
-                                            li
-                                                //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
-                                                span.col-xs-6.col-sm-8.col-md-8.add-d-entry  #{ammenity}
+                                h4.s-property-title.text-left
+                                  strong Ammenities
+                                .additional-details-list.clearfix
+                                    each ammenity in property.amenities
+                                        div
+                                            //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
+                                            span.col-xs-6.col-sm-6.col-md-3.add-d-entry  #{ammenity}
                                     
                        
                         if(property.youtube)               
                             // End features area
                             .section.property-video
-                                h4.s-property-title Property Video
+                                h4.s-property-title.text-left
+                                  strong  Property Video
                                 .video-thumb
                                     .embed-responsive.embed-responsive-4by3
                                         iframe.embed-responsive-item(src=property.youtube)
@@ -136,13 +139,14 @@ block content
                                         .clear
                                             .col-xs-4.col-sm-4.dealer-face
                                                 a(href='')
-                                                img.img-circle(src='assets/img/client-face1.png')
+                                                img.img-circle(src='/assets/img/user.png')
                                             .col-xs-8.col-sm-8
                                                 h3.dealer-name
                                                     a(href='') 
                                                       =property.user_id.names
                                                     br
-                                                    span Real Estate Agent
+                                                    span 
+                                                       =property.ownership
                                                 .dealer-social-media
                                                     a.twitter(target='_blank' href='')
                                                         i.fa.fa-twitter
