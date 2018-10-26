@@ -310,3 +310,8 @@ block content
     
     
     //script(src="http://maps.googleapis.com/maps/api/js?sensor=false")
+    script.
+      $(function(){
+        $('form input').on('keypress', function(e) {
+            return e.which !== 13;
+        });

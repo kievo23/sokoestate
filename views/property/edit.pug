@@ -317,7 +317,9 @@ block content
     script(src='/js/jquery.geocomplete.js')
     script.
       $(function(){
-        
+        $('form input').on('keypress', function(e) {
+            return e.which !== 13;
+        });
         $("#surburb").geocomplete()
           .bind("geocode:result", function(event, result){
             console.log("Result: " + result.formatted_address);
