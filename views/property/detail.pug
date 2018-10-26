@@ -126,9 +126,11 @@ block content
                             .section.property-video
                                 h4.s-property-title.text-left
                                   strong  Property Video
-                                    .embed-responsive.embed-responsive-4by3
+                                    iframe(width='420' height='345' src=property.youtube)
+
+                                    //.embed-responsive.embed-responsive-4by3
                                        iframe.embed-responsive-item(src=property.youtube , allowfullscreen)
-                                // End video area
+                                    // End video area
                 .col-md-4.p0
                     aside.sidebar.sidebar-property.blog-asside-right
                         .dealer-widget
