@@ -102,6 +102,7 @@ block content
                                     .form-group
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
+                                            option(value='')  Select Category 
                                             each category in categories
                                               option(data-icon='fa '+category.icon,value=category.id,rel=category.slug) 
                                                 =category.name
@@ -109,7 +110,7 @@ block content
                                     .form-group
                                         label Subcategory :
                                         select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
-                                          option(value='') --Select Subcategory -- 
+                                          option(value='')  Select Subcategory 
                                           each cat in categories
                                             each subcat in cat.subcategories
                                               option(value=subcat.name, rel=cat.name) 
