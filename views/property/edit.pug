@@ -112,6 +112,8 @@ block content
                                         .form-group
                                             label Unit:
                                             select#basic.selectpicker.show-tick.form-control(required, name='units')
+                                                option(value=property.units selected="selected") 
+                                                  =property.units
                                                 option(value='acres') Acres
                                                 option(value='hectares')  Hectares
                                                 option(value='squaremeters')  Square Meters
