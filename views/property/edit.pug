@@ -85,6 +85,8 @@ block content
                                     .form-group
                                         label Property County :
                                         select#lunchBegins.selectpicker(name="county",data-live-search='true' placeholder=property.county value=property.county  data-live-search-style='begins' title='Select your city' required)
+                                            option(value=property.county selected="selected") 
+                                              =property.county
                                             option(value='nairobi') Nairobi
                                             option(value='mombasa') Mombasa
                                             option(value='kisumu') Kisumu
