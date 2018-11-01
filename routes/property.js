@@ -121,7 +121,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.size = req.body.size;
   i.email = req.body.email;
   i.county = req.body.county;
-  i.youtube = req.body.youtube;
+  i.youtube = req.body.youtube.replace("watch?v=", "embed/");
   i.category = req.body.category;
   i.tagline = req.body.tagline;
   i.street = req.body.street;
@@ -202,7 +202,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.tagline = req.body.tagline;
     i.units = req.body.units;
     i.street = req.body.street;
-    i.youtube = req.body.youtube;
+    i.youtube = req.body.youtube.replace("watch?v=", "embed/");
     i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
   	i.date = new Date();
     if(req.body.bedrooms){
