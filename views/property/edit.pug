@@ -85,6 +85,8 @@ block content
                                     .form-group
                                         label Property County :
                                         select#lunchBegins.selectpicker(name="county",data-live-search='true' placeholder=property.county value=property.county  data-live-search-style='begins' title='Select your city' required)
+                                            option(value=property.county selected="selected") 
+                                              =property.county
                                             option(value='nairobi') Nairobi
                                             option(value='mombasa') Mombasa
                                             option(value='kisumu') Kisumu
@@ -110,6 +112,8 @@ block content
                                         .form-group
                                             label Unit:
                                             select#basic.selectpicker.show-tick.form-control(required, name='units')
+                                                option(value=property.units selected="selected") 
+                                                  =property.units
                                                 option(value='acres') Acres
                                                 option(value='hectares')  Hectares
                                                 option(value='squaremeters')  Square Meters
@@ -122,8 +126,8 @@ block content
                                     .form-group
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true', data-live-search-style='begins', value=property.category ,name="category")
-                                            option(value=property.category, selected)
-                                              =property.category
+                                            option(value=property.category.id, selected)
+                                              =property.category.name
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id, rel=category.slug) 
                                                 =category.name
@@ -306,7 +310,9 @@ block content
     script(src='/js/jquery.geocomplete.js')
     script.
       $(function(){
-        
+        $('form input').on('keypress', function(e) {
+            return e.which !== 13;
+        });
         $("#surburb").geocomplete()
           .bind("geocode:result", function(event, result){
             console.log("Result: " + result.formatted_address);

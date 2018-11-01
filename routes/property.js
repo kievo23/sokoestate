@@ -80,7 +80,7 @@ router.get('/add', role.auth, function(req, res, next){
 router.get('/edit/:id', role.auth, function(req, res, next){
   var property = Property.findOne({
 	  _id: req.params.id
-	});
+	}).populate('category');
 	var categories = Category.find({});
 
 	Promise.all([property, categories]).then(values => {
@@ -121,12 +121,13 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.size = req.body.size;
   i.email = req.body.email;
   i.county = req.body.county;
-  i.youtube = req.body.youtube;
+  i.youtube = req.body.youtube.replace("watch?v=", "embed/");
   i.category = req.body.category;
   i.tagline = req.body.tagline;
   i.street = req.body.street;
   i.units = req.body.units;
-  i.agent = req.body.ownership;
+  i.city = req.body.city;
+  i.ownership = req.body.ownership;
   i.subcategory = req.body.subcategory;
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
@@ -196,13 +197,14 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.amenities = req.body.amenities;
     i.size = req.body.size;
     i.email = req.body.email;
+    i.city = req.body.city;
     i.category = req.body.category;
     i.subcategory = req.body.subcategory;
-    i.agent = req.body.ownership;
+    i.ownership = req.body.ownership;
     i.tagline = req.body.tagline;
     i.units = req.body.units;
     i.street = req.body.street;
-    i.youtube = req.body.youtube;
+    i.youtube = req.body.youtube.replace("watch?v=", "embed/");
     i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
   	i.date = new Date();
     if(req.body.bedrooms){
