@@ -122,8 +122,8 @@ block content
                                     .form-group
                                         label Property Category :
                                         select#cat.cat.form-control(data-live-search='true', data-live-search-style='begins', value=property.category ,name="category")
-                                            option(value=property.category, selected)
-                                              =property.category
+                                            option(value=property.category.id, selected)
+                                              =property.category.name
                                             each category in categories
                                               option(data-icon='fa '+category.icon, value=category.id, rel=category.slug) 
                                                 =category.name

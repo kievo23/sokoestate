@@ -80,7 +80,7 @@ router.get('/add', role.auth, function(req, res, next){
 router.get('/edit/:id', role.auth, function(req, res, next){
   var property = Property.findOne({
 	  _id: req.params.id
-	});
+	}).populate('category');
 	var categories = Category.find({});
 
 	Promise.all([property, categories]).then(values => {
