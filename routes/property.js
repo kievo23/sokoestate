@@ -126,7 +126,8 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.tagline = req.body.tagline;
   i.street = req.body.street;
   i.units = req.body.units;
-  i.agent = req.body.ownership;
+  i.city = req.body.city;
+  i.ownership = req.body.ownership;
   i.subcategory = req.body.subcategory;
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
@@ -196,9 +197,10 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.amenities = req.body.amenities;
     i.size = req.body.size;
     i.email = req.body.email;
+    i.city = req.body.city;
     i.category = req.body.category;
     i.subcategory = req.body.subcategory;
-    i.agent = req.body.ownership;
+    i.ownership = req.body.ownership;
     i.tagline = req.body.tagline;
     i.units = req.body.units;
     i.street = req.body.street;

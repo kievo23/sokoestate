@@ -18,6 +18,7 @@ const propertySchema = new Schema({
     type: String,
     phone: String,
 		email: String,
+		city: String,
     photo: String,
     gallery: Array,
 		county: String,
