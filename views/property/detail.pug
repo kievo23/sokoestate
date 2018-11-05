@@ -138,40 +138,46 @@ block content
                                 .inner-wrapper
                                     if(property)
                                         .clear
-                                            .col-xs-4.col-sm-4.dealer-face
-                                                a(href='')
-                                                img.img-circle(src='/assets/img/user.png')
-                                            .col-xs-8.col-sm-8
-                                                h3.dealer-name
-                                                    a(href='') 
-                                                      =property.user_id.names
-                                                    br
-                                                    span 
-                                                       =property.ownership
-                                                .dealer-social-media
-                                                    a.twitter(target='_blank' href='')
-                                                        i.fa.fa-twitter
-                                                    a.facebook(target='_blank' href='')
-                                                        i.fa.fa-facebook
-                                                    a.gplus(target='_blank' href='')
-                                                        i.fa.fa-google-plus
-                                                    a.linkedin(target='_blank' href='')
-                                                        i.fa.fa-linkedin
-                                                    a.instagram(target='_blank' href='')
-                                                        i.fa.fa-instagram
-                                        .clear
-                                            ul.dealer-contacts
-                                                //li
-                                                    i.pe-7s-map-marker.strong  
-                                                    |  9089 your adress her
-                                                li(style="color:#fff;")
-                                                    i.pe-7s-mail.strong  
-                                                    a(href="mailto:"+property.email, style="color:#fff;")
-                                                      =property.email
-                                                li(style="color:#fff;")
-                                                    i.pe-7s-call.strong  
-                                                    a(href="tel:"+property.phone, style="color:#fff;")
-                                                      =property.phone
+                                            .row
+                                                .col-sm-12
+                                                  | To 
+                                                  =property.type
+                                                  | Contact : 
+                                            .row
+                                                .col-xs-4.col-sm-4.dealer-face
+                                                    a(href='')
+                                                    img.img-circle(src='/assets/img/user.png')
+                                                .col-xs-8.col-sm-8
+                                                    h3.dealer-name
+                                                        a(href='') 
+                                                        =property.user_id.names
+                                                        br
+                                                        span 
+                                                        =property.ownership
+                                                    .dealer-social-media
+                                                        a.twitter(target='_blank' href='')
+                                                            i.fa.fa-twitter
+                                                        a.facebook(target='_blank' href='')
+                                                            i.fa.fa-facebook
+                                                        a.gplus(target='_blank' href='')
+                                                            i.fa.fa-google-plus
+                                                        a.linkedin(target='_blank' href='')
+                                                            i.fa.fa-linkedin
+                                                        a.instagram(target='_blank' href='')
+                                                            i.fa.fa-instagram
+                                            .clear
+                                                ul.dealer-contacts
+                                                    //li
+                                                        i.pe-7s-map-marker.strong  
+                                                        |  9089 your adress her
+                                                    li(style="color:#fff;")
+                                                        i.pe-7s-mail.strong  
+                                                        a(href="mailto:"+property.email, style="color:#fff;")
+                                                        =property.email
+                                                    li(style="color:#fff;")
+                                                        i.pe-7s-call.strong  
+                                                        a(href="tel:"+property.phone, style="color:#fff;")
+                                                        =property.phone
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties
