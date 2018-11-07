@@ -135,19 +135,18 @@ block content
                     aside.sidebar.sidebar-property.blog-asside-right
                         .dealer-widget
                             .dealer-content
+                                .row
+                                    .col-xs-12
+                                        h3
+                                            | To     
+                                            if(property.type == "sale")
+                                                |    Buy    
+                                            else
+                                                |     Rent
+                                            |    Contact: 
                                 .inner-wrapper
                                     if(property)
                                         .clear
-                                            .row
-                                               .col-xs-12
-                                                   h3
-                                                      | To     
-                                                      if(property.type == "sale")
-                                                        |    Buy    
-                                                      else
-                                                        |     Rent
-                                                      |    Contact:    
-
                                             .row
                                                 .col-xs-4.col-sm-4.dealer-face
                                                     a(href='')
