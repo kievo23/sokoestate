@@ -240,6 +240,7 @@ app.post('/register',
       var username = req.body.email;
       var email = req.body.email;
       var password = req.body.password;
+      var company = req.body.company;
       var role = 0;
       var salt = bcrypt.genSaltSync(10);
       var hash = bcrypt.hashSync(password, salt);
@@ -284,6 +285,17 @@ app.post('/register',
                   }
                 });
                 */
+                if(company != ""){
+                  Business.create({
+                      email: email,
+                      slug: slug(company),
+                      phone: phone,
+                      name: company,
+                      role: role,
+                  }, function (err, biz) {
+                    if(err) throw err
+                  });
+                }
                 req.flash('success_msg','Registration was Successful. Kindly Login');
                 req.login(user, function(err){
                     if(err) return next(err);

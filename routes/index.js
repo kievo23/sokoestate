@@ -49,6 +49,18 @@ router.post('/facebook', function(req, res){
         req.flash('error','Some Error Occured, Kindly try again');
         res.redirect(ssn.returnUrl);
       }else{
+        if(req.body.company != ""){
+          Business.create({
+              email: req.body.email,
+              slug: slug(req.body.company),
+              phone: req.body.phone,
+              name: req.body.company,
+              role: 0,
+          }, function (err, biz) {
+            if(err) throw err
+          });
+        }
+
         req.flash('success_msg','SignUp completed Successfully');
         res.redirect('/');
       }
@@ -69,6 +81,17 @@ router.post('/google', function(req, res){
         req.flash('error','Some Error Occured, Kindly try again');
         res.redirect(ssn.returnUrl);
       }else{
+        if(req.body.company != ""){
+          Business.create({
+              email: d.email,
+              slug: slug(req.body.company),
+              phone: req.body.phone,
+              name: req.body.company,
+              role: 0,
+          }, function (err, biz) {
+            if(err) throw err
+          });
+        }
         req.flash('success_msg','SignUp completed Successfully');
         res.redirect('/');
       }
