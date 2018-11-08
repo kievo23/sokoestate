@@ -7,9 +7,10 @@ block content
             h1.text-center.login-title Sign in to continue to Soko Estate
             .account-wall
                 form.form-signin(method='post',action="/register")
-                    input.form-control(type='text' placeholder='Full Name' required='' autofocus='',name='names')
-                    input.form-control(type='email' placeholder='Email' required='',name='email')
-                    input.form-control(type='text' placeholder='Phone' required='',name='phone')
+                    input.form-control(type='text' placeholder='Full Name' required autofocus='',name='names')
+                    input.form-control(type='email' placeholder='Email' required  name='email')
+                    input.form-control(type='text' placeholder='Company Name' required autofocus='',name='company')
+                    input.form-control(type='text' placeholder='Phone' name='phone')
                     input.form-control(type='password' placeholder='Password' required='',name='password')
                     input.form-control(type='password' placeholder='Confirm Password' required='',name='cpassword')
                     
