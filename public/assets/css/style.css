@@ -2089,9 +2089,9 @@ single property page
     padding: 15px 25px 25px;
 }
 .dealer-widget {
-    background-color: #04045a;
-    padding: 15px;
-    color:#FFF;
+    background-color: #e2dcdc;
+    padding: 0px;
+    color:#000;
     padding-bottom: 20px;
     margin: -15px -15px 25px;
 }
@@ -2125,7 +2125,7 @@ single property page
     padding: 30px 0px 0px 10px;
 }
 .dealer-contacts li i{
-    color:#fff;
+    color:#000;
     padding-right: 8px;
 }
 .clear{
