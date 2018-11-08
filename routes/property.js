@@ -63,7 +63,7 @@ router.get('/list', role.auth, function(req, res, next) {
 
 
 router.get('/add', role.auth, function(req, res, next){
-  if(parseInt(res.locals.user.wallet) >= 1500 ){
+  //if(parseInt(res.locals.user.wallet) >= 1500 ){
     Category.find({})
     .then(function(data){
     	res.render('property/new', {title: "Find It Categories", categories: data});
@@ -71,10 +71,11 @@ router.get('/add', role.auth, function(req, res, next){
     .catch(function(err){
        console.log(err);
     });
+    /*
   }else{
     req.flash("error_msg", "Kindly load 1500 or more to your wallet to post a property");
     res.redirect('/loadwallet');
-  }
+  }*/
 });
 
 router.get('/edit/:id', role.auth, function(req, res, next){
