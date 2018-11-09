@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 mongoose.plugin(schema => { schema.options.usePushEach = true });
-var dataTables = require('mongoose-datatables');
-
 var sys = require(__dirname + '/../config/System');
 var db = mongoose.connect(sys.finditdb_uri, {useMongoClient: true });
 mongoose.Promise =require('bluebird');
@@ -79,7 +77,6 @@ const bizSchema = new Schema({
 bizSchema.index(
 	{ name: 'text',features: 'text',subcategory: 'text', keywords: 'text' }
 );
-bizSchema.plugin(dataTables);
 
 const Promise = require("bluebird");
 const Business = mongoose.model('Business', bizSchema);
