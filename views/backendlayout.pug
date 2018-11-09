@@ -109,16 +109,13 @@ head
       .section__content.section__content--p30
         .container-fluid
           .header-wrap
-            strong
-              a(href='/property') view Properties
-              a(href='/property/add') Add Property
-            //form.form-header(action='' method='POST')
+            form.form-header(action='' method='POST')
               input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
               button.au-btn--submit(type='submit')
                 i.zmdi.zmdi-search
-            //i(class="fas fa-money-bill-alt" aria-hidden="true")
+            i(class="fas fa-money-bill-alt" aria-hidden="true")
                |  KSH: #{user.wallet}
-            //a.js-acc-btn(href="/loadwallet")
+            a.js-acc-btn(href="/loadwallet")
                |  Load Wallet
             .header-button
               
@@ -132,10 +129,10 @@ head
                       =user.names
                   .account-dropdown.js-dropdown
                     .info.clearfix
-                      //.image
+                      .image
                         a(href='#')
                           img(src='/images/icon/avatar-01.jpg' alt='John Doe')
-                      //.content
+                      .content
                         h5.name
                           a(href='#') 
                             =user.names
@@ -143,11 +140,11 @@ head
                           =user.email
                     .account-dropdown__body
                       .account-dropdown__item
-                        a(href='#')
+                        a(href='/user/profile')
                           i.zmdi.zmdi-account
                           | Account
                       .account-dropdown__item
-                        a(href='/favorites')
+                        a(href='#')
                           i.zmdi.zmdi-settings
                           | Favourite properties
                     .account-dropdown__footer
