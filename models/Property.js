@@ -38,7 +38,7 @@ const propertySchema = new Schema({
 		},
     description: String,
     amenities: Array,
-		approved: String,
+		approved: Boolean,
 		date: Date,
 		youtube: String,
 		featured: Boolean,

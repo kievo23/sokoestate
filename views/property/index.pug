@@ -48,6 +48,7 @@ block content
                     th PRICE
                     th PHOTO
                     th TYPE
+                    th APPROVED
                     th FEATURED
                     th ACTIONS
                 tbody
@@ -71,12 +72,17 @@ block content
                         td
                           =property.type
                         td
+                          =property.approved
+                        td
                           =property.featured
                         td
                           .table-data-feature
                             //a(href="/property/showhome/"+property.id, title="Show on home page")
                               button.item(data-toggle='tooltip' data-placement='top' title='Order')
                                 i.zmdi.zmdi-mail-send
+                            a(href="/property/approved/"+property.id, title="Approve property")
+                              button.item(data-toggle='tooltip' data-placement='top' title='Approve')
+                                i.zmdi.zmdi-check
                             a(href="/property/featured/"+property.id, title="Favourite property")
                               button.item(data-toggle='tooltip' data-placement='top' title='Featured')
                                 i.zmdi.zmdi-star

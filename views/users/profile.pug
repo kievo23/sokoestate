@@ -1,4 +1,4 @@
-extends admin-layout
+extends ../backendlayout
 
 block content
   // /.row
@@ -34,12 +34,12 @@ block content
          
         
         p
-           a(href='/user/editprofile')
+           a(href='/users/editprofile')
              Strong
                span.fa.fa-pencil   
                |    Edit Profile
         p
-          a(href='/user/changepassword')
+          a(href='/users/changepassword')
             Strong
               span.fa.fa-lock    
               |    Change Password

@@ -52,7 +52,7 @@ router.get('/delete/:id',role.admin, function(req, res, next){
 
 
 router.get('/changepassword', role.auth, function(req, res){
-	res.render('user/changepassword');
+	res.render('users/changepassword');
 });
 
 router.post('/changepassword', role.auth, function(req, res){
@@ -94,11 +94,11 @@ router.post('/changepassword', role.auth, function(req, res){
 });
 
 router.get('/profile', function(req, res){
-  res.render('user/profile', {title: "Profile"});
+  res.render('users/profile', {title: "Profile"});
 });
 
 router.get('/editprofile', function(req, res){
-  res.render('user/editprofile', {title: "Profile"});
+  res.render('users/editprofile', {title: "Profile"});
 });
 
 router.post('/editprofile', function(req, res){
