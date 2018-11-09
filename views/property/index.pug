@@ -48,6 +48,7 @@ block content
                     th PRICE
                     th PHOTO
                     th TYPE
+                    th APPROVED
                     th FEATURED
                     th ACTIONS
                 tbody
@@ -70,6 +71,8 @@ block content
                           img(src='/uploads/' +property.photo)
                         td
                           =property.type
+                        td
+                          =property.approved
                         td
                           =property.featured
                         td
