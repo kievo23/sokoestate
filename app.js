@@ -30,6 +30,7 @@ var config = require('./config.json');
 
 //Models
 var User = require('./models/User');
+var Business = require('./models/Business');
 
 var app = express();
 
