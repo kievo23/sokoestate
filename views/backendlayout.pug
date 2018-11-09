@@ -57,7 +57,7 @@ head
               i.zmdi.zmdi-accounts
               | Users
           li
-            a(href='#')
+            a(href='/user/profile')
               i.far.fa-user
               | Account
           
@@ -120,9 +120,9 @@ head
               input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
               button.au-btn--submit(type='submit')
                 i.zmdi.zmdi-search
-            //i(class="fas fa-money-bill-alt" aria-hidden="true")
+            i(class="fas fa-money-bill-alt" aria-hidden="true")
                |  KSH: #{user.wallet}
-            //a.js-acc-btn(href="/loadwallet")
+            a.js-acc-btn(href="/loadwallet")
                |  Load Wallet
             .header-button
               

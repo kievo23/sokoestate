@@ -296,5 +296,4 @@ router.get('/receive', function(req, res){
   });
 });
 
-
 module.exports = router;
