@@ -92,7 +92,7 @@ head
               i.zmdi.zmdi-accounts
               | Users
           li
-            a(href='#')
+            a(href='/user/profile')
               i.far.fa-user
               | Account
           
@@ -109,14 +109,7 @@ head
       .section__content.section__content--p30
         .container-fluid
           .header-wrap
-            .nav
-                li(style='margin-right:2rem')
-                  strong
-                    a(href='/property') View Properties
-                li
-                  strong
-                    a(href='/property/add') Add Property
-            //form.form-header(action='' method='POST')
+            form.form-header(action='' method='POST')
               input.au-input.au-input--xl(type='text' name='search' placeholder='Search for datas & reports...')
               button.au-btn--submit(type='submit')
                 i.zmdi.zmdi-search
@@ -130,13 +123,12 @@ head
                 .account-item.clearfix.js-item-menu
                   
                   .image
-                    img(src='/images/icon/user.png' alt=user.name)
+                    img(src='/images/icon/user.png' alt='John Doe')
                   .content
                     a.js-acc-btn(href='#') 
-                      strong
-                        =user.names
+                      =user.names
                   .account-dropdown.js-dropdown
-                    //.info.clearfix
+                    .info.clearfix
                       .image
                         a(href='#')
                           img(src='/images/icon/avatar-01.jpg' alt='John Doe')
@@ -148,20 +140,17 @@ head
                           =user.email
                     .account-dropdown__body
                       .account-dropdown__item
-                        a(href='#')
-                          strong
-                            i.zmdi.zmdi-account
-                            | Account
+                        a(href='/user/profile')
+                          i.zmdi.zmdi-account
+                          | Account
                       .account-dropdown__item
-                        a(href='/favorites')
-                          strong
-                            i.zmdi.zmdi-settings
-                            | Favourite properties
+                        a(href='#')
+                          i.zmdi.zmdi-settings
+                          | Favourite properties
                     .account-dropdown__footer
                       a(href='/logout')
-                        strong
-                          i.zmdi.zmdi-power
-                          | Logout
+                        i.zmdi.zmdi-power
+                        | Logout
     // END HEADER DESKTOP
     block content
 // Jquery JS
