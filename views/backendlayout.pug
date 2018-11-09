@@ -49,22 +49,22 @@ head
               i.fas.fa-chart-bar
               | Properties
           li
-            a(href='/category')
-              i.fas.fa-table
-              | Categories
+              a(href='/user/profile')
+                i.far.fa-user
+                | My Account
           li
-            a(href='/users')
-              i.zmdi.zmdi-accounts
-              | Users
-          li
-            a(href='/user/profile')
-              i.far.fa-user
-              | Account
-          
-          li
-            a(href='#')
-              i.fas.fa-map-marker-alt
-              | Analytics
+              a(href='#')
+                i.fas.fa-map-marker-alt
+                | Analytics
+          if(user.role == 1)
+            li
+              a(href='/category')
+                i.fas.fa-table
+                | Categories
+            li
+              a(href='/users')
+                i.zmdi.zmdi-accounts
+                | Users
           
   // END HEADER MOBILE
   // MENU SIDEBAR
