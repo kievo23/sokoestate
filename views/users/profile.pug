@@ -10,30 +10,30 @@ block content
             .main-content(style="padding-top: 50px;")
               .section__content.section__content--p30
                 p
-                  strong Your Name: 
-                    if(user.names) 
+                  if(user.names)
+                    strong Your Name:  
                       =user.names
                     else
                         | N/A
                 p 
-                  strong Phone Number: 
-                    if(user.phone)   
+                  if(user.phone)  
+                    strong Phone Number:    
                       =user.phone
                     else
                       | N/A
                 
-                p 
-                  strong Email Address: 
-                    if(user.email) 
+                p  
+                  if(user.email) 
+                    strong Email Address:
                       =user.email
-                    else
-                      | N/A
+                  else
+                    | N/A
                 
                 
                 p
                   a(href='/users/editprofile')
                     Strong
-                      span.fa.fa-pencil   
+                      span.fa.fa-pencil 
                       |    Edit Profile
                 p
                   a(href='/users/changepassword')
