@@ -13,32 +13,35 @@ block content
                   if(user.names)
                     strong Your Name:  
                       =user.names
-                    else
-                        | N/A
+                  else
+                    strong Your Name:
+                    | N/A
                 p 
                   if(user.phone)  
                     strong Phone Number:    
                       =user.phone
-                    else
-                      | N/A
+                  else
+                    strong Phone Number:
+                    | N/A
                 
                 p  
                   if(user.email) 
                     strong Email Address:
                       =user.email
                   else
+                    strong Email Address:
                     | N/A
                 
                 
                 p
                   a(href='/users/editprofile')
                     Strong
-                      span.fa.fa-pencil 
+                      span.fa.fa-book
                       |    Edit Profile
                 p
                   a(href='/users/changepassword')
                     Strong
-                      span.fa.fa-book    
+                      span.fa.fa-lock     
                       |    Change Password
                 
                 //p
