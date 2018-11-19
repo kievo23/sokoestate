@@ -7,27 +7,27 @@ block content
         .row
           .container-fluid
             // MAIN CONTENT
-            .main-content
+            .main-content(style="padding-top: 50px;")
               .section__content.section__content--p30
                 p
                   strong Your Name: 
-                  if(user.names) 
-                    =user.names
-                  else
-                      | N/A
+                    if(user.names) 
+                      =user.names
+                    else
+                        | N/A
                 p 
                   strong Phone Number: 
-                  if(user.phone)   
-                    =user.phone
-                  else
-                    | N/A
+                    if(user.phone)   
+                      =user.phone
+                    else
+                      | N/A
                 
                 p 
                   strong Email Address: 
-                  if(user.email) 
-                    =user.email
-                  else
-                    | N/A
+                    if(user.email) 
+                      =user.email
+                    else
+                      | N/A
                 
                 
                 p
