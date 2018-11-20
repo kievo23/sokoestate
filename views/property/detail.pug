@@ -97,6 +97,16 @@ block content
                                      =property.tagline 
                                     p
                                      =property.description
+                        if(property.amenities)    
+                            .section.additional-details
+                                h4.s-property-title.text-left
+                                    strong Ammenities
+                                .additional-details-list.clearfix
+                                    each ammenity in property.amenities
+                                        div
+                                            //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
+                                            span.col-xs-6.col-sm-6.col-md-3.add-d-entry  #{ammenity}
+                                    
                         // End description area
                         .section.additional-details
                            h4.s-property-title.text-left
@@ -110,16 +120,6 @@ block content
                                input#long.gllpLongitude(type='hidden', value=property.map.long,name='long')
                                input#zoom.gllpZoom(type='hidden',value=property.map.zoom,name='zoom')
                         // End description area
-                        if(property.amenities)    
-                            .section.additional-details
-                                h4.s-property-title.text-left
-                                  strong Ammenities
-                                .additional-details-list.clearfix
-                                    each ammenity in property.amenities
-                                        div
-                                            //span.col-xs-6.col-sm-4.col-md-4.add-d-title Waterfront
-                                            span.col-xs-6.col-sm-6.col-md-3.add-d-entry  #{ammenity}
-                                    
                        
                         if(property.youtube)               
                             // End features area
