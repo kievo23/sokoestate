@@ -1,49 +1,52 @@
 extends ../backendlayout
-
 block content
-  // /.row
-  // ==============================================================
-  // Different data widgets
-  // ==============================================================
-  // .row
-  .row
-    .col-lg-12.col-sm-12.col-xs-12.dash-padding
-      .white-box.analytics-info
-       
-        p 
-          strong Your Name: 
-          if(user.names) 
-            =user.names
-          else
-              | N/A
-            
+  // MAIN CONTENT
+  .main-content
+    .section__content.section__content--p30
+      .container-fluid
+        .row
+          .container-fluid
+            // MAIN CONTENT
+            .main-content(style="padding-top: 50px;")
+              .section__content.section__content--p30
+                p
+                  if(user.names)
+                    strong Your Name:           
+                      =user.names
+                  else
+                    strong Your Name:         
+                    |      N/A
+                p 
+                  if(user.phone)  
+                    strong Phone Number:          
+                      =user.phone
+                  else
+                    strong Phone Number:       
+                    |      N/A
+                
+                p  
+                  if(user.email) 
+                    strong Email Address:     
+                      =user.email
+                  else
+                    strong Email Address:    
+                    |     N/A
+                
+                
+                p
+                  a(href='/users/editprofile')
+                    Strong
+                      span.fa.fa-book
+                      |    Edit Profile
+                p
+                  a(href='/users/changepassword')
+                    Strong
+                      span.fa.fa-lock     
+                      |    Change Password
+                
+                //p
+                  =user.role
+                    
+                
         
-        p 
-          strong Phone Number: 
-          if(user.phone)   
-            =user.phone
-          else
-             | N/A
-        
-        p 
-          strong Email Address: 
-          if(user.email) 
-            =user.email
-          else
-             | N/A
-         
-        
-        p
-           a(href='/users/editprofile')
-             Strong
-               span.fa.fa-pencil   
-               |    Edit Profile
-        p
-          a(href='/users/changepassword')
-            Strong
-              span.fa.fa-lock    
-              |    Change Password
-        
-        //p
-          =user.role
         
