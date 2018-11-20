@@ -20,6 +20,9 @@ const userSchema = new Schema({
 		website: String,
 		postal: String,
 		companyName: String,
+		twitter: String,
+		facebook: String,
+		instagram: String,
 		shippingaddress: {
 			phone: String,
 			email: String,

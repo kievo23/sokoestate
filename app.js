@@ -234,7 +234,7 @@ app.post('/register',
             emailholder: req.body.email
         };
       console.log(errors.mapped());
-      res.render('user/register', { validationerrors: errors.mapped(), form: form });
+      res.render('site/register', { validationerrors: errors.mapped(), form: form });
     }else{
       var names = req.body.names;
       var phone = req.body.phone;
@@ -242,6 +242,9 @@ app.post('/register',
       var email = req.body.email;
       var password = req.body.password;
       var company = req.body.company;
+      var instagram = req.body.instagram;
+      var twitter = req.body.twitter;
+      var facebook = req.body.facebook;
       var role = 0;
       var salt = bcrypt.genSaltSync(10);
       var hash = bcrypt.hashSync(password, salt);
@@ -297,7 +300,7 @@ app.post('/register',
                     if(err) throw err
                   });
                 }
-                req.flash('success_msg','Registration was Successful. Kindly Login');
+                req.flash('success_msg','Registration was Successful.');
                 req.login(user, function(err){
                     if(err) return next(err);
                     res.redirect('/');
