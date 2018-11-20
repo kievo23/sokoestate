@@ -106,6 +106,9 @@ router.post('/editprofile', function(req, res){
   .then(function(b){
     b.names = req.body.names;
     b.phone = req.body.phone;
+    b.instagram = req.body.instagram;
+    b.twitter = req.body.twitter;
+    b.facebook = req.body.facebook;
     b.save(function(err){
       if(err){
         res.redirect('/editprofile');

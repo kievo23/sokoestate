@@ -6,6 +6,9 @@ var crypto = require("crypto");
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
 var User = require(__dirname + '/../models/User');
+const mongoose = require('mongoose');
+var sys = require(__dirname + '/../config/System');
+var db = mongoose.connect(sys.db_uri, {useMongoClient: true });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -48,6 +51,9 @@ router.post('/facebook', function(req, res){
   .then(function(d){
     d.email = req.body.email;
     d.phone = req.body.phone;
+    d.instagram = req.body.instagram;
+    d.twitter = req.body.twitter;
+    d.facebook = req.body.facebook;
     d.save(function(err){
       if(err){
         req.flash('error','Some Error Occured, Kindly try again');
@@ -80,6 +86,9 @@ router.post('/google', function(req, res){
   User.findById(req.user._id)
   .then(function(d){
     d.phone = req.body.phone;
+    d.instagram = req.body.instagram;
+    d.twitter = req.body.twitter;
+    d.facebook = req.body.facebook;
     d.save(function(err){
       if(err){
         req.flash('error','Some Error Occured, Kindly try again');
