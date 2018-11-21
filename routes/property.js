@@ -131,6 +131,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.city = req.body.city;
   i.ownership = req.body.ownership;
   i.subcategory = req.body.subcategory;
+  i.approved = true;
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
 	i.date = new Date();
