@@ -4,6 +4,21 @@ var router = express.Router();
 var Users = require(__dirname + '/../models/User');
 var role = require(__dirname + '/../config/Role');
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads/')
+  },
+  filename: function (req, file, cb) {
+    var fileName = Date.now() + slug(file.originalname) +'.'+ mime.extension(file.mimetype);
+    cb(null, fileName);
+  }
+});
+
+var upload = multer({ storage: storage });
+var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog', maxCount: 5 }, { name: 'gallery', maxCount: 30 }])
+
+
+
 /* GET users listing. */
 router.get('/', role.admin, function(req, res, next) {
   Users.find({})
@@ -109,10 +124,22 @@ router.post('/editprofile', function(req, res){
     b.instagram = req.body.instagram;
     b.twitter = req.body.twitter;
     b.facebook = req.body.facebook;
+    if (req.files['photo'] != null){
+  		b.photo = req.files['photo'][0].filename;
+  	}
     b.save(function(err){
       if(err){
         res.redirect('/editprofile');
       }else{
+        if (req.files['photo'] != null){
+  				Jimp.read("./public/uploads/users/"+b.photo).then(function (cover) {
+				    return cover.resize(150, 100)     // resize
+			         .quality(100)              // set greyscale
+			         .write("./public/uploads/thumbs/users/"+b.photo); // save
+  				}).catch(function (err) {
+  				    console.error(err);
+  				});
+  			}
         req.flash('success_msg','Profile Updated');
         res.redirect('/admin');
       }

@@ -174,7 +174,7 @@ router.get('/property/:slug',function(req, res){
         }
       })
       .limit(5).then(function(d){
-        //console.log(d);
+        console.log(values[1]);
         res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0], similars: d});
       });
   });
