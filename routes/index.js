@@ -159,7 +159,7 @@ router.get('/search', function(req, res, next) {
 });
 
 router.get('/property/:slug',function(req, res){
-  var categories = Category.find({});
+  var categories = Category.find({}).sort({"order": 1});
   var property = Property.findOne({
     slug: req.params.slug
   })
