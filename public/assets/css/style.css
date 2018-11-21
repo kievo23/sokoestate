@@ -3594,8 +3594,3 @@ input[type="checkbox"]:disabled + .label-text:before{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.btn-primary {
-    color: #fff;
-    background-color: #04045a;
-    border-color: #04045a;
-}
