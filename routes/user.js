@@ -102,7 +102,7 @@ router.get('/editprofile', function(req, res){
 });
 
 router.post('/editprofile', function(req, res){
-  User.findById(res.locals.user._id)
+  Users.findById(res.locals.user._id)
   .then(function(b){
     b.names = req.body.names;
     b.phone = req.body.phone;
@@ -114,7 +114,7 @@ router.post('/editprofile', function(req, res){
         res.redirect('/editprofile');
       }else{
         req.flash('success_msg','Profile Updated');
-        res.redirect('/dashboard');
+        res.redirect('/admin');
       }
     });
   });

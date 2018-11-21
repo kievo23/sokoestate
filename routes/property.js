@@ -28,7 +28,7 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var categories = Category.find({});
+  var categories = Category.find({}).sort({"order": 1});
   var properties = Property.find({approved : true})
   .populate('user_id')
   .populate('category');
