@@ -88,7 +88,7 @@ a:focus {
 }
 img {
     height: auto;
-    max-width: 100%;
+    width: 100%;
     vertical-align: middle;
     border: 0px none;
 }
