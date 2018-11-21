@@ -121,7 +121,7 @@ router.get('/editprofile', function(req, res){
   res.render('users/editprofile', {title: "Profile"});
 });
 
-router.post('/editprofile', function(req, res){
+router.post('/editprofile', cpUpload, function(req, res){
   Users.findById(res.locals.user._id)
   .then(function(b){
     b.names = req.body.names;
