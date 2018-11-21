@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var multer  = require('multer');
+var mime = require('mime');
+var moment = require('moment');
+var Jimp = require("jimp");
+
 var Users = require(__dirname + '/../models/User');
 var role = require(__dirname + '/../config/Role');
 
