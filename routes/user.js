@@ -114,7 +114,7 @@ router.post('/editprofile', function(req, res){
         res.redirect('/editprofile');
       }else{
         req.flash('success_msg','Profile Updated');
-        res.redirect('/dashboard');
+        res.redirect('/admin');
       }
     });
   });
