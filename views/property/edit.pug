@@ -270,7 +270,7 @@ block content
                                     .picture-container
                                         .picture
                                             img#wizardPicturePreview.picture-src(src="/uploads/"+ property.photo title='')
-                                            input#wizard-picture(type='file', name='photo')
+                                            input#wizard-picture(type='file', name='photo', required)
                                 .form-group
                                     label(for='property-images') Chose Images :
                                     input#property-images.form-control(type='file', name='gallery', placeholder='gallery', multiple)
