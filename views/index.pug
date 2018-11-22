@@ -17,22 +17,22 @@ block content
                   .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                     .btn-group(style='float: left; padding-left: 2rem;')
                       each cat, i in categories
-                        if(i<4)
-                          button(type="button" class="btn btn-primary btn-search")
-                            label
-                              input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                        if(i<4) 
+                          label
+                            button(type="button" class="btn btn-primary btn-search")
+                              input(type="radio", name="category",value=cat.id, rel=cat.slug, style="display:none; position absolute")
                               =cat.name
                         if(i>3 && i<5)
                           a(href='')
                             button(type="button" class="btn btn-primary btn-search")
                               label
-                                input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                                input(type="radio", name="category",value=cat.id, rel=cat.slug, style="display:none; position absolute")
                                 =cat.name
                         if(i>4 && i<6)
                           a(href='')
-                            button(type="button" class="btn btn-primary btn-search")
+                            button(type="button", class="btn btn-primary btn-search")
                               label
-                                input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                                input(type="radio", name="category",value=cat.id, rel=cat.slug, style="display:none; position absolute")
                                 =cat.name
                             
                 
@@ -46,12 +46,7 @@ block content
                   .col-xs-6(style="margin-top:1rem")
                     input.form-control#surburb(name='surburb' type='text' placeholder='Enter a locacation...')
                     //select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
-                      option New york, CA
-                      option Paris
-                      option Casablanca
-                      option Tokyo
-                      option Marraekch
-                      option kyoto , shibua
+                      
                   
                 .row
                   .col-xs-6(style="margin-top:1rem")
@@ -209,19 +204,7 @@ block content
       .slide
         a(href='https://www.sokompare.com/')
           img(src='/images/ourpatners/sokomparelogo.png' style='width:90px;')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg' style='width:90px; height:90px')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg' style='width:90px; height:90px')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg' style='width:90px; height:90px')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg' style='width:90px; height:90px')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg' style='width:90px; height:90px')
-      //.slide
-        img(src='https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg' style='width:90px; height:90px')
-  
+      
   // boy-sale area
   .boy-sale-area
     .container
