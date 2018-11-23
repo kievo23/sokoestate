@@ -149,8 +149,13 @@ block content
                                         .clear
                                             .row
                                                 .col-xs-4.col-sm-4.dealer-face
-                                                    a(href='')
-                                                    img.img-circle(src='/uploads/thumbs/users/'+property.user_id.photo)
+                                                    if property.user_id.photo
+                                                        a(href='')
+                                                            img.img-circle(src='/uploads/thumbs/users/'+property.user_id.photo)
+                                                    else
+                                                        a(href='')
+                                                            img.img-circle(src='/assets/img/user.png')
+                                                        
                                                 .col-xs-8.col-sm-8
                                                     h5.dealer-name
                                                         strong      
