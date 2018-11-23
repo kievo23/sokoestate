@@ -1166,7 +1166,7 @@ section {
     color: #495057;
     text-align: center;
     background-color: #e9ecef;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(97, 64, 64, 0.15);
     -webkit-border-radius: .25rem;
     -moz-border-radius: .25rem;
     border-radius: .25rem;
@@ -1181,7 +1181,7 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    left: 300px;
+    left: 20%;
     height: 75px;
     z-index: 3;
 }
@@ -1570,7 +1570,7 @@ section {
 }
 
 .menu-sidebar {
-    width: 300px;
+    width: 20%;
     position: fixed;
     left: 0;
     top: 0;
