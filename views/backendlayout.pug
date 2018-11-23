@@ -84,14 +84,6 @@ head
               i.fas.fa-chart-bar
               | Properties
           li
-            a(href='/category')
-              i.fas.fa-table
-              | Categories
-          li
-            a(href='/users')
-              i.zmdi.zmdi-accounts
-              | Users
-          li
             a(href='/users/profile')
               i.far.fa-user
               | Account
@@ -100,6 +92,15 @@ head
             a(href='#')
               i.fas.fa-map-marker-alt
               | Analytics
+          if(user.role == 1)
+            li
+              a(href='/category')
+                i.fas.fa-table
+                | Categories
+            li
+              a(href='/users')
+                i.zmdi.zmdi-accounts
+                | Users
           
   // END MENU SIDEBAR
   // PAGE CONTAINER
