@@ -1543,7 +1543,7 @@ section {
 }
 
 .account-dropdown__body {
-    padding: 12px 0;
+    padding:0;
 }
 
 .account-dropdown__footer {
