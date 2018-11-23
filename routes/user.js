@@ -5,13 +5,14 @@ var multer  = require('multer');
 var mime = require('mime');
 var moment = require('moment');
 var Jimp = require("jimp");
+var slug = require('slug');
 
 var Users = require(__dirname + '/../models/User');
 var role = require(__dirname + '/../config/Role');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/uploads/')
+    cb(null, './public/uploads/users/')
   },
   filename: function (req, file, cb) {
     var fileName = Date.now() + slug(file.originalname) +'.'+ mime.extension(file.mimetype);
