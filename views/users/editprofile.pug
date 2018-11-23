@@ -16,6 +16,10 @@ block content
                   .form-group
                     input.form-control(type='text', placeholder='Names', name='names',value=user.names)
                     input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
+                    .picture-container
+                      .picture
+                          img#wizardPicturePreview.picture-src(src='/assets/img/default-property.jpg' title='')
+                          input#wizard-picture(type='file', name='photo', required)
                     input#twitter.form-control(type='text', placeholder='Twitter', name='twitter', value=user.twitter)
                     input#facebook.form-control(type='text', placeholder='Facebook', name='facebook', value=user.facebook)
                     input#instagram.form-control(type='text', placeholder='Instagram', name='instagram', value=user.instagram)
