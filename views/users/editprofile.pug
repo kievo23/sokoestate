@@ -15,9 +15,19 @@ block content
                 form(method="post", action="/users/editprofile",enctype="multipart/form-data")
                   .form-group
                     input.form-control(type='text', placeholder='Names', name='names',value=user.names)
+                  .form-group  
                     input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
+                  .form-group  
                     input#twitter.form-control(type='text', placeholder='Twitter', name='twitter', value=user.twitter)
+                  .form-group  
                     input#facebook.form-control(type='text', placeholder='Facebook', name='facebook', value=user.facebook)
+                  .form-group 
                     input#instagram.form-control(type='text', placeholder='Instagram', name='instagram', value=user.instagram)
+                    .picture-container
+                      label
+                        | Click 'Choose File' to upload your profile image *
+                        .picture
+                          img#wizardPicturePreview.picture-src(title='' style="width:100px, height:100px")
+                          input#wizard-picture(type='file', name='photo', placeholder='Upload your profile picture here', required)
                     button.btn.btn-primary.w3ls-btn(type='submit' style="margin-top:2px;") 
                       |  Update

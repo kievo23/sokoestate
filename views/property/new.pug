@@ -100,15 +100,15 @@ block content
                             .col-sm-12.padding-top-15
                                 .col-sm-6
                                     .form-group
-                                        label Property Category :
+                                        label Property type ( E.g. Residential, Commercial ...) :
                                         select#cat.cat.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
-                                            option(value='')  Select Category 
+                                            option(value='')  Select Property type
                                             each category in categories
                                               option(data-icon='fa '+category.icon,value=category.id,rel=category.slug) 
                                                 =category.name
                                 .col-sm-6
                                     .form-group
-                                        label Subcategory :
+                                        label Property Sub-type (E.g. Apartment, Maisonnette, Office ...) :
                                         select#subcat.form-control.subcat.show-tick(name='subcategory',data-live-search="true")
                                           option(value='')  Select Subcategory 
                                           each cat in categories
@@ -153,7 +153,7 @@ block content
                                                   .col-md-8
                                                   input.gllpSearchField.form-control(type='text')
                                                   .col-md-4
-                                                  input.gllpSearchButton.form-control.btn.btn-info(type='button', value='search', placeholder="search your city")
+                                                  input.gllpSearchButton.form-control.btn.btn-primary(type='button', value='search', placeholder="search your city")
                                               .gllpMap(style="width: 100%; height: 300px;") Google Maps
                                               input#lati.gllpLatitude(type='hidden', name='lati')
                                               input#long.gllpLongitude(type='hidden', name='long')
