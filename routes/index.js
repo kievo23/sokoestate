@@ -13,9 +13,9 @@ var db = mongoose.connect(sys.db_uri, {useMongoClient: true });
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var categories = Category.find({}).sort({"order": 1});
-  var properties = Property.find({approved: 1}).populate('user_id').populate('category');
-  var featured = Property.find({featured: 1}).populate('user_id').populate('category');
-  var recents = Property.find({approved: 1}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
+  var properties = Property.find({approved: true}).populate('user_id').populate('category');
+  var featured = Property.find({featured: true}).populate('user_id').populate('category');
+  var recents = Property.find({approved: true}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
   Promise.all([properties, categories, featured, recents]).then(values => {
 	  res.render('index', {title: "Soko Estate Kenya",
     categories: values[1],
@@ -170,7 +170,7 @@ router.get('/property/:slug',function(req, res){
     //console.log(values[1].category);
     Property.find({
         $query: {
-          category: values[1].category._id
+          category: values[1].category.id
         }
       })
       .limit(5).then(function(d){

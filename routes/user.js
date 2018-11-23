@@ -131,7 +131,7 @@ router.post('/editprofile', cpUpload, function(req, res){
     b.twitter = req.body.twitter;
     b.facebook = req.body.facebook;
     if (req.files['photo'] != null){
-  		b.photo = req.files['photo'][0].filename;
+  		b.photouser = req.files['photo'][0].filename;
   	}
     b.save(function(err){
       if(err){
