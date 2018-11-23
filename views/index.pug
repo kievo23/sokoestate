@@ -112,7 +112,8 @@ block content
                       small
                         | #{feat.subcategory} for #{feat.type} in 
                         span
-                          | #{feat.county} , #{feat.surburb}
+                          | #{feat.county} , 
+                        span #{feat.surburb}
                     .dot-hr
                       span.pull-left
                         if(feat.size)
