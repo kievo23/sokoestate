@@ -335,6 +335,13 @@ script(type='text/javascript').
       $('select[name=subcategory] option').hide();
       $('select[name=subcategory] option[class="status"]').show();
       $('select[name=subcategory] option[rel="'+rel+'"]').show();
+      if(rel == 'Residential'){
+        $('.others').hide();
+        $('.residential').show();
+      }else{
+        $('.residential').hide();
+        $('.others').show();
+      }
     });
     
     $('#test :radio').on("change", function() {
