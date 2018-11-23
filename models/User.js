@@ -13,7 +13,7 @@ const userSchema = new Schema({
 		isfacebooklogin: {type:Boolean},
     facebookid: {type:String},
     googleid: {type:String},
-		photo: String,
+		photouser: String,
 		phone: String,
 		password: String,
 		role: String,

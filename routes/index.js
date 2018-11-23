@@ -170,7 +170,7 @@ router.get('/property/:slug',function(req, res){
     //console.log(values[1].category);
     Property.find({
         $query: {
-          category: values[1].category._id
+          category: values[1].category.id
         }
       })
       .limit(5).then(function(d){
