@@ -91,10 +91,10 @@ block content
                                                 a(href='/property/'+p.slug)  
                                                     p
                                                         if p.description.length > 200
-                                                        p.pull-left  !{p.description.substr(0, 200)+ '..... <strong style="background-color:#c00000; color:#fff; padding:1px">Read More</strong>'}     
+                                                            p.pull-left  !{p.description.substr(0, 200)+ '..... <strong style="background-color:#c00000; color:#fff; padding:1px">Read More</strong>'}     
                                                         else
-                                                        p.pull-left
-                                                            =p.description
+                                                            p.pull-left
+                                                                =p.description
                                             p
                                                 span.proerty-price.pull-right
                                                     a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
