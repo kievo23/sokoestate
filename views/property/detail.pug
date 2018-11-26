@@ -220,14 +220,9 @@ block content
                                         .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                                             .btn-group(style='float: left; padding-left: 2rem;')
                                                 each categ, i in categories
-                                                    if(categ.order == 1)
-                                                        input(type="radio", id=categ.name, class="radio-custom", name="category", checked="checked", value=categ.id, rel=categ.slug style="display:none; position absolute")
-                                                        label(for=categ.name, type="button", class="btn btn-primary btn-search")
-                                                            =categ.name
-                                                    else
-                                                        input(type="radio", id=categ.name, class="radio-custom", name="category", value=categ.id, rel=categ.slug style="display:none; position absolute")
-                                                        label(for=categ.name, type="button", class="btn btn-primary btn-search")
-                                                            =categ.name
+                                                    input(type="radio", id=categ.name, class="radio-custom", name="category",value=categ.id, rel=categ.slug style="display:none; position absolute")
+                                                    label(for=categ.name, type="button", class="btn btn-primary btn-search")
+                                                        =categ.name
                                     .row
                                         .col-xs-6(style="margin-top:1rem")
                                             .switch-field
