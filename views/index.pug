@@ -43,7 +43,7 @@ block content
                       option(class='status',value='') Select Property Type
                       each cat in categories
                         each subcat in cat.subcategories
-                          option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                          option(class='category iradio_square-yellow',value=subcat.name,rel=cat.slug) 
                             =subcat.name
                   .col-xs-6(style="margin-top:1rem")
                       input(type="text" id="minprice" class="form-control" placeholder="Max Price",name="manprice")

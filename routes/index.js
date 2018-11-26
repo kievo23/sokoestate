@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
   var featured = Property.find({featured: true}).populate('user_id').populate('category');
   var recents = Property.find({approved: true}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
   Promise.all([properties, categories, featured, recents]).then(values => {
-    console.log(values[1]);
+    //console.log(values[1]);
 	  res.render('index', {title: "Soko Estate Kenya",
     categories: values[1],
     properties: values[0],
@@ -152,7 +152,7 @@ router.get('/search', function(req, res, next) {
     }
   }
   console.log(obj);
-  var categories = Category.find({});
+  var categories = Category.find({}).sort({"order": 1});
   var properties = Property.find(obj).populate('user_id').populate('category');
   Promise.all([categories,properties]).then(values => {
     res.render('property/indexfront', { title: 'Soko Estate: Search',properties: values[1],categories: values[0] });
@@ -182,7 +182,7 @@ router.get('/property/:slug',function(req, res){
 });
 
 router.get('/favorites', function(req, res){
-  var categories = Category.find({});
+  var categories = Category.find({}).sort({"order": 1});
   var objects = {};
   var ids = res.locals.user.favorites;
   //res.locals.user.favorites.forEach(o => objects[o._id] = o);
