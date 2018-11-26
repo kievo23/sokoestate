@@ -17,12 +17,12 @@ block content
                   .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                     .btn-group(style='float: left; padding-left: 2rem;')
                       each cat, i in categories
-                        if(i == 0)
-                          input(type="radio" id="check1" class="radio-custom" name="category" checked="checked",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                        if(cat.order == 1)
+                          input(type="radio", id="check1", class="radio-custom", name="category", checked="checked", value=cat.id, rel=cat.slug, style="display:none; position absolute")
                           label(for="check1" type="button" class="btn btn-primary btn-search")
                             =cat.name
                         else
-                          input(type="radio" id="check2" class="radio-custom" name="category" checked="",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                          input(type="radio", id="check2", class="radio-custom", name="category", checked="", value=cat.id, rel=cat.slug, style="display:none; position absolute")
                           label(for="check2" type="button" class="btn btn-primary btn-search") 
                             =cat.name
                         //if(i>4 && i<6)
