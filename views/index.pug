@@ -39,7 +39,7 @@ block content
                   
                 .row
                   .col-xs-6(style="margin-top:1rem")
-                    select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory")
+                    select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory", style="color: #444 !important;")
                       option(class='status',value='') Select Property Type
                       each cat in categories
                         each subcat in cat.subcategories
