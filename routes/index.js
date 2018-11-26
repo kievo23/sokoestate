@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
   var featured = Property.find({featured: true}).populate('user_id').populate('category');
   var recents = Property.find({approved: true}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
   Promise.all([properties, categories, featured, recents]).then(values => {
+    console.log(values[1]);
 	  res.render('index', {title: "Soko Estate Kenya",
     categories: values[1],
     properties: values[0],
