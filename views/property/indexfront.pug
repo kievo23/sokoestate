@@ -126,7 +126,7 @@ block content
                                 form.form-inline(action='search',method='get')
                                     .row
                                         .col-md-12(style='padding-right: 0px; padding-left: 0px;')
-                                            .btn-group(style='float: left; padding-left: 2rem;'), 
+                                            .btn-group(style='float: left; padding-left: 2rem;')
                                                 each cate, i in categories
                                                     if(cate.order == 1)
                                                         input(type="radio", id=cate.name, class="radio-custom", checked="checked", name="category",value=cate.id, rel=cate.slug, style="display:none; position absolute")
