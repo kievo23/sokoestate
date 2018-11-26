@@ -301,6 +301,9 @@ script(type='text/javascript').
 script(type='text/javascript').
   $(document).ready(function() {
     $('.residential').show();
+    $('select[name="subcategory"] option').hide();
+    $('select[name="subcategory"] option[class="status"]').show();
+    $('select[name="subcategory"] option[rel="residential"]').show();
     $subcategory = $(".subcat");
     $('input:radio[name="rent-sale"]').change(function(){
         var _val = $(this).val();
