@@ -46,15 +46,16 @@ block content
                                         option(value='rent') Rent 
                                         option(value='sale')  Sale
                                 .form-group
-                                    label
-                                        | Property price 
-                                        small (required)
-                                    input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
-                                     
-                                .form-group
-                                    label.container-checkbox(style="font-size: inherit; padding-left: 0;")  Price on inquiry
-                                        input(type='checkbox', name='enquiry',value="enquiry", style="padding-left: 0;")
-                                        span.checkmark
+                                    .row
+                                        .col-md-6
+                                            label
+                                                | Property price 
+                                                small (required)
+                                            input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
+                                        .col-md-6
+                                            label.container-checkbox(style="font-size: inherit; padding-left: 0;")  Price on inquiry
+                                                input(type='checkbox', name='enquiry',value="enquiry", style="padding-left: 0;")
+                                                span.checkmark
                                 .form-group
                                     label 
                                         | Property Ownership  :
