@@ -25,13 +25,7 @@ block content
                           input(type="radio", id=cat.name, class="radio-custom", name="category", checked="", value=cat.id, rel=cat.slug, style="display:none; position absolute")
                           label(for=cat.name, type="button", class="btn btn-primary btn-search") 
                             =cat.name
-                        //if(i>4 && i<6)
-                          a(href='')
-                            button(type="button" class="btn btn-primary btn-search")
-                              label
-                                input(type="radio" class="radio-custom" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
-                                =cat.name
-                            
+                        
                 
                 .row
                   .col-xs-6(style="margin-top:1rem")
