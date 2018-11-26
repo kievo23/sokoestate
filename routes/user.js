@@ -138,10 +138,10 @@ router.post('/editprofile', cpUpload, function(req, res){
         res.redirect('/editprofile');
       }else{
         if (req.files['photo'] != null){
-  				Jimp.read("./public/uploads/users/"+b.photo).then(function (cover) {
+  				Jimp.read("./public/uploads/users/"+b.photouser).then(function (cover) {
 				    return cover.resize(150, 100)     // resize
 			         .quality(100)              // set greyscale
-			         .write("./public/uploads/thumbs/users/"+b.photo); // save
+			         .write("./public/uploads/thumbs/users/"+b.photouser); // save
   				}).catch(function (err) {
   				    console.error(err);
   				});
