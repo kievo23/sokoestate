@@ -330,6 +330,7 @@ input[type="search"]::-webkit-search-decoration {
     color: #000;
     height: 40px;
     margin-right: 10px;
+    font-weight:bold;
     width: 195px;
 }
 .form-control {
