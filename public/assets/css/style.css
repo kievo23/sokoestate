@@ -3558,7 +3558,7 @@ input[type="checkbox"]:disabled + .label-text:before{
     height: 25px;
     width: 25px;
     background-color: #fff;
-    border: solid #eee;
+    border: 1px solid #d2cdcd;
 }
 
 /* On mouse-over, add a grey background color */
