@@ -18,15 +18,13 @@ block content
                     .btn-group(style='float: left; padding-left: 2rem;')
                       each cat, i in categories
                         if(i == 0)
-                          button(type="button" class="btn btn-primary btn-search")
-                            label
-                              input(type="radio" class="radio-custom" name="category" checked="checked",value=cat.id, rel=cat.slug style="display:none; position absolute")
-                              =cat.name
+                          label(type="button" class="btn btn-primary btn-search")
+                            input(type="radio" class="radio-custom" name="category" checked="checked",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                            =cat.name
                         else
-                          button(type="button" class="btn btn-primary btn-search")
-                            label
-                              input(type="radio" class="radio-custom" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
-                              =cat.name
+                          label(type="button" class="btn btn-primary btn-search")
+                            input(type="radio" class="radio-custom" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                            =cat.name
                         //if(i>4 && i<6)
                           a(href='')
                             button(type="button" class="btn btn-primary btn-search")
