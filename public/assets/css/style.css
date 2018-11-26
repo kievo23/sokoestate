@@ -3594,6 +3594,6 @@ input[type="checkbox"]:disabled + .label-text:before{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-input[type='radio'].radio-custom:checked:after {
-    background-color: #c00000;
-}
+.radio-custom:checked{
+     background-color: #c00000;
+   }
