@@ -222,7 +222,7 @@ block content
                                                 each categ, i in categories
                                                     input(type="radio", id=categ.name, class="radio-custom", name="category",value=categ.id, rel=categ.slug style="display:none; position absolute")
                                                     label(for=categ.name, type="button", class="btn btn-primary btn-search")
-                                                        =cat.name
+                                                        =categ.name
                                     .row
                                         .col-xs-6(style="margin-top:1rem")
                                             .switch-field

@@ -130,7 +130,7 @@ block content
                                                 each cate, i in categories
                                                     input(type="radio", id=cate.name, class="radio-custom", name="category",value=cate.id, rel=cate.slug, style="display:none; position absolute")
                                                     label(for=cate.name, type="button", class="btn btn-primary btn-search")
-                                                      =cat.name
+                                                      =cate.name
                                                     //button(type="button" class="btn btn-primary btn-search" style="margin-left:2px; margin-top:2px;")
                                                         label
                                                             input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
