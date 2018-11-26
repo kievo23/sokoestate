@@ -70,8 +70,18 @@ block content
                                 .form-group
                                     label
                                         | Telephone (Format: +254 756 354 976)
-                                        small (required)
+                    .                small (required)
                                     input.form-control(name='phone', type='text', placeholder=user.phone, value=user.phone, required)
+                                .form-group
+                                    label(for='adNumber')
+                                        input#adNumber.form-control(type='checkbox')
+                                        |     Add more Numbers?
+                                    hr
+                                    div.newNumbers(style='display: none')
+                                        | Input the Numbers:
+                                        input#txtNumber2.form-control(type='text')
+                                        input#txtNumber3.form-control(type='text')
+
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?

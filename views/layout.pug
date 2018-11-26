@@ -407,3 +407,14 @@ script(type='text/javascript').
     }); 
    });
   
+script(type='text/javascript').
+  $(document).ready(function() {
+    $("adNumber").click(function () {
+      if ($(this).is(":checked")) {
+          $(".newNumbers").show();
+      } else {
+          $(".newNumbers").hide();
+      }
+    });
+  });
+  
