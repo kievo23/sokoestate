@@ -73,13 +73,15 @@ block content
                     .                small (required)
                                     input.form-control(name='phone', type='text', placeholder=user.phone, value=user.phone, required)
                                 .form-group
-                                    label(for='adnumber')  Add more Numbers?
-                                    input#adnumber(type='checkbox' class='form-control')
+                                    label(for='adnumber')  
+                                       input#adnumber(type='checkbox' class='form-control')
+                                       |  Add more Numbers
                                     
                                     hr
                                     div.newNumbers(style='display: none')
-                                        | Input the Numbers:
+                                        | Input the Number 2:
                                         input#txtNumber2.form-control(type='text')
+                                        | Input the Number 3:
                                         input#txtNumber3.form-control(type='text')
 
                     // End step 1
