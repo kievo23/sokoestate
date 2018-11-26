@@ -151,7 +151,7 @@ block content
                                                 .col-xs-4.col-sm-4.dealer-face
                                                     if property.user_id.photouser
                                                         a(href='')
-                                                            img.img-circle(src='/uploads/users/thumbs/'+property.user_id.photouser)
+                                                            img.img-circle(src='/uploads/thumbs/users/'+property.user_id.photouser)
                                                     else
                                                         a(href='')
                                                             img.img-circle(src='/assets/img/user.png')
@@ -220,14 +220,9 @@ block content
                                         .col-md-12(style='padding-right: 0px; padding-left: 0px;')
                                             .btn-group(style='float: left; padding-left: 2rem;')
                                                 each categ, i in categories
-                                                    if(categ.order == 1)
-                                                        input(type="radio", id=categ.name, class="radio-custom", name="category", checked="checked", value=categ.id, rel=categ.slug style="display:none; position absolute")
-                                                        label(for=categ.name, type="button", class="btn btn-primary btn-search")
-                                                            =categ.name
-                                                    else
-                                                        input(type="radio", id=categ.name, class="radio-custom", name="category", value=categ.id, rel=categ.slug style="display:none; position absolute")
-                                                        label(for=categ.name, type="button", class="btn btn-primary btn-search")
-                                                            =categ.name
+                                                    input(type="radio", id=categ.name, class="radio-custom", name="category",value=categ.id, rel=categ.slug style="display:none; position absolute")
+                                                    label(for=categ.name, type="button", class="btn btn-primary btn-search")
+                                                        =categ.name
                                     .row
                                         .col-xs-6(style="margin-top:1rem")
                                             .switch-field
