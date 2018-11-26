@@ -48,7 +48,7 @@ block content
                 .row
                   .col-xs-6(style="margin-top:1rem")
                     select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory")
-                      option(class='status',value='') Choose Property Sub-type
+                      option(class='status',value='') Select Property Type
                       each cat in categories
                         each subcat in cat.subcategories
                           option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
