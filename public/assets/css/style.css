@@ -3594,6 +3594,6 @@ input[type="checkbox"]:disabled + .label-text:before{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.radio-custom:checked{
-     background-color: #c00000;
+.radio-custom:checked + .btn-search{
+     background-color: #c00000!important;
    }
