@@ -3598,14 +3598,14 @@ input[type="checkbox"]:disabled + .label-text:before{
      background-color: #c00000!important;
    }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #000 !important;
+    color: #444 !important;
     opacity: 1 !important; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #000 !important;
+    color: #444 !important;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #000 !important;
+    color: #444 !important;
 }
