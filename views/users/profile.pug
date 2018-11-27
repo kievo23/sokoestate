@@ -26,14 +26,14 @@ block content
                               .row
                                 .col-md-12
                                   if user.email 
-                                    i.fas.fa-envelope-o           
+                                    i.fas.fa-envelope           
                                       =user.email
                                   if user.phones
                                     each phon in user.phones
-                                      i.fas.fa-tasks           
+                                      i.fas.fa-mobile           
                                         =user.phone
                                   if user.organization
-                                    i.fas.fa-tasks             
+                                    i.fas.fa-briefcase             
                                       =user.organization
 
                               
@@ -41,13 +41,13 @@ block content
                               .row
                                 .col-md-12
                                   if user.twitter 
-                                    i.fas.fa-twitter                  
+                                    i.fab.fa-twitter                  
                                       =user.twitter
                                   if user.facebook
-                                    i.fas.fa-facebook                         
+                                    i.fab.fa-facebook                         
                                       =user.facebook
                                   if user.instagram
-                                    i.fas.fa-instagram                      
+                                    i.fab.fa-instagram                      
                                       =user.instagram
                                 
                             li.list-group-item
