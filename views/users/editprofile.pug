@@ -14,31 +14,34 @@ block content
                 br
                 form(method="post", action="/users/editprofile",enctype="multipart/form-data")
                   .row
-                      .col-md-8
+                    .col-md-12
+                      h3(style="color:#04045a;")
+                        | Social Media Profile
+                    .col-md-8
+                      .form-group
+                        label 
+                          | Full Name
+                        input.form-control(type='text', placeholder='Names', name='names',value=user.names)
+                      .form-group  
+                        label 
+                          | Organisation
+                        input.form-control(type='text', placeholder='Enter your Organization Name')
+                      .form-group  
+                        label 
+                          | Phone Number
+                        input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
+                      .form-group  
+                        label 
+                          | Other Phone Number
+                        input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
+                    .col-md-4.text-center
                         .form-group
-                          label 
-                            | Full Name
-                          input.form-control(type='text', placeholder='Names', name='names',value=user.names)
-                        .form-group  
-                          label 
-                            | Organisation
-                          input.form-control(type='text', placeholder='Enter your Organization Name')
-                        .form-group  
-                          label 
-                            | Phone Number
-                          input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
-                        .form-group  
-                          label 
-                            | Other Phone Number
-                          input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
-                      .col-md-4.text-center
-                          .form-group
-                                    label
-                                      | Click to upload your cover image *
-                                    .picture-container
-                                        .picture
-                                            img#wizardPicturePreview.picture-src(src='/images/icon/user.png', title=user.name, alt=user.name, style='padding:1rem')
-                                            input#wizard-picture(type='file', name='photo')
+                                  label
+                                    | Click to upload your cover image *
+                                  .picture-container
+                                      .picture(style='padding:1rem')
+                                          img#wizardPicturePreview.picture-src(src='/images/icon/user.png', title=user.name, alt=user.name)
+                                          input#wizard-picture(type='file', name='photo', style='padding:1rem')
                   .row
                       .col-md-12
                         h3(style="color:#04045a;")
