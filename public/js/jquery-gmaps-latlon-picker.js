@@ -145,7 +145,6 @@ $.fn.gMapsLatLonPicker = (function() {
 
 		// INITIALIZE MAP ON DIV //////////////////////////////////////////////////////////////////
 		init : function(object) {
-
 			if ( !$(object).attr("id") ) {
 				if ( $(object).attr("name") ) {
 					$(object).attr("id", $(object).attr("name") );
@@ -208,12 +207,9 @@ $.fn.gMapsLatLonPicker = (function() {
 				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
 			});
 
-			$(_self.vars.cssID + ".gllpSearchButton").bind("onmouseout", function() {
-				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
-			});
-
-			$(_self.vars.cssID + ".gllpSearchButton").bind("onchange", function() {
-				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
+			$(".surburb").on("change", function() {
+				console.log("on change");
+				performSearch( $(".surburb").val(), false );
 			});
 
 			// Search function by gllp_perform_search listener
