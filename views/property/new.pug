@@ -51,10 +51,10 @@ block content
                                             label
                                                 | Property price 
                                                 small (required)
-                                            input.form-control(name='propertyprice' type='text' placeholder='3330000' required)
+                                            input.form-control(name='propertyprice', id='yourText', type='text', placeholder='3330000', required)
                                         .col-xs-6
                                             label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
-                                                input(type='checkbox', name='enquiry',value="enquiry", style="padding-left: 0;")
+                                                input(type='checkbox', id='yourBox', name='enquiry',value="enquiry", style="padding-left: 0;")
                                                 span.checkmark
                                 .form-group
                                     label 
@@ -79,28 +79,7 @@ block content
                                             .input_fields_wrap
                                                 button.add_field_button Add Phone No. 
                                                 div
-                                        //.col-xs-4
-                                            input(type='checkbox' id='ad_number' class='form-control')
-                                            label(for='ad_number')  Add more Numbers
-                                    //.row.newNumbers(style='display: none')
-                                        .col-xs-8
-                                            label 
-                                                | Input Telephone number 2 (Format: +254 756 354 976)
-                                                small (required)
-                                            input#txtNumber2.form-control(type='text', placeholder=user.phone)
-                                        .col-xs-4
-                                            input(type='checkbox' id='ad_number' class='form-control')
-                                            label(for='ad_number')  Add more Numbers
-                                    
-                                    //.row
-                                        .col-xs-6
-                                            | Input the Number 2:
-                                            input#txtNumber2.form-control(type='text')
-                                        .col-xs-6
-                                          .input_fields_wrap
-                                            button.add_field_button Add Phone No. 
-                                            div
-                                            
+                                        
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
