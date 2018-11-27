@@ -25,32 +25,38 @@ block content
                             li.list-group-item
                               .row
                                 .col-md-12
-                                  if user.email 
-                                    i.fas.fa-envelope           
-                                      =user.email
-                                  if user.phones
-                                    each phon in user.phones
-                                      i.fas.fa-mobile           
-                                        =user.phone
-                                  if user.organization
-                                    i.fas.fa-briefcase             
-                                      =user.organization
+                                  ul
+                                    if user.email
+                                      li 
+                                        i.fas.fa-envelope           
+                                          =user.email
+                                    if user.phones
+                                      li
+                                        ul
+                                          each phon in user.phones
+                                            li
+                                              i.fas.fa-mobile           
+                                                =user.phone
+                                    if user.organization
+                                      li
+                                        i.fas.fa-briefcase             
+                                          =user.organization
 
                               
                             li.list-group-item
                               .row
                                 .col-md-12
                                   ul
-                                    li
-                                      if user.twitter 
+                                    if user.twitter 
+                                      li
                                         i.fab.fa-twitter                  
                                           =user.twitter
-                                    li
-                                      if user.facebook
+                                    if user.facebook
+                                      li
                                         i.fab.fa-facebook                         
                                           =user.facebook
-                                    li
-                                      if user.instagram
+                                    if user.instagram
+                                      li
                                         i.fab.fa-instagram                      
                                           =user.instagram
                                 
