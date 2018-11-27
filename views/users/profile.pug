@@ -25,26 +25,24 @@ block content
                             li.list-group-item
                               .row
                                 .col-md-12
-                                  ul
-                                    if user.email
-                                      li 
-                                        i.fas.fa-envelope           
-                                          =user.email
-                                    if user.phone
-                                      li 
-                                        i.fas.fa-envelope           
-                                          =user.phone
-                                    if user.phones
-                                      li
-                                        ul
-                                          each phon in user.phones
-                                            li
-                                              i.fas.fa-mobile           
-                                                =user.phone
-                                    if user.organization
-                                      li
-                                        i.fas.fa-briefcase             
-                                          =user.organization
+                                  if user.email
+                                    div 
+                                      i.fas.fa-envelope           
+                                        =user.email
+                                  if user.phone
+                                    div 
+                                      i.fas.fa-envelope           
+                                        =user.phone
+                                  if user.phones
+                                    div
+                                      each phon in user.phones
+                                        div
+                                          i.fas.fa-mobile           
+                                            =user.phone
+                                  if user.organization
+                                    div
+                                      i.fas.fa-briefcase             
+                                        =user.organization
 
                               
                             li.list-group-item
