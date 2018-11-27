@@ -69,7 +69,7 @@ block content
                   else
                     strong Your Name:         
                     |      N/A
-                p 
+                //p 
                   if(user.phone)  
                     strong Phone Number:          
                       =user.phone
@@ -77,28 +77,28 @@ block content
                     strong Phone Number:       
                     |      N/A
                 
-                p  
+                //p  
                   if(user.email) 
                     strong Email Address:     
                       =user.email
                   else
                     strong Email Address:    
                     |     N/A
-                p  
+                //p  
                   if(user.twitter) 
                     strong Twitter:     
                       =user.twitter
                   else
                     strong Twitter:    
                     |     N/A
-                p  
+                //p  
                   if(user.facebook) 
                     strong Facebook:     
                       =user.facebook
                   else
                     strong Facebook:    
                     |     N/A
-                p  
+                //p  
                   if(user.instagram) 
                     strong Instagram:     
                       =user.instagram
@@ -106,12 +106,12 @@ block content
                     strong Instagram:    
                     |     N/A
                 
-                p
+                //p
                   a(href='/users/editprofile')
                     Strong
                       span.fa.fa-book
                       |    Edit Profile
-                p
+                //p
                   a(href='/users/changepassword')
                     Strong
                       span.fa.fa-lock     
