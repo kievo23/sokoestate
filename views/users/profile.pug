@@ -62,63 +62,7 @@ block content
                                   Strong
                                     span.fa.fa-lock     
                                     |    Change Password
-                //p
-                  if(user.names)
-                    strong Your Name:           
-                      =user.names
-                  else
-                    strong Your Name:         
-                    |      N/A
-                //p 
-                  if(user.phone)  
-                    strong Phone Number:          
-                      =user.phone
-                  else
-                    strong Phone Number:       
-                    |      N/A
-                
-                //p  
-                  if(user.email) 
-                    strong Email Address:     
-                      =user.email
-                  else
-                    strong Email Address:    
-                    |     N/A
-                //p  
-                  if(user.twitter) 
-                    strong Twitter:     
-                      =user.twitter
-                  else
-                    strong Twitter:    
-                    |     N/A
-                //p  
-                  if(user.facebook) 
-                    strong Facebook:     
-                      =user.facebook
-                  else
-                    strong Facebook:    
-                    |     N/A
-                //p  
-                  if(user.instagram) 
-                    strong Instagram:     
-                      =user.instagram
-                  else
-                    strong Instagram:    
-                    |     N/A
-                
-                //p
-                  a(href='/users/editprofile')
-                    Strong
-                      span.fa.fa-book
-                      |    Edit Profile
-                //p
-                  a(href='/users/changepassword')
-                    Strong
-                      span.fa.fa-lock     
-                      |    Change Password
-                
-                //p
-                  =user.role
+              
                     
                 
         
