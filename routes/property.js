@@ -113,6 +113,8 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
 	i.name = req.body.propertyname;
   i.slug = slug(req.body.propertyname);
 	i.phone = req.body.phone;
+  i.phonetwo = req.body.phonetwo;
+  i.phones = req.body.phones;
 	i.type = req.body.type;
   i.category = req.body.category;
   i.surburb = req.body.surburb;
@@ -135,6 +137,9 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
 	i.date = new Date();
+  if(req.body.enquiry){
+    i.enquiry = req.body.enquiry;
+  }
   if(req.body.bedrooms){
     i.bedrooms = req.body.bedrooms;
   }
@@ -191,6 +196,8 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   	i.name = req.body.propertyname;
     i.slug = slug(req.body.propertyname);
   	i.phone = req.body.phone;
+    i.phonetwo = req.body.phonetwo;
+    i.phones = req.body.phones;
   	i.type = req.body.type;
     i.category = req.body.category;
     i.surburb = req.body.surburb;
@@ -211,6 +218,9 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.youtube = req.body.youtube.replace("watch?v=", "embed/");
     i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
   	i.date = new Date();
+    if(req.body.enquiry){
+      i.enquiry = req.body.enquiry;
+    }
     if(req.body.bedrooms){
       i.bedrooms = req.body.bedrooms;
     }

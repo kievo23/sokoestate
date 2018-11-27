@@ -76,9 +76,13 @@ block content
                                                 small (required)
                                             input.form-control(name='phone', type='text', placeholder=user.phone, value=user.phone, required)
                                         .col-xs-4
+                                            .input_fields_wrap
+                                                button.add_field_button Add Phone No. 
+                                                div
+                                        //.col-xs-4
                                             input(type='checkbox' id='ad_number' class='form-control')
                                             label(for='ad_number')  Add more Numbers
-                                    .row.newNumbers(style='display: none')
+                                    //.row.newNumbers(style='display: none')
                                         .col-xs-8
                                             label 
                                                 | Input Telephone number 2 (Format: +254 756 354 976)
@@ -88,14 +92,15 @@ block content
                                             input(type='checkbox' id='ad_number' class='form-control')
                                             label(for='ad_number')  Add more Numbers
                                     
-                                    .row
+                                    //.row
                                         .col-xs-6
                                             | Input the Number 2:
                                             input#txtNumber2.form-control(type='text')
                                         .col-xs-6
-                                            | Input the Number 3:
-                                            input#txtNumber3.form-control(type='text')
-
+                                          .input_fields_wrap
+                                            button.add_field_button Add Phone No. 
+                                            div
+                                            
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
@@ -345,4 +350,21 @@ block content
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
+        
+        var max_fields      = 5; //maximum input boxes allowed
+      	var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
+      	var add_button      = $(".add_field_button"); //Add button ID
+      	
+      	var x = 1; //initlal text box count
+      	$(add_button).click(function(e){ //on add input button click
+      		e.preventDefault();
+      		if(x < max_fields){ //max input box allowed
+      			x++; //text box increment
+      			$(wrapper).append('<div><input class="form-control" type="text" name="phones[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+      		}
+      	});
+      	
+      	$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+      		e.preventDefault(); $(this).parent('div').remove(); x--;
+      	})
       });
