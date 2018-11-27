@@ -128,7 +128,10 @@ head
                 .account-item.clearfix.js-item-menu
                   
                   .image
-                    img(src='/uploads/thumbs/users/'+user.photouser, alt=user.names)
+                    if user.photouser
+                      img(src='/images/icon/user.png' alt=user.names)
+                    else
+                      img(src='/uploads/thumbs/users/'+user.photouser, alt=user.names)
                   .content
                     a.js-acc-btn(href='#') 
                       =user.names
