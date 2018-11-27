@@ -31,15 +31,14 @@ block content
                           label 
                             | Other Phone Number
                           input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
-                      .col-md-4
+                      .col-md-4.text-center
                           .form-group
                                     label
                                       | Click to upload your cover image *
                                     .picture-container
                                         .picture
-                                            img#wizardPicturePreview.picture-src(src='/images/icon/user.png
-                                            ' title='')
-                                            input#wizard-picture(type='file', name='photo', required)
+                                            img#wizardPicturePreview.picture-src(src='/images/icon/user.png', title=user.name, alt=user.name, style='padding:1rem')
+                                            input#wizard-picture(type='file', name='photo')
                   .row
                       .col-md-12
                         h3(style="color:#04045a;")
