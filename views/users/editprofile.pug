@@ -17,7 +17,7 @@ block content
                     .col-md-12
                       h3(style="color:#04045a;")
                         | Social Media Profile
-                    .col-md-8
+                    .col-xs-8
                       .form-group
                         label 
                           | Full Name
@@ -28,20 +28,24 @@ block content
                         input.form-control(type='text', placeholder='Enter your Organization Name')
                       .form-group  
                         label 
-                          | Phone Number
-                        input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
+                          | Email Address
+                        input.form-control(type='text', placeholder='example@findit.ke', name='email',value=user.email)
                       .form-group  
                         label 
-                          | Other Phone Number
+                          | Phone Number
                         input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
-                    .col-md-4.text-center
+                      .form-group
+                        .input_fields_wrap
+                            button.add_field_button(style="#04045a;") Add Phone No. 
+                            div
+                    .col-xs-4.text-center
                         .form-group
-                                  label
-                                    | Click to upload your cover image *
-                                  .picture-container
-                                      .picture(style='padding:1rem')
-                                          img#wizardPicturePreview.picture-src(src='/images/icon/user.png', title=user.name, alt=user.name)
-                                          input#wizard-picture(type='file', name='photo', style='padding:1rem')
+                          label
+                            | Click to upload your cover image *
+                          .picture-container
+                              .picture(style='padding:1rem')
+                                  img#wizardPicturePreview.picture-src(src='/images/icon/user.png', title=user.name, alt=user.name)
+                                  input#wizard-picture(type='file', name='photo', style='padding:1rem')
                   .row
                       .col-md-12
                         h3(style="color:#04045a;")
