@@ -14,9 +14,10 @@ block content
                 br
                 form(method="post", action="/users/editprofile",enctype="multipart/form-data")
                   .row
-                    .col-md-12
+                    .col-xs-12
                       h3(style="color:#04045a;")
                         | Social Media Profile
+                  .row
                     .col-xs-8
                       .form-group
                         label 
@@ -36,7 +37,7 @@ block content
                         input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
                       .form-group
                         .input_fields_wrap
-                            button.add_field_button(style="#04045a;") Add Phone No. 
+                            button.add_field_button(style="color:#04045a;") Add Phone No. 
                             div
                     .col-xs-4.text-center
                         .form-group
