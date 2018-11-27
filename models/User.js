@@ -14,6 +14,7 @@ const userSchema = new Schema({
     facebookid: {type:String},
     googleid: {type:String},
 		photouser: String,
+		organization: String,
 		phone: String,
 		phones: Array,
 		password: String,
