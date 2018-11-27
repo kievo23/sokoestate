@@ -9,6 +9,38 @@ block content
             // MAIN CONTENT
             .main-content(style="padding-top: 50px;")
               .section__content.section__content--p30
+                .row
+                   .col-md-12
+                      aside.profile-nav.alt
+                        section.card
+                          .card-header.user-header.alt.bg-dark
+                            .media
+                              a(href='#')
+                                img.align-self-center.rounded-circle.mr-3(style='width:85px; height:85px;' alt='' src='images/icon/avatar-01.jpg')
+                              .media-body
+                                h2.text-light.display-6 Jim Doe
+                                p Project Manager
+                          ul.list-group.list-group-flush
+                            li.list-group-item
+                              a(href='#')
+                                i.fa.fa-envelope-o
+                                |  Mail Inbox
+                                span.badge.badge-primary.pull-right 10
+                            li.list-group-item
+                              a(href='#')
+                                i.fa.fa-tasks
+                                |  Recent Activity
+                                span.badge.badge-danger.pull-right 15
+                            li.list-group-item
+                              a(href='#')
+                                i.fa.fa-bell-o
+                                |  Notification
+                                span.badge.badge-success.pull-right 11
+                            li.list-group-item
+                              a(href='#')
+                                i.fa.fa-comments-o
+                                |  Message
+                                span.badge.badge-warning.pull-right.r-activity 03
                 p
                   if(user.names)
                     strong Your Name:           

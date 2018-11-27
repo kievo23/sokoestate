@@ -50,10 +50,11 @@ block content
                   
                 .row(class='others')
                     .col-xs-8(style="margin-top:1rem")
-                      input(type="text" class="form-control" placeholder="Size",name="size")
+                      input(type="text" class="form-control" placeholder="Size (E.g 600)",name="size")
                             
                     .col-xs-4(style="margin-top:1rem")
                       select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                        option Select Unit(E.g. sqF, Acre, Hectares, m2)
                         option  Acre
                         option Hectares 
                         option m2
