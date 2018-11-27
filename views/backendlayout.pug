@@ -129,9 +129,10 @@ head
                   
                   .image
                     if user.photouser
-                      img(src='/images/icon/user.png' alt=user.names)
-                    else
                       img(src='/uploads/thumbs/users/'+user.photouser, alt=user.names)
+                    else
+                      img(src='/images/icon/user.png', alt=user.names)
+                      
                   .content
                     a.js-acc-btn(href='#') 
                       =user.names

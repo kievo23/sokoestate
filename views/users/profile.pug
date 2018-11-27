@@ -13,95 +13,67 @@ block content
                    .col-md-12
                       aside.profile-nav.alt
                         section.card
-                          .card-header.user-header.alt.bg-dark
+                          .card-header.user-header.alt.bg-gray
                             .media
                               a(href='#')
                                 img.align-self-center.rounded-circle.mr-3(src='/uploads/thumbs/users/'+user.photouser, style='width:85px; height:85px;', alt='' )
                               .media-body
-                                h2.text-light.display-6 
-                                  =user.name
+                                if user.name
+                                  h2.text-light.display-6 
+                                    =user.name
                           ul.list-group.list-group-flush
                             li.list-group-item
                               .row
-                                 .col-md-12 
-                                    i.fa.fa-envelope-o
-                                      =user.email
-                                    each phon in user.phones
-                                      i.fa.fa-tasks
+                                .col-md-12
+                                  if user.email
+                                    div 
+                                      i.fas.fa-envelope           
+                                        =user.email
+                                  if user.phone
+                                    div 
+                                      i.fas.fa-envelope           
                                         =user.phone
-                                span.badge.badge-primary.pull-right 10
+                                  if user.phones
+                                    div
+                                      each phon in user.phones
+                                        div
+                                          i.fas.fa-mobile           
+                                            =user.phone
+                                  if user.organization
+                                    div
+                                      i.fas.fa-briefcase             
+                                        =user.organization
+
+                              
                             li.list-group-item
-                             
-                                i.fa.fa-tasks
-                                |  Recent Activity
-                                span.badge.badge-danger.pull-right 15
+                              .row
+                                .col-md-12
+                                  if user.twitter 
+                                    div
+                                      i.fab.fa-twitter                  
+                                        =user.twitter
+                                  if user.facebook
+                                    div
+                                      i.fab.fa-facebook                         
+                                        =user.facebook
+                                  if user.instagram
+                                    div
+                                      i.fab.fa-instagram                      
+                                        =user.instagram
+                                
                             li.list-group-item
-                              a(href='#')
-                                i.fa.fa-bell-o
-                                |  Notification
-                                span.badge.badge-success.pull-right 11
+                              a(href='/users/editprofile')  
+                                span.badge.badge-success.pull-right 
+                                  Strong
+                                    span.fa.fa-book           
+                                    |    Edit Profile
                             li.list-group-item
-                              a(href='#')
-                                i.fa.fa-comments-o
-                                |  Message
-                                span.badge.badge-warning.pull-right.r-activity 03
-                p
-                  if(user.names)
-                    strong Your Name:           
-                      =user.names
-                  else
-                    strong Your Name:         
-                    |      N/A
-                p 
-                  if(user.phone)  
-                    strong Phone Number:          
-                      =user.phone
-                  else
-                    strong Phone Number:       
-                    |      N/A
-                
-                p  
-                  if(user.email) 
-                    strong Email Address:     
-                      =user.email
-                  else
-                    strong Email Address:    
-                    |     N/A
-                p  
-                  if(user.twitter) 
-                    strong Twitter:     
-                      =user.twitter
-                  else
-                    strong Twitter:    
-                    |     N/A
-                p  
-                  if(user.facebook) 
-                    strong Facebook:     
-                      =user.facebook
-                  else
-                    strong Facebook:    
-                    |     N/A
-                p  
-                  if(user.instagram) 
-                    strong Instagram:     
-                      =user.instagram
-                  else
-                    strong Instagram:    
-                    |     N/A
-                
-                p
-                  a(href='/users/editprofile')
-                    Strong
-                      span.fa.fa-book
-                      |    Edit Profile
-                p
-                  a(href='/users/changepassword')
-                    Strong
-                      span.fa.fa-lock     
-                      |    Change Password
-                
-                //p
-                  =user.role
+                              a(href='/users/changepassword') 
+                                span.badge.badge-warning.pull-right.r-activity
+                                  Strong
+                                    span.fa.fa-lock              
+                                    |    Change Password
+              
                     
                 
         
