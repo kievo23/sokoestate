@@ -423,8 +423,11 @@ script(type='text/javascript').
   });
 script(type='text/javascript').
   $(document).ready(function() {
-    document.getElementById('yourBox').onchange = function() {
-    document.getElementById('yourText').disabled = !this.checked;
-    };
+    $("#yourBox").click(function () {
+      if ($(this).is(":checked")) {
+        //document.getElementById('yourBox').onchange = function() {
+        document.getElementById('yourText').disabled = !this.checked;
+      }
+    });
   });
   
