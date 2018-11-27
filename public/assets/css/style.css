@@ -546,13 +546,13 @@ label small{
     display: block;
     font-size: 13px;
     line-height: 1.42857;
-    color: rgba(0, 0, 0, 0.6);
+    color: #444;
     background-color: #FFF;
     background-image: none;
     border: 1px solid #EAE9E9;
     box-shadow: 0px 1px 1px rgba(179, 179, 179, 0.1) inset;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    font-weight: 300;
+    font-weight: bold;
 }
 .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
     width: 100%;
