@@ -147,9 +147,9 @@ block content
                                           option(value='')  Select Subcategory 
                                           each cat in categories
                                             each subcat in cat.subcategories
-                                              option(value=subcat.name, rel=cat.name) 
+                                              option(value=subcat.name, rel=cat.slug) 
                                                 =subcat.name
-                            .col-sm-12#residential
+                            .col-sm-12#others
                                 .col-sm-6
                                     .form-group
                                         label(for='price-range') Size :
@@ -165,7 +165,7 @@ block content
                                             option(value='perches')  Perches
         
                                         br 
-                            .col-sm-12.padding-top-15#others
+                            .col-sm-12.padding-top-15#residential
                                 .col-sm-6
                                     .form-group
                                         label(for='property-geo') Bedrooms:
