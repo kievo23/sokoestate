@@ -375,7 +375,7 @@ script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9MX39yDkMJn6rjWi6
 script.
   $(function(){
     
-    $("#surburb").geocomplete()
+    $(".surburb").geocomplete()
       .bind("geocode:result", function(event, result){
         console.log("Result: " + result.formatted_address);
       })
@@ -387,7 +387,7 @@ script.
       });
     
     $("#find").click(function(){
-      $("#surburb").trigger("geocode");
+      $(".surburb").trigger("geocode");
     });
     
   });
