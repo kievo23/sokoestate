@@ -40,15 +40,19 @@ block content
                             li.list-group-item
                               .row
                                 .col-md-12
-                                  if user.twitter 
-                                    i.fab.fa-twitter                  
-                                      =user.twitter
-                                  if user.facebook
-                                    i.fab.fa-facebook                         
-                                      =user.facebook
-                                  if user.instagram
-                                    i.fab.fa-instagram                      
-                                      =user.instagram
+                                  ul
+                                    li
+                                      if user.twitter 
+                                        i.fab.fa-twitter                  
+                                          =user.twitter
+                                    li
+                                      if user.facebook
+                                        i.fab.fa-facebook                         
+                                          =user.facebook
+                                    li
+                                      if user.instagram
+                                        i.fab.fa-instagram                      
+                                          =user.instagram
                                 
                             li.list-group-item
                               a(href='/users/editprofile')  
