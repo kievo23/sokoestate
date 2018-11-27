@@ -194,18 +194,17 @@ block content
                                     each sim, i in similars
                                         if(i<6)
                                             li
-                                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                                    a(href='/property/'+sim.slug)
-                                                        img(src='/uploads/' +sim.photo style="width:80px; height:80px")
-                                                        span.property-seeker
-                                                .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                                    h6
-                                                        a(href='/property/'+sim.slug)
-                                                          =sim.name
-                                                    span.property-price
-                                                      | Ksh.
-                                                      =sim.price
-                                    
+                                              .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                                  a(href='/property/'+sim.slug)
+                                                      img(src='/uploads/' +sim.photo style="width:80px; height:80px")
+                                                      span.property-seeker
+                                              .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                                  h6
+                                                      a(href='/property/'+sim.slug)
+                                                        =sim.name
+                                                  span.property-price
+                                                    | Ksh.
+                                                    =sim.price
                         //.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                h3.panel-title Ads her  

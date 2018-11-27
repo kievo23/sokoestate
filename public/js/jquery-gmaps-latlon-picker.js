@@ -209,7 +209,7 @@ $.fn.gMapsLatLonPicker = (function() {
 
 			$(".surburb").on("change", function() {
 				console.log("on change");
-				performSearch( $(".surburb").val(), false );
+				//performSearch( $(".surburb").val(), false );
 			});
 
 			// Search function by gllp_perform_search listener
