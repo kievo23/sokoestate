@@ -162,6 +162,11 @@ block content
                                     .row 
                                         .form-group
                                             fieldset.gllpLatlonPicker
+                                              .row
+                                                  .col-md-8
+                                                  input.gllpSearchField.form-control.surburb(type='text')
+                                                  .col-md-4
+                                                  input.gllpSearchButton.form-control.btn.btn-primary(type='button', value='search your location', placeholder="search your city")
                                               .gllpMap(style="width: 100%; height: 300px;") Google Maps
                                               input#lati.gllpLatitude(type='hidden', name='lati', value="-1.2920659")
                                               input#long.gllpLongitude(type='hidden', name='long',value="36.82194619999996")
