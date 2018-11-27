@@ -16,18 +16,22 @@ block content
                           .card-header.user-header.alt.bg-dark
                             .media
                               a(href='#')
-                                img.align-self-center.rounded-circle.mr-3(style='width:85px; height:85px;' alt='' src='images/icon/avatar-01.jpg')
+                                img.align-self-center.rounded-circle.mr-3(src='/uploads/thumbs/users/'+user.photouser, style='width:85px; height:85px;', alt='' )
                               .media-body
-                                h2.text-light.display-6 Jim Doe
-                                p Project Manager
+                                h2.text-light.display-6 
+                                  =user.name
                           ul.list-group.list-group-flush
                             li.list-group-item
-                              a(href='#')
-                                i.fa.fa-envelope-o
-                                |  Mail Inbox
+                              .row
+                                 .col-md-12 
+                                    i.fa.fa-envelope-o
+                                      =user.email
+                                    each phon in user.phones
+                                      i.fa.fa-tasks
+                                        =user.phone
                                 span.badge.badge-primary.pull-right 10
                             li.list-group-item
-                              a(href='#')
+                             
                                 i.fa.fa-tasks
                                 |  Recent Activity
                                 span.badge.badge-danger.pull-right 15
