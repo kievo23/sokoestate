@@ -18,7 +18,7 @@ const propertySchema = new Schema({
     type: String,
     phone: String,
 		phonetwo: String,
-		phonethree: String,
+		phones: Array,
 		email: String,
 		city: String,
     photo: String,

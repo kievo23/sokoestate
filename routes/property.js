@@ -114,7 +114,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.slug = slug(req.body.propertyname);
 	i.phone = req.body.phone;
   i.phonetwo = req.body.phonetwo;
-  i.phonethree = req.body.phonethree;
+  i.phones = req.body.phones;
 	i.type = req.body.type;
   i.category = req.body.category;
   i.surburb = req.body.surburb;
@@ -197,7 +197,7 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
     i.slug = slug(req.body.propertyname);
   	i.phone = req.body.phone;
     i.phonetwo = req.body.phonetwo;
-    i.phonethree = req.body.phonethree;
+    i.phones = req.body.phones;
   	i.type = req.body.type;
     i.category = req.body.category;
     i.surburb = req.body.surburb;

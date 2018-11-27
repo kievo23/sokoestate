@@ -70,6 +70,13 @@ block content
                                         | Telephone (Format: +254 756 354 976)
                                         small (required)
                                     input.form-control(name='phone', type='text', placeholder=property.phone, value=property.phone, required)
+                                .form-group
+                                  .col-xs-6
+                                    each phone in property.phones
+                                      input.form-control(name='phones[]', type='text', placeholder=phone, value=phone)
+                                    .input_fields_wrap
+                                      button.add_field_button Add Phone No. 
+                                      div
                     // End step 1
                     #step2.tab-pane
                         h4.info-text  How beautiful is your property?
@@ -327,5 +334,23 @@ block content
         $("#find").click(function(){
           $("#surburb").trigger("geocode");
         });
+        
+        
+        var max_fields      = 5; //maximum input boxes allowed
+      	var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
+      	var add_button      = $(".add_field_button"); //Add button ID
+      	
+      	var x = 1; //initlal text box count
+      	$(add_button).click(function(e){ //on add input button click
+      		e.preventDefault();
+      		if(x < max_fields){ //max input box allowed
+      			x++; //text box increment
+      			$(wrapper).append('<div><input class="form-control" type="text" name="phones[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+      		}
+      	});
+      	
+      	$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+      		e.preventDefault(); $(this).parent('div').remove(); x--;
+      	})
         
       });
