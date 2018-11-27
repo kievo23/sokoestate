@@ -26,14 +26,14 @@ block content
                               .row
                                 .col-md-12
                                   if user.email 
-                                    i.fa.fa-envelope-o
+                                    i.fa.fa-envelope-o           
                                       =user.email
                                   if user.phones
                                     each phon in user.phones
-                                      i.fa.fa-tasks
+                                      i.fa.fa-tasks           
                                         =user.phone
                                   if user.organization
-                                    i.fa.fa-tasks
+                                    i.fa.fa-tasks             
                                       =user.organization
 
                               
@@ -41,26 +41,26 @@ block content
                               .row
                                 .col-md-12
                                   if user.twitter 
-                                    i.fa.fa-envelope-o
+                                    i.fa.fa-twitter          
                                       =user.twitter
                                   if user.facebook
-                                    i.fa.fa-tasks
+                                    i.fa.fa-facebook               
                                       =user.facebook
                                   if user.instagram
-                                    i.fa.fa-tasks
+                                    i.fa.fa-instagram             
                                       =user.instagram
                                 
                             li.list-group-item
                               a(href='/users/editprofile')  
                                 span.badge.badge-success.pull-right 
                                   Strong
-                                    span.fa.fa-book
+                                    span.fa.fa-book           
                                     |    Edit Profile
                             li.list-group-item
                               a(href='/users/changepassword') 
                                 span.badge.badge-warning.pull-right.r-activity
                                   Strong
-                                    span.fa.fa-lock     
+                                    span.fa.fa-lock              
                                     |    Change Password
               
                     
