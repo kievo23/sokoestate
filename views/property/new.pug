@@ -345,12 +345,14 @@ block content
     
     
     //script(src="http://maps.googleapis.com/maps/api/js?sensor=false")
+    
     script.
       $(function(){
+        //prevent enter button on map from submitting property
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
-        
+        // Additional form fields
         var max_fields      = 5; //maximum input boxes allowed
       	var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
       	var add_button      = $(".add_field_button"); //Add button ID
