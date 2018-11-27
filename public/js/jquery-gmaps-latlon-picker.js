@@ -45,7 +45,7 @@ $.fn.gMapsLatLonPicker = (function() {
 			error_no_results : "Couldn't find coordinates for this place"
 		},
 		displayError : function(message) {
-			alert(message);
+			//alert(message);
 		}
 	};
 
