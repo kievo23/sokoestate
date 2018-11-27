@@ -208,6 +208,14 @@ $.fn.gMapsLatLonPicker = (function() {
 				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
 			});
 
+			$(_self.vars.cssID + ".gllpSearchButton").bind("onmouseout", function() {
+				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
+			});
+
+			$(_self.vars.cssID + ".gllpSearchButton").bind("onchange", function() {
+				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
+			});
+
 			// Search function by gllp_perform_search listener
 			$(document).bind("gllp_perform_search", function(event, object) {
 				performSearch( $(object).attr('string'), true );

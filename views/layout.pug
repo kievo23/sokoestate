@@ -342,7 +342,11 @@ script(type='text/javascript').
       if(rel == 'Residential'){
         $('#others').hide();
         $('#residential').show();
-      }else{
+      }else if(rel == 'Upcoming-Properties'){
+        $('#others').hide();
+        $('#residential').show();
+      }
+      else{
         $('#residential').hide();
         $('#others').show();
       }

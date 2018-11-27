@@ -187,7 +187,7 @@ block content
                                                   .col-md-8
                                                   input.gllpSearchField.form-control.surburb(type='text')
                                                   .col-md-4
-                                                  input.gllpSearchButton.form-control.btn.btn-primary(type='button', value='search', placeholder="search your city")
+                                                  input.gllpSearchButton.form-control.btn.btn-primary(type='button', value='search your location', placeholder="search your city")
                                               .gllpMap(style="width: 100%; height: 300px;") Google Maps
                                               input#lati.gllpLatitude(type='hidden', name='lati')
                                               input#long.gllpLongitude(type='hidden', name='long')
@@ -345,14 +345,12 @@ block content
     
     
     //script(src="http://maps.googleapis.com/maps/api/js?sensor=false")
-    
     script.
       $(function(){
-        //prevent enter button on map from submitting property
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
-        // Additional form fields
+        
         var max_fields      = 5; //maximum input boxes allowed
       	var wrapper   		= $(".input_fields_wrap"); //Fields wrapper
       	var add_button      = $(".add_field_button"); //Add button ID
