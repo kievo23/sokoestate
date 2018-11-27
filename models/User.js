@@ -15,6 +15,7 @@ const userSchema = new Schema({
     googleid: {type:String},
 		photouser: String,
 		phone: String,
+		phones: Array,
 		password: String,
 		role: String,
 		email: String,

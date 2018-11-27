@@ -129,6 +129,7 @@ router.post('/editprofile', cpUpload, function(req, res){
     b.phone = req.body.phone;
     b.instagram = req.body.instagram;
     b.twitter = req.body.twitter;
+    b.phones  = req.body.phones;
     b.facebook = req.body.facebook;
     if (req.files['photo'] != null){
   		b.photouser = req.files['photo'][0].filename;
