@@ -51,11 +51,11 @@ block content
                                             label
                                                 | Property price 
                                                 small (required)
-                                            input.form-control(name='propertyprice', id='yourText', type='text', placeholder='3330000', required)
-                                            //input(type='checkbox', id='yourBox', name='enquiry',value='enquiry', style='padding-left: 0;')
+                                            input.form-control(name='propertyprice', id='myText', type='text', placeholder='3330000', required)
+                                            
                                         .col-xs-6
                                             label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
-                                                input(type='checkbox', id='yourBox', name='enquiry',value='enquiry', style='padding-left: 0;')
+                                                input(type='checkbox', id='checkMe', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()')
                                                 span.checkmark
                                 .form-group
                                     label 
@@ -348,3 +348,11 @@ block content
       		e.preventDefault(); $(this).parent('div').remove(); x--;
       	})
       });
+    script(type='text/javascript').
+        function disableMyText(){  
+          if(document.getElementById("checkMe").checked == true){  
+              document.getElementById("myText").disabled = true;  
+          }else{
+            document.getElementById("myText").disabled = false;
+          }  
+        }  
