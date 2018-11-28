@@ -37,6 +37,9 @@ block content
                         input.form-control(type='text', placeholder='254710345130', name='phone',value=user.phone)
                       .form-group
                         .input_fields_wrap
+                            if(user.phones)
+                              each phone in user.phones
+                                input.form-control(type='text', placeholder='254710345130', name='phones[]',value=phone)
                             button.add_field_button.btn(style="color:#04045a;") Add Phone Number 
                             div
                     .col-md-4.text-center
