@@ -18,11 +18,12 @@ router.get('/', function(req, res, next) {
   var recents = Property.find({approved: true}).populate('user_id').populate('category').sort({"_id": -1}).limit(8);
   Promise.all([properties, categories, featured, recents]).then(values => {
     //console.log(values[1]);
-	  res.render('index', {title: "Soko Estate Kenya",
+	  res.render('index', {title: "Soko Estate Kenya | Properties in kenya",
     categories: values[1],
     properties: values[0],
     featured: values[2],
-    recents: values[3]
+    recents: values[3],
+    description: "Find properties for sale and for rent in Kenya"
   });
 	});
 });
@@ -176,7 +177,13 @@ router.get('/property/:slug',function(req, res){
       })
       .limit(5).then(function(d){
         console.log(values[1]);
-        res.render('property/detail',{property: values[1], title: values[1].name, categories: values[0], similars: d});
+        res.render('property/detail',{
+          property: values[1],
+          title: values[1].name+ " property for "+values[1].type+" in kenya",
+          categories: values[0],
+          similars: d,
+          description: values[1].description
+        });
       });
   });
 });
