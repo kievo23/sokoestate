@@ -78,7 +78,10 @@ block content
                                                 span.proerty-price.pull-right 
                                                     table#price-property.table
                                                         tr
-                                                          td #{p.price}
+                                                            if p.price
+                                                               td #{p.price}
+                                                            else
+                                                               td Price on enquiry
                                                 //span.proerty-price.pull-right
                                                     span  Ksh.
                                                     =p.price

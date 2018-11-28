@@ -24,7 +24,11 @@ block content
                                 span.property-price.pull-right 
                                   table#price-property.table
                                     tr
-                                      td #{property.price}
+                                      if property.price
+                                        td #{property.price}
+                                      else if property.enquiry==true
+                                        td Price on enquiry
+                                        
                         .light-slide-item
                             .clearfix
                                 .favorite-and-print
@@ -186,6 +190,12 @@ block content
                                                     i.pe-7s-call.strong  
                                                     a(href="tel:"+property.phone, style="color:#000;")
                                                       =property.phone
+                                                if user.phones
+                                                  each phone in user.phones
+                                                    li(style="color:#000;")
+                                                        i.pe-7s-call.strong  
+                                                        a(href="tel:"+property.phone, style="color:#000;")          
+                                                            =phone
                         .panel.panel-default.sidebar-menu.similar-property-wdg.wow.fadeInRight.animated
                             .panel-heading
                                 h3.panel-title Similar Properties

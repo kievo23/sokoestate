@@ -38,25 +38,11 @@ block content
                                         | Property tagline 
                                         small (required)
                                     input.form-control(name='tagline' type='text' placeholder='Short catchy description of your property ...', maxlength="45", required)
+                                //description
+                                
                                 .form-group
-                                    label 
-                                        | Listing type  :
-                                        small (required)
-                                    select#basic.selectpicker.show-tick.form-control(name='type' required)
-                                        option(value='rent') Rent 
-                                        option(value='sale')  Sale
-                                .form-group
-                                    .row
-                                        .col-xs-6
-                                            label
-                                                | Property price 
-                                                small (required)
-                                            input.form-control(name='propertyprice', id='myText', type='text', placeholder='3330000', required)
-                                            
-                                        .col-xs-6
-                                            label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
-                                                input(type='checkbox', id='checkMe', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()')
-                                                span.checkmark
+                                    label Property Description :
+                                    textarea.form-control(name='description' placeholder="Enter the description of your property here.")
                                 .form-group
                                     label 
                                         | Property Ownership  :
@@ -86,10 +72,26 @@ block content
                         h4.info-text  How beautiful is your property?
                         .row
                             .col-sm-12
-                                .col-sm-12
-                                    .form-group
-                                        label Property Description :
-                                        textarea.form-control(name='description' placeholder="Enter the description of your property here.")
+                                .form-group
+                                    label 
+                                        | Listing type  :
+                                        small (required)
+                                    select#basic.selectpicker.show-tick.form-control(name='type' required)
+                                        option(value='rent') Rent 
+                                        option(value='sale')  Sale
+                            .col-sm-12
+                                .form-group
+                                    .row
+                                        .col-xs-6
+                                            label
+                                                | Property price 
+                                                small (required)
+                                            input.form-control(name='propertyprice', id='myText', type='text', placeholder='3330000', required)
+                                            
+                                        .col-xs-6
+                                            label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
+                                                input(type='checkbox', id='checkMe', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()')
+                                                span.checkmark
                             .col-sm-12
                                 .col-sm-6
                                     .form-group
@@ -291,8 +293,8 @@ block content
                                     p.help-block Select multiple images for your property .
                             .col-sm-6
                                 .form-group
-                                    label(for='property-video') Property video :
-                                    input.form-control( placeholder='http://www.youtube.com or http://vimeo.com' name='youtube' type='text')
+                                    label(for='property-video') Property video : IMPORTANT input the whole video URL e.g (https://www.youtube.com/watch?v=Svhby3Rn7Oo) 
+                                    input.form-control( placeholder='https://www.youtube.com/watch?v=Svhby3Rn7Oo' name='youtube' type='text')
                                 
                     // End step 3
                     #step4.tab-pane
@@ -311,7 +313,7 @@ block content
                                 
                                 label.container-checkbox
                                     strong Accept terms and conditions.
-                                    input(type='checkbox')
+                                    input(type='checkbox' required)
                                     span.checkmark
                     // End step 4
                 .wizard-footer

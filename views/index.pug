@@ -123,8 +123,12 @@ block content
                       span.proerty-price.pull-right 
                         table#price-property.table
                           tr
-                            td 
-                              small #{feat.price}  
+                            if feat.price
+                              td 
+                                small #{feat.price}  
+                            else
+                              td 
+                                small Price on Enquiry
                      
                           
   // property area
@@ -179,8 +183,12 @@ block content
                       span.proerty-price.pull-right 
                         table#price-property.table
                           tr
-                            td
-                              small #{rec.price}  
+                            if rec.price
+                              td
+                                small #{rec.price}
+                            else  
+                              td
+                                small Price on Enquiry
                     
       
       
