@@ -292,7 +292,7 @@ block content
                             .col-sm-6
                                 .form-group
                                     label(for='property-video') Property video: IMPORTANT input the whole video URL e.g (https://www.youtube.com/watch?v=Svhby3Rn7Oo)  
-                                    input.form-control(value=property.youtube, placeholder='https://www.youtube.com/watch?v=Svhby3Rn7Oo , name='youtube', type='text')
+                                    input.form-control(value=property.youtube, placeholder='https://www.youtube.com/watch?v=Svhby3Rn7Oo' , name='youtube', type='text')
                     // End step 3
                     #step4.tab-pane
                       h4.info-text  Finish and submit
@@ -310,7 +310,7 @@ block content
                                     
                                     label.container-checkbox
                                         strong Accept terms and conditions.
-                                        input(type='checkbox')
+                                        input(type='checkbox' required)
                                         span.checkmark
                     // End step 4
                 .wizard-footer
