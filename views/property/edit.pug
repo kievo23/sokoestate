@@ -48,10 +48,17 @@ block content
                                         option(value='rent') Rent 
                                         option(value='sell')  Sale
                                 .form-group
-                                    label
-                                        | Property price 
-                                        small (required)
-                                    input.form-control(name='propertyprice', type='text', placeholder=property.price, value=property.price, required)
+                                    .row
+                                       .col-xs-6
+                                            label
+                                                | Property price 
+                                                small (required)
+                                            input.form-control(name='propertyprice', id='myTexts', type='text', placeholder=property.price, value=property.price, required)
+                                       .col-xs-6
+                                            label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
+                                                input(type='checkbox', id='checkMee', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()')
+                                                span.checkmark
+                                    
                                 .form-group
                                     label 
                                         | Property Ownership  :
@@ -354,3 +361,11 @@ block content
       	})
         
       });
+    script(type='text/javascript').
+        function disableMyText(){  
+          if(document.getElementById("checkMee").checked == true){  
+              document.getElementById("myTexts").disabled = true;  
+          }else{
+            document.getElementById("myTexts").disabled = false;
+          }  
+        }  
