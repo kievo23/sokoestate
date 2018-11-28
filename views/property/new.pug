@@ -135,11 +135,12 @@ block content
                                 .col-sm-6
                                     .form-group
                                         label(for='price-range') Size :
-                                        input#size.span2(type='number' value='1', name="size" )
+                                        input#size.span2(type='number' value='', name="size" )
                                 .col-sm-6
                                     .form-group
                                         label Unit:
                                         select#basic.selectpicker.show-tick.form-control(required, name='units')
+                                            option(value='') Select Unit
                                             option(value='acres') Acres
                                             option(value='hectares')  Hectares
                                             option(value='squaremeters')  Square Meters
