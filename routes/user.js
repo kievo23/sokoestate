@@ -149,7 +149,7 @@ router.post('/editprofile', cpUpload, function(req, res){
   				});
   			}
         req.flash('success_msg','Profile Updated');
-        res.redirect('/user/editprofile');
+        res.redirect('/users/profile');
       }
     });
   });
