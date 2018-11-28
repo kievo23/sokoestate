@@ -24,7 +24,11 @@ block content
                                 span.property-price.pull-right 
                                   table#price-property.table
                                     tr
-                                      td #{property.price}
+                                      if property.price
+                                        td #{property.price}
+                                      if property.enquiry
+                                        td Price on enquiry
+                                        
                         .light-slide-item
                             .clearfix
                                 .favorite-and-print
