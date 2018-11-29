@@ -76,7 +76,19 @@ block content
                                                     span 
                                                         =p.surburb
                                                 span.proerty-price.pull-right 
-                                                    if p.enquiry==false
+                                                    if p.enquiry==true
+                                                        table#price-property
+                                                            table.table(style="margin-bottom: 0px;")
+                                                                tr
+                                                                    td
+                                                                    small Price on Enquiry
+                                                    else 
+                                                        table#price-property.table(style="margin-bottom: 0px;")
+                                                            tr
+                                                                td
+                                                                    small #{p.price}
+                                                    
+                                                    //if p.enquiry==false
                                                         table#price-property.table
                                                             tr
                                                                 if p.price
