@@ -216,14 +216,11 @@ block content
                                                       span.property-seeker
                                               .col-md-8.col-sm-8.col-xs-8.blg-entry
                                                   h6
-                                                      a(href='/property/'+sim.slug)
-                                                        =sim.name
+                                                    a(href='/property/'+sim.slug)
+                                                      =sim.name
                                                 
                                                   span.property-price
-                                                    //if sim.enquiry==false
-                                                        table#price-property.table
-                                                            tr
-                                                                td #{sim.price}
+                                                   
                                                     if  sim.enquiry==true
                                                         table#price-property
                                                             table.table(style="margin-bottom: 0px;")
@@ -234,11 +231,7 @@ block content
                                                         table#price-property.table(style="margin-bottom: 0px;")
                                                             tr
                                                                 td #{sim.price}
-                                                    //else
-                                                        table.table
-                                                            tr 
-                                                                td
-                                                                    small Price on Enquiry
+                                                    
                         //.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                h3.panel-title Ads her  
