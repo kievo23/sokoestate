@@ -22,8 +22,18 @@ block content
                                 h1.property-title.pull-left 
                                   =property.name
                                 span.property-price.pull-right 
-                                  
-                                  if property.enquiry==false
+                                    if property.enquiry==true
+                                        table#price-property
+                                            table.table(style="margin-bottom: 0px;")
+                                                tr
+                                                    td
+                                                    small(style='color:#04045a') Price on Enquiry
+                                    else 
+                                        table#price-property.table(style="margin-bottom: 0px;")
+                                            tr
+                                                td #{property.price}
+                                 
+                                 // if property.enquiry==false
                                     table#price-property.table
                                         tr
                                           td #{property.price}
