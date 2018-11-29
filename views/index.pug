@@ -190,22 +190,21 @@ block content
                               |   ( #{rec.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
-                        table#price-property.table
+                        //table#price-property.table
                           tr
                             if rec.price
                               td
                                 small #{rec.price}
-                        //if rec.enquiry==false
+                        if rec.enquiry==true
                           table#price-property.table
-                            tr
-                              if rec.price
-                                td
-                                  small #{rec.price}
-                        //else  
-                          table.table
+                            table.table
                               tr
                                 td
                                   small Price on Enquiry
+                        else  
+                          tr
+                            td
+                              small #{rec.price}
                     
       
       
