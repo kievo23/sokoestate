@@ -76,17 +76,20 @@ block content
                                                     span 
                                                         =p.surburb
                                                 span.proerty-price.pull-right 
-                                                    if p.enquiry==false
-                                                        table#price-property.table
+                                                    if p.enquiry==true
+                                                        table#price-property
+                                                            table.table(style="margin-bottom: 0px;")
+                                                                tr
+                                                                    td
+                                                                      small(style='color:#04045a') 
+                                                                        | Price on Enquiry
+                                                    else 
+                                                        table#price-property.table(style="margin-bottom: 0px;")
                                                             tr
-                                                                if p.price
-                                                                td #{p.price}
-                                                    //else
-                                                        table.table
-                                                            tr
-                                                                td  Price on enquiry
-                                                         
-                                                
+                                                                td(style='color:#04045a')
+                                                                  =p.price
+                                                    
+                                                   
 
                                             if(p.tagline)
                                                 p
@@ -215,7 +218,20 @@ block content
                                                         a(href='/property/'+feat.slug)
                                                           =feat.name
                                                     span.property-price
-                                                        if feat.enquiry==false
+                                                        if feat.enquiry==true
+                                                            table#price-property
+                                                                table.table(style="margin-bottom: 0px;")
+                                                                    tr
+                                                                        td
+                                                                          small(style='color:#04045a') Price on Enquiry
+                                                            else 
+                                                                table#price-property.table(style="margin-bottom: 0px;")
+                                                                    tr
+                                                                        td
+                                                                          small(style='color:#04045a')
+                                                                            =feat.price
+                                                    
+                                                        //if feat.enquiry==false
                                                             table#price-property.table
                                                                 tr
                                                                    td #{feat.price}

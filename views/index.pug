@@ -121,20 +121,21 @@ block content
                               |   ( #{feat.bathrooms}  )  
                          
                       span.proerty-price.pull-right
-                        table#price-property.table
+                        //table#price-property.table
                           tr
                             if feat.price
                               td 
                                 small #{feat.price} 
-                        if feat.enquiry==true 
-                          table.table
-                            tr 
-                              td
-                                small Price on Enquiry
+                        if feat.enquiry==true
+                          table#price-property
+                            table.table(style="margin-bottom: 0px;")
+                              tr
+                                td
+                                  small Price on Enquiry
                         else 
-                          table#price-property.table
+                          table#price-property.table(style="margin-bottom: 0px;")
                             tr
-                              td 
+                              td
                                 small #{feat.price}  
                         
                           
@@ -190,22 +191,22 @@ block content
                               |   ( #{rec.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
-                        table#price-property.table
+                        //table#price-property.table
                           tr
                             if rec.price
                               td
                                 small #{rec.price}
-                        //if rec.enquiry==false
-                          table#price-property.table
-                            tr
-                              if rec.price
-                                td
-                                  small #{rec.price}
-                        //else  
-                          table.table
+                        if rec.enquiry==true
+                          table#price-property
+                            table.table(style="margin-bottom: 0px;")
                               tr
                                 td
                                   small Price on Enquiry
+                        else  
+                          table#price-property.table(style="margin-bottom: 0px;")
+                            tr
+                              td
+                                small #{rec.price}
                     
       
       
