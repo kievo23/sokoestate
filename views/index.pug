@@ -126,17 +126,18 @@ block content
                             if feat.price
                               td 
                                 small #{feat.price} 
-                        //if feat.enquiry==false
-                          table#price-property.table
-                            tr
-                              if feat.price
-                                td 
-                                  small #{feat.price}  
-                        //else
+                        if feat.enquiry==true 
                           table.table
                             tr 
                               td
                                 small Price on Enquiry
+                        else 
+                          table#price-property.table
+                            tr
+                              td 
+                                small #{feat.price}  
+                        
+                          
                      
                           
   // property area
