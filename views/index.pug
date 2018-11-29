@@ -133,7 +133,7 @@ block content
                                 td
                                   small Price on Enquiry
                         else 
-                          table#price-property 
+                          table#price-property.table(style="margin-bottom: 0px;")
                             tr
                               td
                                 small #{feat.price}  
@@ -203,9 +203,10 @@ block content
                                 td
                                   small Price on Enquiry
                         else  
-                          tr
-                            td
-                              small #{rec.price}
+                          table#price-property.table(style="margin-bottom: 0px;")
+                            tr
+                              td
+                                small #{rec.price}
                     
       
       
