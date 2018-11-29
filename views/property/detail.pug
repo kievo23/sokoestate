@@ -22,11 +22,12 @@ block content
                                 h1.property-title.pull-left 
                                   =property.name
                                 span.property-price.pull-right 
-                                  if property.price
+                                  
+                                  if property.enquiry==false
                                     table#price-property.table
                                         tr
                                           td #{property.price}
-                                  if property.enquiry==true
+                                  else
                                     table.table
                                         tr
                                           td Price on enquiry
