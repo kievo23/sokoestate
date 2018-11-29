@@ -205,7 +205,7 @@ block content
                                   if(featured)
                                     each feat, i in featured
                                         if(i<6)
-                                            .row
+                                            .row(style="box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);")
                                                 .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
                                                     a(href='/property/'+feat.slug)
                                                         img(src='/uploads/' +feat.photo)
