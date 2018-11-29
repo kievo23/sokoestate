@@ -211,26 +211,24 @@ block content
                                         if(i<6)
                                             li
                                               .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
-                                                  a(href='/property/'+sim.slug)
-                                                      img(src='/uploads/' +sim.photo style="width:80px; height:80px")
-                                                      span.property-seeker
-                                              .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                                  h6
                                                     a(href='/property/'+sim.slug)
-                                                      =sim.name
-                                                
-                                                  span.property-price
-                                                   
-                                                    if  sim.enquiry==true
-                                                        table#price-property
-                                                            table.table(style="margin-bottom: 0px;")
+                                                        img(src='/uploads/' +sim.photo style="width:80px; height:80px")
+                                                        span.property-seeker
+                                              .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                                    h6
+                                                        a(href='/property/'+sim.slug)
+                                                          =sim.name
+                                                    span.property-price
+                                                        if  sim.enquiry==true
+                                                            table#price-property
+                                                                table.table(style="margin-bottom: 0px;")
+                                                                    tr
+                                                                        td Price on Enquiry
+                                                                        
+                                                        else 
+                                                            table#price-property.table(style="margin-bottom: 0px;")
                                                                 tr
-                                                                    td Price on Enquiry
-                                                                    
-                                                    else 
-                                                        table#price-property.table(style="margin-bottom: 0px;")
-                                                            tr
-                                                                td #{sim.price}
+                                                                    td #{sim.price}
                                                     
                         //.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
