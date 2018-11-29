@@ -223,6 +223,17 @@ block content
                                                                 table.table(style="margin-bottom: 0px;")
                                                                     tr
                                                                         td
+                                                                          small Price on Enquiry
+                                                        else 
+                                                            table#price-property.table(style="margin-bottom: 0px;")
+                                                                tr
+                                                                    td
+                                                                        small #{feat.price}
+                                                        //if feat.enquiry==true
+                                                            table#price-property
+                                                                table.table(style="margin-bottom: 0px;")
+                                                                    tr
+                                                                        td
                                                                           small(style='color:#04045a') Price on Enquiry
                                                             else 
                                                                 table#price-property.table(style="margin-bottom: 0px;")
@@ -231,15 +242,7 @@ block content
                                                                           small(style='color:#04045a')
                                                                             =feat.price
                                                     
-                                                        //if feat.enquiry==false
-                                                            table#price-property.table
-                                                                tr
-                                                                   td #{feat.price}
-                                                        //else
-                                                            table.table
-                                                                tr 
-                                                                   td
-                                                                      small Price on Enquiry
+                                                        
                                                     
                                                       
                                         
