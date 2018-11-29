@@ -27,7 +27,7 @@ block content
                                             table.table(style="margin-bottom: 0px;")
                                                 tr
                                                     td
-                                                    small(style='color:#04045a') Price on Enquiry
+                                                       small(style='color:#04045a') Price on Enquiry
                                     else 
                                         table#price-property.table(style="margin-bottom: 0px;")
                                             tr
@@ -220,8 +220,18 @@ block content
                                                         =sim.name
                                                 
                                                   span.property-price
-                                                    if sim.enquiry==false
+                                                    //if sim.enquiry==false
                                                         table#price-property.table
+                                                            tr
+                                                                td #{sim.price}
+                                                    if  sim.enquiry==true
+                                                        table#price-property
+                                                            table.table(style="margin-bottom: 0px;")
+                                                                tr
+                                                                    td Price on Enquiry
+                                                                    
+                                                    else 
+                                                        table#price-property.table(style="margin-bottom: 0px;")
                                                             tr
                                                                 td #{sim.price}
                                                     //else
