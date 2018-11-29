@@ -22,12 +22,14 @@ block content
                                 h1.property-title.pull-left 
                                   =property.name
                                 span.property-price.pull-right 
-                                  table#price-property.table
-                                    tr
-                                      if property.price
-                                        td #{property.price}
-                                      else if property.enquiry==true
-                                        td Price on enquiry
+                                  if property.price
+                                    table#price-property.table
+                                        tr
+                                          td #{property.price}
+                                  if property.enquiry==true
+                                    table.table
+                                        tr
+                                          td Price on enquiry
                                         
                         .light-slide-item
                             .clearfix
