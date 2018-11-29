@@ -120,14 +120,19 @@ block content
                             small
                               |   ( #{feat.bathrooms}  )  
                          
-                      span.proerty-price.pull-right 
-                        if feat.enquiry==false
+                      span.proerty-price.pull-right
+                        table#price-property.table
+                          tr
+                            if feat.price
+                              td 
+                                small #{feat.price} 
+                        //if feat.enquiry==false
                           table#price-property.table
                             tr
                               if feat.price
                                 td 
                                   small #{feat.price}  
-                        else
+                        //else
                           table.table
                             tr 
                               td
@@ -184,13 +189,18 @@ block content
                               |   ( #{rec.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
-                        if rec.enquiry==false
+                        table#price-property.table
+                          tr
+                            if rec.price
+                              td
+                                small #{rec.price}
+                        //if rec.enquiry==false
                           table#price-property.table
                             tr
                               if rec.price
                                 td
                                   small #{rec.price}
-                        else  
+                        //else  
                           table.table
                               tr
                                 td
