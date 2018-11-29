@@ -169,14 +169,12 @@ router.get('/property/:slug',function(req, res){
   .populate('category');
 
   Promise.all([categories,property]).then(values => {
-    //console.log(values[1].category);
+    //console.log(values[1].category.id);
     Property.find({
-        $query: {
           category: values[1].category.id
-        }
       })
       .limit(5).then(function(d){
-        console.log(values[1]);
+        //console.log(d);
         res.render('property/detail',{
           property: values[1],
           title: values[1].name+ " property for "+values[1].type+" in kenya",
