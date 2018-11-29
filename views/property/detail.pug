@@ -215,9 +215,17 @@ block content
                                                   h6
                                                       a(href='/property/'+sim.slug)
                                                         =sim.name
+                                                
                                                   span.property-price
-                                                    | Ksh.
-                                                    =sim.price
+                                                    if sim.enquiry==false
+                                                        table#price-property.table
+                                                            tr
+                                                                td #{sim.price}
+                                                    else
+                                                        table.table
+                                                            tr 
+                                                                td
+                                                                    small Price on Enquiry
                         //.panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
                                h3.panel-title Ads her  

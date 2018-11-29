@@ -121,13 +121,16 @@ block content
                               |   ( #{feat.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
-                        table#price-property.table
-                          tr
-                            if feat.price
-                              td 
-                                small #{feat.price}  
-                            else
-                              td 
+                        if feat.enquiry==false
+                          table#price-property.table
+                            tr
+                              if feat.price
+                                td 
+                                  small #{feat.price}  
+                        else
+                          table.table
+                            tr 
+                              td
                                 small Price on Enquiry
                      
                           
@@ -181,14 +184,17 @@ block content
                               |   ( #{rec.bathrooms}  )  
                          
                       span.proerty-price.pull-right 
-                        table#price-property.table
-                          tr
-                            if rec.price
-                              td
-                                small #{rec.price}
-                            else  
-                              td
-                                small Price on Enquiry
+                        if rec.enquiry==false
+                          table#price-property.table
+                            tr
+                              if rec.price
+                                td
+                                  small #{rec.price}
+                        else  
+                          table.table
+                              tr
+                                td
+                                  small Price on Enquiry
                     
       
       
