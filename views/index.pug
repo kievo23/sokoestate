@@ -126,16 +126,16 @@ block content
                             if feat.price
                               td 
                                 small #{feat.price} 
-                        if feat.enquiry==true 
-                          table.table
-                            tr 
-                              td
-                                small Price on Enquiry
-                        else 
-                          table#price-property.table
-                            tr
-                              td 
-                                small #{feat.price}  
+                        if rec.enquiry==true
+                          table#price-property
+                            table.table(style="margin-bottom: margin-bottom: 0px;")
+                              tr
+                                td
+                                  small Price on Enquiry
+                        else  
+                          tr
+                            td
+                              small #{feat.price}  
                         
                           
                      
