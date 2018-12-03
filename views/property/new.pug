@@ -6,7 +6,7 @@ block content
       .clearfix
         .wizard-container
           #wizardProperty.wizard-card.ct-wizard-orange
-            form(action='/property/add', method='post',enctype="multipart/form-data", onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to sokoEstate Terms and Conditions and Privacy Policy'); return false; }")
+            form(action='/property/add', method='post',enctype="multipart/form-data", onsubmit="if(document.getElementById('agree').checked) { return true; } else { functionAlert(); return false; }")
                 .wizard-header
                    h3
                         b Submit
@@ -316,6 +316,11 @@ block content
                                     strong Accept terms and conditions.
                                     input(type='checkbox', id="agree", required)
                                     span.checkmark
+                            #confirm
+                                .message 
+                                   small A agreed to sokoEstate Terms and Conditions
+                                br
+                                button.yes OK
                     // End step 4
                 .wizard-footer
                     .pull-right
