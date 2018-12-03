@@ -3617,6 +3617,7 @@ input[type="checkbox"]:disabled + .label-text:before{
     box-sizing: border-box;
     text-align: center;
     width: 50rem;
+    margin-left: 20%;
     /*position: fixed;
     background-color: #F3F5F6;
     left: 40%;
