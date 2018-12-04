@@ -64,12 +64,12 @@ block content
                     input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")    
                   .col-xs-3(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BATHROOMS",name="bathrooms")
-                  .col-xs-3(style="margin-top:1rem")
-                    label  Furnished
-                    input(type='checkbox', class="form-control",name="furnished") 
-                  .col-xs-3(style="margin-top:1rem")
-                    label  Serviced
-                    input(type='checkbox', class="form-control",name="serviced") 
+                  .col-xs-6(style="margin-top:1rem")
+                    .switch-field
+                      input#switch_one_left(type='radio' name='furnished' value='furnished' )
+                      label(for='switch_one_left') Furnished
+                      input#switch_two_right(type='radio' name='serviced' value='serviced')
+                      label(for='switch_two_right') Serviced 
                 .row
                   .col-xs-12(style="margin-top:1rem")
                     a(href="#")
