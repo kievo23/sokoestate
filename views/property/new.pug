@@ -159,6 +159,17 @@ block content
                                         label(for='price-range') Bathrooms :
                                         input#baths.span2(type='number' value='',name="bathrooms" )
                                         br
+                            .col-sm-12.padding-top-15
+                                .col-md-12.col-md-offset-1.col-sm-12.text-center
+                                   .form-group
+                                        label Select Ammenities(Select Multiple)(Garage, CCTV, parking, Generator, Wifi) :
+                                        select#amenities.amenities.form-control(data-live-search='true' data-live-search-style='begins' title='Select property category',name="category")
+                                            option(value='')  Select Ammenities available in the property
+                                            each amenity in amenities
+                                              option(data-icon='fa '+amenity.icon,value=amenity.id) 
+                                                =amenity.name
+                                
+                                
                                 
                             .col-sm-12.padding-top-15
                                 .form-group
@@ -175,8 +186,8 @@ block content
                                               input#lati.gllpLatitude(type='hidden', name='lati', value="-1.2920659")
                                               input#long.gllpLongitude(type='hidden', name='long',value="36.82194619999996")
                                               input#zoom.gllpZoom(type='hidden',name='zoom',value="10")
-                            .col-sm-12.padding-top-15
-                                .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
+                            //.col-sm-12.padding-top-15
+                                .col-md-12.col-md-offset-1.col-sm-12.text-center.page-title
                                     h5 
                                       strong
                                         | Select Ammenities if applicable
@@ -204,7 +215,7 @@ block content
                                             input(type='checkbox', name='amenities[]',value="Fire Place")
                                             span.checkmark
                                         
-                            .col-sm-12.padding-bottom-15
+                            //.col-sm-12.padding-bottom-15
                                 .col-sm-3
                                     .form-group
                                         label.container-checkbox  Laundry Room
