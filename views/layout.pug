@@ -276,8 +276,31 @@ script(type='text/javascript').
   });
 script(type='text/javascript').
   $(document).ready(function(){
-    $('.order_by_date').attr("href", window.location.href+"&date=1");
-    $('.order_by_price').attr("href", window.location.href+"&price=1");
+    var url = new URL(window.location.href);
+    var priceicon = url.searchParams.get('price');
+    //console.log(priceicon);
+    if(priceicon == -1){ 
+      url.searchParams.delete('price');     
+      $('.order_by_price').attr("href", url.href+"&price=1");
+      $('.order_by_price').find('i').addClass("fa-sort-numeric-asc");
+    }else{
+      url.searchParams.delete('price');
+      $('.order_by_price').attr("href", url.href+"&price=-1");
+      $('.order_by_price').find('i').addClass("fa-sort-numeric-desc");
+    }
+    var dateicon = url.searchParams.get('date');
+    if(dateicon == -1){
+      url.searchParams.delete('date');
+      $('.order_by_date').attr("href", url.href+"&date=1");
+      $('.order_by_date').find('i').addClass("fa-sort-asc");
+    }else{
+      url.searchParams.delete('date');
+      $('.order_by_date').attr("href", url.href+"&date=-1");
+      $('.order_by_date').find('i').addClass("fa-sort-desc");
+    }
+    //console.log(dateicon);
+    //console.log(url);
+    
     $('.customer-logos').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
