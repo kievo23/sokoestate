@@ -47,6 +47,7 @@ const propertySchema = new Schema({
 		date: Date,
 		youtube: String,
 		featured: Boolean,
+		date: Date,
 		user_id:  { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

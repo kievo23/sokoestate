@@ -153,13 +153,14 @@ router.get('/search', function(req, res, next) {
       obj.bathrooms = req.query.bathrooms;
     }
   }
-  if(req.query.hasOwnProperty('price_desc')){
-      sort.price_desc = req.query.price_desc;
+  if(req.query.hasOwnProperty('price')){
+      sort.price = req.query.price;
   }
-  if(req.query.hasOwnProperty('date_desc')){
-      sort.date_desc = req.query.date_desc;
+  if(req.query.hasOwnProperty('date')){
+      sort.date = req.query.date;
   }
   console.log(obj);
+  console.log(sort);
   var categories = Category.find({}).sort({"order": 1});
   var properties = Property.find(obj,sort).populate('user_id').populate('category');
   Promise.all([categories,properties]).then(values => {
