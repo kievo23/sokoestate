@@ -60,11 +60,16 @@ block content
                         option m2
                         option SqF
                 .row(class='residential')
-                  .col-xs-6(style="margin-top:1rem")
-                      input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")
-                      
-                  .col-xs-6(style="margin-top:1rem")
+                  .col-xs-3(style="margin-top:1rem")
+                    input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")    
+                  .col-xs-3(style="margin-top:1rem")
                     input(type="text" class="form-control" placeholder="No.BATHROOMS",name="bathrooms")
+                  .col-xs-3(style="margin-top:1rem")
+                    label  Furnished
+                    input(type='checkbox', class="form-control",name="furnished") 
+                  .col-xs-3(style="margin-top:1rem")
+                    label  Serviced
+                    input(type='checkbox', class="form-control",name="serviced") 
                 .row
                   .col-xs-12(style="margin-top:1rem")
                     a(href="#")
@@ -121,11 +126,7 @@ block content
                               |   ( #{feat.bathrooms}  )  
                          
                       span.proerty-price.pull-right
-                        //table#price-property.table
-                          tr
-                            if feat.price
-                              td 
-                                small #{feat.price} 
+                        
                         if feat.enquiry==true
                           table#price-property
                             table.table(style="margin-bottom: 0px;")

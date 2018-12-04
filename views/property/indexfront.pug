@@ -205,7 +205,7 @@ block content
                                   if(featured)
                                     each feat, i in featured
                                         if(i<6)
-                                            li
+                                            .row(style="box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); margin-bottom:1rem;")
                                                 .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
                                                     a(href='/property/'+feat.slug)
                                                         img(src='/uploads/' +feat.photo)
@@ -214,32 +214,32 @@ block content
                                                         b.b-1 A
                                                         b.b-2 S
                                                 .col-md-8.col-sm-8.col-xs-8.blg-entry
-                                                    h6
-                                                        a(href='/property/'+feat.slug)
-                                                          =feat.name
-                                                    span.property-price
-                                                        if feat.enquiry==true
-                                                            table#price-property
-                                                                table.table(style="margin-bottom: 0px;")
-                                                                    tr
-                                                                        td
-                                                                          small(style='color:#04045a') Price on Enquiry
-                                                            else 
-                                                                table#price-property.table(style="margin-bottom: 0px;")
-                                                                    tr
-                                                                        td
-                                                                          small(style='color:#04045a')
-                                                                            =feat.price
-                                                    
-                                                        //if feat.enquiry==false
-                                                            table#price-property.table
-                                                                tr
-                                                                   td #{feat.price}
-                                                        //else
-                                                            table.table
-                                                                tr 
-                                                                   td
-                                                                      small Price on Enquiry
+                                                    .row
+                                                        .col-md-12
+                                                            h6
+                                                                a(href='/property/'+feat.slug)
+                                                                =feat.name
+                                                            br
+                                                            span.pull-left
+                                                            small
+                                                                i.fa.fa-map-marker(aria-hidden="true")
+                                                                span 
+                                                                    =feat.surburb
+                                                        .col-md-12    
+                                                            span.property-price
+                                                                if feat.enquiry==true
+                                                                    table#price-property
+                                                                        table.table(style="margin-bottom: 0px;")
+                                                                            tr
+                                                                                td
+                                                                                small Price on Enquiry
+                                                                else 
+                                                                    table#price-property.table(style="margin-bottom: 0px;")
+                                                                        tr
+                                                                            td
+                                                                                small #{feat.price}
+                                                                
+                                                            
                                                     
                                                       
                                         
