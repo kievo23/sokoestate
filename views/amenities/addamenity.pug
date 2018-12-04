@@ -1,0 +1,35 @@
+extends ../backendlayout
+
+block content
+  .row
+    .main-content
+      .section__content.section__content--p30
+        .container-fluid
+          .row
+            .col-lg-12
+              .card
+                .card-header
+                  strong Add Amenity
+                form.form-horizontal(method="post",action="/amenities/add",enctype='multipart/form-data')
+                  .card-body.card-block
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#name.form-control(type='text' name='name' placeholder='Amenity Name')
+                            small.form-text.text-muted Enter the name of the amenity
+                      .row.form-group
+                        .col-12.col-md-9
+                          input#icon.form-control(type='text', name='icon', placeholder='icon')
+                          small.form-text.text-muted Amenity Icon
+                      .row.form-group
+                        .col.col-md-3
+                          label.form-control-label(for='file-input') Amenity photo
+                        .col-12.col-md-9
+                          input#photod.form-control-file(type='file' name='photo' placeholder='photo')
+                  
+                  .card-footer
+                    button.btn.btn-primary.btn-sm(type='submit')
+                      i.fa.fa-dot-circle-o
+                      |  Create Amenity
+                  
+                    
+        

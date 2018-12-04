@@ -26,6 +26,7 @@ var categoryRouter = require('./routes/category');
 var adminRouter = require('./routes/admin');
 var propertyRouter = require('./routes/property');
 var userRouter = require('./routes/user');
+var amenitiesRouter = require('./routes/amenities');
 var config = require('./config.json');
 
 //Models
@@ -366,6 +367,7 @@ app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);
 app.use('/property', propertyRouter);
 app.use('/users', userRouter);
+app.use('/amenities', amenitiesRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

@@ -8,6 +8,7 @@ var moment = require('moment');
 var Jimp = require("jimp");
 var Category = require(__dirname + '/../models/Category');
 var Property = require(__dirname + '/../models/Property');
+var Amenity = require(__dirname + '/../models/Amenities');
 var role = require(__dirname + '/../config/Role');
 //var Subcategory = require(__dirname + '/../models/Subcategory');
 
@@ -33,12 +34,14 @@ router.get('/', function(req, res, next) {
   .populate('user_id')
   .populate('category');
   var featured = Property.find({featured: 1}).populate('user_id').populate('category');
-  Promise.all([properties, categories, featured]).then(values => {
+  var amenities = Amenity.find({});
+  Promise.all([properties, categories, featured, amenities]).then(values => {
     res.render('property/indexfront', {
       title: "Soko Estate: Properties",
       properties: values[0],
       categories: values[1],
-      featured: values[2]
+      featured: values[2],
+      amenities: values[3]
     });
   });
 });
@@ -64,13 +67,16 @@ router.get('/list', role.auth, function(req, res, next) {
 
 router.get('/add', role.auth, function(req, res, next){
   //if(parseInt(res.locals.user.wallet) >= 1500 ){
-    Category.find({})
-    .then(function(data){
-    	res.render('property/new', {title: "Find It Categories", categories: data});
-    })
-    .catch(function(err){
-       console.log(err);
-    });
+    var amenities = Amenity.find({});
+    var categories = Category.find({});
+    Promise.all([categories, amenities]).then(values => {
+  	    console.log(JSON.stringify(values[0].gallery));
+  	    res.render('property/new', {
+  	        title: "Add new property",
+  	        categories: values[0],
+            amenities: values[1]
+  	    });
+  	  });
     /*
   }else{
     req.flash("error_msg", "Kindly load 1500 or more to your wallet to post a property");
@@ -83,14 +89,16 @@ router.get('/edit/:id', role.auth, function(req, res, next){
 	  _id: req.params.id
 	}).populate('category');
 	var categories = Category.find({});
+  var amenities = Amenity.find({});
 
-	Promise.all([property, categories]).then(values => {
+	Promise.all([property, categories, amenities]).then(values => {
 	    console.log(JSON.stringify(values[0].gallery));
 	    res.render('property/edit', {
 	        title: "Edit "+values[0].name,
 	        property: values[0],
           gallery: JSON.stringify(values[0].gallery),
-	        categories: values[1]
+	        categories: values[1],
+          amenities: values[2]
 	    });
 	  });
 });
@@ -137,6 +145,12 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
 	i.date = new Date();
+  if(req.body.furnished){
+    i.furnished = req.body.furnished;
+  }
+  if(req.body.serviced){
+    i.serviced = req.body.serviced;
+  }
   if(req.body.enquiry){
     i.enquiry = req.body.enquiry;
   }
@@ -220,6 +234,12 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   	i.date = new Date();
     if(req.body.enquiry){
       i.enquiry = req.body.enquiry;
+    }
+    if(req.body.furnished){
+      i.furnished = req.body.furnished;
+    }
+    if(req.body.serviced){
+      i.serviced = req.body.serviced;
     }
     //if(req.body.bedrooms){
       i.bedrooms = req.body.bedrooms;
