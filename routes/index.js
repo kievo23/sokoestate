@@ -116,7 +116,8 @@ router.post('/google', function(req, res){
 
 
 router.get('/search', function(req, res, next) {
-  var obj = {};
+  var obj = {approved : true};
+  var sort = {};
   if(req.query.hasOwnProperty('type')){
     if(req.query.type.length > 0){
       obj.type = req.query.type;
@@ -152,10 +153,18 @@ router.get('/search', function(req, res, next) {
       obj.bathrooms = req.query.bathrooms;
     }
   }
+  if(req.query.hasOwnProperty('price')){
+      sort.price = parseInt(req.query.price);
+  }
+  if(req.query.hasOwnProperty('date')){
+      sort.date = parseInt(req.query.date);
+  }
   console.log(obj);
+  console.log(sort);
   var categories = Category.find({}).sort({"order": 1});
-  var properties = Property.find(obj).populate('user_id').populate('category');
+  var properties = Property.find(obj).sort(sort).populate('user_id').populate('category');
   Promise.all([categories,properties]).then(values => {
+
     res.render('property/indexfront', { title: 'Soko Estate: Search',properties: values[1],categories: values[0] });
   });
 });

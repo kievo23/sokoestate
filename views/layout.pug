@@ -276,6 +276,8 @@ script(type='text/javascript').
   });
 script(type='text/javascript').
   $(document).ready(function(){
+    $('.order_by_date').attr("href", window.location.href+"&date=1");
+    $('.order_by_price').attr("href", window.location.href+"&price=1");
     $('.customer-logos').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -435,5 +437,3 @@ script(type='text/javascript').
   $(".yes").click(function () {
      $("#confirm").hide();
   });
-
-
