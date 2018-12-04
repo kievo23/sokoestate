@@ -27,7 +27,8 @@ const propertySchema = new Schema({
 		bedrooms: Number,
 		bathrooms: Number,
 		ownership: String,
-		price: String,
+		price: Number,
+		pricenow: Number,
 		enquiry: Boolean,
 		serviced: Boolean,
 		furnished: Boolean,
@@ -47,7 +48,6 @@ const propertySchema = new Schema({
 		date: Date,
 		youtube: String,
 		featured: Boolean,
-		date: Date,
 		user_id:  { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
