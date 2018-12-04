@@ -29,6 +29,8 @@ const propertySchema = new Schema({
 		ownership: String,
 		price: String,
 		enquiry: Boolean,
+		serviced: Boolean,
+		furnished: Boolean,
 		baths: String,
 		size: Number,
 		units: String,

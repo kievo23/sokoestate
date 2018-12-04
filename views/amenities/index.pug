@@ -1,0 +1,97 @@
+extends ../backendlayout
+
+block content 
+  // MAIN CONTENT
+  .main-content
+    .section__content.section__content--p30
+      .container-fluid
+        .row
+          .col-md-12
+            // DATA TABLE
+            h3.title-5.m-b-35 Categories
+            .table-data__tool
+              .table-data__tool-left
+                .rs-select2--light.rs-select2--md
+                  select.js-select2(name='property')
+                    option(selected='selected') All Properties
+                    option(value='') Option 1
+                    option(value='') Option 2
+                  .dropDownSelect2
+                .rs-select2--light.rs-select2--sm
+                  select.js-select2(name='time')
+                    option(selected='selected') Today
+                    option(value='') 3 Days
+                    option(value='') 1 Week
+                  .dropDownSelect2
+                button.au-btn-filter
+                  i.zmdi.zmdi-filter-list
+                  | filters
+              .table-data__tool-right
+                a(href='/category/add')
+                  button.au-btn.au-btn-icon.au-btn--green.au-btn--small
+                    i.zmdi.zmdi-plus
+                    | add category
+                a(href='/category/subcategory/add')
+                  button.au-btn.au-btn-icon.au-btn--green.au-btn--small
+                    i.zmdi.zmdi-plus
+                    | add sub category
+                .rs-select2--dark.rs-select2--sm.rs-select2--dark2
+                  select.js-select2(name='type')
+                    option(selected='selected') Export
+                    option(value='') Option 1
+                    option(value='') Option 2
+                  .dropDownSelect2
+            .table-responsive.table-responsive-data2
+              table.table.table-data2
+                thead
+                  tr
+                    th
+                      label.au-checkbox
+                        input(type='checkbox')
+                        span.au-checkmark
+                    th #
+                    th NAME
+                    th APPROVED
+                    th ICON
+                    th SUBCATEGORIES
+                    th ACTIONS
+                tbody
+                  each category,i in categories
+                    tr.tr-shadow
+                      td
+                        =i+1
+                        label.au-checkbox
+                          input(type='checkbox')
+                          span.au-checkmark
+                      td 
+                        =category.name
+                      td
+                        span.block-email
+                          =category.icon
+                      td
+                        span.status--process 
+                          =category.approved
+                      td
+                      td
+                        each cat in category.subcategories                      
+                          =cat.name
+                          a(href="/category/subcategory/delete/"+category.id+"/"+cat.name, onclick="return confirm('Are you sure you want to delete this Category?')")
+                            i.fa.fa-trash.fa-fw(aria-hidden='true')
+                          a(href="/category/subcategory/bizlist/"+cat.name,'title'="See Businesses Under This Category")
+                            i.fa.fa-eye.fa-fw(aria-hidden='true')
+                                     
+                      td
+                        .table-data-feature
+                          a(href="/category/showhome/"+category.id, title="Show on home page")
+                            button.item(data-toggle='tooltip' data-placement='top' title='Order')
+                              i.zmdi.zmdi-mail-send
+                          a(href="/category/edit/"+category.id, title="Edit Category")
+                            button.item(data-toggle='tooltip' data-placement='top' title='Edit')
+                              i.zmdi.zmdi-edit
+                          a(href="/category/delete/"+category.id, onclick="return confirm('Are you sure you want to delete this Category?')", title="Delete Category")
+                            button.item(data-toggle='tooltip' data-placement='top' title='Delete')
+                              i.zmdi.zmdi-delete
+                      
+                  tr.spacer
+                  
+                    

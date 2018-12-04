@@ -137,6 +137,12 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
   i.user_id = res.locals.user._id;
   i.map = {lati: req.body.lati, long: req.body.long, zoom: req.body.zoom };
 	i.date = new Date();
+  if(req.body.furnished){
+    i.furnished = req.body.furnished;
+  }
+  if(req.body.serviced){
+    i.serviced = req.body.serviced;
+  }
   if(req.body.enquiry){
     i.enquiry = req.body.enquiry;
   }
@@ -220,6 +226,12 @@ router.post('/edit/:id', role.auth, cpUpload, function(req, res, next) {
   	i.date = new Date();
     if(req.body.enquiry){
       i.enquiry = req.body.enquiry;
+    }
+    if(req.body.furnished){
+      i.furnished = req.body.furnished;
+    }
+    if(req.body.serviced){
+      i.serviced = req.body.serviced;
     }
     //if(req.body.bedrooms){
       i.bedrooms = req.body.bedrooms;

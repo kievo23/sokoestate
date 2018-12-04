@@ -1,0 +1,178 @@
+extends ../backendlayout
+
+block content
+  .row
+    .main-content
+      .section__content.section__content--p30
+        .container-fluid
+          .row
+            .col-lg-12
+              .card
+                .card-header
+                  strong Edit Category
+                form.form-horizontal(method="post",action="/category/category/update/"+category.id,enctype='multipart/form-data')
+                  .card-body.card-block
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#name.form-control(type='text', name='name', placeholder='Name', value=category.name)
+                            small.form-text.text-muted Enter the name of the category
+                      .row.form-group
+                        .col-12.col-md-9
+                            input#order.form-control(type='text', name='order', placeholder='order', value=category.order)
+                            small.form-text.text-muted Category Order
+                      .row.form-group
+                        .col-12.col-md-9      
+                          input#icon.form-control(type='text', name='icon', placeholder='icon', value=category.icon)
+                          small.form-text.text-muted Category Icon
+                      .row.form-group
+                        .col-12.col-md-9
+                          small.form-text.text-muted Category cover photo
+                        .col-12.col-md-9
+                          img(src="/uploads/thumbs/categories/"+ category.photo)
+                        .col-12.col-md-9  
+                          input#photod.form-control(type='file', name='photo', placeholder='photo')    
+                      .row.form-group
+                        .col-md-offset-3.col-md-6.col-md-offset-3(id="accordion",rel=category.id)              
+                          each cat in category.subcategories                      
+                            div(class='col-md-12',id=cat.id,rel=category.id)
+                              =cat.name 
+                  
+                  .card-footer
+                    button.btn.btn-primary.btn-sm(type='submit')
+                      i.fa.fa-dot-circle-o
+                      |  Update
+                  
+                    
+  //.page_body.basic-content
+    .row
+      .col-md-offset-3.col-md-6.col-md-offset-3
+          h3.text-center Edit Category
+      .col-md-offset-0.col-md-12.col-md-offset-0
+        form.form-horizontal(method="post",action="/category/category/update/"+category.id,enctype='multipart/form-data')
+          .form-group
+            .col-sm-12
+              input#name.form-control-form(type='text', name='name', placeholder='Name', value=category.name)
+          .form-group
+            .col-sm-12
+              input#icon.form-control-form(type='text', name='icon', placeholder='icon', value=category.icon)
+          .form-group
+            .col-sm-12
+              input#order.form-control-form(type='text', name='order', placeholder='order', value=category.order)
+          .form-group
+            .col-sm-12
+              select#group.form-control-form(name='group')
+                option(data-icon='glyphicon-wrench', value=category.group) #{category.group}
+                option(data-icon='glyphicon glyphicon-globe', value='general') General
+                option(data-icon='glyphicon glyphicon-globe',value='shopping') Shopping
+          .form-group
+            .col-sm-3
+              label(for='photo') Cover Photo
+            .col-sm-6
+              img(src="/uploads/thumbs/categories/"+ category.photo)
+            .col-sm-3
+              input#photod.form-control-form(type='file', name='photo', placeholder='photo')
+          .form-group
+            .col-md-offset-3.col-md-6.col-md-offset-3(id="accordion",rel=category.id)              
+                each cat in category.subcategories                      
+                  div(class='col-md-12',id=cat.id,rel=category.id)
+                    =cat.name
+          .form-group
+            .row
+              button.button.btn.btn-warning.form-control-form(type='submit') Update
+  script(type='text/javascript').
+    $(function() {
+      var categories = "#{categoryjson}";        
+      categories = JSON.parse(categories.replace(/&quot;/g,'"').replace(/&amp;/g,'~'));
+      var el = document.getElementById('accordion');
+      function reordersubcat(categoryid,order){
+        console.log(categories);
+            categories.subcategories.forEach(function(n,i){
+              console.log(categoryid);
+              if(n._id == categoryid){
+                console.log("order found");
+                console.log("order number"+ i);
+                categories.subcategories.splice(i, 1);
+                categories.subcategories.splice(order, 0, n);
+              }
+            });
+            //console.log(categories.subcategories);
+        return JSON.stringify(categories.subcategories);
+      }
+      var sortable = Sortable.create(el, {
+        onEnd: function (/**Event*/evt) {
+          //console.log($(evt.item).attr('rel'));
+          var categoryId = evt.item.id;
+          var order = evt.newIndex;
+          var newgallery = reordersubcat(categoryId,order);
+          console.log(encodeURI(newgallery));
+          axios.get('/business/subcategory/reorder/'+$(evt.item).attr('rel')+'?order='+encodeURI(newgallery))
+          .then(function (response) {
+            // handle success
+            //alert(response);
+            Notify.toast(response.data, {
+              fn: function () {
+                // custom function here
+              }
+            });
+            console.log(response);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+          
+          //console.log(evt);
+          //alert(evt.item.id)
+          var itemEl = evt.item;  // dragged HTMLElement
+          evt.to;    // target list
+          evt.from;  // previous list
+          evt.oldIndex;  // element's old index within old parent
+          evt.newIndex;  // element's new index within new parent
+        },
+
+        // Element is dropped into the list from another list
+        onAdd: function (/**Event*/evt) {
+          // same properties as onEnd
+        },
+
+        // Changed sorting within list
+        onUpdate: function (/**Event*/evt) {
+          // same properties as onEnd
+        },
+
+        // Called by any change to the list (add / update / remove)
+        onSort: function (/**Event*/evt) {
+          // same properties as onEnd
+        },
+
+        // Element is removed from the list into another list
+        onRemove: function (/**Event*/evt) {
+          // same properties as onEnd
+        },
+
+        // Attempt to drag a filtered element
+        onFilter: function (/**Event*/evt) {
+          var itemEl = evt.item;  // HTMLElement receiving the `mousedown|tapstart` event.
+        },
+
+        // Event when you move an item in the list or between lists
+        onMove: function (/**Event*/evt, /**Event*/originalEvent) {
+          // Example: http://jsbin.com/tuyafe/1/edit?js,output
+          evt.dragged; // dragged HTMLElement
+          evt.draggedRect; // TextRectangle {left, top, right и bottom}
+          evt.related; // HTMLElement on which have guided
+          evt.relatedRect; // TextRectangle
+          originalEvent.clientY; // mouse position
+          // return false; — for cancel
+        },
+
+        // Called when creating a clone of element
+        onClone: function (/**Event*/evt) {
+          var origEl = evt.item;
+          var cloneEl = evt.clone;
+        }
+      });
+    });
