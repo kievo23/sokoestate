@@ -114,7 +114,9 @@ block content
                                 .additional-details-list.clearfix
                                     each ammenity in property.amenities
                                         div
-                                            span.col-xs-6.col-sm-6.col-md-3.add-d-entry  #{ammenity}
+                                            span.col-xs-6.col-sm-6.col-md-3.add-d-entry
+                                              i(data-icon='fa '+ammenity.icon) 
+                                              =ammenity.name
                                     
                         // End description area
                         .section.additional-details

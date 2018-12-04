@@ -8,7 +8,7 @@ block content
         .row
           .col-md-12
             // DATA TABLE
-            h3.title-5.m-b-35 Categories
+            h3.title-5.m-b-35 #{title}
             .table-data__tool
               .table-data__tool-left
                 .rs-select2--light.rs-select2--md
@@ -41,11 +41,7 @@ block content
               table.table.table-data2
                 thead
                   tr
-                    th
-                      label.au-checkbox
-                        input(type='checkbox')
-                        span.au-checkmark
-                    th #
+                    th No.
                     th NAME
                     th ICON
                     th ACTIONS
@@ -54,9 +50,7 @@ block content
                     tr.tr-shadow
                       td
                         =i+1
-                        label.au-checkbox
-                          input(type='checkbox')
-                          span.au-checkmark
+                        
                       td 
                         =amenity.name
                       td
