@@ -26,7 +26,7 @@ var categoryRouter = require('./routes/category');
 var adminRouter = require('./routes/admin');
 var propertyRouter = require('./routes/property');
 var userRouter = require('./routes/user');
-var AmenitiesRouter = require('./routes/amenities');
+var amenitiesRouter = require('./routes/amenities');
 var config = require('./config.json');
 
 //Models

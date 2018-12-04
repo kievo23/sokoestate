@@ -32,7 +32,7 @@ router.get('/', role.admin, function(req, res, next) {
   Amenity.find({})
   .then(function(data){
   	console.log(data);
-    res.render('amenities/index', {title: "Soko Estate Amenities", categories: data});
+    res.render('amenities/index', {title: "Soko Estate Amenities", amenities: data});
   })
   .catch(function(err){
      console.log(err);
@@ -40,14 +40,13 @@ router.get('/', role.admin, function(req, res, next) {
 });
 
 router.get('/edit/:id', role.admin, function(req, res, next){
-	var category = Amenity.findOne({
+	var amenity = Amenity.findOne({
 	  _id: req.params.id
 	});
-	Promise.all([category]).then(values => {
-	    console.log(values);
+	Promise.all([amenity]).then(values => {
 	    res.render('amenities/editamenity', {
 	        title: "Edit "+values[0].name,
-	        category: values[0],
+	        amenity: values[0],
           categoryjson: JSON.stringify(values[0]),
 	    });
 	  });
@@ -126,6 +125,7 @@ router.get('/delete/:id', role.admin, function(req, res, next){
 router.post('/add', role.admin, cpUpload, function(req, res, next){
   var i = new Amenity();
 	i.name = req.body.name;
+  i.icon = req.body.icon;
   i.slug = slug(req.body.name);
   if (req.files['photo'] != null){
 		i.photo = req.files['photo'][0].filename;

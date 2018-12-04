@@ -10,75 +10,30 @@ block content
               .card
                 .card-header
                   strong Edit Category
-                form.form-horizontal(method="post",action="/category/category/update/"+category.id,enctype='multipart/form-data')
+                form.form-horizontal(method="post",action="/amenities/update/"+amenity.id,enctype='multipart/form-data')
                   .card-body.card-block
                       .row.form-group
                         .col-12.col-md-9
-                            input#name.form-control(type='text', name='name', placeholder='Name', value=category.name)
+                            input#name.form-control(type='text', name='name', placeholder='Name', value=amenity.name)
                             small.form-text.text-muted Enter the name of the category
                       .row.form-group
-                        .col-12.col-md-9
-                            input#order.form-control(type='text', name='order', placeholder='order', value=category.order)
-                            small.form-text.text-muted Category Order
-                      .row.form-group
                         .col-12.col-md-9      
-                          input#icon.form-control(type='text', name='icon', placeholder='icon', value=category.icon)
-                          small.form-text.text-muted Category Icon
+                          input#icon.form-control(type='text', name='icon', placeholder='icon', value=amenity.icon)
+                          small.form-text.text-muted Amenity Icon
                       .row.form-group
                         .col-12.col-md-9
-                          small.form-text.text-muted Category cover photo
+                          small.form-text.text-muted Amenity photo
                         .col-12.col-md-9
-                          img(src="/uploads/thumbs/categories/"+ category.photo)
+                          img(src="/uploads/thumbs/amenities/"+ amenity.photo)
                         .col-12.col-md-9  
-                          input#photod.form-control(type='file', name='photo', placeholder='photo')    
-                      .row.form-group
-                        .col-md-offset-3.col-md-6.col-md-offset-3(id="accordion",rel=category.id)              
-                          each cat in category.subcategories                      
-                            div(class='col-md-12',id=cat.id,rel=category.id)
-                              =cat.name 
+                          input#photod.form-control(type='file', name='photo', placeholder='photo') 
                   
                   .card-footer
                     button.btn.btn-primary.btn-sm(type='submit')
                       i.fa.fa-dot-circle-o
-                      |  Update
+                      |  Update Amenity
                   
                     
-  //.page_body.basic-content
-    .row
-      .col-md-offset-3.col-md-6.col-md-offset-3
-          h3.text-center Edit Category
-      .col-md-offset-0.col-md-12.col-md-offset-0
-        form.form-horizontal(method="post",action="/category/category/update/"+category.id,enctype='multipart/form-data')
-          .form-group
-            .col-sm-12
-              input#name.form-control-form(type='text', name='name', placeholder='Name', value=category.name)
-          .form-group
-            .col-sm-12
-              input#icon.form-control-form(type='text', name='icon', placeholder='icon', value=category.icon)
-          .form-group
-            .col-sm-12
-              input#order.form-control-form(type='text', name='order', placeholder='order', value=category.order)
-          .form-group
-            .col-sm-12
-              select#group.form-control-form(name='group')
-                option(data-icon='glyphicon-wrench', value=category.group) #{category.group}
-                option(data-icon='glyphicon glyphicon-globe', value='general') General
-                option(data-icon='glyphicon glyphicon-globe',value='shopping') Shopping
-          .form-group
-            .col-sm-3
-              label(for='photo') Cover Photo
-            .col-sm-6
-              img(src="/uploads/thumbs/categories/"+ category.photo)
-            .col-sm-3
-              input#photod.form-control-form(type='file', name='photo', placeholder='photo')
-          .form-group
-            .col-md-offset-3.col-md-6.col-md-offset-3(id="accordion",rel=category.id)              
-                each cat in category.subcategories                      
-                  div(class='col-md-12',id=cat.id,rel=category.id)
-                    =cat.name
-          .form-group
-            .row
-              button.button.btn.btn-warning.form-control-form(type='submit') Update
   script(type='text/javascript').
     $(function() {
       var categories = "#{categoryjson}";        
