@@ -183,7 +183,7 @@ router.get('/property/:slug',function(req, res){
           category: values[1].category.id
       })
       .limit(5).then(function(d){
-        //console.log(d);
+        console.log(values[1]);
         res.render('property/detail',{
           property: values[1],
           title: values[1].name+ " property for "+values[1].type+" in kenya",
