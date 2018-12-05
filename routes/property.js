@@ -36,17 +36,12 @@ router.get('/', function(req, res, next) {
   var featured = Property.find({featured: 1}).populate('user_id').populate('category');
   var amenities = Amenity.find({});
   Promise.all([properties, categories, featured, amenities]).then(values => {
-    var amenities = Amenity.find({
-        '_id': { $in: values[1].amenities}
-    }).then(function(d){
-      res.render('property/indexfront', {
-        title: "Soko Estate: Properties",
-        properties: values[0],
-        categories: values[1],
-        featured: values[2],
-        currentamenities: d,
-        amenities: values[3]
-      });
+    res.render('property/indexfront', {
+      title: "Soko Estate: Properties",
+      properties: values[0],
+      categories: values[1],
+      featured: values[2],
+      amenities: values[3]
     });
   });
 });
@@ -97,13 +92,20 @@ router.get('/edit/:id', role.auth, function(req, res, next){
   var amenities = Amenity.find({});
 
 	Promise.all([property, categories, amenities]).then(values => {
-	    res.render('property/edit', {
-	        title: "Edit "+values[0].name,
-	        property: values[0],
-          gallery: JSON.stringify(values[0].gallery),
-	        categories: values[1],
-          amenities: values[2]
-	    });
+	    //console.log(JSON.stringify(values[0].gallery));
+      var amenities = Amenity.find({
+          '_id': { $in: values[0].amenities}
+      }).then(function(d){
+        //console.log(d);
+  	    res.render('property/edit', {
+  	        title: "Edit "+values[0].name,
+  	        property: values[0],
+            gallery: JSON.stringify(values[0].gallery),
+  	        categories: values[1],
+            currentamenities: d,
+            amenities: values[2]
+  	    });
+      });
 	  });
 });
 
