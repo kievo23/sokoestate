@@ -2,10 +2,12 @@ extends layout
 
 block content
   .container-fluid
-    .slider-area
-      .slider
-        .item
-          img(src='assets/img/slide1/sokoestate1.jpg' alt='GTA V' style='height:38rem; width:100%;')
+    .slider-area(style='background-image: url(assets/img/slide1/sokoestate1.jpg);')
+      //img(src='assets/img/slide1/sokoestate1.jpg', alt=title, style='height:100%; width:100%;')
+      //(style='background-image: url(assets/img/slide1/sokoestate1.jpg);')
+        .slider
+          .item
+      img(src='assets/img/slide1/sokoestate1.jpg', alt=title, style='width:100%;')
          
       .slider-content
         .row
