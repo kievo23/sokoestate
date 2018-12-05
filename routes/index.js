@@ -6,6 +6,7 @@ var crypto = require("crypto");
 var Property = require(__dirname + '/../models/Property');
 var Category = require(__dirname + '/../models/Category');
 var User = require(__dirname + '/../models/User');
+var Amenity = require(__dirname + '/../models/Amenities');
 const mongoose = require('mongoose');
 var sys = require(__dirname + '/../config/System');
 var db = mongoose.connect(sys.db_uri, {useMongoClient: true });
@@ -179,19 +180,26 @@ router.get('/property/:slug',function(req, res){
 
   Promise.all([categories,property]).then(values => {
     //console.log(values[1].category.id);
-    Property.find({
-          category: values[1].category.id
-      })
-      .limit(5).then(function(d){
-        console.log(values[1]);
-        res.render('property/detail',{
-          property: values[1],
-          title: values[1].name+ " property for "+values[1].type+" in kenya",
-          categories: values[0],
-          similars: d,
-          description: values[1].description
-        });
+    var categories = values[0];
+    var property = values[1];
+    var amenities = Amenity.find({
+        '_id': { $in: values[1].amenities}
+    });
+    var properties = Property.find({
+        category: values[1].category.id
+    })
+    .limit(5);
+    Promise.all([amenities,properties]).then(values => {
+      //console.log(values[0]);
+      res.render('property/detail',{
+        property: property,
+        title: property.name+ " property for "+property.type+" in kenya",
+        categories: categories,
+        similars: values[1],
+        description: property.description,
+        amenities: values[0]
       });
+    });
   });
 });
 
