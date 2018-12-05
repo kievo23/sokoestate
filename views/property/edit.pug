@@ -6,7 +6,7 @@ block content
       .clearfix
         .wizard-container
           #wizardProperty.wizard-card.ct-wizard-orange
-            form(action='/property/edit/'+property.id method='post',enctype="multipart/form-data")
+            form(action='/property/edit/'+property.id, method='post',enctype='multipart/form-data', onsubmit="if(document.getElementById('agreed').checked) { return true; } else { functionAlert(); return false; }")
               if(property)
                 .wizard-header
                    h3
@@ -170,10 +170,11 @@ block content
                             .col-sm-12.padding-top-15
                                 .form-group
                                     label Select Ammenities(Select Multiple if applicable) Example: Garage, CCTV, parking, Generator, Wifi...
-                                    select#amenities.amenities.selectpicker.form-control(data-live-search='true', data-live-search-style='begins', title='Select property Ammenity',name='amenities', multiple)
+                                    select#amenities.amenities.selectpicker.form-control(data-live-search='true', data-live-search-style='begins', title='Edit property Ammenity',name='amenities', multiple)
                                         if(property.amenities)
                                           each ammenity in property.amenities
-                                             option(value='')  #{ammenity}
+                                             option(data-icon='fa '+ammenity.icon,value=ammenity.id, class='selected')  
+                                               =ammenity.name
                                         each amenity in amenities
                                             option(data-icon='fa '+amenity.icon,value=amenity.id) 
                                               =amenity.name    
@@ -193,97 +194,7 @@ block content
                                             input#long.gllpLongitude(type='hidden', value=property.map.long,name='long')
                                             input#zoom.gllpZoom(type='hidden',value=property.map.zoom,name='zoom')
                             
-                            //.col-sm-12.padding-top-15
-                                .col-md-10.col-md-offset-1.col-sm-12.text-center.page-title
-                                    h5 
-                                      strong
-                                        | Select Ammenities if applicable
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Swimming Pool
-                                            input(type='checkbox', name='amenities[]',value="Swimming Pool")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  CCTV
-                                            input(type='checkbox', name='amenities[]',value="CCTV")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Emergency Exit
-                                            input(type='checkbox', name='amenities[]',value="Emergency Exit")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Fire Place
-                                            input(type='checkbox', name='amenities[]',value="Fire Place")
-                                            span.checkmark
-                                
-                            //.col-sm-12.padding-bottom-15
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Laundry Room
-                                            input(type='checkbox', name='amenities[]',value="Laundry Room")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Jog Path
-                                            input(type='checkbox', name='amenities[]',value="Jog Path")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Furnished
-                                            input(type='checkbox', name='amenities[]',value="Furnished")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Serviced
-                                            input(type='checkbox', name='amenities[]',value="Serviced")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Play Ground
-                                            input(type='checkbox', name='amenities[]',value="Play Ground")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Parking
-                                            input(type='checkbox', name='amenities[]',value="Parking")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Garden
-                                            input(type='checkbox', name='amenities[]',value="Garden")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Gym
-                                            input(type='checkbox', name='amenities[]',value="Gym")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Generator
-                                            input(type='checkbox', name='amenities[]',value="Generator")
-                                            span.checkmark
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Borehole
-                                            input(type='checkbox', name='amenities[]',value="Borehole")
-                                            span.checkmark
-                                
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Solar Panel
-                                            input(type='checkbox', name='amenities[]',value="Solar Panel")
-                                            span.checkmark
-                                
-                                .col-sm-3
-                                    .form-group
-                                        label.container-checkbox  Club
-                                            input(type='checkbox', name='amenities[]',value="Club")
-                                            span.checkmark
-                                
-                            br
+                            
                     // End step 2
                     #step3.tab-pane
                         h4.info-text Give us some images and videos
@@ -321,8 +232,17 @@ block content
                                     
                                     label.container-checkbox
                                         strong Accept terms and conditions.
-                                        input(type='checkbox' required)
+                                        input(type='checkbox', id='agreed', required, checked)
                                         span.checkmark
+                            .info-text(style='display:none')
+                                .confirm
+                                    .message 
+                                        small 
+                                          strong(style='color:#04045a') Agree to sokoEstate Terms and Conditions to proceed
+                                    br
+                                    button.yes 
+                                    small 
+                                        strong(style='color:#04045a') OK    
                     // End step 4
                 .wizard-footer
                     .pull-right
