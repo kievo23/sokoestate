@@ -40,6 +40,7 @@ router.get('/', function(req, res, next) {
   if(req.query.hasOwnProperty('date')){
       sort.date = parseInt(req.query.date);
   }
+  console.log(sort);
   var properties = Property.find({approved : true}).sort(sort)
   .populate('user_id')
   .populate('category');
@@ -102,7 +103,7 @@ router.get('/edit/:id', role.auth, function(req, res, next){
 	Promise.all([property, categories, amenities]).then(values => {
 	    //console.log(JSON.stringify(values[0].gallery));
       var amenities = Amenity.find({
-          '_id': { $in: values[0].amenities}
+        //  '_id': { $in: values[0].amenities}
       }).then(function(d){
         console.log(d);
   	    res.render('property/edit', {
