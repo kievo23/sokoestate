@@ -201,7 +201,7 @@ router.post('/add', role.auth, cpUpload, function(req, res, next){
 							});
 						});
 					}
-      req.flash("success_msg", "Property Successfully Created");
+      req.flash("success_msg", "Property Successfully Updated");
   		res.redirect('/property/list');
     }
 	});
