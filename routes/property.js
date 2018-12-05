@@ -111,6 +111,7 @@ router.get('/edit/:id', role.auth, function(req, res, next){
   	        property: values[0],
             gallery: JSON.stringify(values[0].gallery),
   	        categories: values[1],
+            //currentamenities: d,
             currentamenities: [],
             amenities: values[2]
   	    });
