@@ -162,7 +162,7 @@ block content
                             .col-sm-12.padding-top-15
                                 .form-group
                                     label Select Ammenities(Select Multiple)(Garage, CCTV, parking, Generator, Wifi) 
-                                    select#amenities.amenities.selectpicker.form-control(data-live-search='true', data-live-search-style='begins', title='Select property Ammenity',name='amenities', multiple)
+                                    select#amenities.amenities.selectpicker(data-live-search='true', data-live-search-style='begins', title='Select property Ammenity',name='amenities', multiple)
                                         each amenity in amenities
                                             option(data-icon='fa '+amenity.icon,value=amenity.id) 
                                               =amenity.name
