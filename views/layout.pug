@@ -279,6 +279,8 @@ script(type='text/javascript').
     var url = new URL(window.location.href);
     var priceicon = url.searchParams.get('price');
     //console.log(priceicon);
+    
+    url.href = url.href+"?q=true";
     if(priceicon == -1){ 
       url.searchParams.delete('price');     
       $('.order_by_price').attr("href", url.href+"&price=1");

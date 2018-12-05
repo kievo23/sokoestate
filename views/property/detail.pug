@@ -110,13 +110,13 @@ block content
                         if(property.amenities)    
                             .section.additional-details
                                 h4.s-property-title.text-left
-                                    strong Ammenities
+                                    strong Amenities
                                 .additional-details-list.clearfix
-                                    each ammenity in property.amenities
+                                    each amenity in property.amenities
                                         div
                                             span.col-xs-6.col-sm-6.col-md-3.add-d-entry
-                                              i(data-icon='fa '+ammenity.icon) 
-                                              =ammenity.name
+                                              i(data-icon='fa '+amenity) 
+                                              =amenity
                                     
                         // End description area
                         .section.additional-details
