@@ -107,16 +107,16 @@ block content
                                      =property.tagline 
                                     p
                                      =property.description
-                        if(property.amenities)    
+                        if currentamenities    
                             .section.additional-details
                                 h4.s-property-title.text-left
                                     strong Amenities
                                 .additional-details-list.clearfix
-                                    each amenity in property.amenities
+                                    each amenity in currentamenities
                                         div
                                             span.col-xs-6.col-sm-6.col-md-3.add-d-entry
                                               i(data-icon='fa '+amenity) 
-                                              =amenity
+                                              =amenity.name
                                     
                         // End description area
                         .section.additional-details
