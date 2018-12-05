@@ -154,6 +154,16 @@ router.get('/search', function(req, res, next) {
       obj.bathrooms = req.query.bathrooms;
     }
   }
+  if(req.query.hasOwnProperty('serviced')){
+    if(req.query.serviced.length > 0){
+      obj.serviced = req.query.serviced;
+    }
+  }
+  if(req.query.hasOwnProperty('furnished')){
+    if(req.query.furnished.length > 0){
+      obj.furnished = req.query.furnished;
+    }
+  }
   if(req.query.hasOwnProperty('price')){
       sort.price = parseInt(req.query.price);
   }
