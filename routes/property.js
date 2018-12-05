@@ -30,11 +30,19 @@ var cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'catalog',
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var categories = Category.find({}).sort({"order": 1});
-  var properties = Property.find({approved : true})
-  .populate('user_id')
-  .populate('category');
+
   var featured = Property.find({featured: 1}).populate('user_id').populate('category');
   var amenities = Amenity.find({});
+  var sort = {};
+  if(req.query.hasOwnProperty('price')){
+      sort.price = parseInt(req.query.price);
+  }
+  if(req.query.hasOwnProperty('date')){
+      sort.date = parseInt(req.query.date);
+  }
+  var properties = Property.find({approved : true}).sort(sort)
+  .populate('user_id')
+  .populate('category');
   Promise.all([properties, categories, featured, amenities]).then(values => {
     res.render('property/indexfront', {
       title: "Soko Estate: Properties",
