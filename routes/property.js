@@ -96,7 +96,7 @@ router.get('/edit/:id', role.auth, function(req, res, next){
       var amenities = Amenity.find({
           '_id': { $in: values[0].amenities}
       }).then(function(d){
-        //console.log(d);
+        console.log(d);
   	    res.render('property/edit', {
   	        title: "Edit "+values[0].name,
   	        property: values[0],
