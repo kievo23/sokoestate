@@ -28,18 +28,26 @@ block content
                           label(for=cat.name, type="button", class="btn btn-primary btn-search") 
                             =cat.name
                 .row
-                  .col-xs-6(style="margin-top:1rem")
+                  .col-md-3.col-xs-3(style="margin-top:1rem")
                     .switch-field
                       input#switch_left(type='radio' name='type' value='sale' checked='')
                       label(for='switch_left') For Sale
                       input#switch_right(type='radio' name='type' value='rent')
                       label(for='switch_right') For Rent
-                  .col-xs-6(style="margin-top:1rem")
+                  .col-md-3.col-xs-3(style="margin-top:1rem")
+                    select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory", style="color: #444 !important;")
+                      option(class='status',value='') Select Property Type
+                      each cat in categories
+                        each subcat in cat.subcategories
+                          option(class='category iradio_square-yellow',value=subcat.name,rel=cat.slug) 
+                            =subcat.name
+                  .col-md-3.col-xs-3(style="margin-top:1rem")
                     input.form-control#surburb(name='surburb' type='text' placeholder='Enter a location...')
                     //select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
-                      
+                  .col-md-3.col-xs-3(style="margin-top:1rem")
+                    input(type="text" id="minprice" class="form-control" placeholder="Max Price",name="manprice")    
                   
-                .row
+                //.row
                   .col-xs-6(style="margin-top:1rem")
                     select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory", style="color: #444 !important;")
                       option(class='status',value='') Select Property Type
