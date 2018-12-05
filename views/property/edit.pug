@@ -173,7 +173,7 @@ block content
                                     select#amenities.amenities.selectpicker.form-control(data-live-search='true', data-live-search-style='begins', title='Edit property Ammenity',name='amenities', multiple)
                                         if currentamenities
                                           each ammenity in currentamenities
-                                             option(data-icon='fa '+ammenity.icon,value=ammenity.id, style='color:#00000', class='selected')  
+                                             option(data-icon='fa '+ammenity.icon,value=ammenity.id, style='color:#c00000', selected)  
                                                =ammenity.name
                                         each amenity in amenities
                                             option(data-icon='fa '+amenity.icon,value=amenity.id) 

@@ -761,7 +761,7 @@ label small{
 }
 .navbar{
     margin-bottom: 0px;
-    min-height: 100px;
+    /*min-height: 100px;*/
 }
 .navbar-default {
     background-image: none;
@@ -1004,6 +1004,7 @@ label small{
 
 .slider-area{
     position: relative;
+    height: 450px;
 }
 #bg-slider .item img{
     width: 100%;
@@ -3638,4 +3639,8 @@ input[type="checkbox"]:disabled + .label-text:before{
     }
     #confirm .message {
     text-align: center;
+    }
+    .container-fluid {
+     padding-right: 0; 
+     padding-left: 0;
     }
