@@ -115,7 +115,6 @@ router.post('/google', function(req, res){
   });
 });
 
-
 router.get('/search', function(req, res, next) {
   var obj = {approved : true};
   var sort = {};
@@ -152,6 +151,16 @@ router.get('/search', function(req, res, next) {
   if(req.query.hasOwnProperty('bathrooms')){
     if(req.query.bathrooms.length > 0){
       obj.bathrooms = req.query.bathrooms;
+    }
+  }
+  if(req.query.hasOwnProperty('serviced')){
+    if(req.query.serviced.length > 0){
+      obj.serviced = parseInt(req.query.serviced);
+    }
+  }
+  if(req.query.hasOwnProperty('furnished')){
+    if(req.query.furnished.length > 0){
+      obj.furnished = parseInt(req.query.furnished);
     }
   }
   if(req.query.hasOwnProperty('price')){
