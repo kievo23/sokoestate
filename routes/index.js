@@ -197,7 +197,7 @@ router.get('/property/:slug',function(req, res){
         categories: categories,
         similars: values[1],
         description: property.description,
-        amenities: values[0]
+        currentamenities: values[0]
       });
     });
   });
