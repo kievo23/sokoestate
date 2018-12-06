@@ -1971,7 +1971,7 @@ single property page
     position: absolute;
     z-index: 9;
     right: 0px;
-    padding: 15px;
+    /*padding: 15px;*/
 }
 .favorite-and-print .add-to-fav {
     color: #FFF;
@@ -2002,7 +2002,7 @@ single property page
     margin-top: -35px;
 }
 .single-property-header {
-    padding-bottom: 25px;
+    padding-bottom: 1rem;
     position: relative;
     clear: both;
     overflow: hidden;
@@ -2016,7 +2016,7 @@ single property page
 }
 .single-property-header .property-price{
     color: #04045a;
-    font-size: 30px;
+    font-size: 20px;
     letter-spacing: 1.5px;
     right: 0px;
     border-bottom: 2px solid;
