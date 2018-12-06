@@ -31,7 +31,7 @@ block content
                   
                   .col-md-3.col-xs-6(style="margin-top:1rem")
                     select#basic.show-tick.form-control(title='Select Property Sub-type',name="subcategory", style="color: #04045a !important;")
-                      option(class='status',value='',style='color: #04045a;') Select Property Type
+                      option(class='status',value='',style='color: #04045a;') SELECT PROPERTY TYPE
                       each cat in categories
                         each subcat in cat.subcategories
                           option(class='category iradio_square-yellow',value=subcat.name,rel=cat.slug) 
