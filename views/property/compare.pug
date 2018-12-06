@@ -1,0 +1,219 @@
+extends ../layout
+
+block content        
+    // property area
+    .properties-area.recent-property(style='background-color: #FFF;')
+        .container-fluid(style="background: #eaeaea; text-align: center;")
+            .row
+                .col-md-8.padding-top-40.properties-page            
+                    // / .layout-switcher
+                    .section.clear
+                        #list-type.proerty-th
+                            each p in properties
+                                .row(style="box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25) !important; background-color: #fff; margin-bottom:1rem;")
+                                    .col-sm-5
+                                        a(href='/property/'+p.slug)
+                                            .box-two.proerty-item
+                                                .item-thumb
+                                                    a(href='/property/'+p.slug)
+                                                        if(p.photo)
+                                                            img(src='/uploads/'+p.photo, style='width:!00%; height:213px')
+                                                            if p.type == 'sale'
+                                                              div.top-left
+                                                                small For Sale
+                                                                
+                                                            if p.type == 'rent'
+                                                              div.top-left
+                                                                small For Rent
+                                                                  
+                                                        else
+                                                            img(src='/assets/img/noimageavailable.png', style='width:100%; height:213px')
+                                                            if p.type == 'sale'
+                                                              div.top-left
+                                                                small For Sale
+                                                                
+                                                            if p.type == 'rent'
+                                                              div.top-left
+                                                                small For Rent
+                                    .col-sm-7
+                                      a(href='/property/'+p.slug)
+                                        .item-entry.overflow
+                                            
+                                            h5
+                                                span.pull-left
+                                                    a(href='/property/'+p.slug) 
+                                                        =p.name
+                                                br
+                                                span.pull-left
+                                                small
+                                                    i.fa.fa-map-marker(aria-hidden="true")
+                                                    span 
+                                                        =p.surburb
+                                                span.proerty-price.pull-right 
+                                                    if p.enquiry==true
+                                                        table#price-property
+                                                            table.table(style="margin-bottom: 0px;")
+                                                                tr
+                                                                    td
+                                                                      small(style='color:#04045a') 
+                                                                        | Price on Enquiry
+                                                    else 
+                                                        table#price-property.table(style="margin-bottom: 0px;")
+                                                            tr
+                                                                td(style='color:#04045a')
+                                                                  =p.price
+                                                    
+                                                   
+
+                                            if(p.tagline)
+                                                p
+                                                    span.pull-left
+                                                        h6
+                                                            =p.tagline        
+                                            if(p.description)  
+                                                  
+                                                p
+                                                    if p.description.length > 200
+                                                        p.pull-left  !{p.description.substr(0, 200)+ '..... <strong style="background-color:#c00000; color:#fff; padding:1px">Read More</strong>'}     
+                                                    else
+                                                        p.pull-left
+                                                            =p.description
+                                            p
+                                                span.proerty-price.pull-right
+                                                    a(href="#" title="Love it" class="btn btn-love btn-counter" rel=p._id, data-count="0")
+                                                        i.fa-2x.fa.fa-heart(style="font-size: 1.5em;")
+                                
+                    .section
+                        .pull-right
+                            .pagination
+                                ul
+                                    li
+                                    a(href='#') Prev
+                                    li
+                                    a(href='#') 1
+                                    li
+                                    a(href='#') 2
+                                    li
+                                    a(href='#') 3
+                                    li
+                                    a(href='#') 4
+                                    li
+                                    a(href='#') Next
+                .col-md-4.pl0.padding-top-40
+                    .pl0
+                        .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+                            .panel-heading
+                                h3.panel-title Smart search
+                            .panel-body.search-widget
+                                form.form-inline(action='search',method='get')
+                                    .row
+                                        .col-md-12(style='padding-right: 0px; padding-left: 0px;')
+                                            .btn-group(style='float: left; padding-left: 2rem;')
+                                                each cate, i in categories
+                                                    if(cate.order == 1)
+                                                        input(type="radio", id=cate.name, class="radio-custom", checked="checked", name="category",value=cate.id, rel=cate.slug, style="display:none; position absolute")
+                                                        label(for=cate.name, type="button", class="btn btn-primary btn-search")
+                                                          =cate.name
+                                                    else
+                                                        input(type="radio", id=cate.name, class="radio-custom", name="category", value=cate.id, rel=cate.slug, style="display:none; position absolute")
+                                                        label(for=cate.name, type="button", class="btn btn-primary btn-search")
+                                                          =cate.name
+                                                    //button(type="button" class="btn btn-primary btn-search" style="margin-left:2px; margin-top:2px;")
+                                                        label
+                                                            input(type="radio" name="category",value=cat.id, rel=cat.slug style="display:none; position absolute")
+                                                            =cat.name
+                                    .row
+                                        .col-xs-6(style="margin-top:1rem")
+                                            .switch-field
+                                                input#switch_left(type='radio' name='type' value='sale' checked='')
+                                                label(for='switch_left') For Sale
+                                                input#switch_right(type='radio' name='type' value='rent')
+                                                label(for='switch_right') For Rent
+                                        .col-xs-6(style="margin-top:1rem")
+                                            select#lunchBegins.selectpicker(data-live-search='true' data-live-search-style='begins' title='Location', name="city")
+                                                option New york, CA
+                                                option Paris
+                                                option Casablanca
+                                                option Tokyo
+                                                option Marraekch
+                                                option kyoto , shibua
+                                    
+                                    .row
+                                        .col-xs-6(style="margin-top:1rem")
+                                            select#basic.show-tick.form-control(title='Select Property Subcategory',name="subcategory")
+                                                option(class='status',value='') Property Category
+                                                each cat in categories
+                                                    each subcat in cat.subcategories
+                                                        option(class='category iradio_square-yellow',value=subcat.name,rel=cat.name) 
+                                                            =subcat.name
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" id="minprice" class="form-control" placeholder="Max Price",name="manprice")
+                                        
+                                    .row(class='others')
+                                        .col-xs-8(style="margin-top:1rem")
+                                        input(type="text" class="form-control" placeholder="Size",name="size")
+                                                
+                                        .col-xs-4(style="margin-top:1rem")
+                                            select#basic.selectpicker.show-tick.form-control(data-live-search='true' data-live-search-style='begins')
+                                                option  Acre
+                                                option Hectares 
+                                                option m2
+                                                option SqF
+                                    .row(class='residential')
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" class="form-control" placeholder="No.BEDROOMS",name="bedrooms")
+                                            
+                                        .col-xs-6(style="margin-top:1rem")
+                                            input(type="text" class="form-control" placeholder="No.BATHROOMS",name="bathrooms")
+                                    .row
+                                        .col-xs-12(style="margin-top:1rem")
+                                            a(href="#")
+                                            button.btn.search-btn.hide-search.text-center(type='submit')
+                                                i.fa.fa-search
+                                                |     Search
+                        .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
+                            .panel-heading
+                               h3.panel-title Featured Properties
+                            .panel-body.recent-property-widget
+                                ul
+                                  if(featured)
+                                    each feat, i in featured
+                                        if(i<6)
+                                            .row(style="box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); margin-bottom:1rem;")
+                                                .col-md-3.col-sm-3.col-xs-3.blg-thumb.p0
+                                                    a(href='/property/'+feat.slug)
+                                                        img(src='/uploads/' +feat.photo)
+                                                        span.property-seeker
+                                                    //span.property-seeker
+                                                        b.b-1 A
+                                                        b.b-2 S
+                                                .col-md-8.col-sm-8.col-xs-8.blg-entry
+                                                    .row
+                                                        .col-md-12
+                                                            h6
+                                                                a(href='/property/'+feat.slug)
+                                                                =feat.name
+                                                            br
+                                                            span.pull-left
+                                                            small
+                                                                i.fa.fa-map-marker(aria-hidden="true")
+                                                                span 
+                                                                    =feat.surburb
+                                                        .col-md-12    
+                                                            span.property-price
+                                                                if feat.enquiry==true
+                                                                    table#price-property
+                                                                        table.table(style="margin-bottom: 0px;")
+                                                                            tr
+                                                                                td
+                                                                                small Price on Enquiry
+                                                                else 
+                                                                    table#price-property.table(style="margin-bottom: 0px;")
+                                                                        tr
+                                                                            td
+                                                                                small #{feat.price}
+                                                                
+                                                            
+                                                    
+                                                      
+                                        
