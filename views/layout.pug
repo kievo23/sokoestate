@@ -279,7 +279,7 @@ script(type='text/javascript').
   $(document).ready(function(){
     $('#compare').click(function(d){
       console.log(d);
-      axios.get('/favorite/'+$(this).attr('rel'))
+      axios.get('/property/compare/add/'+$(this).attr('rel'))
       .then(function (response) {
         console.log(response);
         Notify.toast(response.data, {
