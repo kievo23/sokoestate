@@ -74,6 +74,10 @@ html
                 li
                   a(href='') Home  3
                 
+            li.wow.fadeInDown#compare_li(data-wow-delay='0.2s')
+              a(href='/property/compare')  Compare Properties
+                span#compare_count.badge.badge-light
+                  
             li.wow.fadeInDown(data-wow-delay='0.2s')
               a(href='/property') view Properties
             li.wow.fadeInDown(data-wow-delay='0.3s')
@@ -278,10 +282,11 @@ script(type='text/javascript').
 script(type='text/javascript').
   $(document).ready(function(){
     $('#compare').click(function(d){
-      console.log(d);
+      //console.log(d);
       axios.get('/property/compare/add/'+$(this).attr('rel'))
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
+        $('#compare_count').html(" "+response.data);
         Notify.toast(response.data, {
           fn: function () {
             // custom function here

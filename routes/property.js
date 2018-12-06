@@ -120,17 +120,19 @@ router.get('/edit/:id', role.auth, function(req, res, next){
 });
 
 router.get('/compare/add/:id', function(req, res, next){
-  console.log(req.session.compare);
+  function onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
+  }
   if(req.session.compare){
     req.session.compare.push(req.params.id);
-    console.log("if");
+    req.session.compare = req.session.compare.filter( onlyUnique );
   }else{
-    console.log("else");
     let compare = [];
     compare.push(req.params.id);
     req.session.compare = compare;
   }
-  res.json(req.session.compare);
+  console.log(req.session.compare);
+  res.json(req.session.compare.length);
 });
 
 router.get('/compare/clear', function(req, res, next){
