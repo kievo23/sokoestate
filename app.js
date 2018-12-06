@@ -42,10 +42,9 @@ app.set('view engine', 'pug');
 app.use(cookieSession({
   name: 'session',
   keys: ['m@ckl3mor3!sth#b0mb'],
-
   // Cookie Options
   //maxAge: 7 * 24 * 60 * 60 * 1000 // 24 hours
-}))
+}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -175,6 +174,7 @@ app.use(function(req, res, next){
   res.locals.error_msg = req.flash('error_msg') || null;
   res.locals.error = req.flash('error') || null;
   res.locals.user = req.user || emptyUser;
+  res.locals.compare = req.session.compare || null;
   res.locals.loggedin = loggedin;
   res.locals.forgotpassword = req.get('host');
   if(req.user != null){
