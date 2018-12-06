@@ -91,9 +91,10 @@ block content
                                                 small (required)
                                             input.form-control(name='propertyprice', id='myTexts', type='text', placeholder=property.price, value=property.price, required)
                                        .col-xs-6
-                                            label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
-                                                input(type='checkbox', id='checkMee', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()')
-                                                span.checkmark
+                                            if property.enquiry == true
+                                                label.container-checkbox(style="font-size: inherit; margin-top: 4rem;")  Price on inquiry
+                                                    input(type='checkbox', id='checkMee', name='enquiry',value='enquiry', style='padding-left: 0;', onclick='disableMyText()', checked)
+                                                    span.checkmark
                                     
                             .col-sm-12
                                 .col-sm-6

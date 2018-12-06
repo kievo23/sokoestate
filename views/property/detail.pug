@@ -10,10 +10,15 @@ block content
                     .row
                         .nav
                             if(property)
-                              | #{property.category.name}  |
+                              strong
+                                | #{property.category.name}  |
                               span 
                               if(property.subcategory)
-                                | #{property.subcategory}  
+                                strong
+                                  | #{property.subcategory}  
+                            span.pull-right(style='padding: 1rem;')
+                                a(href='/compare')
+                                button.btn.btn-primary Compare
                               
                                
                     .row
@@ -115,7 +120,8 @@ block content
                                     each amenity in currentamenities
                                         div
                                             span.col-xs-6.col-sm-6.col-md-3.add-d-entry
-                                              i(class='fa fa-2x '+amenity.icon )     
+                                              //i(class='fa fa-2x '+amenity.icon )
+                                              i(class='dfi ' +amenity.icon)     
                                               =amenity.name
                                     
                         // End description area
