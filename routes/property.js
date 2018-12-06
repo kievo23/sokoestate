@@ -119,6 +119,32 @@ router.get('/edit/:id', role.auth, function(req, res, next){
 	  });
 });
 
+router.get('/compare/add/:id', function(req, res, next){
+  console.log(req.session.compare);
+  if(req.session.compare){
+    req.session.compare.push(req.params.id);
+    console.log("if");
+  }else{
+    console.log("else");
+    let compare = [];
+    compare.push(req.params.id);
+    req.session.compare = compare;
+  }
+  res.json(req.session.compare);
+});
+
+router.get('/compare/clear', function(req, res, next){
+  delete req.session.compare;
+  res.redirect('/');
+});
+
+router.get('/compare/', function(req, res, next){
+  Property.find({
+    '_id': { $in: req.session.compare}
+  }).then(function(d){
+  res.render('/property/compare',{comparison: d,title: "Compare Properties" });
+});
+
 router.get('/fetchcategory/:name', function(req, res, next){
 	//console.log(req.params.name);
 	Category.findById(req.params.name)
