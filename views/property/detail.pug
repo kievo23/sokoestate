@@ -107,7 +107,7 @@ block content
                                      =property.tagline 
                                     p
                                      =property.description
-                        if currentamenities    
+                        if currentamenities     
                             .section.additional-details
                                 h4.s-property-title.text-left
                                     strong Amenities
@@ -115,7 +115,7 @@ block content
                                     each amenity in currentamenities
                                         div
                                             span.col-xs-6.col-sm-6.col-md-3.add-d-entry
-                                              i(data-icon='fa '+amenity.icon) 
+                                              i(class='fa fa-2x '+amenity.icon )     
                                               =amenity.name
                                     
                         // End description area
