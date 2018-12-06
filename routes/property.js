@@ -143,6 +143,7 @@ router.get('/compare/', function(req, res, next){
     '_id': { $in: req.session.compare}
   }).then(function(d){
   res.render('/property/compare',{comparison: d,title: "Compare Properties" });
+  });
 });
 
 router.get('/fetchcategory/:name', function(req, res, next){

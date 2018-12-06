@@ -277,6 +277,23 @@ script(type='text/javascript').
   });
 script(type='text/javascript').
   $(document).ready(function(){
+    $('#compare').click(function(d){
+      console.log(d);
+      axios.get('/favorite/'+$(this).attr('rel'))
+      .then(function (response) {
+        console.log(response);
+        Notify.toast(response.data, {
+          fn: function () {
+            // custom function here
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    });
+    
+    //search params.
     var url = new URL(window.location.href);
     var priceicon = url.searchParams.get('price');
     var dateicon = url.searchParams.get('date');
