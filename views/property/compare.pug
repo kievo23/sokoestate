@@ -3,7 +3,7 @@ extends ../layout
 block content        
     // property area
     .properties-area.recent-property(style='background-color: #FFF;')
-        .container-fluid(style="background: #eaeaea; text-align: center;")
+        .container-fluid(style="text-align: center;")
             .row
                 .col-md-4.pl0.padding-top-40
                     .pl0
@@ -15,47 +15,53 @@ block content
                                            
                 .col-md-8.padding-top-40.properties-page            
                     .row.row-eq-height.col-container
-                        //each rec, i in recents
-                            if(i<6)
-                        .proerty-th
-                            .col-sm-6.col-md-4.py
-                                .box-two.proerty-item
-                                    .item-thumb
-                                        //a(href='/property/'+rec.slug)
-                                            if(rec.photo)
-                                                img(src='/uploads/'+rec.photo, style='width:100%; height:213px')
-                                                div.fav-property
-                                                    a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=rec._id, data-count="0")
-                                                        i.fa.fa-2x.fa-heart(style='color:#000;')
-                                            
-                                        img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
-                                        div.fav-property
-                                            a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
-                                                i.fa.fa-2x.fa-heart(style='color:#000;')
-                                            
-                                    .item-entry.overflow
+                        each property in properties
+                            .proerty-th
+                                .col-sm-6.col-md-4.py
+                                    .box-two.proerty-item
+                                        .item-thumb
+                                            a(href='/property/compare/'+property.slug)
+                                                if(property.photo)
+                                                    img(src='/uploads/'+property.photo, style='width:100%; height:213px')
+                                                    div.fav-property
+                                                        a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=property._id, data-count="0")
+                                                            i.fa.fa-2x.fa-heart(style='color:#000;')
+                                                else
+                                                    img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
+                                                    div.fav-property
+                                                        a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
+                                                            i.fa.fa-2x.fa-heart(style='color:#000;')
+                                                
                                         .item-entry.overflow
-                                            | the house
-                                        .dot-hr
-                                            span.pull-left
-                                                //if(rec.size)
-                                                img(src="/assets/img/icon/size.png" style="width: 25px;")
-                                                small 67 Ha
-                                                //|   ( Size:  #{rec.size}  #{rec.units})
-                                                //else if (rec.bedrooms && rec.bathrooms)
-                                            span
-                                                img(src="/assets/img/icon/bed.png" style="width: 25px;")
-                                                small 5
-                                                    //|   ( #{rec.bedrooms} )   
-                                            span
-                                                img(src="/assets/img/icon/shower.png" style="width: 25px;")
-                                                small 6
-                                                    //|   ( #{rec.bathrooms}  )  
-                                            
-                                            span.proerty-price.pull-right 
-                                                //table#price-property.table
-                                                tr
-                                                    //if rec.price
-                                                    td 700000
-                                                    //small #{rec.price}
+                                            .item-entry.overflow
+                                                a(href='/property/'+property.slug)
+                                                    small
+                                                    | #{property.subcategory} for #{property.type} in 
+                                                    span
+                                                        | #{property.county} , 
+                                                    span    
+                                                        | #{property.surburb}
+                                            .dot-hr
+                                                span.pull-left
+                                                    if(property.size)
+                                                        img(src="/assets/img/icon/size.png" style="width: 25px;")
+                                                        small 
+                                                            |   Size:  #{property.size}  #{property.units}
+                                                    
+                                                    else if (property.bedrooms && property.bathrooms)  
+                                                        span
+                                                            img(src="/assets/img/icon/bed.png" style="width: 25px;")
+                                                            small 
+                                                                |   ( #{property.bedrooms} )   
+                                                        span
+                                                            img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                                                            small 6
+                                                                |   ( #{property.bathrooms}  )  
+                                                
+                                                span.proerty-price.pull-right 
+                                                    table#price-property.table
+                                                        tr
+                                                            if property.price
+                                                               td 
+                                                                 small #{property.price}
                                                 
