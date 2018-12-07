@@ -5,7 +5,7 @@ block content
     .properties-area.recent-property(style='background-color: #FFF;')
         .container-fluid(style="text-align: center;")
             .row
-                .col-md-4.pl0.padding-top-40
+                .col-md-2.pl0.padding-top-10
                     .pl0
                         .panel.panel-default.sidebar-menu.wow.fadeInRight.animated
                             .panel-heading
@@ -13,55 +13,102 @@ block content
                             .panel-body.search-widget
                                 form.form-inline(action='search',method='get')
                                            
-                .col-md-8.padding-top-40.properties-page            
+                .col-md-10.padding-top-10.properties-page            
                     .row.row-eq-height.col-container
-                        each property in properties
-                            .proerty-th
-                                .col-sm-6.col-md-3.py
-                                    .box-two.proerty-item
-                                        .item-thumb
-                                            a(href='/property/compare/'+property.slug)
-                                                if(property.photo)
-                                                    img(src='/uploads/'+property.photo, style='width:100%; height:213px')
-                                                    div.fav-property
-                                                        a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=property._id, data-count="0")
-                                                            i.fa.fa-2x.fa-heart(style='color:#000;')
-                                                else
-                                                    img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
-                                                    div.fav-property
-                                                        a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
-                                                            i.fa.fa-2x.fa-heart(style='color:#000;')
-                                                
-                                        .item-entry.overflow
-                                            .item-entry.overflow
-                                                a(href='/property/'+property.slug)
-                                                    small
-                                                    | #{property.subcategory} for #{property.type} in 
-                                                    span
-                                                        | #{property.county} , 
-                                                    span    
-                                                        | #{property.surburb}
-                                            .dot-hr
-                                                span.pull-left
-                                                    if(property.size)
-                                                        img(src="/assets/img/icon/size.png" style="width: 25px;")
-                                                        small 
-                                                            |   Size:  #{property.size}  #{property.units}
+                        .col-md-12
+                            each property in properties
+                                .proerty-th
+                                    .col-sm-6.col-md-3.py
+                                        .box-two.proerty-item
+                                            .item-thumb
+                                                a(href='/property/compare/'+property.slug)
+                                                    if(property.photo)
+                                                        img(src='/uploads/'+property.photo, style='width:100%; height:213px')
+                                                        div.fav-property
+                                                            a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=property._id, data-count="0")
+                                                                i.fa.fa-2x.fa-heart(style='color:#000;')
+                                                    else
+                                                        img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
+                                                        div.fav-property
+                                                            a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
+                                                                i.fa.fa-2x.fa-heart(style='color:#000;')
                                                     
-                                                    else if (property.bedrooms && property.bathrooms)  
+                                            #container.col
+                                                .card(style='width: 18rem;')
+                                                    ul.list-group.list-group-flush
+                                                        li.list-group-item 
+                                                            span.proerty-price
+                                                                table#price-property.table
+                                                                    tr
+                                                                        if property.price
+                                                                            td 
+                                                                                small #{property.price}
+                                                        li.list-group-item 
+                                                            | #{property.county}
+                                                        li.list-group-item 
+                                                            | #{property.surburb}
+                                                        if(property.size)  
+                                                            li.list-group-item
+                                                                img(src="/assets/img/icon/size.png" style="width: 25px;")
+                                                                small 
+                                                                    |   Size:  #{property.size}  #{property.units}
+                                                        
+                                                            else if (property.bedrooms && property.bathrooms)  
+                                                                span
+                                                                    img(src="/assets/img/icon/bed.png" style="width: 25px;")
+                                                                    small 
+                                                                        |   ( #{property.bedrooms} )   
+                                                                span
+                                                                    img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                                                                    small 
+                                                                        |   ( #{property.bathrooms}  )  
+                                                        if currentamenities
+                                                            li.list-group-item      
+                                                                .section.additional-details
+                                                                    h4.s-property-title.text-left
+                                                                        strong Amenities
+                                                                    .additional-details-list.clearfix
+                                                                        each amenity in currentamenities
+                                                                            div
+                                                                                span.col-xs-6.col-sm-6.col-md-3.add-d-entry
+                                                                                //i(class='fa fa-2x '+amenity.icon )
+                                                                                i(class='dfi ' +amenity.icon)     
+                                                                                =amenity.name
+                                                    
+                                                            
+                                                        
+                                            //.item-entry.overflow
+                                                .item-entry.overflow
+                                                    a(href='/property/'+property.slug)
+                                                        small
+                                                        | #{property.subcategory} for #{property.type} in 
                                                         span
-                                                            img(src="/assets/img/icon/bed.png" style="width: 25px;")
+                                                            | #{property.county} , 
+                                                        span    
+                                                            | #{property.surburb}
+                                                .dot-hr
+                                                    span.pull-left
+                                                        if(property.size)
+                                                            img(src="/assets/img/icon/size.png" style="width: 25px;")
                                                             small 
-                                                                |   ( #{property.bedrooms} )   
-                                                        span
-                                                            img(src="/assets/img/icon/shower.png" style="width: 25px;")
-                                                            small 
-                                                                |   ( #{property.bathrooms}  )  
-                                                
-                                                span.proerty-price.pull-right 
-                                                    table#price-property.table
-                                                        tr
-                                                            if property.price
-                                                               td 
-                                                                 small #{property.price}
-                                                
+                                                                |   Size:  #{property.size}  #{property.units}
+                                                        
+                                                        else if (property.bedrooms && property.bathrooms)  
+                                                            span
+                                                                img(src="/assets/img/icon/bed.png" style="width: 25px;")
+                                                                small 
+                                                                    |   ( #{property.bedrooms} )   
+                                                            span
+                                                                img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                                                                small 
+                                                                    |   ( #{property.bathrooms}  )  
+                                                    
+                                                    span.proerty-price.pull-right 
+                                                        table#price-property.table
+                                                            tr
+                                                                if property.price
+                                                                td 
+                                                                    small #{property.price}
+                    .row
+                       table
+                                                     
