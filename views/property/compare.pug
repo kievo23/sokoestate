@@ -11,89 +11,95 @@ block content
                             .panel-heading
                                 h3.panel-title Smart search
                             .panel-body.search-widget
-                                form.form-inline(action='search',method='get')
-                                           
+                                form.form-inline(action='search',method='get')                         
                 .col-md-8.padding-top-10.properties-page            
                     .row.row-eq-height.col-container
                         .col-md-12
-                            table(border="0" cellspacing="0" cellpadding="0" style="float:left;") 
+                            table(border="0" cellspacing="0" cellpadding="0" style="float:left; margin-right:10px;")
                                 tr
-                                    each property, i in properties
+                                    td
+                                    each property,i in properties
                                         if(i<4)
-                                            td
-                                                .proerty-th
-                                                    .col-sm-12.col-md-12.py
-                                                        .box-two.proerty-item
-                                                            .item-thumb
-                                                                a(href='/property/compare/'+property.slug)
-                                                                    if(property.photo)
-                                                                        img(src='/uploads/'+property.photo, style='width:100%; height:213px')
-                                                                        div.fav-property
-                                                                            a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=property._id, data-count="0")
-                                                                                i.fa.fa-2x.fa-heart(style='color:#000;')
-                                                                    else
-                                                                        img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
-                                                                        div.fav-property
-                                                                            a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
-                                                                                i.fa.fa-2x.fa-heart(style='color:#000;')
-                                                                    
-                                                            #container.col
-                                                                .card(style='width: 100%')
-                                                                    ul.list-group.list-group-flush
-                                                                        li.list-group-item 
-                                                                            span.proerty-price
-                                                                                table#price-property.table
-                                                                                    tr
-                                                                                        if property.price
-                                                                                            td 
-                                                                                                small #{property.price}
-                                                                        li.list-group-item 
-                                                                            | #{property.county}
-                                                                        li.list-group-item 
-                                                                            | #{property.surburb}
-                                                                        if(property.size)  
-                                                                            li.list-group-item
-                                                                                img(src="/assets/img/icon/size.png" style="width: 25px;")
-                                                                                small 
-                                                                                    |   Size:  #{property.size}  #{property.units}
-                                                                        
-                                                                        else if (property.bedrooms && property.bathrooms)  
-                                                                            li.list-group-item
-                                                                                span
-                                                                                    img(src="/assets/img/icon/bed.png" style="width: 25px;")
-                                                                                    small 
-                                                                                        |   ( #{property.bedrooms} )   
-                                                                                span
-                                                                                    img(src="/assets/img/icon/shower.png" style="width: 25px;")
-                                                                                    small 
-                                                                                        |   ( #{property.bathrooms}  )  
-                                                                        if currentamenities
-                                                                            li.list-group-item      
-                                                                                .section.additional-details
-                                                                                    h4.s-property-title.text-left
-                                                                                        strong Amenities
-                                                                                    .additional-details-list.clearfix
-                                                                                        each amenity in currentamenities
-                                                                                            div
-                                                                                                span.col-xs-6.col-sm-6.col-md-3.add-d-entry
-                                                                                                //i(class='fa fa-2x '+amenity.icon )
-                                                                                        i(class='dfi ' +amenity.icon)     
-                                                                                        =amenity.name
-                                    tr  
-                                        td
-                                          h4 Cost
-                                    tr        
-                                        td
-                                          h4 Location
-                                    tr    
-                                        td
-                                          h4 Size
-                                    tr
-                                        td 
-                                          h4 Bedrooms 
-                                    tr 
-                                        td
-                                          h4 Amenities
-                    
-                            
-                                                     
+
+                                            td 
+                                                .row
+                                                    .proerty-th
+                                                        .col-sm-12.col-md-12.p0
+                                                            .box-two.proerty-item
+                                                                .item-thumb(style="margin:1rem")
+                                                                    a(href='/property/compare/'+property.slug)
+                                                                        if(property.photo)
+                                                                            img(src='/uploads/'+property.photo, style='width:100%; height:213px')
+                                                                            div.fav-property
+                                                                                a(href="#" title="Favourite it" class="btn btn-love btn-counter" rel=property._id, data-count="0")
+                                                                                    i.fa.fa-2x.fa-heart(style='color:#000;')
+                                                                        else
+                                                                            img(src='assets/img/demo/property-1.jpg', style='width:100%; height:213px')
+                                                                            div.fav-property
+                                                                                a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
+                                                                                    i.fa.fa-2x.fa-heart(style='color:#000;')
+                                tr  
+                                    td
+                                        if(properties)
+                                           if(properties.length>0)
+                                                #container.col
+                                                    .card(style='width: 100%')
+                                                        ul.list-group.list-group-flush
+                                                            li.list-group-item  
+                                                            strong Price             
+                                                            li.list-group-item 
+                                                                strong City
+                                                            li.list-group-item 
+                                                                strong Suburb
+                                                            li.list-group-item
+                                                                strong Size /  Bedrooms and Bathrooms 
+                                                            li.list-group-item
+                                                                strong Amenities  
+                                    each property in properties  
+                                        
+                                        td                            
+                                                            
+                                            #container.col
+                                                .card(style='width: 100%')
+                                                    ul.list-group.list-group-flush
+                                                        li.list-group-item 
+                                                            if property.price 
+                                                                | #{property.price}
+                                                            else  
+                                                                | N/A 
+                                                                           
+                                                        li.list-group-item 
+                                                            if property.county
+                                                               | #{property.county}
+                                                            else    
+                                                               | N/A
+                                                        li.list-group-item
+                                                            if property.surburb 
+                                                               | #{property.surburb}
+                                                            else
+                                                               | N/A
+                                                        if(property.size)  
+                                                            li.list-group-item
+                                                                img(src="/assets/img/icon/size.png" style="width: 25px;")
+                                                                |   Size:  #{property.size}  #{property.units}
+                                                        
+                                                        else if (property.bedrooms && property.bathrooms)  
+                                                            li.list-group-item
+                                                                span
+                                                                    img(src="/assets/img/icon/bed.png" style="width: 25px;") 
+                                                                    |   ( #{property.bedrooms} )   
+                                                                span
+                                                                    img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                                                                    |   ( #{property.bathrooms}  )  
+                                                        else
+                                                            | N/A
+                                                        if currentamenities
+                                                            li.list-group-item      
+                                                                .section.additional-details
+                                                                    h4.s-property-title.text-left
+                                                                        strong Amenities
+                                                                    .additional-details-list.clearfix
+                                                                        each amenity in currentamenities
+                                                                            div
+                                                                                span.col-xs-6.col-sm-6.col-md-3.add-d-entry
+                                                                                //i(class='fa fa-2x '+amenity.icon    
