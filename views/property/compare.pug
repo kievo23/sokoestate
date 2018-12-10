@@ -41,7 +41,7 @@ block content
                                 tr  
                                     td
                                         if(properties)
-                                           if(properties.length>0)
+                                            if(properties.length<0)
                                                 #container.col
                                                     .card(style='width: 100%')
                                                         ul.list-group.list-group-flush
@@ -55,6 +55,8 @@ block content
                                                                 strong Size /  Bedrooms and Bathrooms 
                                                             li.list-group-item
                                                                 strong Amenities  
+                                            else
+                                                h2 Oops there is nothing to compare!
                                     each property in properties  
                                         if(i<3)
                                         
