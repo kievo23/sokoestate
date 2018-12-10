@@ -17,7 +17,6 @@ block content
                         .col-md-12
                             table(border="0" cellspacing="0" cellpadding="0" style="float:left; margin-right:10px;")
                                 tr
-                                    td
                                     each property,i in properties
                                         if(i<3)
 
@@ -38,6 +37,8 @@ block content
                                                                             div.fav-property
                                                                                 a(href="#" title="Favourite it" class="btn btn-love btn-counter" )
                                                                                     i.fa.fa-2x.fa-heart(style='color:#000;')
+                                    else
+                                        | 
                                 tr  
                                     td
                                         if(properties)
