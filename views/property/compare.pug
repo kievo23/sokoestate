@@ -19,7 +19,7 @@ block content
                                 tr
                                     td
                                     each property,i in properties
-                                        if(i<4)
+                                        if(i<3)
 
                                             td 
                                                 .row
@@ -46,7 +46,7 @@ block content
                                                     .card(style='width: 100%')
                                                         ul.list-group.list-group-flush
                                                             li.list-group-item  
-                                                            strong Price             
+                                                                strong Price             
                                                             li.list-group-item 
                                                                 strong City
                                                             li.list-group-item 
@@ -56,50 +56,53 @@ block content
                                                             li.list-group-item
                                                                 strong Amenities  
                                     each property in properties  
+                                        if(i<3)
                                         
-                                        td                            
+                                            td                            
+                                                                
+                                                #container.col
+                                                    .card(style='width: 100%')
+                                                        ul.list-group.list-group-flush
+                                                            li.list-group-item 
+                                                                if property.price 
+                                                                    | #{property.price}
+                                                                else  
+                                                                    | N/A 
+                                                                            
+                                                            li.list-group-item 
+                                                                if property.county
+                                                                    | #{property.county}
+                                                                else    
+                                                                    | N/A
+                                                            li.list-group-item
+                                                                if property.surburb 
+                                                                    | #{property.surburb}
+                                                                else
+                                                                    | N/A
+                                                            if(property.size)  
+                                                                li.list-group-item
+                                                                    img(src="/assets/img/icon/size.png" style="width: 25px;")
+                                                                    |   Size:  #{property.size}  #{property.units}
                                                             
-                                            #container.col
-                                                .card(style='width: 100%')
-                                                    ul.list-group.list-group-flush
-                                                        li.list-group-item 
-                                                            if property.price 
-                                                                | #{property.price}
-                                                            else  
-                                                                | N/A 
-                                                                           
-                                                        li.list-group-item 
-                                                            if property.county
-                                                               | #{property.county}
-                                                            else    
-                                                               | N/A
-                                                        li.list-group-item
-                                                            if property.surburb 
-                                                               | #{property.surburb}
+                                                            else if (property.bedrooms && property.bathrooms)  
+                                                                li.list-group-item
+                                                                    span
+                                                                        img(src="/assets/img/icon/bed.png" style="width: 25px;") 
+                                                                        |   ( #{property.bedrooms} )   
+                                                                    span
+                                                                        img(src="/assets/img/icon/shower.png" style="width: 25px;")
+                                                                        |   ( #{property.bathrooms}  )  
+                                                            else
+                                                                | N/A
+                                                            if currentamenities
+                                                                li.list-group-item      
+                                                                    .section.additional-details
+                                                                        h4.s-property-title.text-left
+                                                                            strong Amenities
+                                                                        .additional-details-list.clearfix
+                                                                            each amenity in currentamenities
+                                                                                div
+                                                                                    span.col-xs-6.col-sm-6.col-md-3.add-d-entry
+                                                                                    //i(class='fa fa-2x '+amenity.icon    
                                                             else
                                                                | N/A
-                                                        if(property.size)  
-                                                            li.list-group-item
-                                                                img(src="/assets/img/icon/size.png" style="width: 25px;")
-                                                                |   Size:  #{property.size}  #{property.units}
-                                                        
-                                                        else if (property.bedrooms && property.bathrooms)  
-                                                            li.list-group-item
-                                                                span
-                                                                    img(src="/assets/img/icon/bed.png" style="width: 25px;") 
-                                                                    |   ( #{property.bedrooms} )   
-                                                                span
-                                                                    img(src="/assets/img/icon/shower.png" style="width: 25px;")
-                                                                    |   ( #{property.bathrooms}  )  
-                                                        else
-                                                            | N/A
-                                                        if currentamenities
-                                                            li.list-group-item      
-                                                                .section.additional-details
-                                                                    h4.s-property-title.text-left
-                                                                        strong Amenities
-                                                                    .additional-details-list.clearfix
-                                                                        each amenity in currentamenities
-                                                                            div
-                                                                                span.col-xs-6.col-sm-6.col-md-3.add-d-entry
-                                                                                //i(class='fa fa-2x '+amenity.icon    
