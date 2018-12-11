@@ -144,6 +144,7 @@ router.get('/compare/', function(req, res, next){
   Property.find({
     '_id': { $in: req.session.compare}
   }).then(function(d){
+    console.log(d);
     res.render('property/compare',{properties: d,title: "Compare Properties" });
   });
 });
