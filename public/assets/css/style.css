@@ -3644,3 +3644,6 @@ input[type="checkbox"]:disabled + .label-text:before{
      padding-right: 0; 
      padding-left: 0;
     }
+    .list-group-item {
+        border:0;
+    }
